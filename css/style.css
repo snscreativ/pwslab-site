@@ -1,3 +1,7 @@
+/* ══════════════════════════════════════
+   PwS LP — style.css
+   ══════════════════════════════════════ */
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -42,7 +46,7 @@ header {
   text-decoration: none;
   line-height: 1;
 }
-.logo-symbol { width: 38px; height: auto; }
+.logo-symbol   { width: 38px; height: auto; }
 .logo-wordmark { width: 52px; height: auto; margin-bottom: 2px; }
 
 nav {
@@ -59,13 +63,14 @@ nav a {
   transition: opacity .2s;
 }
 nav a:hover { opacity: .55; }
-nav a.muted { color: #aab0bd; pointer-events: none; }
+nav a.muted  { color: #aab0bd; pointer-events: none; }
 
 .header-actions {
   display: flex;
   align-items: center;
   gap: 20px;
 }
+
 .lang {
   font-size: 13px;
   color: var(--navy);
@@ -139,10 +144,9 @@ nav a.muted { color: #aab0bd; pointer-events: none; }
   padding-bottom: 4px;
   transition: opacity .2s;
 }
-.hero-link:hover { opacity: .6; }
-.hero-link .arr { color: var(--orange); font-style: normal; }
+.hero-link:hover    { opacity: .6; }
+.hero-link .arr     { color: var(--orange); font-style: normal; }
 
-/* Hero Graphic */
 .hero-graphic {
   position: absolute;
   right: -2vw;
@@ -154,7 +158,7 @@ nav a.muted { color: #aab0bd; pointer-events: none; }
   pointer-events: none;
 }
 
-/* News Bar */
+/* ─── NEWS BAR ─── */
 .news-bar {
   position: absolute;
   bottom: 0;
@@ -284,9 +288,7 @@ section { padding: 120px 8vw; }
 /* ─── SERVICES ─── */
 .services { background: var(--gray-bg); }
 
-.services-header {
-  margin-bottom: 56px;
-}
+.services-header { margin-bottom: 56px; }
 
 .services-grid {
   display: grid;
@@ -357,9 +359,7 @@ section { padding: 120px 8vw; }
   white-space: nowrap;
 }
 
-.company-story {
-  padding-top: 64px;
-}
+.company-story { padding-top: 64px; }
 .company-story p {
   font-size: 15px;
   line-height: 2.4;
@@ -419,8 +419,8 @@ section { padding: 120px 8vw; }
   position: relative;
   z-index: 1;
 }
-.btn-cta:hover { opacity: .6; }
-.btn-cta .arr { color: var(--orange); }
+.btn-cta:hover   { opacity: .6; }
+.btn-cta .arr    { color: var(--orange); }
 
 /* ─── FOOTER ─── */
 footer {
@@ -447,25 +447,28 @@ footer {
 /* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
   header { padding: 0 24px; }
-  nav { display: none; }
+  nav    { display: none; }
   section { padding: 80px 24px; }
-  .hero { padding: 80px 24px 100px; }
-  .hero-graphic {
-    position: static;
-    transform: none;
-    width: 100%;
-    max-width: 100%;
-    margin-top: 40px;
-    opacity: 1;
-  }
-  .hero { flex-direction: column; align-items: flex-start; min-height: auto; padding-bottom: 120px; }
-  .philosophy-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero   { padding: 80px 24px 100px; flex-direction: column; align-items: flex-start; min-height: auto; padding-bottom: 120px; }
+  .hero-graphic { position: static; transform: none; width: 100%; max-width: 100%; margin-top: 40px; }
+  .philosophy-grid  { grid-template-columns: 1fr; gap: 40px; }
   .philosophy-graphic { order: -1; }
-  .services-grid { grid-template-columns: 1fr; }
-  .company-grid { grid-template-columns: 1fr; gap: 40px; }
-  .company-story { padding-top: 0; }
-  footer { padding: 28px 24px; }
-  .cta-section { padding: 100px 24px; }
+  .services-grid    { grid-template-columns: 1fr; }
+  .company-grid     { grid-template-columns: 1fr; gap: 40px; }
+  .company-story    { padding-top: 0; }
+  footer            { padding: 28px 24px; }
+  .cta-section      { padding: 100px 24px; }
+}
+
+/* ─── FADE-IN（main.js と連動） ─── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.fade-in.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 @media (max-width: 480px) {
