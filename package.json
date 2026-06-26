@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "googleapis": "latest",
+    "resend": "latest"
+  },
+  "devDependencies": {
+    "vercel": "latest"
+  }
+}
