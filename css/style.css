@@ -506,6 +506,14 @@ section { padding: 120px 8vw; }
   color: var(--navy);
 }
 .checkbox-group input, .privacy-field input { margin-top: .45em; accent-color: var(--orange); }
+  /* 同意欄の「個人情報の取り扱いについて」リンク（ブランドカラー＋ホバー下線） */
+  .privacy-link {
+  color: var(--orange);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color .2s;
+  }
+  .privacy-link:hover, .privacy-link:focus-visible { text-decoration: underline; }
 .error-message { min-height: 1.6em; color: #b42318; font-size: 13px; line-height: 1.6; margin-top: 6px; }
 .form-submit-area { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 12px; }
 .submit-button {

@@ -93,7 +93,8 @@
         </div>
 
         <fieldset class="form-field privacy-field">
-          <legend>個人情報の取り扱いについて <span>必須</span></legend>
+          <!-- 「個人情報の取り扱いについて」のテキストのみリンク化（/privacy.html を新しいタブで開く） -->
+          <legend><a href="/privacy.html" class="privacy-link" target="_blank" rel="noopener noreferrer">個人情報の取り扱いについて</a> <span>必須</span></legend>
           <label><input type="checkbox" name="privacy" value="同意します">個人情報の取り扱いに同意します。</label>
           <p class="error-message" data-error-for="privacy"></p>
         </fieldset>
@@ -116,7 +117,7 @@
 <footer>
   <nav class="footer-nav">
     <a href="index.html#company">会社概要</a>
-    <a href="#">プライバシーポリシー</a>
+    <a href="/privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>
   </nav>
   <p class="copyright">© 2026 PwS inc. All rights reserved.</p>
 </footer>

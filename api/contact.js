@@ -1,18 +1,23 @@
-const { google } = require('googleapis');
+// ▼▼▼ Google Sheets 連携を再度有効化する場合は次の行のコメントを外してください ▼▼▼
+// const { google } = require('googleapis');
+// ▲▲▲ Google Sheets 連携用ライブラリ ▲▲▲
 const { Resend } = require('resend');
 
+// メール送信のみで運用するため、Google 関連の環境変数は一旦不要にしています。
+// Google Sheets を再度有効化する場合は、下記コメントアウト部分の環境変数を戻してください。
 const requiredFields = [
-  'GOOGLE_PRIVATE_KEY',
-  'GOOGLE_CLIENT_EMAIL',
-  'GOOGLE_SHEET_ID',
+  // 'GOOGLE_PRIVATE_KEY',
+  // 'GOOGLE_CLIENT_EMAIL',
+  // 'GOOGLE_SHEET_ID',
   'RESEND_API_KEY',
   'FROM_EMAIL',
   'TO_EMAIL'
 ];
 
-function normalizePrivateKey(key = '') {
-  return key.replace(/\\n/g, '\n');
-}
+// Google Sheets 連携を再度有効化する場合に使用します。
+// function normalizePrivateKey(key = '') {
+//   return key.replace(/\\n/g, '\n');
+// }
 
 function isValidEmail(email = '') {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -67,31 +72,37 @@ module.exports = async function handler(req, res) {
   const privacyText = payload.privacy ? '同意します' : '未同意';
 
   try {
-    const auth = new google.auth.JWT({
-      email: process.env.GOOGLE_CLIENT_EMAIL,
-      key: normalizePrivateKey(process.env.GOOGLE_PRIVATE_KEY),
-      scopes: ['https://www.googleapis.com/auth/spreadsheets']
-    });
-
-    const sheets = google.sheets({ version: 'v4', auth });
-    await sheets.spreadsheets.values.append({
-      spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: process.env.GOOGLE_SHEET_RANGE || 'シート1!A:I',
-      valueInputOption: 'USER_ENTERED',
-      requestBody: {
-        values: [[
-          submittedAt,
-          payload.name,
-          payload.company,
-          payload.email,
-          consultationText,
-          payload.message,
-          payload.position,
-          payload.phone,
-          privacyText
-        ]]
-      }
-    });
+    // ▼▼▼ Google Sheets への保存処理（一時的に無効化中） ▼▼▼
+    // メール送信のみで運用するため、以下の Google Sheets への保存処理をコメントアウトしています。
+    // 再度有効化する場合は、ファイル冒頭の googleapis の require / requiredFields /
+    // normalizePrivateKey も併せて元に戻してください。
+    //
+    // const auth = new google.auth.JWT({
+    //   email: process.env.GOOGLE_CLIENT_EMAIL,
+    //   key: normalizePrivateKey(process.env.GOOGLE_PRIVATE_KEY),
+    //   scopes: ['https://www.googleapis.com/auth/spreadsheets']
+    // });
+    //
+    // const sheets = google.sheets({ version: 'v4', auth });
+    // await sheets.spreadsheets.values.append({
+    //   spreadsheetId: process.env.GOOGLE_SHEET_ID,
+    //   range: process.env.GOOGLE_SHEET_RANGE || 'シート1!A:I',
+    //   valueInputOption: 'USER_ENTERED',
+    //   requestBody: {
+    //     values: [[
+    //       submittedAt,
+    //       payload.name,
+    //       payload.company,
+    //       payload.email,
+    //       consultationText,
+    //       payload.message,
+    //       payload.position,
+    //       payload.phone,
+    //       privacyText
+    //     ]]
+    //   }
+    // });
+    // ▲▲▲ Google Sheets への保存処理ここまで ▲▲▲
 
     const adminBody = `PwSサイトよりお問い合わせがありました。\n\nお名前：${payload.name}\n会社名：${payload.company}\nメールアドレス：${payload.email}\n役職：${payload.position}\n電話番号：${payload.phone}\n\nご相談内容：\n${consultationText}\n\nその他：\n${payload.message}\n\n個人情報の取り扱い同意：${privacyText}\n\n送信日時：${submittedAt}`;
 
@@ -115,7 +126,10 @@ module.exports = async function handler(req, res) {
 
     return res.status(200).json({ ok: true });
   } catch (error) {
-    console.error(error);
-    return res.status(500).json({ message: '送信処理に失敗しました。時間をおいて再度お試しください。' });
+    // 現在はメール送信（Resend）のみの構成のため、ここで捕捉されるのは
+    // 主に管理者宛メール・自動返信メールの送信失敗です。
+    // Google Sheets を再度有効化した場合は、保存失敗も含めて捕捉されます。
+    console.error('お問い合わせメール送信に失敗しました:', error);
+    return res.status(500).json({ message: 'メール送信処理に失敗しました。時間をおいて再度お試しください。' });
   }
 };
