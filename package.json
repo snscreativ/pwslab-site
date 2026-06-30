@@ -1,12 +1,22 @@
 {
   "scripts": {
-    "start": "vercel dev"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
+    "@notionhq/client": "latest",
+    "dotenv": "^17.4.2",
     "googleapis": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
     "resend": "latest"
   },
   "devDependencies": {
-    "vercel": "latest"
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "typescript": "latest"
   }
 }
