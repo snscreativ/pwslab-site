@@ -1,6 +1,8 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useState } from "react";
+import type { FormEvent } from "react";
+import { useRouter } from "next/navigation";
 
 type FormPayload = {
   name: string;
@@ -29,10 +31,11 @@ function isValidEmail(email: string) {
 }
 
 export default function ContactForm() {
+  const router = useRouter();
+
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState("");
   const [isSending, setIsSending] = useState(false);
-  const [isComplete, setIsComplete] = useState(false);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -78,8 +81,7 @@ export default function ContactForm() {
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.message || "送信に失敗しました。");
-      setIsComplete(true);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      router.push("/thanks");
     } catch (error) {
       setStatus(
         error instanceof Error
@@ -91,25 +93,9 @@ export default function ContactForm() {
     }
   }
 
-  if (isComplete) {
-    return (
-      <div className="p-contact-thanks">
-        <h2>お問い合わせありがとうございます。</h2>
-        <p>
-          内容を確認のうえ、担当者よりご連絡いたします。
-          <br />
-          まずは現在のお困りごとを整理しながら、一緒に最適な進め方を考えさせていただきます。
-        </p>
-        <a href="/" className="c-button c-button--text">
-          トップへ戻る <span className="c-icon-arrow">↗</span>
-        </a>
-      </div>
-    );
-  }
-
   return (
     <form className="p-contact-form c-card" onSubmit={handleSubmit} noValidate>
-      <div className=" c-card__border">
+      <div className="c-card__border">
         <div className="p-contact-form__grid">
           <div className="p-contact-form__field">
             <label htmlFor="name">
