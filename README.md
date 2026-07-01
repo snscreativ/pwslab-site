@@ -1,26 +1,49 @@
 # PwS Next.js
 
-## 目的
+## ローカル環境起動方法
 
-- Header / Footer / Logo / Button / SectionHeading / ContactForm をcomponents化
-- CSSを `styles/` に分割
-- 既存の問い合わせAPIを `app/api/contact/route.ts` に移植
-- Notion連携はまだ未実装。今後 `lib/notion.ts` に追加予定
+コードエディタ　ターミナル
+node -v
+npm -v
+Node.jsとnpmが入ってるか確認
+入ってなければ
 
-## 起動方法
+```bash
+npm install
+```
+
+node_modules が作られます
+（node_modulesはgithubにはアップロードしないでください）
+その後
 
 ```bash
 npm install
 npm run dev
 ```
 
-ブラウザで以下を確認します。
+ブラウザで以下を確認できます
 
 ```txt
 http://localhost:3000
-http://localhost:3000/contact
-http://localhost:3000/privacy
 ```
+
+## 環境変数
+
+お問い合わせ送信をローカルで完全に動かす場合、以下の環境変数が必要です。
+
+```txt
+GOOGLE_PRIVATE_KEY
+GOOGLE_CLIENT_EMAIL
+GOOGLE_SHEET_ID
+GOOGLE_SHEET_RANGE
+RESEND_API_KEY
+FROM_EMAIL
+TO_EMAIL
+```
+
+本番ではVercelのEnvironment Variablesに設定します。
+
+`NOTION_TOKEN` は絶対に `NEXT_PUBLIC_` を付けないでください。ブラウザ側に公開されてしまうためです。
 
 ## CSS方針
 
@@ -61,57 +84,9 @@ http://localhost:3000/privacy
 - `package.json`：依存関係
 - `next.config.js`：Next.js設定
 
-## 環境変数
-
-お問い合わせ送信をローカルで完全に動かす場合、以下の環境変数が必要です。
-
-```txt
-GOOGLE_PRIVATE_KEY
-GOOGLE_CLIENT_EMAIL
-GOOGLE_SHEET_ID
-GOOGLE_SHEET_RANGE
-RESEND_API_KEY
-FROM_EMAIL
-TO_EMAIL
-```
-
-本番ではVercelのEnvironment Variablesに設定します。
-
-## 次のStep候補
-
-1. ローカルでトップとお問い合わせの表示確認
-2. 既存サイトとの見た目差分確認
-3. API送信の動作確認
-4. Notion連携追加
-5. 知見一覧・知見詳細ページ追加
-
-## page.tsx の扱い
-
-Next.js App Routerでは、URLになる各フォルダに `page.tsx` が必要です。
-ただし、後続メンバーが編集しやすいように、`app/**/page.tsx` は入口だけにし、実際のページ内容は `components/pages/` に分けています。
-
-```txt
-app/contact/page.tsx
-→ /contact の入口。基本触らない
-
-components/pages/ContactPage.tsx
-→ お問い合わせページの中身。文言や構成を調整する場合はこちら
-```
-
 ## Notion連携
 
 知見記事は `/knowledge` に一覧、`/knowledge/[slug]` に詳細ページとして表示します。
-
-### 必要な環境変数
-
-`.env.local.example` をコピーして `.env.local` を作成し、以下を設定してください。
-
-```txt
-NOTION_TOKEN=
-NOTION_KNOWLEDGE_DATA_SOURCE_ID=
-```
-
-`NOTION_TOKEN` は絶対に `NEXT_PUBLIC_` を付けないでください。ブラウザ側に公開されてしまうためです。
 
 ### Notion DBのプロパティ
 
@@ -130,18 +105,3 @@ UpdatedDate: 更新日
 ```
 
 本文はNotionページ下部の本文ブロックを取得します。対応している主なブロックは、段落、見出し、箇条書き、番号リスト、引用、コールアウト、区切り線、画像です。
-
-### ローカル確認
-
-環境変数を入れたあと、開発サーバーを再起動してください。
-
-```bash
-npm run dev
-```
-
-確認URL：
-
-```txt
-http://localhost:3000/knowledge
-http://localhost:3000/knowledge/設定したslug
-```
