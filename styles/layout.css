@@ -63,7 +63,100 @@
   gap: 1.25rem;
 }
 
+/*----------- ハンバーガーメニュー ------------*/
+.l-header__menu-button {
+  display: none;
+}
 
+.l-header__sp-menu {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .l-header__actions {
+    display: none;
+  }
+
+  .l-header__menu-button {
+    position: relative;
+    z-index: 300;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .l-header__menu-button span {
+    display: block;
+    width: 1.625rem;
+    height: 1px;
+    margin-inline: auto;
+    background: var(--color-orange);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .l-header__menu-button.is-open span:nth-child(1) {
+    transform: translateY(0.4375rem) rotate(35deg);
+  }
+
+  .l-header__menu-button.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .l-header__menu-button.is-open span:nth-child(3) {
+    transform: translateY(-0.4375rem) rotate(-35deg);
+  }
+
+  .l-header__sp-menu {
+    position: fixed;
+    top: 4.5rem;
+    left: 0;
+    right: 0;
+    z-index: 250;
+    display: block;
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid var(--color-gray-line);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-0.75rem);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  }
+
+  .l-header__sp-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .l-header__sp-nav {
+    display: grid;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem 2.25rem;
+  }
+
+  .l-header__sp-nav a {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: var(--color-navy);
+    border-bottom: 1px solid var(--color-orange);
+    padding-bottom: 0.5em;
+  }
+
+  .l-header__sp-nav a:last-child {
+    font-size: 1.2rem;
+    border: none;
+    color: var(--color-orange);
+    font-weight: 500;
+  }
+}
 
 /*============= SECTION ==============*/
 
