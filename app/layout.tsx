@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.pwslab.jp"),
   title: {
     default: "PwS｜人とAIの協働を設計し、組織を進化させる。",
-    template: "%s｜PwS",//ブラウザタブのタイトル表示、各ページのtitleを編集
+    template: "%s｜PwS", //ブラウザタブのタイトル表示、各ページのtitleを編集
   },
   description:
     "PwSは、戦略・組織・プロダクトをつなぎ、人とAIがそれぞれの強みを発揮できる仕組みをデザインします。",
@@ -31,6 +31,10 @@ export const metadata: Metadata = {
         alt: "PwS",
       },
     ],
+  },
+  icons: {
+    icon: "/favicon.png",
+    apple: "/apple-touch-icon.png",
   },
   twitter: {
     card: "summary_large_image",
