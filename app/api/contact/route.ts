@@ -1,19 +1,19 @@
 import { NextResponse } from "next/server";
-import { google } from "googleapis";
+//import { google } from "googleapis";
 import { Resend } from "resend";
 
 const requiredFields = [
-  "GOOGLE_PRIVATE_KEY",
-  "GOOGLE_CLIENT_EMAIL",
-  "GOOGLE_SHEET_ID",
+  //"GOOGLE_PRIVATE_KEY",
+  //"GOOGLE_CLIENT_EMAIL",
+  //"GOOGLE_SHEET_ID",
   "RESEND_API_KEY",
   "FROM_EMAIL",
   "TO_EMAIL",
 ];
 
-function normalizePrivateKey(key = "") {
-  return key.replace(/\\n/g, "\n");
-}
+//function normalizePrivateKey(key = "") {
+//  return key.replace(/\\n/g, "\n");
+//}
 
 function isValidEmail(email = "") {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -74,31 +74,31 @@ export async function POST(request: Request) {
   const privacyText = payload.privacy ? "同意します" : "未同意";
 
   try {
-    const auth = new google.auth.JWT({
-      email: process.env.GOOGLE_CLIENT_EMAIL,
-      key: normalizePrivateKey(process.env.GOOGLE_PRIVATE_KEY),
-      scopes: ["https://www.googleapis.com/auth/spreadsheets"],
-    });
+    // const auth = new google.auth.JWT({
+    //   email: process.env.GOOGLE_CLIENT_EMAIL,
+    //   key: normalizePrivateKey(process.env.GOOGLE_PRIVATE_KEY),
+    //   scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+    // });
 
-    const sheets = google.sheets({ version: "v4", auth });
-    await sheets.spreadsheets.values.append({
-      spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: process.env.GOOGLE_SHEET_RANGE || "シート1!A:I",
-      valueInputOption: "USER_ENTERED",
-      requestBody: {
-        values: [[
-          submittedAt,
-          payload.name,
-          payload.company,
-          payload.email,
-          consultationText,
-          payload.message,
-          payload.position,
-          payload.phone,
-          privacyText,
-        ]],
-      },
-    });
+    // const sheets = google.sheets({ version: "v4", auth });
+    // await sheets.spreadsheets.values.append({
+    //   spreadsheetId: process.env.GOOGLE_SHEET_ID,
+    //   range: process.env.GOOGLE_SHEET_RANGE || "シート1!A:I",
+    //   valueInputOption: "USER_ENTERED",
+    //   requestBody: {
+    //     values: [[
+    //       submittedAt,
+    //       payload.name,
+    //       payload.company,
+    //       payload.email,
+    //       consultationText,
+    //       payload.message,
+    //       payload.position,
+    //       payload.phone,
+    //       privacyText,
+    //     ]],
+    //   },
+    // });
 
     const adminBody = `PwSサイトよりお問い合わせがありました。\n\nお名前：${payload.name}\n会社名：${payload.company}\nメールアドレス：${payload.email}\n役職：${payload.position}\n電話番号：${payload.phone}\n\nご相談内容：\n${consultationText}\n\nその他：\n${payload.message}\n\n個人情報の取り扱い同意：${privacyText}\n\n送信日時：${submittedAt}`;
 
