@@ -1,5 +1,10 @@
 import { Client } from "@notionhq/client";
 
+/* =========================
+  Types
+========================= */
+
+// 知見記事
 export type NotionArticle = {
   id: string;
   title: string;
@@ -11,7 +16,19 @@ export type NotionArticle = {
   updatedDate: string;
 };
 
+// お知らせ記事
+export type NotionNews = {
+  id: string;
+  title: string;
+  slug: string;
+  publishDate: string;
+};
+
 export type NotionBlock = any;
+
+/* =========================
+  Common
+========================= */
 
 const notionVersion = "2025-09-03";
 
@@ -19,14 +36,6 @@ function getNotionClient() {
   const token = process.env.NOTION_TOKEN;
   if (!token) return null;
   return new Client({ auth: token, notionVersion });
-}
-
-function getDataSourceId() {
-  return process.env.NOTION_KNOWLEDGE_DATA_SOURCE_ID || process.env.NOTION_KNOWLEDGE_DATABASE_ID || "";
-}
-
-export function isNotionReady() {
-  return Boolean(process.env.NOTION_TOKEN && (process.env.NOTION_KNOWLEDGE_DATA_SOURCE_ID || process.env.NOTION_KNOWLEDGE_DATABASE_ID));
 }
 
 function plainText(richText: any[] = []) {
@@ -47,11 +56,6 @@ function getRichText(properties: any, key: string) {
   if (property.type === "rich_text") return plainText(property.rich_text);
   if (property.type === "title") return plainText(property.title);
   return "";
-}
-
-function getCheckbox(properties: any, key: string) {
-  const property = properties?.[key];
-  return property?.type === "checkbox" ? Boolean(property.checkbox) : false;
 }
 
 function getDate(properties: any, key: string) {
@@ -78,9 +82,28 @@ function getFileUrl(properties: any, key: string) {
   return "";
 }
 
+/* =========================
+  Knowledge
+========================= */
+
+function getKnowledgeDataSourceId() {
+  return (
+    process.env.NOTION_KNOWLEDGE_DATA_SOURCE_ID || ""
+  );
+}
+
+export function isNotionReady() {
+  return Boolean(
+    process.env.NOTION_TOKEN &&
+      process.env.NOTION_KNOWLEDGE_DATA_SOURCE_ID
+  );
+}
+
 function mapArticle(page: any): NotionArticle {
   const properties = page.properties || {};
-  const eyecatchUrl = getUrl(properties, "EyecatchUrl") || getFileUrl(properties, "EyecatchFile");
+  const eyecatchUrl =
+    getUrl(properties, "EyecatchUrl") ||
+    getFileUrl(properties, "EyecatchFile");
 
   return {
     id: page.id,
@@ -96,7 +119,7 @@ function mapArticle(page: any): NotionArticle {
 
 export async function getKnowledgeArticles(): Promise<NotionArticle[]> {
   const notion = getNotionClient();
-  const dataSourceId = getDataSourceId();
+  const dataSourceId = getKnowledgeDataSourceId();
   if (!notion || !dataSourceId) return [];
 
   const response = await notion.dataSources.query({
@@ -113,14 +136,14 @@ export async function getKnowledgeArticles(): Promise<NotionArticle[]> {
     ],
   });
 
-  return response.results
-    .map(mapArticle)
-    .filter((article) => article.slug);
+  return response.results.map(mapArticle).filter((article) => article.slug);
 }
 
-export async function getKnowledgeArticleBySlug(slug: string): Promise<NotionArticle | null> {
+export async function getKnowledgeArticleBySlug(
+  slug: string
+): Promise<NotionArticle | null> {
   const notion = getNotionClient();
-  const dataSourceId = getDataSourceId();
+  const dataSourceId = getKnowledgeDataSourceId();
   if (!notion || !dataSourceId) return null;
 
   const response = await notion.dataSources.query({
@@ -144,7 +167,89 @@ export async function getKnowledgeArticleBySlug(slug: string): Promise<NotionArt
   return page ? mapArticle(page) : null;
 }
 
-export async function getNotionBlocks(blockId: string): Promise<NotionBlock[]> {
+/* =========================
+  News
+========================= */
+
+function getNewsDataSourceId() {
+  return process.env.NOTION_NEWS_DATA_SOURCE_ID || "";
+}
+
+export function isNewsNotionReady() {
+  return Boolean(
+    process.env.NOTION_TOKEN &&
+      process.env.NOTION_NEWS_DATA_SOURCE_ID
+  );
+}
+
+function mapNews(page: any): NotionNews {
+  const properties = page.properties || {};
+
+  return {
+    id: page.id,
+    title: getTitle(properties, "Title") || "無題",
+    slug: getRichText(properties, "Slug"),
+    publishDate: getDate(properties, "PublishDate"),
+  };
+}
+
+export async function getNewsList(): Promise<NotionNews[]> {
+  const notion = getNotionClient();
+  const dataSourceId = getNewsDataSourceId();
+  if (!notion || !dataSourceId) return [];
+
+  const response = await notion.dataSources.query({
+    data_source_id: dataSourceId,
+    filter: {
+      property: "Published",
+      checkbox: { equals: true },
+    },
+    sorts: [
+      {
+        property: "PublishDate",
+        direction: "descending",
+      },
+    ],
+  });
+
+  return response.results.map(mapNews).filter((news) => news.slug);
+}
+
+export async function getNewsBySlug(
+  slug: string
+): Promise<NotionNews | null> {
+  const notion = getNotionClient();
+  const dataSourceId = getNewsDataSourceId();
+  if (!notion || !dataSourceId) return null;
+
+  const response = await notion.dataSources.query({
+    data_source_id: dataSourceId,
+    filter: {
+      and: [
+        {
+          property: "Published",
+          checkbox: { equals: true },
+        },
+        {
+          property: "Slug",
+          rich_text: { equals: slug },
+        },
+      ],
+    },
+    page_size: 1,
+  });
+
+  const page = response.results[0];
+  return page ? mapNews(page) : null;
+}
+
+/* =========================
+  Blocks
+========================= */
+
+export async function getNotionBlocks(
+  blockId: string
+): Promise<NotionBlock[]> {
   const notion = getNotionClient();
   if (!notion) return [];
 
@@ -157,9 +262,13 @@ export async function getNotionBlocks(blockId: string): Promise<NotionBlock[]> {
       start_cursor: cursor,
       page_size: 100,
     });
+
     blocks.push(...response.results);
-    cursor = response.has_more ? response.next_cursor || undefined : undefined;
+    cursor = response.has_more
+      ? response.next_cursor || undefined
+      : undefined;
   } while (cursor);
 
   return blocks;
 }
+
