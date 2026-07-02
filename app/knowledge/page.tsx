@@ -3,6 +3,8 @@ import Link from "next/link";
 import { getKnowledgeArticles, isNotionReady } from "@/lib/notion";
 import "@/styles/knowledge.css";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "知見",
   description:
