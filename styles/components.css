@@ -207,3 +207,9 @@
   line-height: 2.1;
   color: var(--color-text-muted);
 }
+
+@media (max-width: 768px) {
+  .c-card__border {
+    padding: 2rem 1.25rem 1.75rem;
+  }
+}

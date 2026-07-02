@@ -66,3 +66,42 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+/*---------- utility ----------*/
+.u-pc {
+  display: inline;
+}
+
+.u-tb,
+.u-sp,
+.u-xs {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+
+  .u-tb {
+    display: inline;
+  }
+}
+
+@media (max-width: 768px) {
+  .u-pc {
+    display: none;
+  }
+
+  .u-sp {
+    display: inline;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .u-xs {
+    display: inline;
+  }
+
+  .u-hide-xs {
+    display: none;
+  }
+}

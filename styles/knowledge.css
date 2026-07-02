@@ -318,6 +318,13 @@
   line-height: 1.9;
 }
 
+/*============= レスポンシブ ==============*/
+@media (max-width: 1024px) {
+  .p-knowledge-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 900px) {
   .p-knowledge-hero {
     padding-top: 7rem;
@@ -341,5 +348,11 @@
   .p-article__comment-text {
     font-size: 0.9375rem;
     line-height: 2;
+  }
+}
+
+@media (max-width: 500px) {
+  .p-article__eyecatch {
+    aspect-ratio: 4/3;
   }
 }
