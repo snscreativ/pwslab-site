@@ -21,7 +21,9 @@ export default async function HomePage() {
             <p className="p-top-hero__lead">
               PwSは、戦略・組織・プロダクトをつなぎ、
               <br />
-              人とAIがそれぞれの強みを発揮できる仕組みをデザインします。
+              人とAIがそれぞれの強みを発揮できる仕組みを
+              <br className="u-tb" />
+              デザインします。
             </p>
             <Button href="/#services">サービスを見る</Button>
           </div>
@@ -29,22 +31,21 @@ export default async function HomePage() {
           <div className="p-top-hero__graphic" aria-hidden="true">
             <img src="/images/top/hero.png" alt="" />
           </div>
-
-          {latestNews && (
-            <div className="p-top-news">
-              <span className="p-top-news__label">NEWS</span>
-
-              <span className="p-top-news__date">
-                {latestNews.publishDate.replaceAll("-", ".")}
-              </span>
-
-              <a href={`/news/${latestNews.slug}`} className="p-top-news__link">
-                {latestNews.title}
-                <span className="p-top-news__arrow">›</span>
-              </a>
-            </div>
-          )}
         </div>
+        {latestNews && (
+          <div className="p-top-news">
+            <span className="p-top-news__label">NEWS</span>
+
+            <span className="p-top-news__date">
+              {latestNews.publishDate.replaceAll("-", ".")}
+            </span>
+
+            <a href={`/news/${latestNews.slug}`} className="p-top-news__link">
+              {latestNews.title}
+              <span className="p-top-news__arrow">›</span>
+            </a>
+          </div>
+        )}
       </section>
 
       <section className="p-top-problem l-section" id="problem">
@@ -53,19 +54,21 @@ export default async function HomePage() {
             <p>人手不足や採用難が続く中でも、仕事の進め方は変わっていない。</p>
             <p>
               AIを導入しても、仕事の進め方が変わらなければ、
-              <br />
+              <br className="u-pc" />
               AIの成果を確認する仕事が増えただけ。
             </p>
             <p>
               人件費に加え、AIやSaaSへの投資も増えている。
-              <br />
+              <br className="u-pc" />
               その効果を説明できる組織は多くない。
             </p>
             <p>同じ人数でも、生み出せる価値の差が広がっている。</p>
             <div className="p-top-problem__line"></div>
             <div className="p-top-problem__closing">
               <h2>
-                人の問題ではなく、AIの問題でもない。
+                人の問題ではなく、
+                <br className="u-sp" />
+                AIの問題でもない。
                 <br />
                 組織の問題かもしれません。
               </h2>
@@ -98,11 +101,13 @@ export default async function HomePage() {
               業務単位制 / 非同期 / 在宅 / 時短 / 分散型組織。
             </p>
             <p className="p-top-philosophy__highlight">
-              時間ではなく、役割と成果によって成立する働き方
+              時間ではなく、
+              <br className="u-xs" />
+              役割と成果によって成立する働き方
             </p>{" "}
             <p>
               その経験が、人とAIが共に機能する組織設計へと広がり、
-              <br />
+              <br className="u-hide-xs" />
               新たな働き方の再定義へとつながっています。
             </p>
           </div>
@@ -166,7 +171,9 @@ export default async function HomePage() {
             label="DIAGNOSIS"
             title="AI協働成熟度診断"
             align="center"
-            lead="いくつかの質問にご回答いただくだけで、組織のAI活用に向けた「現在地」を診断します。"
+            lead={
+              "いくつかの質問にご回答いただくだけで、 \n組織のAI活用に向けた「現在地」を診断します。"
+            }
           />
           <div className="p-top-diagnosis__card">
             <iframe
@@ -187,7 +194,11 @@ export default async function HomePage() {
                 <tbody>
                   <tr>
                     <td>商号</td>
-                    <td>株式会社PwS（ピーダブリュエス）</td>
+                    <td>
+                      株式会社PwS
+                      <br className="u-xs" />
+                      （ピーダブリュエス）
+                    </td>
                   </tr>
                   <tr>
                     <td>所在地</td>
@@ -196,7 +207,8 @@ export default async function HomePage() {
                       <br />
                       東京都千代田区麹町6-6-2
                       <br />
-                      番町麹町ビルディング WeWork麹町
+                      番町麹町ビルディング <br className="u-xs" />
+                      WeWork麹町
                     </td>
                   </tr>
                   <tr>
@@ -230,7 +242,9 @@ export default async function HomePage() {
             </div>
             <div className="p-top-company__story">
               <p>
-                私たちは、在宅ワーカーとの組織運営を通じて、働き方を再定義してきました。
+                私たちは、在宅ワーカーとの組織運営を通じて、
+                <br className="u-hide-xs" />
+                働き方を再定義してきました。
               </p>
               <p>
                 時間ではなく、
@@ -239,9 +253,9 @@ export default async function HomePage() {
               </p>
               <p>
                 その経験が、
-                <br />
+                <br className="u-hide-xs" />
                 人とAIが共に機能する組織設計へと広がり、
-                <br />
+                <br className="u-hide-xs" />
                 新たな働き方の再定義へとつながっています。
               </p>
             </div>
@@ -255,7 +269,11 @@ export default async function HomePage() {
           <br />
           お聞かせください。
         </h2>
-        <p>組織設計、業務構造化、AI協働について、まずはご相談ください。</p>
+        <p>
+          組織設計、業務構造化、AI協働について、
+          <br className="u-xs" />
+          まずはご相談ください。
+        </p>
         <Button href="/contact">お問い合わせフォームへ</Button>
         <div className="p-top-cta__graphic">
           <img src="/images/top/contact.png" alt="" />
