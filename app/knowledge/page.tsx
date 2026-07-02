@@ -43,10 +43,8 @@ export default async function KnowledgePage() {
 
           {isNotionReady() && articles.length === 0 && (
             <div className="c-notice">
-              <p>公開中の記事がありません。</p>
-              <p>
-                Notion DBで Published にチェックが入っているか確認してください。
-              </p>
+              <p>現在、公開中の記事はありません。</p>
+              <p>公開準備が整い次第、順次掲載いたします。</p>
             </div>
           )}
 
