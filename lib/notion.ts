@@ -1,4 +1,5 @@
 import { Client } from "@notionhq/client";
+import { unstable_noStore as noStore } from "next/cache";
 
 /* =========================
   Types
@@ -194,6 +195,8 @@ function mapNews(page: any): NotionNews {
 }
 
 export async function getNewsList(): Promise<NotionNews[]> {
+  noStore();
+  
   const notion = getNotionClient();
   const dataSourceId = getNewsDataSourceId();
   if (!notion || !dataSourceId) return [];
