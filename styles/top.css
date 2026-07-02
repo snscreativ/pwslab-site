@@ -346,9 +346,12 @@ p.p-top-philosophy__highlight {
     gap: 1rem;
   }
 
-  .p-top-hero__graphic,
   .p-top-hero__body {
     width: 100%;
+  }
+
+  .p-top-hero__graphic {
+    width: clamp(320px, 65%, 450px);
   }
 
   .p-top-hero__body {
@@ -376,9 +379,17 @@ p.p-top-philosophy__highlight {
     text-align: center;
   }
 
+  .p-top-problem__graphic {
+    width: clamp(150px, 45%, 350px);
+  }
+
   .p-top-philosophy__graphic {
     opacity: 0.4;
-    width: 80%;
+    width: clamp(150px, 45%, 350px);
+    top: auto;
+    bottom: -3rem;
+    right: 0;
+    transform: unset;
   }
 
   .c-section-heading__lead {
@@ -408,10 +419,6 @@ p.p-top-philosophy__highlight {
 @media (max-width: 550px) {
   .p-top-problem__body {
     max-width: 22rem;
-  }
-
-  .p-top-problem__graphic {
-    width: 100%;
   }
 
   .p-top-problem__line {
