@@ -3,6 +3,8 @@ import SectionHeading from "@/components/SectionHeading";
 import { getNewsList } from "@/lib/notion";
 import "@/styles/top.css";
 
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const newsList = await getNewsList();
   const latestNews = newsList[0];
