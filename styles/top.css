@@ -242,7 +242,7 @@ p.p-top-philosophy__highlight {
 .p-top-company__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5rem;
+  gap: 3rem;
   align-items: start;
 }
 
@@ -276,7 +276,7 @@ p.p-top-philosophy__highlight {
 
 .p-top-company__story p {
   margin-bottom: 0.75rem;
-  font-size: 0.9375rem;
+  font-size: 0.9rem;
   line-height: 2.4;
 }
 
@@ -320,24 +320,14 @@ p.p-top-philosophy__highlight {
 }
 
 /*============= レスポンシブ ==============*/
-@media (max-width: 1024px) {}
 
 @media (max-width: 900px) {
   .p-top-hero__lead {
     margin-bottom: 1.5rem;
   }
 
-  .p-top-company__grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
   .p-top-services__grid {
     grid-template-columns: 1fr;
-  }
-
-  .p-top-company__story {
-    padding-top: 0;
   }
 
   .p-top-cta {
@@ -395,6 +385,17 @@ p.p-top-philosophy__highlight {
     white-space: pre-line;
   }
 
+  .p-top-company__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    max-width: 450px;
+    margin: auto;
+  }
+
+  .p-top-company__story {
+    padding-top: 0;
+  }
+
   .p-top-company.l-section {
     padding-bottom: 0;
   }
@@ -430,6 +431,7 @@ p.p-top-philosophy__highlight {
   .p-top-hero__lead {
     font-size: 0.8rem;
   }
+
 }
 
 @media (max-width: 400px) {
@@ -439,5 +441,9 @@ p.p-top-philosophy__highlight {
 
   .p-top-hero__lead {
     font-size: 0.75rem;
+  }
+
+  .p-top-company__table td:first-child {
+    width: 6rem;
   }
 }
