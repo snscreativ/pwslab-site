@@ -1,0 +1,136 @@
+.p-news__list {
+    border-top: 1px solid var(--color-gray-line);
+}
+
+.p-news__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--color-gray-line);
+    color: var(--color-navy);
+}
+
+.p-news__title {
+    transition: 0.25s ease;
+}
+
+.p-news__item:hover .p-news__title {
+    color: var(--color-orange);
+}
+
+.p-news__label {
+    color: var(--color-orange);
+    font-size: 0.75rem;
+    line-height: 1.2;
+    letter-spacing: 0.16em;
+    font-weight: 500;
+}
+
+.p-news__date {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+}
+
+.p-news__title {
+    font-size: 1rem;
+    line-height: 1.8;
+    letter-spacing: 0.04em;
+}
+
+.p-news__empty {
+    padding: 2rem 0;
+    color: var(--color-text-muted);
+    line-height: 2;
+}
+
+@media (max-width: 768px) {
+    .p-news__item {
+        grid-template-columns: 1fr;
+        gap: 0.35rem;
+        padding: 1.25rem 0;
+    }
+
+    .p-news__date,
+    .p-news__title {
+        grid-column: auto;
+    }
+}
+
+
+/*------------ 詳細ページ ------------*/
+.p-news-detail__article {
+    margin-top: 1rem;
+}
+
+.p-news-detail__header {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-gray-line);
+}
+
+.p-news-detail__date {
+    display: block;
+    margin-bottom: 1rem;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+}
+
+.p-news-detail__title {
+    color: var(--color-navy);
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: 1.5;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+}
+
+.p-news-detail__body {
+    margin-top: 3rem;
+    color: var(--color-text);
+    font-size: 1rem;
+    line-height: 2.1;
+    letter-spacing: 0.04em;
+}
+
+.p-news-detail__body>*+* {
+    margin-top: 1.5rem;
+}
+
+.p-news-detail__back {
+    margin-top: 4rem;
+}
+
+.p-news-detail__article p {
+    margin-bottom: 1.5rem;
+}
+
+.p-news-detail__label {
+    color: var(--color-orange);
+    font-size: 0.75rem;
+    line-height: 1;
+    letter-spacing: 0.16em;
+    font-weight: 500;
+    text-align: left;
+    border: 1px solid var(--color-orange);
+    padding: 0.3em 1.2em;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .p-news-detail__header {
+        padding-bottom: 1.5rem;
+    }
+
+    .p-news-detail__body {
+        margin-top: 2rem;
+        font-size: 0.9375rem;
+        line-height: 2;
+    }
+
+    .p-news-detail__back {
+        margin-top: 3rem;
+    }
+}
