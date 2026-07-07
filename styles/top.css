@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  margin-bottom: 2rem;
+  padding-bottom: 2rem;
 }
 
 .p-top-hero__body {
@@ -39,6 +39,7 @@
 
 .p-top-hero__graphic {
   width: 35%;
+  filter: drop-shadow(0 8px 20px #0f1f361a);
 }
 
 .p-top-news {
