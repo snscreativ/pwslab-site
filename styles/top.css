@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding-bottom: 2rem;
+  padding: 2rem 0;
 }
 
 .p-top-hero__body {
