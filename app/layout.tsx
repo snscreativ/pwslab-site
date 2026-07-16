@@ -1,5 +1,7 @@
 // app/layout.tsx
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -48,6 +50,8 @@ export const metadata: Metadata = {
   },
 };
 
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
 export default function RootLayout({
   children,
 }: {
@@ -59,6 +63,8 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+
+        {gaId && <GoogleAnalytics gaId={gaId} />}
       </body>
     </html>
   );
