@@ -5,6 +5,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@next/third-parties": "^16.2.10",
     "@notionhq/client": "latest",
     "dotenv": "^17.4.2",
     "googleapis": "latest",
