@@ -11,6 +11,7 @@ export type NotionArticle = {
   title: string;
   slug: string;
   summary: string;
+  metaDescription: string;
   saitoComment: string;
   eyecatchUrl: string;
   publishDate: string;
@@ -111,6 +112,7 @@ function mapArticle(page: any): NotionArticle {
     title: getTitle(properties, "Title") || "無題",
     slug: getRichText(properties, "Slug"),
     summary: getRichText(properties, "Summary"),
+    metaDescription: getRichText(properties, "MetaDescription"),
     saitoComment: getRichText(properties, "SaitoComment"),
     eyecatchUrl,
     publishDate: getDate(properties, "PublishDate"),
