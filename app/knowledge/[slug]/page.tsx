@@ -29,8 +29,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${article.title} — PwS`,
-    description: article.summary || "PwSの知見記事です。",
+    title: `${article.title} - PwS`,
+    description:
+      article.metaDescription || article.summary || "PwSの知見記事です。",
   };
 }
 
@@ -73,10 +74,15 @@ export default async function Page({ params }: Props) {
 
             <div className="p-article__meta">
               {article.publishDate && (
-                <time>公開日：{formatDate(article.publishDate)}</time>
+                <time dateTime={article.publishDate}>
+                  公開日：{formatDate(article.publishDate)}
+                </time>
               )}
+
               {article.updatedDate && (
-                <time>更新日：{formatDate(article.updatedDate)}</time>
+                <time dateTime={article.updatedDate}>
+                  更新日：{formatDate(article.updatedDate)}
+                </time>
               )}
             </div>
 
