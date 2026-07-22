@@ -66,8 +66,6 @@ export default function RootLayout({
         <Footer />
 
         {gaId && <GoogleAnalytics gaId={gaId} />}
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );
