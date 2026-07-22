@@ -265,6 +265,289 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <section className="p-top-history l-section">
+        <div className="l-inner">
+          <div className="c-section-heading">
+            <p className="c-label">OUR HISTORY</p>
+
+            <h2 className="c-heading-primary">
+              原点｜実践で磨き続けた <br className="u-sp" />
+              PwS Method
+            </h2>
+
+            <p className="c-section-heading__lead">
+              PwS Methodは、
+              <br className="u-sp" />
+              Mamasan&amp;Company株式会社が
+              <br />
+              15年以上磨き続けてきた組織運営の
+              <br className="u-xs" />
+              実践から生まれたメソッドです。
+              <br />
+              働き方の制約を乗り越えるために
+              <br className="u-xs" />
+              積み重ねてきた実践が、 <br className="u-sp" />
+              現在のPwS Methodへとつながっています。
+            </p>
+          </div>
+
+          <div className="p-top-history__list">
+            {/* STEP 01 */}
+            <div className="p-top-history__item">
+              {/* PC・タブレット用 */}
+              <p className="p-top-history__step p-top-history__step--pc">
+                STEP 01
+                <span className="p-top-history__year">2008</span>
+              </p>
+
+              <div className="p-top-history__line">
+                <span className="p-top-history__dot"></span>
+              </div>
+
+              <div className="p-top-history__content">
+                {/* スマホ用 */}
+                <div className="p-top-history__meta p-top-history__meta--sp">
+                  <div className="p-top-history__step-info">
+                    <span className="p-top-history__step-sp">STEP 01</span>
+                    <span className="p-top-history__year-sp">2008</span>
+                  </div>
+
+                  <p className="p-top-history__label">ORIGIN</p>
+                </div>
+
+                {/* PC・タブレット用 */}
+                <p className="p-top-history__label p-top-history__label--pc">
+                  ORIGIN
+                </p>
+
+                <h3 className="p-top-history__title">
+                  短時間しか働けないことは、仕事の制約条件ではない。
+                </h3>
+
+                <p className="p-top-history__text">
+                  働く意欲があっても、従来の働き方では力を発揮できない人たち。
+                  その課題から、「動ける時間ではなく、成果を生み出す仕組み」を
+                  設計する組織づくりが始まりました。
+                </p>
+              </div>
+            </div>
+
+            {/* STEP 02 */}
+            <div className="p-top-history__item">
+              {/* PC・タブレット用 */}
+              <p className="p-top-history__step p-top-history__step--pc">
+                STEP 02
+              </p>
+
+              <div className="p-top-history__line">
+                <span className="p-top-history__dot"></span>
+              </div>
+
+              <div className="p-top-history__content">
+                {/* スマホ用 */}
+                <div className="p-top-history__meta p-top-history__meta--sp">
+                  <div className="p-top-history__step-info">
+                    <span className="p-top-history__step-sp">STEP 02</span>
+                  </div>
+
+                  <p className="p-top-history__label">APPROACH</p>
+                </div>
+
+                {/* PC・タブレット用 */}
+                <p className="p-top-history__label p-top-history__label--pc">
+                  APPROACH
+                </p>
+
+                <h3 className="p-top-history__title">
+                  「分散処理」という働き方の発見。
+                </h3>
+
+                <p className="p-top-history__text">
+                  一人で完結する仕事ではなく、複数人で一つの成果を生み出す
+                  「分散処理」という働き方を確立。
+                  時間や場所の制約を超えて、成果を生み出せる組織へと進化しました。
+                </p>
+              </div>
+            </div>
+
+            {/* STEP 03 */}
+            <div className="p-top-history__item">
+              {/* PC・タブレット用 */}
+              <p className="p-top-history__step p-top-history__step--pc">
+                STEP 03
+              </p>
+
+              <div className="p-top-history__line">
+                <span className="p-top-history__dot"></span>
+              </div>
+
+              <div className="p-top-history__content">
+                {/* スマホ用 */}
+                <div className="p-top-history__meta p-top-history__meta--sp">
+                  <div className="p-top-history__step-info">
+                    <span className="p-top-history__step-sp">STEP 03</span>
+                  </div>
+
+                  <p className="p-top-history__label">CULTURE</p>
+                </div>
+
+                {/* PC・タブレット用 */}
+                <p className="p-top-history__label p-top-history__label--pc">
+                  CULTURE
+                </p>
+
+                <h3 className="p-top-history__title">
+                  必須要件は業務の見える化。
+                </h3>
+
+                <p className="p-top-history__text">
+                  「あの人しか分からない」では、組織は成り立ちません。
+                  業務の見える化を組織運営の必須要件とし、
+                  フローチャート・マニュアル・判断基準を整備。
+                  誰が担当しても、同じ品質で成果を生み出せる文化を築いてきました。
+                </p>
+              </div>
+            </div>
+
+            {/* STEP 04 */}
+            <div className="p-top-history__item">
+              {/* PC・タブレット用 */}
+              <p className="p-top-history__step p-top-history__step--pc">
+                STEP 04
+                <span className="p-top-history__year">2018</span>
+              </p>
+
+              <div className="p-top-history__line">
+                <span className="p-top-history__dot"></span>
+              </div>
+
+              <div className="p-top-history__content">
+                {/* スマホ用 */}
+                <div className="p-top-history__meta p-top-history__meta--sp">
+                  <div className="p-top-history__step-info">
+                    <span className="p-top-history__step-sp">STEP 04</span>
+                    <span className="p-top-history__year-sp">2018</span>
+                  </div>
+
+                  <p className="p-top-history__label">ORGANIZATION</p>
+                </div>
+
+                {/* PC・タブレット用 */}
+                <p className="p-top-history__label p-top-history__label--pc">
+                  ORGANIZATION
+                </p>
+
+                <h3 className="p-top-history__title">
+                  400名超のフルリモート組織運営へ。
+                </h3>
+
+                <p className="p-top-history__text">
+                  業務の見える化を土台に、多様な業種・業態のBPOで実践を積み重ね、
+                  400名を超えるフルリモート組織へと成長。
+                  働く場所や時間にとらわれない組織運営を磨き続けてきました。
+                </p>
+              </div>
+            </div>
+
+            {/* STEP 05 */}
+            <div className="p-top-history__item">
+              {/* PC・タブレット用 */}
+              <p className="p-top-history__step p-top-history__step--pc">
+                STEP 05
+                <span className="p-top-history__year">2023</span>
+              </p>
+
+              <div className="p-top-history__line">
+                <span className="p-top-history__dot"></span>
+              </div>
+
+              <div className="p-top-history__content">
+                {/* スマホ用 */}
+                <div className="p-top-history__meta p-top-history__meta--sp">
+                  <div className="p-top-history__step-info">
+                    <span className="p-top-history__step-sp">STEP 05</span>
+                    <span className="p-top-history__year-sp">2023</span>
+                  </div>
+
+                  <p className="p-top-history__label">NEW MEMBER</p>
+                </div>
+
+                {/* PC・タブレット用 */}
+                <p className="p-top-history__label p-top-history__label--pc">
+                  NEW MEMBER
+                </p>
+
+                <h3 className="p-top-history__title">
+                  AIという新しいメンバーが、自然に組織へ加わる。
+                </h3>
+
+                <p className="p-top-history__text">
+                  人には人の、AIにはAIの得意分野があります。
+                  それぞれが最も力を発揮できる役割を担い、一つの価値を生み出す。
+                  役割を設計する文化があったからこそ、
+                  AIも自然に組織の一員となりました。
+                </p>
+              </div>
+            </div>
+
+            {/* STEP 06 */}
+            <div className="p-top-history__item">
+              {/* PC・タブレット用 */}
+              <p className="p-top-history__step p-top-history__step--pc">
+                STEP 06
+              </p>
+
+              <div className="p-top-history__line">
+                <span className="p-top-history__dot"></span>
+              </div>
+
+              <div className="p-top-history__content">
+                {/* スマホ用 */}
+                <div className="p-top-history__meta p-top-history__meta--sp">
+                  <div className="p-top-history__step-info">
+                    <span className="p-top-history__step-sp">STEP 06</span>
+                  </div>
+
+                  <p className="p-top-history__label">PwS METHOD</p>
+                </div>
+
+                {/* PC・タブレット用 */}
+                <p className="p-top-history__label p-top-history__label--pc">
+                  PwS METHOD
+                </p>
+
+                <h3 className="p-top-history__title">
+                  Human Driven. AI Managed.
+                </h3>
+
+                <p className="p-top-history__text">
+                  MACで15年以上磨き続けてきた実践を、PwSがメソッドとして体系化。
+                  その土台には、常に「業務の見える化」があります。
+                  働き方の制約は、
+                  <span className="p-top-history__emphasis">
+                    役割を設計する文化
+                  </span>
+                  を育てました。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <p className="p-top-history__closing">
+            役割を設計すれば、
+            <br className="u-xs" />
+            働く場所や時間を問わず、
+            <br />
+            人もAIも、それぞれの力を活かし、
+            <br className="u-sp" />
+            一つの価値を生み出せる。
+            <br />
+            <br />
+            これが、PwS Methodです。
+          </p>
+        </div>
+      </section>
+
       <section className="p-top-cta">
         <h2>
           あなたの組織について、
