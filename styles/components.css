@@ -163,7 +163,7 @@
 .c-section-heading__lead {
   margin-top: 1.25rem;
   font-size: 0.9375rem;
-  line-height: 2.1;
+  line-height: 1.6;
   color: var(--color-text-muted);
 }
 
