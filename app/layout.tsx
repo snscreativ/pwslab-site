@@ -1,6 +1,8 @@
 // app/layout.tsx
 import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -12,25 +14,26 @@ import "@/styles/components.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.pwslab.jp"),
   title: {
-    default: "PwS｜人とAIの協働を設計し、組織を進化させる。",
-    template: "%s｜PwS", //ブラウザタブのタイトル表示、各ページのtitleを編集
+    default:
+      "株式会社PwS｜人とAIの協働組織設計・業務可視化｜Human Driven Design",
+    template: "%s｜株式会社PwS", //ブラウザタブのタイトル表示、各ページのtitleを編集
   },
   description:
-    "PwSは、戦略・組織・プロダクトをつなぎ、人とAIがそれぞれの強みを発揮できる仕組みをデザインします。",
+    "株式会社PwSは、AIをツールではなく「組織構成員」として機能させる設計原則、Human Driven Design（HDD）を提唱。業務を可視化・標準化し、人とAIの役割・判断・責任を設計することで、持続的に拡張できる人とAIの協働組織づくりを支援します。",
   openGraph: {
-    siteName: "PwS",
+    siteName: "株式会社PwS",
     type: "website",
     locale: "ja_JP",
     url: "https://www.pwslab.jp",
-    title: "PwS — 人とAIの協働を設計し、組織を進化させる。",
+    title: "株式会社PwS｜人とAIの協働組織設計・業務可視化｜Human Driven Design",
     description:
-      "PwSは、戦略・組織・プロダクトをつなぎ、人とAIがそれぞれの強みを発揮できる仕組みをデザインします。",
+      "株式会社PwSは、AIをツールではなく「組織構成員」として機能させる設計原則、Human Driven Design（HDD）を提唱。業務を可視化・標準化し、人とAIの役割・判断・責任を設計することで、持続的に拡張できる人とAIの協働組織づくりを支援します。",
     images: [
       {
         url: "/images/ogp.png",
         width: 1200,
         height: 630,
-        alt: "PwS",
+        alt: "株式会社PwS",
       },
     ],
   },
@@ -40,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PwS — 人とAIの協働を設計し、組織を進化させる。",
+    title: "株式会社PwS｜人とAIの協働組織設計・業務可視化｜Human Driven Design",
     description:
-      "PwSは、戦略・組織・プロダクトをつなぎ、人とAIがそれぞれの強みを発揮できる仕組みをデザインします。",
+      "株式会社PwSは、AIをツールではなく「組織構成員」として機能させる設計原則、Human Driven Design（HDD）を提唱。業務を可視化・標準化し、人とAIの役割・判断・責任を設計することで、持続的に拡張できる人とAIの協働組織づくりを支援します。",
     images: ["/images/ogp.png"],
   },
   alternates: {
@@ -65,6 +68,8 @@ export default function RootLayout({
         <Footer />
 
         {gaId && <GoogleAnalytics gaId={gaId} />}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
