@@ -1,8 +1,6 @@
 // app/layout.tsx
 import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
