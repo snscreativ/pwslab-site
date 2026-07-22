@@ -278,7 +278,7 @@ export default async function HomePage() {
             <p className="c-section-heading__lead">
               PwS Methodは、
               <br className="u-sp" />
-              Mamasan&amp;Company株式会社が
+              Mamasan&amp;Company株式会社(MAC)が
               <br />
               15年以上磨き続けてきた組織運営の
               <br className="u-xs" />
