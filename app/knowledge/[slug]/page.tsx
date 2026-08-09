@@ -8,6 +8,9 @@ import {
   isNotionReady,
 } from "@/lib/notion";
 import "@/styles/knowledge.css";
+import ProfileMatsui from "@/components/ProfileMatsui";
+
+export const dynamic = "force-dynamic";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -97,26 +100,35 @@ export default async function Page({ params }: Props) {
             </figure>
           )}
 
-          <NotionBlocks blocks={blocks} />
+          {article.referenceTitle && article.referenceUrl && (
+            <aside className="p-article__reference">
+              <p className="p-article__reference-label">参考記事</p>
 
-          {article.saitoComment && (
-            <aside
-              className="p-article__comment"
-              aria-labelledby="saito-comment-title"
-            >
-              <p className="p-article__comment-label">Comment</p>
-              <div className="p-article__comment-head">
-                <h2
-                  id="saito-comment-title"
-                  className="p-article__comment-title"
-                >
-                  齊藤コメント
-                </h2>
+              <h2 className="p-article__reference-title">
+                {article.referenceTitle}
+              </h2>
+
+              <a
+                href={article.referenceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-article__reference-link c-button c-button--text"
+              >
+                外部サイトで読む
+                <span aria-hidden="true"> ↗</span>
+              </a>
+
+              <div className="p-article__reference-author">
+                <p className="p-article__reference-author-label">
+                  この記事を書いた方
+                </p>
+
+                <ProfileMatsui />
               </div>
-
-              <p className="p-article__comment-text">{article.saitoComment}</p>
             </aside>
           )}
+
+          <NotionBlocks blocks={blocks} />
         </div>
       </article>
       <div className="p-article__back">
