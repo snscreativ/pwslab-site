@@ -140,7 +140,7 @@
   margin-bottom: 1rem;
   font-family: var(--font-serif);
   font-size: clamp(1.5rem, 2.4vw, 2rem);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.2;
   letter-spacing: 0.04em;
   position: relative;
@@ -171,7 +171,7 @@
   font-size: clamp(1.25rem, 1.8vw, 1.5rem);
   line-height: 1.6;
   letter-spacing: 0.04em;
-  font-weight: 400;
+  font-weight: 600;
   color: var(--color-navy);
 }
 
@@ -291,7 +291,7 @@ h2.p-article__comment-title {
   font-size: clamp(1.25rem, 2vw, 1.5rem);
   line-height: 1.5;
   letter-spacing: 0.04em;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--color-navy);
   margin-top: 0;
 
@@ -495,9 +495,18 @@ p.p-article__profile-text {
 
 @media (max-width: 600px) {
   .p-article__profile {
-    grid-template-columns: 80px 1fr;
+    grid-template-columns: 1fr;
     gap: 1rem;
-    padding: 1.5rem;
+    padding: 1rem;
+  }
+
+  .p-article__reference-author-label {
+    text-align: center;
+  }
+
+  .p-article__profile-image {
+    width: 120px;
+    margin: auto;
   }
 
   .p-article__profile-name {
