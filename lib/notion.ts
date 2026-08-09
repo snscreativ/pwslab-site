@@ -12,7 +12,8 @@ export type NotionArticle = {
   slug: string;
   summary: string;
   metaDescription: string;
-  saitoComment: string;
+  referenceTitle: string;
+  referenceUrl: string;
   eyecatchUrl: string;
   publishDate: string;
   updatedDate: string;
@@ -113,14 +114,17 @@ function mapArticle(page: any): NotionArticle {
     slug: getRichText(properties, "Slug"),
     summary: getRichText(properties, "Summary"),
     metaDescription: getRichText(properties, "MetaDescription"),
-    saitoComment: getRichText(properties, "SaitoComment"),
     eyecatchUrl,
     publishDate: getDate(properties, "PublishDate"),
     updatedDate: getDate(properties, "UpdatedDate"),
+    referenceTitle: getRichText(properties, "ReferenceTitle"),
+    referenceUrl: getUrl(properties, "ReferenceUrl"),
   };
 }
 
 export async function getKnowledgeArticles(): Promise<NotionArticle[]> {
+  noStore();
+
   const notion = getNotionClient();
   const dataSourceId = getKnowledgeDataSourceId();
   if (!notion || !dataSourceId) return [];
@@ -145,6 +149,8 @@ export async function getKnowledgeArticles(): Promise<NotionArticle[]> {
 export async function getKnowledgeArticleBySlug(
   slug: string
 ): Promise<NotionArticle | null> {
+  noStore();
+
   const notion = getNotionClient();
   const dataSourceId = getKnowledgeDataSourceId();
   if (!notion || !dataSourceId) return null;
@@ -255,6 +261,8 @@ export async function getNewsBySlug(
 export async function getNotionBlocks(
   blockId: string
 ): Promise<NotionBlock[]> {
+  noStore();
+
   const notion = getNotionClient();
   if (!notion) return [];
 
