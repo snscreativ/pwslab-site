@@ -1,9 +1,12 @@
 import type { NotionBlock } from "@/lib/notion";
+import ProfileSaito from "@/components/ProfileSaito";
+import ProfileMatsui from "@/components/ProfileMatsui";
 
 function RichText({ texts }: { texts: any[] }) {
   return texts.map((text, index) => {
     const content = text.plain_text || "";
     const annotations = text.annotations || {};
+    const color = annotations.color || "default";
     let node: React.ReactNode = content;
 
     if (annotations.code) node = <code>{node}</code>;
@@ -11,6 +14,16 @@ function RichText({ texts }: { texts: any[] }) {
     if (annotations.italic) node = <em>{node}</em>;
     if (annotations.strikethrough) node = <s>{node}</s>;
     if (annotations.underline) node = <u>{node}</u>;
+
+    const classNames = [];
+
+    if (color !== "default") {
+      classNames.push(`is-${color}`);
+    }
+
+    if (classNames.length > 0) {
+      node = <span className={classNames.join(" ")}>{node}</span>;
+    }
 
     if (text.href) {
       node = (
@@ -96,12 +109,55 @@ export default function NotionBlocks({ blocks }: { blocks: NotionBlock[] }) {
               </blockquote>
             );
 
-          case "callout":
+          case "callout": {
+            const texts = block.callout.rich_text || [];
+            const plainText = getPlainText(texts);
+
+            if (plainText.startsWith("PROFILE_SAITO")) {
+              return <ProfileSaito key={id} />;
+            }
+
+            if (plainText.startsWith("PROFILE_MATSUI")) {
+              return <ProfileMatsui key={id} />;
+            }
+
+            if (plainText.startsWith("COMMENT_SAITO")) {
+              const displayTexts = removeMarker(texts, "COMMENT_SAITO");
+
+              return (
+                <aside
+                  className="p-article__comment"
+                  aria-labelledby="saito-comment-title"
+                  key={id}
+                >
+                  <p className="p-article__comment-label">COMMENT</p>
+
+                  <div className="p-article__comment-head">
+                    <h2
+                      id="saito-comment-title"
+                      className="p-article__comment-title"
+                    >
+                      齊藤コメント
+                    </h2>
+                  </div>
+
+                  <div className="p-article__comment-text">
+                    <RichText texts={displayTexts} />
+                  </div>
+
+                  <div className="p-article__comment-profile">
+                    <ProfileSaito />
+                  </div>
+                </aside>
+              );
+            }
+
             return (
               <div className="p-article__callout" key={id}>
-                <RichText texts={block.callout.rich_text} />
+                <RichText texts={texts} />
               </div>
             );
+          }
 
           case "divider":
             return <hr key={id} />;
@@ -127,4 +183,42 @@ export default function NotionBlocks({ blocks }: { blocks: NotionBlock[] }) {
       })}
     </div>
   );
+}
+
+function getPlainText(texts: any[] = []) {
+  return texts
+    .map((text) => text.plain_text || "")
+    .join("")
+    .trim();
+}
+
+function removeMarker(texts: any[] = [], marker: string) {
+  let markerRemoved = false;
+
+  return texts.map((text) => {
+    if (markerRemoved) return text;
+
+    const plainText = text.plain_text || "";
+
+    if (!plainText.includes(marker)) {
+      return text;
+    }
+
+    markerRemoved = true;
+
+    const newText = plainText.replace(marker, "").replace(/^\s+/, "");
+
+    return {
+      ...text,
+      plain_text: newText,
+      text: text.text
+        ? {
+            ...text.text,
+            content: (text.text.content || "")
+              .replace(marker, "")
+              .replace(/^\s+/, ""),
+          }
+        : text.text,
+    };
+  });
 }
