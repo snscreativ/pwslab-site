@@ -213,3 +213,238 @@
     padding: 2rem 1.25rem 1.75rem;
   }
 }
+
+.c-notice {
+  margin-bottom: 3rem;
+  border-top: 2px solid var(--color-navy);
+  background: var(--color-gray-bg);
+  padding: 2rem;
+}
+
+.c-notice p {
+  font-size: 0.9375rem;
+  line-height: 1.9;
+}
+
+/*==================================
+      Notion RichText
+==================================*/
+
+.is-red_background {
+  padding: 0.1em 0.25em;
+  background-color: #fde8e8;
+}
+
+/*=========== テキストカラー =============*/
+.is-red {
+  color: #d93d3d;
+}
+
+.is-orange {
+  color: var(--color-orange);
+}
+
+.is-blue {
+  color: #2c74d8;
+}
+
+.is-green {
+  color: #0f8a5f;
+}
+
+/* =========================
+  Notion Image
+========================= */
+
+.c-article-image {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.c-article-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* サイズ */
+
+.c-article-image.is-small {
+  width: 40%;
+}
+
+.c-article-image.is-medium {
+  width: 70%;
+}
+
+.c-article-image.is-large {
+  width: 100%;
+}
+
+/* 配置 */
+
+.c-article-image.is-left {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.c-article-image.is-center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.c-article-image.is-right {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+/* リンク */
+
+.c-article-image-link {
+  display: block;
+}
+
+.c-article-image-link img {
+  transition: opacity 0.2s ease;
+}
+
+.c-article-image-link:hover img {
+  opacity: 0.8;
+}
+
+/* タイトルなど */
+
+.c-article-body h2 {
+  margin-top: 3.5rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  position: relative;
+  padding: 0.8rem 0 0.2em;
+  overflow: hidden;
+}
+
+.c-article-body h2:before,
+.c-article-body h2:after {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  content: '';
+}
+
+.c-article-body h2:before {
+  border-bottom: 1.5px solid var(--color-orange);
+}
+
+.c-article-body h2:after {
+  border-bottom: 1.5px solid var(--color-gray-line);
+}
+
+.c-article-body h3 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+.c-article-body h3::first-letter {
+  color: var(--color-orange);
+  font-size: 1.2em;
+}
+
+.c-article-body p {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 2;
+  letter-spacing: 0.03em;
+}
+
+.c-article-body ul {
+  margin: 0.5rem 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.c-article-body li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: var(--color-navy);
+  line-height: 2;
+  letter-spacing: 0.04em;
+}
+
+.c-article-body ul li::before {
+  content: "";
+  position: absolute;
+  left: 0.25rem;
+  top: 0.9em;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--color-orange);
+}
+
+.c-article-body blockquote,
+.c-article-callout {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  line-height: 2;
+  background-color: var(--color-bg-blueGray);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.c-article-body a {
+  color: var(--color-orange);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+  transition: color 0.25s ease, text-underline-offset 0.25s ease;
+}
+
+.c-article-body a:hover {
+  color: var(--color-navy);
+  text-underline-offset: 0.45em;
+}
+
+.c-article-body code {
+  border-radius: 0.25rem;
+  background: var(--color-gray-bg);
+  padding: 0.1em 0.35em;
+  font-size: 0.9375em;
+}
+
+.c-article-body figure {
+  margin: 2.5rem 0;
+}
+
+.c-article-body figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.c-article-body hr {
+  margin: 3rem 0;
+  border: 0;
+  border-top: 1px solid var(--color-gray-line);
+}
+
+
+/* SP */
+
+@media (max-width: 768px) {
+
+  .c-article-image.is-small,
+  .c-article-image.is-medium,
+  .c-article-image.is-large {
+    width: 100%;
+  }
+}
