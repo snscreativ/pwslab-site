@@ -2,11 +2,16 @@ import type { NotionBlock } from "@/lib/notion";
 import ProfileSaito from "@/components/ProfileSaito";
 import ProfileMatsui from "@/components/ProfileMatsui";
 
+/* =========================
+  RichText
+========================= */
+
 function RichText({ texts }: { texts: any[] }) {
   return texts.map((text, index) => {
     const content = text.plain_text || "";
     const annotations = text.annotations || {};
     const color = annotations.color || "default";
+
     let node: React.ReactNode = content;
 
     if (annotations.code) node = <code>{node}</code>;
@@ -15,7 +20,7 @@ function RichText({ texts }: { texts: any[] }) {
     if (annotations.strikethrough) node = <s>{node}</s>;
     if (annotations.underline) node = <u>{node}</u>;
 
-    const classNames = [];
+    const classNames: string[] = [];
 
     if (color !== "default") {
       classNames.push(`is-${color}`);
@@ -37,11 +42,23 @@ function RichText({ texts }: { texts: any[] }) {
   });
 }
 
+/* =========================
+  Image
+========================= */
+
 function getImageUrl(block: NotionBlock) {
   const image = block.image;
+
   if (!image) return "";
-  if (image.type === "external") return image.external?.url || "";
-  if (image.type === "file") return image.file?.url || "";
+
+  if (image.type === "external") {
+    return image.external?.url || "";
+  }
+
+  if (image.type === "file") {
+    return image.file?.url || "";
+  }
+
   return "";
 }
 
@@ -49,141 +66,37 @@ function getCaption(block: NotionBlock) {
   return block.image?.caption || [];
 }
 
-export default function NotionBlocks({ blocks }: { blocks: NotionBlock[] }) {
-  return (
-    <div className="p-article__body">
-      {blocks.map((block) => {
-        const id = block.id;
+/*
+  Notion画像キャプションから
+  SIZE / ALIGN / LINK を取得
+*/
 
-        switch (block.type) {
-          case "paragraph":
-            return (
-              <p key={id}>
-                <RichText texts={block.paragraph.rich_text} />
-              </p>
-            );
+function getImageOptions(block: NotionBlock) {
+  const captionTexts = getCaption(block);
 
-          case "heading_1":
-            return (
-              <h2 key={id}>
-                <RichText texts={block.heading_1.rich_text} />
-              </h2>
-            );
+  const caption = captionTexts
+    .map((text: any) => text.plain_text || "")
+    .join("")
+    .trim();
 
-          case "heading_2":
-            return (
-              <h2 key={id}>
-                <RichText texts={block.heading_2.rich_text} />
-              </h2>
-            );
+  const sizeMatch = caption.match(/SIZE=(small|medium|large)/i);
 
-          case "heading_3":
-            return (
-              <h3 key={id}>
-                <RichText texts={block.heading_3.rich_text} />
-              </h3>
-            );
+  const alignMatch = caption.match(/ALIGN=(left|center|right)/i);
 
-          case "bulleted_list_item":
-            return (
-              <ul key={id}>
-                <li>
-                  <RichText texts={block.bulleted_list_item.rich_text} />
-                </li>
-              </ul>
-            );
+  const linkMatch = caption.match(/LINK=(https?:\/\/[^\s|]+)/i);
 
-          case "numbered_list_item":
-            return (
-              <ol key={id}>
-                <li>
-                  <RichText texts={block.numbered_list_item.rich_text} />
-                </li>
-              </ol>
-            );
+  return {
+    size: sizeMatch ? sizeMatch[1].toLowerCase() : "large",
 
-          case "quote":
-            return (
-              <blockquote key={id}>
-                <RichText texts={block.quote.rich_text} />
-              </blockquote>
-            );
+    align: alignMatch ? alignMatch[1].toLowerCase() : "center",
 
-          case "callout": {
-            const texts = block.callout.rich_text || [];
-            const plainText = getPlainText(texts);
-
-            if (plainText.startsWith("PROFILE_SAITO")) {
-              return <ProfileSaito key={id} />;
-            }
-
-            if (plainText.startsWith("PROFILE_MATSUI")) {
-              return <ProfileMatsui key={id} />;
-            }
-
-            if (plainText.startsWith("COMMENT_SAITO")) {
-              const displayTexts = removeMarker(texts, "COMMENT_SAITO");
-
-              return (
-                <aside
-                  className="p-article__comment"
-                  aria-labelledby="saito-comment-title"
-                  key={id}
-                >
-                  <p className="p-article__comment-label">COMMENT</p>
-
-                  <div className="p-article__comment-head">
-                    <h2
-                      id="saito-comment-title"
-                      className="p-article__comment-title"
-                    >
-                      齊藤コメント
-                    </h2>
-                  </div>
-
-                  <div className="p-article__comment-text">
-                    <RichText texts={displayTexts} />
-                  </div>
-
-                  <div className="p-article__comment-profile">
-                    <ProfileSaito />
-                  </div>
-                </aside>
-              );
-            }
-
-            return (
-              <div className="p-article__callout" key={id}>
-                <RichText texts={texts} />
-              </div>
-            );
-          }
-
-          case "divider":
-            return <hr key={id} />;
-
-          case "image": {
-            const imageUrl = getImageUrl(block);
-            if (!imageUrl) return null;
-            return (
-              <figure key={id}>
-                <img src={imageUrl} alt="" loading="lazy" />
-                {getCaption(block).length > 0 && (
-                  <figcaption>
-                    <RichText texts={getCaption(block)} />
-                  </figcaption>
-                )}
-              </figure>
-            );
-          }
-
-          default:
-            return null;
-        }
-      })}
-    </div>
-  );
+    link: linkMatch ? linkMatch[1] : "",
+  };
 }
+
+/* =========================
+  Callout helper
+========================= */
 
 function getPlainText(texts: any[] = []) {
   return texts
@@ -210,10 +123,13 @@ function removeMarker(texts: any[] = [], marker: string) {
 
     return {
       ...text,
+
       plain_text: newText,
+
       text: text.text
         ? {
             ...text.text,
+
             content: (text.text.content || "")
               .replace(marker, "")
               .replace(/^\s+/, ""),
@@ -221,4 +137,194 @@ function removeMarker(texts: any[] = [], marker: string) {
         : text.text,
     };
   });
+}
+
+/* =========================
+  NotionBlocks
+========================= */
+
+export default function NotionBlocks({ blocks }: { blocks: NotionBlock[] }) {
+  return (
+    <div className="c-article-body">
+      {blocks.map((block) => {
+        const id = block.id;
+
+        switch (block.type) {
+          /* Paragraph */
+
+          case "paragraph":
+            return (
+              <p key={id}>
+                <RichText texts={block.paragraph.rich_text} />
+              </p>
+            );
+
+          /* Heading 1 */
+
+          case "heading_1":
+            return (
+              <h2 key={id}>
+                <RichText texts={block.heading_1.rich_text} />
+              </h2>
+            );
+
+          /* Heading 2 */
+
+          case "heading_2":
+            return (
+              <h2 key={id}>
+                <RichText texts={block.heading_2.rich_text} />
+              </h2>
+            );
+
+          /* Heading 3 */
+
+          case "heading_3":
+            return (
+              <h3 key={id}>
+                <RichText texts={block.heading_3.rich_text} />
+              </h3>
+            );
+
+          /* Bullet */
+
+          case "bulleted_list_item":
+            return (
+              <ul key={id}>
+                <li>
+                  <RichText texts={block.bulleted_list_item.rich_text} />
+                </li>
+              </ul>
+            );
+
+          /* Number */
+
+          case "numbered_list_item":
+            return (
+              <ol key={id}>
+                <li>
+                  <RichText texts={block.numbered_list_item.rich_text} />
+                </li>
+              </ol>
+            );
+
+          /* Quote */
+
+          case "quote":
+            return (
+              <blockquote key={id}>
+                <RichText texts={block.quote.rich_text} />
+              </blockquote>
+            );
+
+          /* Callout */
+
+          case "callout": {
+            const texts = block.callout.rich_text || [];
+
+            const plainText = getPlainText(texts);
+
+            /* 齊藤プロフィール */
+
+            if (plainText.startsWith("PROFILE_SAITO")) {
+              return <ProfileSaito key={id} />;
+            }
+
+            /* 松井先生プロフィール */
+
+            if (plainText.startsWith("PROFILE_MATSUI")) {
+              return <ProfileMatsui key={id} />;
+            }
+
+            /* 齊藤コメント */
+
+            if (plainText.startsWith("COMMENT_SAITO")) {
+              const displayTexts = removeMarker(texts, "COMMENT_SAITO");
+
+              return (
+                <aside
+                  className="p-article__comment"
+                  aria-labelledby={`saito-comment-title-${id}`}
+                  key={id}
+                >
+                  <p className="p-article__comment-label">COMMENT</p>
+
+                  <div className="p-article__comment-head">
+                    <h2
+                      id={`saito-comment-title-${id}`}
+                      className="p-article__comment-title"
+                    >
+                      齊藤コメント
+                    </h2>
+                  </div>
+
+                  <div className="p-article__comment-text">
+                    <RichText texts={displayTexts} />
+                  </div>
+
+                  <div className="p-article__comment-profile">
+                    <ProfileSaito />
+                  </div>
+                </aside>
+              );
+            }
+
+            /* 通常Callout */
+
+            return (
+              <div className="c-article-callout" key={id}>
+                <RichText texts={texts} />
+              </div>
+            );
+          }
+
+          /* Divider */
+
+          case "divider":
+            return <hr key={id} />;
+
+          /* Image */
+
+          case "image": {
+            const imageUrl = getImageUrl(block);
+
+            if (!imageUrl) {
+              return null;
+            }
+
+            const { size, align, link } = getImageOptions(block);
+
+            const image = <img src={imageUrl} alt="" loading="lazy" />;
+
+            return (
+              <figure
+                key={id}
+                className={[
+                  "c-article-image",
+                  `is-${size}`,
+                  `is-${align}`,
+                ].join(" ")}
+              >
+                {link ? (
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="c-article-image-link"
+                  >
+                    {image}
+                  </a>
+                ) : (
+                  image
+                )}
+              </figure>
+            );
+          }
+
+          default:
+            return null;
+        }
+      })}
+    </div>
+  );
 }
