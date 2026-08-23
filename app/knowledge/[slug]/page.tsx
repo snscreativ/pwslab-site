@@ -9,6 +9,7 @@ import {
 } from "@/lib/notion";
 import "@/styles/knowledge.css";
 import ProfileMatsui from "@/components/ProfileMatsui";
+import AboutPws from "@/components/AboutPws";
 
 export const dynamic = "force-dynamic";
 
@@ -130,7 +131,10 @@ export default async function Page({ params }: Props) {
 
           <NotionBlocks blocks={blocks} />
         </div>
+
+        <AboutPws />
       </article>
+
       <div className="p-article__back">
         <Link href="/knowledge" className="c-button c-button--text">
           知見一覧へ戻る <span className="c-icon-arrow">↗</span>
