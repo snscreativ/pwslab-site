@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getKnowledgeArticles, isNotionReady } from "@/lib/notion";
 import "@/styles/knowledge.css";
+import AboutPws from "@/components/AboutPws";
 
 export const dynamic = "force-dynamic";
 
@@ -30,6 +31,8 @@ export default async function KnowledgePage() {
               人とAIの協働、組織設計、業務構造化に関するPwSの知見を紹介します。
             </p>
           </div>
+
+          <AboutPws />
 
           {!isNotionReady() && (
             <div className="c-notice">
