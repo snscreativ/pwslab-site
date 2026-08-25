@@ -1,0 +1,74 @@
+# 株式会社PwS
+
+> 株式会社PwSは、人とAIの協働を設計し、組織を進化させる会社です。
+
+PwSは、戦略・組織・プロダクトをつなぎ、
+人とAIがそれぞれの強みを発揮できる仕組みをデザインします。
+
+業務の可視化・構造化を土台として、
+人とAIの役割分担や業務フローを設計し、
+人とAIが共に機能する組織づくりを支援します。
+
+## Main Pages
+
+- Home: https://www.pwslab.jp/
+- Knowledge: https://www.pwslab.jp/knowledge
+- News: https://www.pwslab.jp/news
+- Contact: https://www.pwslab.jp/contact
+- Privacy Policy: https://www.pwslab.jp/privacy
+
+## Services
+
+### 組織設計支援
+
+人とAIがそれぞれの強みを発揮できる組織構造を設計します。
+役割定義から業務フローの再設計まで、組織全体を俯瞰した支援を行います。
+
+### 業務構造化支援
+
+業務を単位ごとに分解・定義し、
+非同期・分散型での遂行を可能にする構造化を支援します。
+4,000超の業務ID構築の知見を活かします。
+
+### AI協働設計支援
+
+AIの導入だけで終わらせず、
+人とAIの役割分担を設計し、
+組織の中でAIが機能する仕組みをデザインします。
+
+## PwS Method
+
+PwS Methodは、Mamasan&Company株式会社（MAC）が
+15年以上磨き続けてきた組織運営の実践から生まれたメソッドです。
+
+業務の見える化を土台として役割を設計し、
+働く場所や時間を問わず、
+人とAIがそれぞれの力を活かして一つの価値を生み出す組織を目指します。
+
+Human Driven. AI Managed.
+
+## AI Collaboration Diagnosis
+
+PwSでは「AI協働成熟度診断」を提供しています。
+組織のAI活用に向けた現在地を診断します。
+
+## Key Topics
+
+- 人とAIの協働
+- 組織設計
+- 業務構造化
+- 業務可視化
+- 業務標準化
+- AI協働設計
+- PwS Method
+- Human Driven Design
+- Human Driven. AI Managed.
+- 非同期型業務
+- 分散型組織
+
+## Company
+
+- Name: 株式会社PwS
+- Website: https://www.pwslab.jp/
+- Established: 2026-06-04
+- Services: 組織設計支援、業務構造化支援、AI協働設計支援
