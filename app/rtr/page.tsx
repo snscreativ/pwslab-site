@@ -134,9 +134,9 @@ const rtrHtml = `
 <p>管理職と部下、それぞれの声をヒトコが受け止め、関係の兆しを見つける。兆しを対話につなぎ、その対話を節目ごとに循環させます。</p>
 </div>
 <div class="rtr-flow-steps">
-<article><span>01</span><strong>今、起きていること</strong><p>言葉を選ぶ上司と、本音を飲み込む部下。まず、表面化しにくいすれ違いに目を向ける。</p></article>
+<article><span>01</span><strong>今、起きていること</strong><p>言葉を選ぶ上司と、本音を飲み込む部下。見えにくいすれ違いに目を向ける。</p></article>
 <article><span>02</span><strong>ヒトコが間に入る</strong><p>直接の面談だけでは届きにくい“ひとこと”を、AI面談を通じて拾う。</p></article>
-<article><span>03</span><strong>関係の兆しを見つける</strong><p>信頼・安心などの良い兆しも、遠慮・萎縮・孤立など注意すべき揺らぎも捉える。</p></article>
+<article><span>03</span><strong>関係の兆しを見つける</strong><p>信頼・安心の兆しも、遠慮・萎縮・孤立の揺らぎも捉える。</p></article>
 <article><span>04</span><strong>人と人の対話へつなぐ</strong><p>兆しを答えにせず、必要な関係者が向き合うための対話を設計する。</p></article>
 <article><span>05</span><strong>RTRとして回し続ける</strong><p>Trigger・Stage・Dialogue・Cycleを節目ごとに回し、関係性に向き合う運用を文化にする。</p></article>
 </div>
@@ -157,8 +157,8 @@ const rtrHtml = `
 <div class="roadmap">
 <article><span>PHASE 01</span><strong>初期構築支援</strong><p>Trigger整理・イベント再設計・ヒトコ学習など、組織に合う土台をつくる。</p><img alt="初期構築支援のイメージ" class="roadmap-image" loading="lazy" src="/images/rtr/phase01.png"/></article>
 <article><span>PHASE 02</span><strong>現場導入・キックオフ支援</strong><p>Stage／Dialogueの準備、現場へのオリエンテーションを支える。</p><img alt="現場導入・キックオフ支援のイメージ" class="roadmap-image" loading="lazy" src="/images/rtr/phase02.png"/></article>
-<article><span>PHASE 03</span><strong>管理職支援・運用相談</strong><p>面談・声かけ・ヒトコの読み解きなど、現場で生まれる迷いをともに整理する。</p><img alt="管理職支援・運用相談のイメージ" class="roadmap-image" loading="lazy" src="/images/rtr/phase03.png"/></article>
-<article><span>PHASE 04</span><strong>定着支援・文化化支援</strong><p>振り返り・称賛・いい話の共有を通じ、関係性に向き合う運用を文化へつなげる。</p><img alt="定着支援・文化化支援のイメージ" class="roadmap-image" loading="lazy" src="/images/rtr/phase04.png"/></article>
+<article><span>PHASE 03</span><strong>管理職支援・運用相談</strong><p>面談・声かけ・ヒトコの読み解きなど、現場の迷いをともに整理する。</p><img alt="管理職支援・運用相談のイメージ" class="roadmap-image" loading="lazy" src="/images/rtr/phase03.png"/></article>
+<article><span>PHASE 04</span><strong>定着支援・文化化支援</strong><p>振り返り・称賛・共有を通じ、関係性に向き合う文化を育てる。</p><img alt="定着支援・文化化支援のイメージ" class="roadmap-image" loading="lazy" src="/images/rtr/phase04.png"/></article>
 </div>
 <div class="coaching-close"><p>RTRは、面談システムを導入するサービスではありません。</p><strong>関係性をマネジメントできる組織を、現場とともに育てるサービスです。</strong></div>
 </div>
