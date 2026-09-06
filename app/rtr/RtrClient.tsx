@@ -23,17 +23,8 @@ export default function RtrClient() {
     );
     items.forEach((el) => observer.observe(el));
 
-    const toTop = document.querySelector<HTMLButtonElement>(".rtr-to-top");
-    const onScroll = () => toTop?.classList.toggle("show", window.scrollY > 120);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    const click = () => window.scrollTo({ top: 0, behavior: "smooth" });
-    toTop?.addEventListener("click", click);
-
     return () => {
       observer.disconnect();
-      window.removeEventListener("scroll", onScroll);
-      toTop?.removeEventListener("click", click);
     };
   }, []);
 

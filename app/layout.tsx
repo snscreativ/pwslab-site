@@ -4,6 +4,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 import "@/styles/globals.css";
 import "@/styles/layout.css";
@@ -101,6 +102,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <ScrollToTopButton />
 
         {gaId && <GoogleAnalytics gaId={gaId} />}
       </body>

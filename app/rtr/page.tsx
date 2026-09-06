@@ -193,9 +193,7 @@ const rtrHtml = `
 <div class="contact-closing">離職の前にある、すれ違いへ。<br/>停滞の前にある、言えない一言へ。<br/><strong>RTRは、その“あいだ”に向き合います。</strong></div>
 </div>
 </section>
-</main><button aria-label="ページトップへ" class="to-top rtr-to-top" id="toTop" type="button">
-<span></span>
-</button>
+</main>
 `;
 
 const jsonLd = {
