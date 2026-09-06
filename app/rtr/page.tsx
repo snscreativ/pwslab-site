@@ -24,7 +24,7 @@ const rtrHtml = `
 <p class="hero-sub">本当の自分を、組織に取り戻しませんか。</p>
 <span class="short-line"></span>
 <p class="lead">面談はある。制度もある。それでも本音は届かず、関係はすれ違い、離職や停滞が起きていく。</p>
-<p class="hero-lead-strong">必要なのは、面談の回数を増やすことではなく、人と人のあいだを動かし続ける仕組みです。</p>
+<p class="hero-lead-strong"><span>必要なのは、面談の回数を増やすことではなく、人と人のあいだを動かし続ける仕組みです。</span></p>
 <div class="hero-actions">
 <a class="button button-primary" href="/contact?service=rtr">導入イメージを相談する <span>→</span></a>
 <a class="button button-secondary" href="#concept">RTRの考え方を知る <span>→</span></a>
@@ -36,7 +36,7 @@ const rtrHtml = `
 <section class="problem-overview" id="problem">
 <div class="wrap reveal">
 <div class="problem-intro"><div class="problem-number"></div><div class="problem-heading-wrap"></div><div class="problem-lead-wrap"><p class="lead">1on1・評価面談・サーベイ・ハラスメント研修など、制度や施策が整っていても、現場には「言えない」「頼れない」「すれ違う」が残っています。プロジェクトの停滞や現場のギクシャクも、個人の問題として処理されがちです。</p></div></div>
-<div class="problem-intro-compact"><div class="problem-intro-number"></div><div class="problem-intro-content"><p class="eyebrow">02</p><h2 class="section-heading">面談があるのに、本音が上がってこない。<br/>制度があるのに、関係は噛み合わない。</h2></div></div><div class="problem-cards">
+<div class="problem-intro-compact"><div class="problem-intro-number"></div><div class="problem-intro-content"><p class="eyebrow">02</p><h2 class="section-heading">面談しても、本音が上がってこない。<br/>制度があるのに、関係は噛み合わない。</h2></div></div><div class="problem-cards">
 <article class="problem-card"><img alt="" src="/images/rtr/icons/chat.png"/><h3>言葉を選び続ける</h3><p>上司は地雷を踏まないように、言葉を選び続ける。</p></article>
 <article class="problem-card"><img alt="" src="/images/rtr/icons/single.png"/><h3>本音を飲み込む</h3><p>部下は本音を飲み込んだまま、無難な返答をする。</p></article>
 <article class="problem-card"><img alt="" src="/images/rtr/icons/people.png"/><h3>すれ違いが残る</h3><p>同僚や先輩後輩のすれ違いは、表面化するまで放置される。</p></article>

@@ -30,7 +30,7 @@
 }
 
 .rtr-page p{
-  margin: 0 0 18px;
+  margin: 18px 0;
 }
 
 .rtr-page a{
@@ -306,7 +306,12 @@
   will-change: transform;
 }
 
-.rtr-page .hero-title span, .rtr-page .section-heading > span{
+.rtr-page .hero-title span{
+  display: block;
+  white-space: normal;
+}
+
+.rtr-page .section-heading > span{
   display: block;
 }
 
@@ -369,10 +374,6 @@
   border-radius: 999px;
 }
 
-.rtr-page .hero-title span{
-  white-space: normal;
-}
-
 .rtr-page .problem-overview{
   padding: 96px 0 106px;
   background: #fff;
@@ -397,6 +398,11 @@
 
 .rtr-page .concept-copy p{
   color: #566571;
+}
+
+.rtr-page .concept-copy p strong{
+ color: var(--red);
+ font-size: 20px;
 }
 
 .rtr-page .compare-panel small{
@@ -476,8 +482,9 @@
 .rtr-page .hitoko-emphasis{
   margin-top: 26px;
   font-family: "Yu Mincho",serif;
-  font-size: 22px;
   color: var(--gold2);
+  font-size: 25px;
+  font-weight: 700;
 }
 
 .rtr-page .cycle-flow{
@@ -572,7 +579,7 @@
   margin-top: 20px;
   color: var(--navy);
   font-family: "Yu Mincho",serif;
-  font-size: 20px;
+  font-size: 31px;
 }
 
 .rtr-page .contact-closing{
@@ -585,7 +592,7 @@
 
 .rtr-page .contact-closing strong{
   color: var(--navy);
-  font-size: 20px;
+  font-size: 35px;
 }
 
 .rtr-page .footer-brand .powered-by{
@@ -709,7 +716,7 @@
   margin: 0;
   color: #4f5f6a;
   line-height: 1.7;
-  font-size: 14px;
+  font-size: 17px;
   opacity: .78;
 }
 
@@ -944,7 +951,6 @@
 
 .rtr-page .hero-title{
   letter-spacing: .025em;
-  max-width: 720px;
   font-size: clamp(36px,4vw,42px);
   line-height: 1.55;
   color: var(--navy);
@@ -963,6 +969,12 @@
   margin-top: 18px;
   font-family: "Yu Mincho","Hiragino Mincho ProN",serif;
   color: var(--navy);
+}
+
+.rtr-page .hero-lead-strong span{
+  background: linear-gradient(transparent 68%,#fff3a3 68%,#fff3a3 88%,transparent 88%);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .rtr-page .hero-interview{
@@ -2002,6 +2014,25 @@
   display: none;
 }
 
+@media (max-width:1395px) {
+  .rtr-page .hero-interview:before{
+    inset: -36px -23px -37px -14px;
+  }
+  .rtr-page .hero-visual-img{
+    height: 400px;
+  }
+}
+
+@media (max-width:1345px) {
+  .rtr-page .hero-interview:before{
+    inset: -36px 6px -27px 12px;
+  }
+  .rtr-page .hero-visual-img{
+    height: 400px;
+    max-width: 85%;
+  }
+}
+
 @media (max-width:1050px) {
   .nav-links {
     gap: 18px;
@@ -2018,7 +2049,17 @@
   }
 }
 
+@media (max-width:1040px) {
+  .rtr-page .hero-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width:900px) {
+  .rtr-flow-head h3 {
+    font-size: 24px;
+  }
+
   .nav-links {
     display: none;
   }
@@ -2068,8 +2109,15 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  .cycle-flow article:nth-child(2)::after {
-    display: none;
+  .rtr-page .cycle-grid.cycle-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .rtr-page .cycle-flow article:not(:last-child)::after {
+    content: "↓";
+    right: 50%;
+    top: auto;
+    bottom: -23px;
   }
 
   .roadmap {
@@ -2091,6 +2139,29 @@
   .effects-five {
     grid-template-columns: 1fr 1fr;
   }
+
+  .rtr-page .hitoko-grid{
+    display: block;
+  }
+
+  .rtr-page .hero-grid,
+  .rtr-page .problem-cards,
+  .rtr-page .roadmap,
+  .comparison-grid.comparison-grid-updated,
+  .rtr-page .concept-layout,
+  .rtr-page .effects
+  {
+    grid-template-columns: 1fr;
+  }
+
+  .rtr-page .hero-visual-img{
+    height: 400px;
+  }
+
+  .rtr-page .hero-interview:before{
+    inset: -36px -30px -34px -10px;
+  }
+
 }
 
 @media (max-width:620px) {
@@ -2421,7 +2492,7 @@
   }
 
   #problem .problem-intro-content h2 {
-    font-size: 28px;
+    font-size: 27px;
   }
 
   #problem .problem-intro-content p {
@@ -2461,6 +2532,20 @@
 
   .signal-center-image {
     max-height: none;
+  }
+}
+
+@media (max-width:760px) {
+  .rtr-page .heritage {
+    flex-direction: column;
+  }
+
+  .rtr-page .heritage div {
+    width: 100%;
+  }
+
+  .rtr-page .heritage > span {
+    transform: rotate(90deg);
   }
 }
 
@@ -2575,7 +2660,7 @@
 
 @media (max-width:960px) {
   .rtr-flow-steps {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 
   .rtr-flow-steps:before {
@@ -2609,12 +2694,12 @@
 }
 
 .hero-sub {
-  font-size: 21px;
+  font-size: 26px;
   line-height: 1.7;
 }
 
 .hero-lead-strong {
-  font-size: 17px;
+  font-size: 25px;
   line-height: 1.9;
 }
 
@@ -2710,7 +2795,7 @@ h3 {
   }
 
   .hero-lead-strong {
-    font-size: 15px;
+    font-size: 20px;
   }
 
   h2,
@@ -2721,7 +2806,7 @@ h3 {
   }
 
   .lead {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .problem-card h3 {
@@ -2839,7 +2924,7 @@ h3 {
   display:block;
   margin-bottom:11px;
   color:#3FAAAE;
-  font-size:10px;
+  font-size:20px;
   font-weight:800;
   letter-spacing:.14em;
 }
@@ -2847,7 +2932,7 @@ h3 {
 #problem .rtr-goal-flow article p{
   margin:0;
   color:#2C3E50;
-  font-size:14px;
+  font-size:17px;
   line-height:1.9;
 }
 
@@ -2917,98 +3002,7 @@ h3 {
 }
 
 /* =========================================================
-   SECTION 04 — visual balance restoration after CSS slimming
-   Keeps the existing copy and artwork, while restoring the
-   intended PWS spacing / scale hierarchy.
-   ========================================================= */
-#about.rtr-brand-section{
-  padding-block:96px 104px;
-  overflow:hidden;
-  background:#fff;
-}
-
-#about .brand-center{
-  position:relative;
-  max-width:1040px;
-  margin-inline:auto;
-}
-
-#about .eyebrow{
-  margin-bottom:24px;
-}
-
-#about .brand-cycle{
-  top:104px;
-  width:330px;
-  height:330px;
-  opacity:.18;
-}
-
-#about .brand-mark{
-  margin:0;
-  font-size:76px;
-  line-height:1;
-  letter-spacing:.12em;
-  color:var(--navy);
-}
-
-#about .brand-sub{
-  margin:10px 0 24px;
-  color:var(--gold);
-  font-size:14px;
-  line-height:1.4;
-  letter-spacing:.03em;
-}
-
-#about h2{
-  margin:0 0 28px;
-  font-size:34px;
-  line-height:1.5;
-  font-weight:500;
-}
-
-#about .lead.centered{
-  max-width:860px;
-  margin:0 auto;
-  color:rgba(44,62,80,.68);
-  font-size:16px;
-  line-height:2.05;
-}
-
-#about .brand-definition{
-  max-width:760px;
-  margin:42px auto 0;
-  padding-top:26px;
-  border-top:1px solid rgba(184,134,47,.35);
-  font-size:19px;
-  line-height:1.8;
-}
-
-#about .brand-definition strong{
-  color:var(--red);
-}
-
-@media(max-width:900px){
-  #about.rtr-brand-section{padding-block:82px 88px}
-  #about .brand-cycle{top:112px;width:290px;height:290px}
-  #about .brand-mark{font-size:68px}
-  #about h2{font-size:31px}
-  #about .lead.centered{max-width:760px;font-size:15px}
-}
-
-@media(max-width:620px){
-  #about.rtr-brand-section{padding-block:70px 74px}
-  #about .brand-cycle{top:112px;width:240px;height:240px;opacity:.14}
-  #about .brand-mark{font-size:54px}
-  #about .brand-sub{font-size:11px;margin-bottom:20px}
-  #about h2{font-size:27px;margin-bottom:22px}
-  #about .lead.centered{text-align:left;font-size:15px;line-height:1.95}
-  #about .brand-definition{margin-top:32px;font-size:17px;text-align:left}
-}
-
-/* =========================================================
-   SECTION 04 — restore approved visual balance
-   Reference: approved pre-refactor appearance
+   SECTION 04 — brand visual balance
    ========================================================= */
 #about.rtr-brand-section{
   padding-block: 88px 86px;
@@ -3067,7 +3061,7 @@ h3 {
   margin: 40px auto 0;
   padding-top: 25px;
   border-top: 1px solid rgba(184,134,47,.35);
-  font-size: 19px;
+  font-size: 24px;
   line-height: 1.8;
 }
 
@@ -3092,7 +3086,7 @@ h3 {
   #about .brand-sub{font-size:11px;margin:12px 0 20px}
   #about h2{font-size:27px;margin-bottom:24px;line-height:1.55}
   #about .lead.centered{max-width:none;text-align:left;font-size:15px;line-height:1.95}
-  #about .brand-definition{margin-top:32px;padding-top:22px;font-size:17px;text-align:left}
+  #about .brand-definition{margin-top:32px;padding-top:22px;font-size:27px;text-align:center}
 }
 
 /* Next.js integration */
@@ -3122,3 +3116,30 @@ h3 {
 }
 .rtr-to-top{z-index:180;}
 @media(max-width:900px){.rtr-page{margin-top:4.5rem;}}
+
+@media (max-width:1040px){
+  .rtr-page .hero-title br{
+    display: none;
+  }
+}
+
+.rtr-page #problem .problem-lead-wrap .lead,
+.rtr-page .problem-card p,
+.rtr-page .compare-panel p,
+.rtr-page .comparison-grid-updated article > p,
+.rtr-page .roadmap p,
+.rtr-page .effects-five p,
+.rtr-page .rtr-flow-steps p,
+.rtr-page .signal-note{
+  font-size: 17px;
+}
+
+@media (max-width:900px){
+  .rtr-page .problem-close{
+    font-size: 17px;
+  }
+
+  .rtr-page .problem-close br{
+    display: none;
+  }
+}
