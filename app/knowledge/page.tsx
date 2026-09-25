@@ -1,3 +1,5 @@
+import Pagination from "@/components/Pagination";
+import { paginate } from "@/lib/pagination";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getKnowledgeArticles, isNotionReady } from "@/lib/notion";
@@ -17,8 +19,11 @@ function formatDate(date: string) {
   return date.replaceAll("-", ".");
 }
 
-export default async function KnowledgePage() {
+export default async function KnowledgePage({ searchParams }: {
+  searchParams: Promise<{ page?: string | string[] }>;
+}) {
   const articles = await getKnowledgeArticles();
+  const pagination = paginate(articles, (await searchParams).page);
 
   return (
     <main className="p-knowledge">
@@ -51,8 +56,8 @@ export default async function KnowledgePage() {
             </div>
           )}
 
-          <div className="p-knowledge-list">
-            {articles.map((article) => (
+          <div className="p-knowledge-list c-pagination-target" id="article-list">
+            {pagination.items.map((article) => (
               <article className="c-card p-knowledge-card" key={article.id}>
                 <div className="c-card__border p-knowledge-card__border">
                   <Link
@@ -80,6 +85,7 @@ export default async function KnowledgePage() {
               </article>
             ))}
           </div>
+          <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} basePath="/knowledge" />
         </div>
       </section>
     </main>

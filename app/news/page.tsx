@@ -1,3 +1,5 @@
+import Pagination from "@/components/Pagination";
+import { paginate } from "@/lib/pagination";
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import { getNewsList } from "@/lib/notion";
@@ -10,8 +12,11 @@ function formatDate(date: string) {
   return date.replaceAll("-", ".");
 }
 
-export default async function NewsPage() {
+export default async function NewsPage({ searchParams }: {
+  searchParams: Promise<{ page?: string | string[] }>;
+}) {
   const newsList = await getNewsList();
+  const pagination = paginate(newsList, (await searchParams).page);
 
   return (
     <main className="p-news">
@@ -24,9 +29,9 @@ export default async function NewsPage() {
             as="h1"
           />
 
-          <div className="p-news__list">
+          <div className="p-news__list c-pagination-target" id="article-list">
             {newsList.length > 0 ? (
-              newsList.map((news) => (
+              pagination.items.map((news) => (
                 <Link
                   key={news.id}
                   href={`/news/${news.slug}`}
@@ -43,6 +48,7 @@ export default async function NewsPage() {
               <p className="p-news__empty">現在、お知らせはありません。</p>
             )}
           </div>
+          <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} basePath="/news" />
         </div>
       </section>
     </main>
