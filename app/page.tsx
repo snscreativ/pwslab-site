@@ -1,3 +1,4 @@
+import ScrollReveal from "@/components/ScrollReveal";
 import Button from "@/components/Button";
 import SectionHeading from "@/components/SectionHeading";
 import { getNewsList } from "@/lib/notion";
@@ -52,7 +53,10 @@ export default async function HomePage() {
 
       <section className="p-top-problem l-section" id="problem">
         <div className="l-inner">
-          <div className="p-top-problem__body">
+          <ScrollReveal
+            revealId="p-top-problem__body-1"
+            className="p-top-problem__body"
+          >
             <p>人手不足や採用難が続く中でも、仕事の進め方は変わっていない。</p>
             <p>
               AIを導入しても、仕事の進め方が変わらなければ、
@@ -75,7 +79,7 @@ export default async function HomePage() {
                 組織の問題かもしれません。
               </h2>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
         <div className="p-top-problem__graphic" aria-hidden="true">
           <img src="images/top/problem.png" alt="" />
@@ -84,10 +88,17 @@ export default async function HomePage() {
 
       <section className="p-top-philosophy l-section" id="philosophy">
         <div className="l-inner">
-          <div className="p-top-philosophy__graphic" aria-hidden="true">
+          <ScrollReveal
+            revealId="p-top-philosophy__graphic-1"
+            className="p-top-philosophy__graphic"
+            aria-hidden="true"
+          >
             <img src="/images/top/philosophy.png" alt="" />
-          </div>
-          <div className="p-top-philosophy__text">
+          </ScrollReveal>
+          <ScrollReveal
+            revealId="p-top-philosophy__text-1"
+            className="p-top-philosophy__text"
+          >
             <h2 className="c-heading-primary">
               働き方の常識を疑うところから始まる
             </h2>
@@ -112,7 +123,7 @@ export default async function HomePage() {
               <br className="u-hide-xs" />
               新たな働き方の再定義へとつながっています。
             </p>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -121,7 +132,11 @@ export default async function HomePage() {
           <SectionHeading label="SERVICES" title="私たちができること" />
 
           <div className="p-top-services__grid">
-            <article className="c-card p-top-services__card">
+            <ScrollReveal
+              revealId="p-top-services__card-1"
+              as="article"
+              className="c-card p-top-services__card"
+            >
               <div className="c-card__border">
                 <div className="c-card__icon">
                   <img src="/images/top/service-1.png" alt="" />
@@ -132,9 +147,13 @@ export default async function HomePage() {
                   人とAIがそれぞれの強みを発揮できる組織構造を設計します。役割定義から業務フローの再設計まで、組織全体を俯瞰した支援を行います。
                 </p>
               </div>
-            </article>
+            </ScrollReveal>
 
-            <article className="c-card p-top-services__card">
+            <ScrollReveal
+              revealId="p-top-services__card-2"
+              as="article"
+              className="c-card p-top-services__card"
+            >
               <div className="c-card__border">
                 <div className="c-card__icon">
                   <img src="/images/top/service-2.png" alt="" />
@@ -145,9 +164,13 @@ export default async function HomePage() {
                   業務を単位ごとに分解・定義し、非同期・分散型での遂行を可能にする構造化を支援します。4,000超の業務ID構築の知見を活かします。
                 </p>
               </div>
-            </article>
+            </ScrollReveal>
 
-            <article className="c-card p-top-services__card">
+            <ScrollReveal
+              revealId="p-top-services__card-3"
+              as="article"
+              className="c-card p-top-services__card"
+            >
               <div className="c-card__border">
                 <div className="c-card__icon">
                   <img src="/images/top/service-3.png" alt="" />
@@ -158,7 +181,44 @@ export default async function HomePage() {
                   AIの導入で終わらせない。人とAIの役割分担を設計し、組織の中でAIが真に機能する仕組みをデザインします。
                 </p>
               </div>
-            </article>
+            </ScrollReveal>
+          </div>
+
+          {/* サービスを追加する際は、このグリッド内に項目を追加します。 */}
+          <div className="p-top-services__links">
+            <h3 className="p-top-services__pickup">OUR SERVICE</h3>
+            <a
+              className="p-top-services__link c-card__border"
+              href="/service/rtr"
+            >
+              <span className="p-top-services__catch">
+                人と人の「あいだ」を、
+                <br className="u-xs" />
+                組織の力に変えていく。
+              </span>
+              <span className="p-top-services__summary">
+                <span className="p-top-services__name">RTR</span>
+                <span className="p-top-services__description">
+                  人と人をマネジメントする
+                  <br />
+                  組織マネジメントサービス
+                </span>
+              </span>
+              <span className="c-button c-button--text p-top-services__more">
+                詳しく見る{" "}
+                <span className="c-icon-arrow" aria-hidden="true">
+                  ↗
+                </span>
+              </span>
+            </a>
+            <div className="p-top-services__upcoming c-card__border">
+              <h4 className="p-top-services__upcoming-name">
+                財務経理Silicon Workerチーム
+              </h4>
+              <p className="p-top-services__status">
+                COMING SOON — ページ準備中
+              </p>
+            </div>
           </div>
 
           <div className="p-top-services__cta">
@@ -177,13 +237,16 @@ export default async function HomePage() {
               "いくつかの質問にご回答いただくだけで、 \n組織のAI活用に向けた「現在地」を診断します。"
             }
           />
-          <div className="p-top-diagnosis__card">
+          <ScrollReveal
+            revealId="p-top-diagnosis__card-1"
+            className="p-top-diagnosis__card"
+          >
             <iframe
               src="https://app.relevanceai.com/form/bcbe5a/5ff8a9f7-2326-4697-8fe9-8c743f32f511?version=latest&hideLogo=true&ctaText=%E8%A8%BA%E6%96%AD%E9%96%8B%E5%A7%8B+%28%E8%A8%BA%E6%96%AD%E3%81%AB%E3%81%AF+15%E7%A7%92%EF%BD%9E20%E7%A7%92%E3%81%8B%E3%81%8B%E3%82%8A%E3%81%BE%E3%81%99%29"
               title="AI協働成熟度診断フォーム"
               loading="lazy"
             />
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -242,7 +305,10 @@ export default async function HomePage() {
                 </tbody>
               </table>
             </div>
-            <div className="p-top-company__story">
+            <ScrollReveal
+              revealId="p-top-company__story-1"
+              className="p-top-company__story"
+            >
               <p>
                 私たちは、在宅ワーカーとの組織運営を通じて、
                 <br className="u-hide-xs" />
@@ -260,7 +326,7 @@ export default async function HomePage() {
                 <br className="u-hide-xs" />
                 新たな働き方の再定義へとつながっています。
               </p>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -293,7 +359,10 @@ export default async function HomePage() {
 
           <div className="p-top-history__list">
             {/* STEP 01 */}
-            <div className="p-top-history__item">
+            <ScrollReveal
+              revealId="p-top-history__item-1"
+              className="p-top-history__item"
+            >
               {/* PC・タブレット用 */}
               <p className="p-top-history__step p-top-history__step--pc">
                 STEP 01
@@ -330,10 +399,13 @@ export default async function HomePage() {
                   設計する組織づくりが始まりました。
                 </p>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* STEP 02 */}
-            <div className="p-top-history__item">
+            <ScrollReveal
+              revealId="p-top-history__item-2"
+              className="p-top-history__item"
+            >
               {/* PC・タブレット用 */}
               <p className="p-top-history__step p-top-history__step--pc">
                 STEP 02
@@ -368,10 +440,13 @@ export default async function HomePage() {
                   時間や場所の制約を超えて、成果を生み出せる組織へと進化しました。
                 </p>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* STEP 03 */}
-            <div className="p-top-history__item">
+            <ScrollReveal
+              revealId="p-top-history__item-3"
+              className="p-top-history__item"
+            >
               {/* PC・タブレット用 */}
               <p className="p-top-history__step p-top-history__step--pc">
                 STEP 03
@@ -407,10 +482,13 @@ export default async function HomePage() {
                   誰が担当しても、同じ品質で成果を生み出せる文化を築いてきました。
                 </p>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* STEP 04 */}
-            <div className="p-top-history__item">
+            <ScrollReveal
+              revealId="p-top-history__item-4"
+              className="p-top-history__item"
+            >
               {/* PC・タブレット用 */}
               <p className="p-top-history__step p-top-history__step--pc">
                 STEP 04
@@ -447,10 +525,13 @@ export default async function HomePage() {
                   働く場所や時間にとらわれない組織運営を磨き続けてきました。
                 </p>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* STEP 05 */}
-            <div className="p-top-history__item">
+            <ScrollReveal
+              revealId="p-top-history__item-5"
+              className="p-top-history__item"
+            >
               {/* PC・タブレット用 */}
               <p className="p-top-history__step p-top-history__step--pc">
                 STEP 05
@@ -488,10 +569,13 @@ export default async function HomePage() {
                   AIも自然に組織の一員となりました。
                 </p>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* STEP 06 */}
-            <div className="p-top-history__item">
+            <ScrollReveal
+              revealId="p-top-history__item-6"
+              className="p-top-history__item"
+            >
               {/* PC・タブレット用 */}
               <p className="p-top-history__step p-top-history__step--pc">
                 STEP 06
@@ -530,7 +614,7 @@ export default async function HomePage() {
                   を育てました。
                 </p>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
 
           <p className="p-top-history__closing">

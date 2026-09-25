@@ -24,7 +24,7 @@ export default function ScrollToTopButton() {
     <button
       type="button"
       aria-label="ページトップへ"
-      className={`scroll-to-top${isVisible ? " is-visible" : ""}`}
+      className={`c-scroll-to-top${isVisible ? " is-visible" : ""}`}
       onClick={handleClick}
     >
       <span aria-hidden="true" />

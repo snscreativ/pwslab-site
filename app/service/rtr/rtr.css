@@ -1,0 +1,2446 @@
+/* RTR サービスページ
+ * 色変数 → 共通設定 → セクション順。
+ * 基本指定はセクション順。メディアクエリは下部に画面幅の大きい順で集約。
+ * 760pxは768pxに統一。未使用候補は末尾に削除せず保管。
+ * 共通の色・フォントは styles/globals.css を参照。 */
+
+/* 共通設定 */
+
+.p-rtr-flow-title,
+.p-rtr-signal-title {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
+.p-rtr-comparison-result {
+  font-weight: 700;
+}
+
+.p-rtr-signal-kicker,
+.p-rtr-heading-caption {
+  font-size: 0.833333em;
+}
+
+.p-rtr {
+  --orange-soft: #fff1e4;
+  --ink: #2C3E50;
+  --navy-text: rgb(41, 63, 84);
+  --line: rgba(44, 62, 80, .14);
+  --soft: #F7F7F5;
+  --gold: #b8862f;
+  --gold2: #C9A24E;
+  --gold-back: rgb(196, 153, 79);
+  --orange2: #df8b46;
+  --teal: #3FAAAE;
+  --red: #C0392B;
+  --beige: #FBF6EE;
+  scroll-behavior: smooth;
+  margin: 0;
+  background: var(--color-white);
+  color: #35434c;
+  line-height: 1.9;
+  word-break: normal;
+  overflow-wrap: break-word;
+  line-break: strict;
+  font-feature-settings: "halt";
+}
+
+/* タグ・IDへの共通指定はRTR内に限定。:where()で優先度を下げ、個別クラスで上書きできるようにする。 */
+
+:where(.p-rtr) h2,
+:where(.p-rtr) h3 {
+  margin: 0;
+  letter-spacing: .025em;
+  color: var(--ink);
+  font-family: var(--font-serif);
+}
+
+:where(.p-rtr) h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2.1875rem;
+  line-height: 1.5;
+}
+
+:where(.p-rtr) h3 {
+  line-height: 1.55;
+}
+
+:where(.p-rtr) p {
+  padding-bottom: 0.8em;
+}
+
+:where(.p-rtr) a {
+  color: var(--color-orange);
+  text-decoration: none;
+}
+
+:where(.p-rtr) button {
+  font: inherit;
+}
+
+.p-rtr-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: .16em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+}
+
+.p-rtr-eyebrow::after {
+  content: "";
+  width: 3rem;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.7;
+}
+
+.p-rtr-wrap {
+  margin: auto;
+  width: min(1180px, calc(100% - 64px));
+}
+
+.p-rtr-lead {
+  color: var(--navy-text);
+  font-size: 1.125rem;
+  line-height: 1.9;
+  max-width: 650px;
+}
+
+.p-rtr-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 60px;
+  padding: 1em 2em;
+  border: 1px solid var(--color-orange);
+  border-radius: 0;
+  font-size: 1.1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.p-rtr-button::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 1px solid var(--gold);
+  transform: translate(3px, 3px);
+  transition: transform .3s ease;
+  pointer-events: none;
+  /* 背面枠の右辺・下辺のみを見せ、ボタンの文字には重ねない。 */
+  clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 calc(100% - 3px), calc(100% - 3px) calc(100% - 3px), calc(100% - 3px) 0);
+}
+
+.p-rtr-button:is(:hover, :focus-visible)::before {
+  transform: translate(0, 0);
+}
+
+.p-rtr-button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 6px;
+}
+
+.p-rtr-button-primary {
+  background: var(--color-orange);
+  color: var(--color-white);
+}
+
+.p-rtr-button-secondary {
+  background: var(--color-white);
+  color: var(--color-navy);
+  border-color: var(--gold);
+}
+
+.p-rtr-button-secondary::before {
+  border-color: var(--gold);
+}
+
+.p-rtr-section-heading>span {
+  color: var(--orange2);
+  padding: 0 0.2em;
+}
+
+.p-rtr-section-heading {
+  font-weight: 600;
+}
+
+.p-rtr-section {
+  padding: 7rem 0;
+}
+
+.p-rtr-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(1180px, calc(100% - 64px));
+  transform: translateX(-50%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold2), transparent);
+  opacity: .35;
+}
+
+.p-rtr-section-soft {
+  background: var(--soft);
+}
+
+.p-rtr-section-white {
+  background: var(--color-white);
+}
+
+.p-rtr-section-dark {
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+/* =========================================================
+ * ファーストビュー｜.p-rtr-hero / #top
+ * ========================================================= */
+
+.p-rtr-hero {
+  overflow: hidden;
+  padding-inline: 0;
+  padding-bottom: 4rem;
+  min-height: 0;
+  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3)), url(../../../public/images/rtr/back-img2.png);
+  background-position: right 10% center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.p-rtr-hero-grid {
+  width: min(1180px, calc(100% - 96px));
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 3.5rem 2rem;
+  padding: 0;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.p-rtr-hero__heading {
+  grid-column: 1 / -1;
+  text-align: center;
+  min-width: 0;
+}
+
+.p-rtr-hero h1 {
+  margin: 0 auto;
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 3.15vw, 44px);
+  line-height: 1.55;
+  letter-spacing: 0.025em;
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+.p-rtr-hero__line {
+  display: block;
+  white-space: normal;
+}
+
+.p-rtr-hero-copy {
+  grid-column: 1;
+  grid-row: 2;
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+}
+
+.p-rtr-hero-sub {
+  font-size: clamp(24px, 2vw, 28px);
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--color-navy);
+  padding-bottom: 0.3em;
+  margin-bottom: 0.4em;
+}
+
+.p-rtr-hero .p-rtr-lead {
+  max-width: 520px;
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.9;
+  color: var(--ink);
+  margin-bottom: 3rem;
+}
+
+.p-rtr-hero-lead-strong {
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.9;
+  margin: 0 auto;
+  padding: 1em 1.5em;
+  color: var(--color-navy);
+  background-color: var(--beige);
+  text-align: center;
+  font-family: var(--font-serif);
+  position: relative;
+}
+
+.p-rtr-hero-lead-strong span {
+  font-weight: 600;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+}
+
+.p-rtr-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.p-rtr-hero-interview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 2;
+  grid-row: 2;
+  align-self: end;
+  justify-self: end;
+  width: 100%;
+  max-width: 480px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.p-rtr-hero-interview::before {
+  content: "";
+  position: absolute;
+  inset: -20px -20px 20px 20px;
+  border: 1px solid rgba(184, 134, 47, 0.2);
+  border-radius: 50% 50% 12px 12px;
+  transform: none;
+}
+
+.p-rtr-hero-visual-img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 48% 48% 12px 12px;
+  box-shadow: 0 16px 36px rgba(26, 39, 68, 0.07);
+}
+
+/* =========================================================
+ * セクション1｜共感・問題提起｜.p-rtr-problem-overview / #problem
+ * ========================================================= */
+
+:where(.p-rtr) #problem {
+  padding-top: 4.5rem;
+  padding-bottom: 5.125rem;
+}
+
+.p-rtr-problem-overview {
+  padding: 6rem 0 6.625rem;
+  padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
+  background: var(--soft);
+  position: relative;
+}
+
+.p-rtr-problem-overview::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(1180px, calc(100% - 64px));
+  transform: translateX(-50%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold2), transparent);
+  opacity: .35;
+}
+
+#problem.p-rtr-problem-overview {
+  padding: 5.5rem 0 5.75rem;
+}
+
+.p-rtr-problem-intro-compact {
+  margin: 0 0 2.125rem;
+}
+
+.p-rtr-problem-intro-content {
+  max-width: 820px;
+}
+
+.p-rtr-problem-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0;
+  padding: 2rem 0;
+  gap: 1rem;
+}
+
+.p-rtr-problem-card h3 {
+  margin: 0 0 0.8em;
+  padding-bottom: 0.3em;
+  color: var(--ink);
+  font-size: 1.3rem;
+  position: relative;
+}
+
+.p-rtr-problem-card {
+  overflow: hidden;
+  padding: 1.875rem 1.5rem;
+  background: var(--color-white);
+  position: relative;
+}
+
+.p-rtr-problem-card h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 3rem;
+  height: 1px;
+  background: var(--gold);
+}
+
+.p-rtr-problem-card p {
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
+  line-height: 1.7;
+  opacity: .78;
+  font-size: 1.0625rem;
+}
+
+.p-rtr-text-close {
+  max-width: 900px;
+  margin: 3rem auto 0;
+  padding: 0.9em 0.5em;
+  border-top: 0.5px solid var(--gold);
+  border-bottom: 0.5px solid var(--gold);
+  text-align: center;
+  background: var(--beige);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 1.56rem;
+  font-weight: 700;
+}
+
+.p-rtr-problem-close strong {
+  color: var(--gold);
+  font-size: 1.1em;
+}
+
+/* =========================================================
+ * セクション2｜問題の再定義｜.p-rtr-section / #concept
+ * ========================================================= */
+
+.p-rtr-concept-heading {
+  max-width: 1050px;
+}
+
+.p-rtr-concept-heading em {
+  padding: 0 1em;
+  color: var(--orange2);
+}
+
+.p-rtr-concept-layout {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 4.375rem;
+  align-items: center;
+  padding-top: 3rem;
+}
+
+.p-rtr-concept-copy p {
+  padding-bottom: 2rem;
+}
+
+.p-rtr-concept-copy__last {
+  font-size: 1.3rem;
+  font-family: var(--font-serif);
+  padding: 2rem 0 0;
+  border-top: 0.2px solid var(--gold);
+}
+
+.p-rtr-concept-copy p strong {
+  color: var(--gold);
+  font-size: 1.2em;
+}
+
+.p-rtr-relation-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.p-rtr-compare-panel span {
+  color: var(--navy-text);
+  font-size: 1rem;
+  letter-spacing: .15em;
+  font-family: var(--font-serif);
+  font-weight: 700;
+}
+
+.p-rtr-compare-panel h3 {
+  font-size: 1.375rem;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.p-rtr-compare-panel h3 b {
+  font-size: 1.1em;
+}
+
+.p-rtr-compare-panel p {
+  color: #6b767e;
+  font-size: 1.0625rem;
+  padding: 0;
+  text-align: left;
+}
+
+.p-rtr-compare-panel {
+  border-radius: 8px;
+  box-shadow: 0 8px 28px rgba(44, 62, 80, .035);
+  min-height: 310px;
+  padding: 1.875rem 1.5rem;
+  border: 1px solid #e2dfd9;
+  background: var(--color-white);
+  text-align: center;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.p-rtr-panel {
+  border-color: var(--gold);
+}
+
+.p-rtr-panel span {
+  color: var(--orange2);
+}
+
+.p-rtr-panel p {
+  color: var(--ink);
+}
+
+.p-rtr-compare-visual {
+  width: 100%;
+  background: var(--color-white);
+  padding: 2rem 0;
+}
+
+.p-rtr-compare-visual img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================================================
+ * セクション3｜RTRとは｜.p-rtr-brand-section / #about
+ * ========================================================= */
+
+:where(.p-rtr) #about h2 {
+  margin: 0 0 2rem;
+  font-size: 2.5rem;
+  line-height: 1.45;
+  font-weight: 500;
+  letter-spacing: .02em;
+  color: var(--color-white);
+}
+
+.p-rtr-brand-section .p-rtr-eyebrow {
+  margin-bottom: 1.5rem;
+}
+
+.p-rtr-brand-section {
+  position: relative;
+  overflow: hidden;
+}
+
+#about.p-rtr-brand-section {
+  padding-block: 5rem;
+}
+
+.p-rtr-brand-center {
+  max-width: 840px;
+  position: relative;
+  text-align: center;
+}
+
+.p-rtr-brand-cycle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 150px;
+  height: 150px;
+  color: var(--gold);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.p-rtr-brand-cycle svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.p-rtr-cycle-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 0.5;
+  vector-effect: non-scaling-stroke;
+  marker-end: url(#cycle-arrow);
+}
+
+.p-rtr-brand-wrap {
+  position: relative;
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.p-rtr-brand-mark {
+  font-family: Georgia, serif;
+  margin: 0 0 2rem;
+  font-size: 7.625rem;
+  line-height: .9;
+  letter-spacing: .08em;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.p-rtr-brand-mark span {
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  margin-left: -3rem;
+}
+
+.p-rtr-brand-mark span.cycle {
+  margin-left: -1rem;
+}
+
+.p-rtr-centered {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.p-rtr-brand-section .p-rtr-lead.p-rtr-centered {
+  max-width: 840px;
+  margin: 0 auto;
+  font-size: 1.0625rem;
+  line-height: 2.2;
+  color: rgba(255, 255, 255, .82);
+}
+
+.p-rtr-brand-definition {
+  max-width: 760px;
+  margin: 0 auto;
+  padding-top: 1.5625rem;
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: var(--orange-soft);
+}
+
+.p-rtr-brand-definition strong {
+  color: var(--color-orange);
+}
+
+/* =========================================================
+ * セクション4｜ヒトコ紹介｜.p-rtr-hitoko-section / #hitoko
+ * ========================================================= */
+
+#hitoko .p-rtr-section-heading>span {
+  display: block;
+  padding: 0;
+}
+
+.p-rtr-hitoko-section {
+  padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
+  position: relative;
+  padding: 6.25rem 0;
+  overflow: hidden;
+  background: var(--soft);
+  color: #35434c;
+}
+
+.p-rtr-hitoko-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(1180px, calc(100% - 64px));
+  transform: translateX(-50%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold2), transparent);
+  opacity: .35;
+}
+
+.p-rtr-hitoko-grid {
+  display: grid;
+  grid-template-columns: .92fr 1.08fr;
+  align-items: self-start;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.p-rtr-light {
+  color: var(--gold2);
+}
+
+.p-rtr-hitoko-section .p-rtr-section-heading-light {
+  color: var(--ink);
+}
+
+.p-rtr-hitoko-section .p-rtr-light-text {
+  color: var(--navy-text);
+  padding: 2rem 0;
+}
+
+.p-rtr-light-text {
+  color: #35434c;
+}
+
+.p-rtr-hitoko-quotes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.3em;
+  margin: 1.5rem 0 0;
+  font-size: 1.125rem;
+  color: var(--ink);
+  font-family: var(--font-serif);
+}
+
+.p-rtr-hitoko-quotes span {
+  background: var(--beige);
+  color: var(--ink);
+}
+
+.p-rtr-hitoko-close {
+  border-top: .2px solid var(--gold);
+  padding-top: 2rem;
+  font-size: 1.1rem;
+}
+
+.p-rtr-hitoko-emphasis {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.p-rtr-hitoko-emphasis span {
+  color: var(--gold);
+  font-size: 1.1em;
+  letter-spacing: 0.1em;
+}
+
+.p-rtr-system-showcase {
+  position: relative;
+}
+
+.p-rtr-system-window img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--color-white);
+  padding-top: 1.25rem;
+}
+
+.p-rtr-system-window {
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--color-white);
+  border: 1px solid rgba(44, 62, 80, .12);
+  padding: 0.9375rem;
+}
+
+.p-rtr-system-window-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 44px;
+  padding: 0 1rem;
+  color: var(--color-white);
+  background: var(--color-white);
+  border-bottom: 1px solid rgba(44, 62, 80, .08);
+}
+
+.p-rtr-window-dots {
+  display: flex;
+  gap: 0.375rem;
+}
+
+.p-rtr-window-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c8cdd1;
+}
+
+.p-rtr-window-dots span:first-child {
+  background: #d5a36a;
+}
+
+.p-rtr-window-dots span:nth-child(2) {
+  background: #d7bf8d;
+}
+
+.p-rtr-window-dots span:last-child {
+  background: #a8b7bf;
+}
+
+.p-rtr-system-label {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  color: #6f7880;
+}
+
+#hitoko .p-rtr-brace-ttl {
+  text-align: right;
+}
+
+/* =========================================================
+ * セクション5｜RTRの仕組み｜.p-rtr-section / #cycle
+ * ========================================================= */
+
+.p-rtr-flow-summary {
+  padding-top: 3rem;
+}
+
+.p-rtr-flow-head {
+  max-width: 800px;
+  margin: 0 auto 2.125rem;
+  text-align: center;
+}
+
+h3.p-rtr-brace-ttl {
+  margin: 0 0 1rem 1em;
+  font-size: 1.6875rem;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+}
+
+h3.p-rtr-brace-ttl::before,
+h3.p-rtr-brace-ttl::after {
+  position: absolute;
+  width: 0.5em;
+  height: 1em;
+  content: '';
+}
+
+h3.p-rtr-brace-ttl::before {
+  border-left: solid 1px var(--gold);
+  border-top: solid 1px var(--gold);
+  top: 0;
+  left: -0.8em;
+}
+
+h3.p-rtr-brace-ttl::after {
+  border-right: solid 1px var(--gold);
+  border-bottom: solid 1px var(--gold);
+  bottom: 0;
+  right: -0.5em;
+}
+
+.p-rtr-flow-head p {
+  margin: 0;
+  color: var(--navy-text);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.p-rtr-flow-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 3rem 1.75rem;
+}
+
+.p-rtr-flow-steps>article {
+  position: relative;
+  min-width: 0;
+  text-align: center;
+}
+
+/* 01〜04を結ぶライン */
+
+.p-rtr-flow-steps>article:nth-child(-n+3)::before {
+  content: "";
+  position: absolute;
+  top: 26px;
+  left: 50%;
+  width: calc(100% + 1.75rem);
+  height: 1px;
+  background: var(--gold);
+  opacity: .45;
+}
+
+.p-rtr-flow-steps>article:nth-child(-n+3)::after {
+  content: "›";
+  position: absolute;
+  top: 16px;
+  right: -1.125rem;
+  color: var(--gold);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.p-rtr-flow-number {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 1.25rem;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  background: var(--color-white);
+  color: var(--gold);
+  font-size: 1.125rem;
+  font-family: var(--font-serif);
+}
+
+.p-rtr-flow-image {
+  display: block;
+  width: 100%;
+  height: 160px;
+  margin: 0 auto 1.25rem;
+  object-fit: contain;
+}
+
+.p-rtr-flow-steps .p-rtr-flow-title {
+  display: inline-block;
+  color: var(--color-navy);
+  border-bottom: 1px solid var(--gold-back);
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  line-height: 1.65;
+  padding: 0.5em 1em;
+}
+
+.p-rtr-flow-steps p {
+  margin: 0;
+  padding: 1rem 0 0;
+  color: var(--navy-text);
+  font-size: 1rem;
+  line-height: 1.9;
+  text-align: left;
+}
+
+/* 04の下中央から05を経て01の下中央へ戻る */
+
+.p-rtr-flow-steps>.p-rtr-flow-cycle {
+  grid-column: 1 / -1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.p-rtr-flow-return {
+  position: absolute;
+  top: -3rem;
+  left: calc((100% - 5.25rem) / 8);
+  width: calc(100% - (100% - 5.25rem) / 4);
+  height: calc(3rem + 26px);
+  overflow: visible;
+  pointer-events: none;
+  color: var(--gold);
+}
+
+.p-rtr-flow-return>path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.p-rtr-flow-cycle-image {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin: 0 auto 1.25rem;
+  order: 2;
+  margin-top: 1.25rem;
+}
+
+.p-rtr-flow-cycle .p-rtr-flow-title {
+  order: 1;
+}
+
+.p-rtr-flow-cycle p {
+  max-width: 640px;
+  text-align: center;
+  order: 3;
+}
+
+/* 下段：循環の中でヒトコが拾う兆し */
+
+.p-rtr-signal-explanation {
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.p-rtr-signal-description {
+  margin: 0;
+  padding: 0;
+  color: var(--navy-text);
+  font-size: 1rem;
+  line-height: 1.9;
+  text-align: center;
+}
+
+.p-rtr-relationship-signal-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  align-items: stretch;
+  padding-top: 2.125rem;
+}
+
+.p-rtr-signal-side {
+  position: relative;
+  padding: 1.5rem 1.375rem;
+  text-align: left;
+}
+
+.p-rtr-signal-side::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-top: 2rem solid transparent;
+  border-bottom: 2rem solid transparent;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.p-rtr-signal-side .p-rtr-signal-kicker {
+  display: block;
+  margin-bottom: 0.4375rem;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+.p-rtr-signal-title {
+  display: block;
+  margin-bottom: 1.125rem;
+  color: var(--ink);
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: var(--font-serif);
+}
+
+.p-rtr-signal-side>div {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.p-rtr-signal-item {
+  padding: 0.8em 1em;
+  background: rgba(255, 255, 255, .72);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.p-rtr-signal-good {
+  background: #eef8f6;
+  text-align: right;
+}
+
+.p-rtr-signal-good>div {
+  justify-content: flex-end;
+}
+
+.p-rtr-signal-good .p-rtr-signal-item::before {
+  left: auto;
+  right: 11px;
+}
+
+.p-rtr-signal-good::after {
+  right: -30px;
+  border-left: 2rem solid #eef8f6;
+}
+
+.p-rtr-signal-good .p-rtr-signal-kicker {
+  color: #277f82;
+}
+
+.p-rtr-signal-good .p-rtr-signal-item {
+  color: #277f82;
+}
+
+.p-rtr-signal-center p {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  margin: 0;
+  text-align: center;
+  color: rgba(44, 62, 80, .68);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.p-rtr-signal-center b {
+  color: var(--teal);
+  font-size: 0.9375rem;
+}
+
+.p-rtr-signal-center {
+  position: relative;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--color-white);
+}
+
+.p-rtr-signal-hitoko {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.p-rtr-signal-center>p {
+  display: none;
+}
+
+.p-rtr-signal-center-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  object-fit: contain;
+}
+
+.p-rtr-signal-alert {
+  background: #fdf3f0;
+  text-align: left;
+}
+
+.p-rtr-signal-alert::after {
+  left: -30px;
+  border-right: 2rem solid #fdf3f0;
+}
+
+.p-rtr-signal-alert .p-rtr-signal-kicker {
+  color: #a74638;
+}
+
+.p-rtr-signal-alert .p-rtr-signal-item {
+  color: #a74638;
+}
+
+.p-rtr-signal-alert>div {
+  justify-content: flex-start;
+}
+
+/* =========================================================
+ * セクション6｜既存手法との比較｜.p-rtr-section / #difference
+ * ========================================================= */
+
+#difference {
+  background-image: linear-gradient(0deg, rgba(255, 145, 0, 0.3), rgba(255, 212, 160, 0.6)), url(../../../public/images/rtr/06-back.jpg);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#difference .p-rtr-section-heading {
+  text-shadow: 0 0 10px rgba(255, 255, 255, .8);
+}
+
+.p-rtr-difference-lead {
+  max-width: 650px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, .8);
+}
+
+.p-rtr-comparison-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 100px minmax(0, 1fr);
+  grid-template-rows: auto repeat(4, minmax(6.5rem, auto));
+  column-gap: 1.75rem;
+  margin-top: 2.625rem;
+  color: var(--color-navy);
+}
+
+.p-rtr-comparison-methods,
+.p-rtr-comparison-relations {
+  display: grid;
+  grid-row: 1 / 6;
+  grid-template-rows: subgrid;
+  min-width: 0;
+  background: rgba(255, 255, 255, .88);
+  padding: 1.5rem;
+}
+
+.p-rtr-comparison-methods {
+  grid-column: 1;
+}
+
+.p-rtr-comparison-heading {
+  margin: 0;
+  padding: 0.5em 0;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--color-navy);
+}
+
+.p-rtr-comparison-method {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid #bbbbbb;
+  min-width: 0;
+}
+
+.p-rtr-comparison-method:first-of-type {
+  border-top-color: #707070;
+}
+
+.p-rtr-comparison-icon {
+  flex: 0 0 1;
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+}
+
+.p-rtr-comparison-name {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.p-rtr-comparison-caption {
+  margin: 0.375rem 0 0;
+  padding: 0;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--navy-text);
+}
+
+.p-rtr-comparison-addition {
+  grid-column: 2;
+  grid-row: 1 / 6;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem 0.75rem;
+  background: #b8862fe1;
+  color: var(--color-white);
+}
+
+.p-rtr-comparison-addition span {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+}
+
+.p-rtr-comparison-relations {
+  grid-column: 3;
+}
+
+.p-rtr-comparison-result {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
+  padding: 2.2em 0 2em 1em;
+  border-top: 1px solid #b69a6996;
+  color: var(--color-navy);
+  position: relative;
+}
+
+.p-rtr-comparison-result:first-of-type {
+  border-top-color: var(--gold);
+}
+
+.p-rtr-comparison-result::before {
+  content: "+";
+  width: 1em;
+  height: 1em;
+  color: var(--gold);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+/* =========================================================
+ * セクション7｜導入・運営伴走｜.p-rtr-section / #coaching
+ * ========================================================= */
+
+.p-rtr-coaching {
+  background: var(--beige);
+}
+
+:where(.p-rtr) #mac a,
+:where(.p-rtr) #mac a:visited {
+  color: var(--teal);
+}
+
+:where(.p-rtr) #mac a:hover {
+  color: #318f93;
+}
+
+.p-rtr-roadmap-intro {
+  margin: 3rem auto 4rem;
+  text-align: center;
+}
+
+.p-rtr-roadmap-intro p {
+  margin: 0;
+  padding: 0;
+  color: var(--navy-text);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.p-rtr-roadmap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 1.75rem;
+  max-width: 900px;
+  margin: 0 auto 4rem;
+}
+
+.p-rtr-roadmap-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr);
+  align-items: center;
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 650px;
+  padding: 2.5rem;
+  background: var(--color-white);
+}
+
+.p-rtr-roadmap-step:nth-of-type(even) {
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, .8fr);
+}
+
+.p-rtr-roadmap-step.p-rtr-left {
+  align-self: flex-start;
+}
+
+.p-rtr-roadmap-step.p-rtr-right {
+  align-self: flex-end;
+}
+
+.p-rtr-roadmap-copy {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+}
+
+.p-rtr-roadmap-step:nth-of-type(even) .p-rtr-roadmap-copy {
+  grid-column: 1;
+}
+
+.p-rtr-roadmap-number {
+  position: absolute;
+  top: -1.3rem;
+  color: #b8862f60;
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  line-height: 1;
+  letter-spacing: .04em;
+  font-style: italic;
+}
+
+.p-rtr-roadmap-title {
+  margin: 0 0 0.875rem;
+  color: var(--color-navy);
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.6;
+  padding-bottom: 0.3em;
+  position: relative;
+}
+
+.p-rtr-roadmap-title::after {
+  content: "";
+  background: var(--gold);
+  width: 3rem;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.p-rtr-roadmap-copy p {
+  margin: 0;
+  padding: 0;
+  color: var(--navy-text);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.p-rtr-roadmap-image {
+  grid-column: 1;
+  grid-row: 1;
+  display: block;
+  max-width: 120px;
+  object-fit: cover;
+  justify-self: center;
+}
+
+.p-rtr-roadmap-step:nth-of-type(even) .p-rtr-roadmap-image {
+  grid-column: 2;
+}
+
+.p-rtr-roadmap-chevron {
+  display: block;
+  width: 160px;
+  height: 24px;
+  color: var(--gold);
+  opacity: .6;
+}
+
+.p-rtr-roadmap-chevron path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.p-rtr-coaching-close {
+  margin-top: 2.625rem;
+  padding: 1.75rem 2rem;
+  text-align: center;
+  color: var(--ink);
+  background: var(--color-white);
+  border-top: 1px solid var(--gold2);
+  border-bottom: 1px solid var(--gold2);
+}
+
+.p-rtr-coaching-close p {
+  margin: 0 0 0.5rem;
+  color: #66737d;
+}
+
+.p-rtr-coaching-close strong {
+  font-size: clamp(21px, 2.2vw, 28px);
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--ink);
+  font-family: var(--font-serif);
+}
+
+/* =========================================================
+ * セクション8｜導入効果｜.p-rtr-section / #effects
+ * ========================================================= */
+
+.p-rtr-effects {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: auto minmax(120px, auto) auto;
+  gap: 2rem 2.5rem;
+  margin-top: 3rem;
+}
+
+.p-rtr-effects-center {
+  grid-column: 3 / 5;
+  grid-row: 2;
+  align-self: center;
+  justify-self: center;
+  position: relative;
+  z-index: 1;
+}
+
+.p-rtr-effects-center-ttl {
+  position: relative;
+  z-index: 2;
+  padding: 1rem;
+  line-height: 1;
+  background: var(--color-white);
+  color: var(--color-navy);
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 600;
+  text-align: center;
+}
+
+.p-rtr-effects-center-text {
+  background-color: var(--color-white);
+  text-align: center;
+}
+
+.p-rtr-effects-image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 180px;
+  aspect-ratio: 4 / 3;
+  margin: 0 auto -1rem;
+}
+
+.p-rtr-effects-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.p-rtr-effects-connections {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  position: absolute;
+  z-index: 0;
+  top: -9rem;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 4rem);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.p-rtr-effects-connections path {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 2;
+  stroke-dasharray: 2 6;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  opacity: .7;
+}
+
+.p-rtr-effects-item {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  text-align: center;
+}
+
+.p-rtr-effects-item--1 {
+  grid-column: 1 / 4;
+  grid-row: 1;
+}
+
+.p-rtr-effects-item--2 {
+  grid-column: 4 / 7;
+  grid-row: 1;
+}
+
+.p-rtr-effects-item--3 {
+  grid-column: 1 / 3;
+  grid-row: 3;
+}
+
+.p-rtr-effects-item--4 {
+  grid-column: 3 / 5;
+  grid-row: 3;
+}
+
+.p-rtr-effects-item--5 {
+  grid-column: 5 / 7;
+  grid-row: 3;
+}
+
+.p-rtr-effects-title {
+  display: inline-block;
+  padding: 0.5em 1em;
+  line-height: 1.3;
+  color: var(--color-navy);
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--gold-back);
+  font-size: 1.4rem;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
+}
+
+.p-rtr-effects-item p {
+  max-width: 280px;
+  margin: 0 auto;
+  padding: 0.5em 0;
+  color: var(--navy-text);
+  font-size: 1rem;
+  line-height: 1.9;
+  background-color: var(--color-white);
+}
+
+/* =========================================================
+ * セクション9｜背景・信頼形成｜.p-rtr-section / #background
+ * ========================================================= */
+
+.p-rtr-background-inner {
+  max-width: 1100px;
+}
+
+.p-rtr-background-heading {
+  color: var(--color-white);
+}
+
+.p-rtr-background-lead {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  color: var(--color-white);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.p-rtr-heritage {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  list-style: none;
+  margin: 5rem 0 0;
+  padding: 0;
+}
+
+.p-rtr-heritage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12.5%;
+  right: 12.5%;
+  height: 1px;
+  background: var(--gold);
+}
+
+.p-rtr-heritage-step {
+  position: relative;
+  min-width: 0;
+  padding: 3rem 0.75rem 0;
+  text-align: center;
+}
+
+.p-rtr-heritage-step::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 28px;
+  background: var(--gold);
+}
+
+.p-rtr-heritage-step::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  transform: translate(-50%, -50%);
+}
+
+.p-rtr-heritage-title {
+  margin: 0 0 1rem;
+  color: var(--color-white);
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.p-rtr-heritage-step--mac .p-rtr-heritage-title {
+  color: var(--teal);
+}
+
+.p-rtr-heritage-step--method .p-rtr-heritage-title {
+  color: var(--color-orange);
+}
+
+.p-rtr-heritage-step--rtr .p-rtr-heritage-title {
+  color: var(--gold);
+}
+
+.p-rtr-heritage-step--rtr::after {
+  width: 13px;
+  height: 13px;
+}
+
+.p-rtr-heritage-description {
+  margin: 0;
+  padding: 0;
+  color: var(--color-white);
+  font-size: 0.9375rem;
+  line-height: 1.9;
+}
+
+.p-rtr-background-closing {
+  padding: 4rem 0 0;
+  color: var(--gold2);
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  line-height: 1.9;
+  text-align: center;
+}
+
+/* =========================================================
+ * セクション10｜お問い合わせ｜.p-rtr-contact / #contact
+ * ========================================================= */
+
+.p-rtr-contact {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 8rem 0;
+  text-align: center;
+  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3)), url(../../../public/images/rtr/back-img1.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.p-rtr-contact-inner {
+  position: relative;
+}
+
+.p-rtr-contact-heading {
+  margin: 0 0 2rem;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.7;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.p-rtr-contact-copy {
+  margin: 0 0 4rem;
+  padding: 0;
+  font-size: 1.2rem;
+  line-height: 2.2;
+  color: var(--navy-text);
+}
+
+.p-rtr-contact-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin: 0 auto;
+}
+
+/* =========================================================
+ * レスポンシブ
+ * ========================================================= */
+
+@media (max-width: 1345px) {
+
+  /* ファーストビュー｜.p-rtr-hero / #top */
+  .p-rtr-hero-visual-img {
+    max-width: 85%;
+  }
+}
+
+@media screen and (max-width:1150px) {
+
+  /* セクション5｜RTRの仕組み｜.p-rtr-section / #cycle */
+  .p-rtr-flow-steps {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4rem;
+  }
+
+  .p-rtr-flow-steps article {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 700px;
+    gap: 1rem;
+    margin: auto;
+  }
+
+  .p-rtr-flow-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .p-rtr-flow-number {
+    flex-shrink: 0;
+    margin: 0 auto;
+  }
+
+  .p-rtr-flow-image {
+    max-width: 180px;
+    margin: 0 auto;
+    width: unset;
+  }
+
+  .p-rtr-flow-cycle p {
+    text-align: left;
+  }
+
+  .p-rtr-flow-steps>article:nth-child(-n+3)::before,
+  .p-rtr-flow-steps>article:nth-child(-n+3)::after,
+  .p-rtr-flow-return {
+    display: none;
+  }
+
+  .p-rtr-flow-cycle-image {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .p-rtr-flow-steps>.p-rtr-flow-cycle p {
+    margin: 0;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 1040px) {
+
+  /* セクション1｜共感・問題提起｜.p-rtr-problem-overview / #problem */
+  .p-rtr-problem-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 960px) {
+  .p-rtr-flow-cycle-image {
+    order: 0;
+    margin-top: 0;
+  }
+
+  .p-rtr-flow-cycle p {
+    order: 0;
+  }
+
+  .p-rtr-flow-cycle .p-rtr-flow-title {
+    order: 0;
+  }
+
+  /* セクション9｜背景・信頼形成｜.p-rtr-section / #background */
+  .p-rtr-heritage {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 3rem;
+  }
+
+  .p-rtr-heritage::before {
+    top: 12px;
+    bottom: 12px;
+    left: 6px;
+    right: auto;
+    width: 1px;
+    height: auto;
+  }
+
+  .p-rtr-heritage-step {
+    padding: 0 0 3rem 2.75rem;
+    text-align: left;
+  }
+
+  .p-rtr-heritage-step:last-child {
+    padding-bottom: 0;
+  }
+
+  .p-rtr-heritage-step::before {
+    top: 12px;
+    left: 6px;
+    width: 22px;
+    height: 1px;
+  }
+
+  .p-rtr-heritage-step::after {
+    top: 12px;
+    left: 6px;
+  }
+
+  .p-rtr-background-closing {
+    margin-top: 2.5rem;
+    text-align: left;
+  }
+}
+
+@media (max-width: 900px) {
+
+  /* 色変数 → 共通設定 → セクション順。 */
+  :where(.p-rtr) h2 {
+    font-size: 2rem;
+  }
+
+  /* セクション3｜RTRとは｜.p-rtr-brand-section / #about */
+  :where(.p-rtr) #about h2 {
+    font-size: 2.1875rem;
+  }
+
+  /* ファーストビュー｜.p-rtr-hero / #top */
+  .p-rtr-hero-grid {
+    width: calc(100% - 48px);
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+    align-content: center;
+  }
+
+  .p-rtr-hero__heading {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .p-rtr-hero-copy {
+    order: 3;
+    text-align: center;
+  }
+
+  .p-rtr-hero-copy {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .p-rtr-hero .p-rtr-lead {
+    max-width: 100%;
+  }
+
+  .p-rtr-hero-interview {
+    order: 2;
+    grid-column: 1;
+    grid-row: auto;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .p-rtr-hero-visual-img {
+    max-width: 100%;
+  }
+
+  .p-rtr-hero-actions {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .p-rtr-hero-lead-strong {
+    font-size: clamp(19px, 28/750*100vw, 28px);
+    padding: 1em 0.5em;
+  }
+
+  /* 色変数 → 共通設定 → セクション順。 */
+  .p-rtr-section-heading {
+    font-size: 2rem;
+  }
+
+  /* セクション1｜共感・問題提起｜.p-rtr-problem-overview / #problem */
+  .p-rtr-problem-cards {
+    grid-template-columns: 1fr;
+    place-items: center;
+  }
+
+  .p-rtr-problem-card {
+    width: 550px;
+  }
+
+  .p-rtr-problem-close {
+    font-size: 1.35rem;
+  }
+
+  /* セクション2｜問題の再定義｜.p-rtr-section / #concept */
+  .p-rtr-concept-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* セクション3｜RTRとは｜.p-rtr-brand-section / #about */
+  #about.p-rtr-brand-section {
+    padding-block: 5.125rem 5.25rem;
+  }
+
+  .p-rtr-brand-mark {
+    font-size: 6rem;
+  }
+
+  .p-rtr-brand-section .p-rtr-lead.p-rtr-centered {
+    max-width: 760px;
+    font-size: 1rem;
+    line-height: 2.05;
+  }
+
+  /* セクション4｜ヒトコ紹介｜.p-rtr-hitoko-section / #hitoko */
+  .p-rtr-hitoko-grid {
+    grid-template-columns: 1fr;
+    display: block;
+  }
+
+  /* セクション5｜RTRの仕組み｜.p-rtr-section / #cycle */
+  h3.p-rtr-brace-ttl {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* セクション1｜共感・問題提起｜.p-rtr-problem-overview / #problem */
+  :where(.p-rtr) #problem {
+    padding-top: 3.625rem;
+    padding-bottom: 4rem;
+  }
+
+  /* ファーストビュー｜.p-rtr-hero / #top */
+  .p-rtr-hero h1 {
+    font-size: clamp(20px, 6vw, 36px);
+  }
+
+  /* 色変数 → 共通設定 → セクション順。 */
+  .p-rtr-wrap {
+    width: min(100% - 36px, 1180px);
+  }
+
+  /* セクション1｜共感・問題提起｜.p-rtr-problem-overview / #problem */
+  .p-rtr-problem-intro-compact {
+    margin-bottom: 1.75rem;
+  }
+
+  /* 色変数 → 共通設定 → セクション順。 */
+  .p-rtr-section-heading>span {
+    text-wrap: balance;
+  }
+
+  .p-rtr-section-heading {
+    letter-spacing: .015em;
+    font-size: clamp(26px, 32/750*100vw, 32px);
+  }
+
+  h3.p-rtr-brace-ttl {
+    margin: 0 0.5em 1em 0.5em;
+  }
+
+  /* セクション1｜共感・問題提起｜.p-rtr-problem-overview / #problem */
+  .p-rtr-problem-cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* セクション2｜問題の再定義｜.p-rtr-section / #concept */
+  .p-rtr-concept-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .p-rtr-relation-compare {
+    grid-template-columns: 1fr;
+    place-items: center;
+  }
+
+  .p-rtr-compare-panel {
+    width: 80%;
+  }
+
+  .p-rtr-compare-visual img {
+    width: 80%;
+    margin: auto;
+  }
+
+  /* セクション4｜ヒトコ紹介｜.p-rtr-hitoko-section / #hitoko */
+  .p-rtr-hitoko-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* セクション5｜RTRの仕組み｜.p-rtr-section / #cycle */
+  .p-rtr-relationship-signal-visual {
+    grid-template-columns: 1fr;
+  }
+
+  #hitoko .p-rtr-brace-ttl {
+    text-align: center;
+  }
+
+  .p-rtr-signal-side .p-rtr-signal-kicker,
+  .p-rtr-signal-title {
+    text-align: center;
+  }
+
+  .p-rtr-signal-good>div,
+  .p-rtr-signal-alert>div {
+    justify-content: center;
+  }
+
+  .p-rtr-signal-good,
+  .p-rtr-signal-alert {
+    text-align: center;
+    margin: auto;
+    padding: 2rem 3rem;
+  }
+
+  .p-rtr-signal-side::after {
+    top: auto;
+    bottom: -45px;
+    transform: translateX(-50%) rotate(90deg);
+  }
+
+  .p-rtr-signal-good::after {
+    right: auto;
+    left: 50%;
+  }
+
+  .p-rtr-signal-alert::after {
+    top: -45px;
+    bottom: auto;
+    left: 50%;
+  }
+
+  .p-rtr-signal-item {
+    padding: .5rem 1rem;
+    text-align: center;
+  }
+
+  .p-rtr-signal-center {
+    min-height: auto;
+    padding: 0.5rem 0;
+  }
+
+  .p-rtr-signal-center-image {
+    max-height: none;
+    max-width: 300px;
+  }
+
+
+  /* セクション6｜既存手法との比較｜.p-rtr-section / #difference */
+  .p-rtr-comparison-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 500px;
+    margin: 3rem auto 0;
+  }
+
+  .p-rtr-comparison-methods,
+  .p-rtr-comparison-addition,
+  .p-rtr-comparison-relations {
+    width: 100%;
+  }
+
+  .p-rtr-comparison-addition span {
+    writing-mode: horizontal-tb;
+  }
+
+
+  /* セクション7｜導入・運営伴走｜.p-rtr-section / #coaching */
+  .p-rtr-roadmap-intro,
+  .p-rtr-roadmap {
+    width: 100%;
+  }
+
+  .p-rtr-roadmap-step {
+    padding: 2.5rem 2rem;
+    gap: 1.5rem;
+  }
+
+  .p-rtr-coaching-close {
+    padding: 1.5rem 1.125rem;
+  }
+
+  /* セクション8｜導入効果｜.p-rtr-section / #effects */
+  .p-rtr-effects {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .p-rtr-effects-center {
+    align-self: center;
+    padding: 0;
+    background: none;
+  }
+
+  .p-rtr-effects-connections {
+    display: none;
+  }
+
+  .p-rtr-effects-image {
+    max-width: 160px;
+  }
+
+  /* セクション10｜お問い合わせ｜.p-rtr-contact / #contact */
+  .p-rtr-contact {
+    padding: 6rem 0;
+  }
+
+  .p-rtr-contact::before {
+    background-size: auto 100%;
+    background-position: 62% center;
+  }
+
+  .p-rtr-contact-heading {
+    font-size: 1.75rem;
+  }
+
+  .p-rtr-contact-copy {
+    font-size: .9375rem;
+  }
+
+  .p-rtr-contact-actions .p-rtr-button {
+    width: 100%;
+    max-width: 420px;
+    padding: 1.125rem .75rem;
+    font-size: .9375rem;
+  }
+}
+
+@media (max-width: 640px) {
+
+  /* セクション1｜共感・問題提起｜.p-rtr-problem-overview / #problem */
+  #problem.p-rtr-problem-overview {
+    padding: 4rem 0 4.375rem;
+  }
+
+  /* 色変数 → 共通設定 → セクション順。 */
+  :where(.p-rtr) h2 {
+    font-size: 1.6875rem;
+  }
+
+  /* セクション3｜RTRとは｜.p-rtr-brand-section / #about */
+  :where(.p-rtr) #about h2 {
+    margin-bottom: 1.5rem;
+    line-height: 1.55;
+  }
+
+  /* 色変数 → 共通設定 → セクション順。 */
+  .p-rtr-wrap {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .p-rtr-lead {
+    font-size: 1.25rem;
+  }
+
+  /* ファーストビュー｜.p-rtr-hero / #top */
+  .p-rtr-hero-lead-strong br {
+    display: none;
+  }
+
+  /* セクション1｜共感・問題提起｜.p-rtr-problem-overview / #problem */
+  .p-rtr-problem-card {
+    width: 100%;
+  }
+
+  .p-rtr-problem-card h3 {
+    font-size: 1.125rem;
+  }
+
+  .p-rtr-problem-close {
+    font-size: clamp(18px, 22/620*100vw, 22px);
+  }
+
+  /* 色変数 → 共通設定 → セクション順。 */
+  .p-rtr-section {
+    padding: 4.875rem 0;
+  }
+
+  /* セクション2｜問題の再定義｜.p-rtr-section / #concept */
+  .p-rtr-concept-layout {
+    gap: 2.25rem;
+  }
+
+  .p-rtr-relation-compare {
+    grid-template-columns: 1fr;
+  }
+
+  .p-rtr-compare-panel {
+    min-height: 280px;
+  }
+
+  /* セクション3｜RTRとは｜.p-rtr-brand-section / #about */
+
+
+
+  .p-rtr-brand-section .p-rtr-lead.p-rtr-centered {
+    max-width: none;
+    text-align: left;
+    font-size: 0.9375rem;
+    line-height: 1.95;
+  }
+
+  .p-rtr-brand-definition {
+    margin-top: 2rem;
+    padding-top: 1.375rem;
+    font-size: 1.6875rem;
+    text-align: center;
+  }
+
+  /* セクション4｜ヒトコ紹介｜.p-rtr-hitoko-section / #hitoko */
+  .p-rtr-hitoko-section {
+    padding: 5.125rem 0;
+  }
+
+  /* セクション5｜RTRの仕組み｜.p-rtr-section / #cycle */
+  h3.p-rtr-brace-ttl {
+    font-size: 1.4375rem;
+  }
+
+  /* セクション4｜ヒトコ紹介｜.p-rtr-hitoko-section / #hitoko */
+  .p-rtr-system-window {
+    border-radius: 18px;
+  }
+
+  /* セクション5｜RTRの仕組み｜.p-rtr-section / #cycle */
+  .p-rtr-signal-explanation {
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+  }
+}
+
+
+@media (max-width: 550px) {
+
+  .p-rtr-concept-copy {
+    text-align: center;
+  }
+
+  /* セクション3｜RTRとは｜.p-rtr-brand-section / #about */
+  .p-rtr-brand-mark {
+    flex-direction: column;
+  }
+
+  .p-rtr-brand-mark span {
+    margin-left: 4rem;
+    margin-top: -5rem;
+  }
+
+  .p-rtr-brand-mark span:nth-of-type(3) {
+    margin-left: 8.5rem;
+  }
+
+  .p-rtr-brand-mark span.cycle {
+    margin: 1rem auto 0;
+  }
+
+  .p-rtr-brand-cycle {
+    right: auto;
+    left: 50%;
+    bottom: -75px;
+    transform: translate(-50%, -50%);
+  }
+
+  .p-rtr-brand-wrap {
+    margin-bottom: 2rem;
+  }
+
+  .p-rtr-hitoko-emphasis {
+    font-size: clamp(18px, 25/550*100vw, 25px);
+  }
+
+  /* セクション5｜RTRの仕組み｜.p-rtr-section / #cycle */
+
+  .p-rtr-flow-steps article {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .p-rtr-flow-text {
+    align-items: center;
+  }
+
+  .p-rtr-flow-steps p {
+    text-align: center;
+  }
+
+  .p-rtr-roadmap-step,
+  .p-rtr-roadmap-step:nth-of-type(even) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .p-rtr-roadmap-copy,
+  .p-rtr-roadmap-step:nth-of-type(even) .p-rtr-roadmap-copy {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .p-rtr-roadmap-image,
+  .p-rtr-roadmap-step:nth-of-type(even) .p-rtr-roadmap-image {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .p-rtr-roadmap-image {
+    justify-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* ファーストビュー｜.p-rtr-hero / #top */
+  .p-rtr-hero-grid {
+    width: calc(100% - 40px);
+  }
+
+  .p-rtr-hero-sub {
+    font-size: 1.125rem;
+  }
+
+  .p-rtr-hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .p-rtr-hero .p-rtr-lead br {
+    display: none;
+  }
+
+  /* セクション2｜問題の再定義｜.p-rtr-section / #concept */
+  .p-rtr-compare-panel,
+  .p-rtr-compare-visual img {
+    width: 100%;
+  }
+
+  .p-rtr-signal-good,
+  .p-rtr-signal-alert {
+    padding: 2rem;
+  }
+
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  /* 色変数 → 共通設定 → セクション順。 */
+  .p-rtr {
+    scroll-behavior: auto;
+  }
+
+  .p-rtr-button::before {
+    transition: none;
+  }
+}

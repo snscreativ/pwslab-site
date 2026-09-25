@@ -1,0 +1,29 @@
+.c-scroll-reveal {
+  --reveal-distance: 24px;
+  --reveal-duration: 0.7s;
+  opacity: 1;
+  translate: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-scroll-reveal {
+    transition: opacity var(--reveal-duration) ease,
+      translate var(--reveal-duration) ease;
+  }
+
+  .c-scroll-reveal[data-reveal="pending"] {
+    opacity: 0;
+    translate: 0 var(--reveal-distance);
+  }
+
+  .c-scroll-reveal[data-reveal="visible"] {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.c-scroll-reveal:focus-within {
+  opacity: 1;
+  translate: none;
+  transition: none;
+}

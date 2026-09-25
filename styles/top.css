@@ -4,7 +4,7 @@
 
 /*============= hero ==============*/
 .p-top-hero {
-  padding: 7.5rem 8vw 0;
+  padding: 4rem 8vw 0;
 }
 
 .p-top-hero__block {
@@ -196,6 +196,131 @@ p.p-top-philosophy__highlight {
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   align-items: stretch;
+  margin-bottom: 4rem;
+}
+
+.p-top-services__links {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2rem;
+  padding-block: 4rem 1.25rem;
+  border-top: 1px solid var(--color-navy);
+}
+
+.p-top-services__pickup {
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  transform: translateY(-50%);
+  padding-inline: .75rem;
+  background: var(--color-gray-bg);
+  color: var(--color-orange);
+  font-size: .875rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+}
+
+.p-top-services__link,
+.p-top-services__upcoming {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  min-width: 0;
+  padding: 1.5rem;
+  background: var(--color-white);
+  color: var(--color-navy);
+  text-align: left;
+}
+
+.p-top-services__upcoming {
+  color: var(--color-text-muted);
+  background-color: var(--color-gray-bg);
+}
+
+/* サービスボックスの左上・右下に添えるゴールドのL字線 */
+.p-top-services__link::before,
+.p-top-services__link::after,
+.p-top-services__upcoming::before,
+.p-top-services__upcoming::after {
+  content: "";
+  position: absolute;
+  width: clamp(2rem, 4vw, 3.5rem);
+  height: clamp(2rem, 4vw, 3.5rem);
+  border-color: var(--color-gold);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.p-top-services__link::before,
+.p-top-services__upcoming::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1px 0 0 1px;
+}
+
+.p-top-services__link::after,
+.p-top-services__upcoming::after {
+  right: -1px;
+  bottom: -1px;
+  border-width: 0 1px 1px 0;
+}
+
+.p-top-services__link {
+  transition: background-color .25s ease;
+}
+
+.p-top-services__link:is(:hover, :focus-visible) {
+  background: color-mix(in srgb, var(--color-orange) 6%, var(--color-white));
+}
+
+.p-top-services__link:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 3px;
+}
+
+.p-top-services__catch {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.p-top-services__summary {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+.p-top-services__name {
+  flex-shrink: 0;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.p-top-services__description {
+  min-width: 0;
+  font-size: .9375rem;
+  line-height: 1.8;
+}
+
+.p-top-services__more {
+  align-self: center;
+  margin-top: auto;
+}
+
+.p-top-services__upcoming-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.p-top-services__status {
+  margin: 0;
+  font-size: .875rem;
 }
 
 .p-top-services__cta {
@@ -244,7 +369,7 @@ p.p-top-philosophy__highlight {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  align-items: start;
+  align-items: center;
 }
 
 .p-top-company__table {
@@ -466,6 +591,7 @@ p.p-top-philosophy__highlight {
 
 
 @media (max-width: 768px) {
+
   .p-top-hero {
     padding: 7.5rem 0 0;
   }
@@ -526,6 +652,15 @@ p.p-top-philosophy__highlight {
 
   .c-section-heading__lead {
     white-space: pre-line;
+  }
+
+  .p-top-services__links {
+    grid-template-columns: 1fr;
+  }
+
+  .p-top-services__link,
+  .p-top-services__upcoming {
+    padding: 1.25rem .75rem;
   }
 
   .p-top-company__grid {
@@ -697,5 +832,9 @@ p.p-top-philosophy__highlight {
 
   .p-top-company__table td:first-child {
     width: 6rem;
+  }
+
+  .p-top-services__summary {
+    flex-direction: column;
   }
 }

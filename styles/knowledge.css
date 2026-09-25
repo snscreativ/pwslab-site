@@ -7,7 +7,7 @@
 }
 
 .p-knowledge-hero {
-  padding-top: 9rem;
+  padding-top: 4rem;
 }
 
 .p-knowledge-list {
@@ -337,9 +337,6 @@ p.p-article__profile-text {
 }
 
 @media (max-width: 900px) {
-  .p-knowledge-hero {
-    padding-top: 7rem;
-  }
 
   .p-knowledge-list {
     grid-template-columns: 1fr;

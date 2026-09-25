@@ -16,6 +16,7 @@
 :root {
   --color-navy: #1a2744;
   --color-orange: #e07820;
+  --color-gold: #b8862f;
   --color-white: #ffffff;
   --color-gray-bg: #f6f7f9;
   --color-gray-line: #e2e4e9;
@@ -111,4 +112,8 @@ table {
   .u-hide-xs {
     display: none;
   }
+}
+
+.u-nowrap {
+  white-space: nowrap;
 }
