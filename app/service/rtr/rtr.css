@@ -1,8 +1,5 @@
 /* RTR サービスページ
- * 色変数 → 共通設定 → セクション順。
- * 基本指定はセクション順。メディアクエリは下部に画面幅の大きい順で集約。
- * 760pxは768pxに統一。未使用候補は末尾に削除せず保管。
- * 共通の色・フォントは styles/globals.css を参照。 */
+  共通の色・フォントは styles/globals.css を参照。 */
 
 /* 共通設定 */
 
@@ -1739,7 +1736,7 @@ h3.p-rtr-brace-ttl::after {
 
 .p-rtr-contact-heading {
   margin: 0 0 2rem;
-  font-size: clamp(28px, 3vw, 42px);
+  font-size: clamp(33px, 3vw, 42px);
   line-height: 1.7;
   color: var(--ink);
   text-wrap: balance;
@@ -1854,7 +1851,8 @@ h3.p-rtr-brace-ttl::after {
   /* セクション9｜背景・信頼形成｜.p-rtr-section / #background */
   .p-rtr-heritage {
     grid-template-columns: minmax(0, 1fr);
-    margin-top: 3rem;
+    margin: 3rem auto;
+    max-width: 300px;
   }
 
   .p-rtr-heritage::before {
@@ -1888,8 +1886,10 @@ h3.p-rtr-brace-ttl::after {
   }
 
   .p-rtr-background-closing {
-    margin-top: 2.5rem;
-    text-align: left;
+    text-align: center;
+    padding-top: 2rem;
+    line-height: 1.4;
+    font-size: clamp(22px, 30/750*100vw, 30px);
   }
 }
 
@@ -2004,6 +2004,11 @@ h3.p-rtr-brace-ttl::after {
   h3.p-rtr-brace-ttl {
     font-size: 1.5rem;
   }
+
+  .p-rtr-contact-actions {
+    flex-direction: column;
+    gap: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2029,7 +2034,6 @@ h3.p-rtr-brace-ttl::after {
     margin-bottom: 1.75rem;
   }
 
-  /* 色変数 → 共通設定 → セクション順。 */
   .p-rtr-section-heading>span {
     text-wrap: balance;
   }
@@ -2072,6 +2076,10 @@ h3.p-rtr-brace-ttl::after {
   .p-rtr-hitoko-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .p-rtr-hitoko-close {
+    margin-bottom: 2rem;
   }
 
   /* セクション5｜RTRの仕組み｜.p-rtr-section / #cycle */
@@ -2201,7 +2209,7 @@ h3.p-rtr-brace-ttl::after {
   }
 
   .p-rtr-contact-heading {
-    font-size: 1.75rem;
+    font-size: clamp(28px, 40/750*100vw, 40px);
   }
 
   .p-rtr-contact-copy {
@@ -2373,13 +2381,14 @@ h3.p-rtr-brace-ttl::after {
 
   .p-rtr-flow-steps p {
     text-align: center;
+    max-width: 360px;
   }
 
   .p-rtr-roadmap-step,
   .p-rtr-roadmap-step:nth-of-type(even) {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
-    padding: 2rem 1.5rem;
+    padding: 3.5rem 1.5rem 2rem;
   }
 
   .p-rtr-roadmap-copy,
@@ -2427,7 +2436,7 @@ h3.p-rtr-brace-ttl::after {
 
   .p-rtr-signal-good,
   .p-rtr-signal-alert {
-    padding: 2rem;
+    padding: 2rem 1rem;
   }
 
 

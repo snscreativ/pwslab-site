@@ -165,7 +165,9 @@ export default function RtrPage() {
               <br />
               でも、組織を止めていたのは
               <br />
-              <em>“人と人のあいだ”</em>だった。
+              <em>“人と人のあいだ”</em>
+              <br className="u-xs" />
+              だった。
             </h2>
             <div className="p-rtr-concept-layout">
               <div className="p-rtr-concept-copy">
@@ -270,12 +272,19 @@ export default function RtrPage() {
                 </svg>
               </div>
             </div>
-            <h2>人間関係を動かし続ける仕組み</h2>
+            <h2>
+              人間関係を動かし
+              <br className="u-sp" />
+              続ける仕組み
+            </h2>
             <p className="p-rtr-lead p-rtr-centered">
               RTRは、スタッフ100名以上の企業を主対象に、AI面談システム「ヒトコ」とコーチング支援を一体化した組織マネジメントサイクルです。関係性を見つめ、必要な対話を設計・運用し、組織文化として根づかせます。人間関係を当事者任せにせず、組織で育てていく仕組みです。
             </p>
             <div className="p-rtr-brand-definition">
-              人材マネジメントが“人”を扱うなら、
+              人材マネジメントが
+              <br className="u-xs" />
+              “人”を扱うなら、
+              <br className="u-tb" />
               <strong>RTRは“関係性”を扱います。</strong>
             </div>
           </ScrollReveal>
@@ -347,9 +356,16 @@ export default function RtrPage() {
           <ScrollReveal revealId="rtr-block-05" className="p-rtr-wrap">
             <p className="p-rtr-eyebrow">05 HOW IT WORKS</p>
             <h2 className="p-rtr-section-heading">
-              関係性は、偶然よくなるものではない。
+              関係性は、偶然
+              <br className="u-xs" />
+              よくなるものではない。
               <br />
-              節目ごとに<span>設計し、対話し、循環させる。</span>
+              節目ごとに
+              <span>
+                設計し、
+                <br className="u-xs" />
+                対話し、循環させる。
+              </span>
             </h2>
             <div
               aria-label="ヒトコからRTRの循環までの流れ"
@@ -357,7 +373,9 @@ export default function RtrPage() {
             >
               <div className="p-rtr-flow-head">
                 <h3 className="p-rtr-brace-ttl">
-                  “ひとこと”を拾い、関係性が動くまで。
+                  “ひとこと”を拾い、
+                  <br className="u-xs" />
+                  関係性が動くまで。
                 </h3>
                 <p>
                   管理職と部下、それぞれの声をヒトコが受け止め、関係の兆しを見つける。
@@ -478,7 +496,9 @@ export default function RtrPage() {
                 aria-labelledby="rtr-signal-heading"
               >
                 <h3 className="p-rtr-brace-ttl">
-                  ヒトコが拾う"関係性の変化の兆し"
+                  ヒトコが拾う
+                  <br className="u-xs" />
+                  "関係性の変化の兆し"
                 </h3>
                 <p className="p-rtr-signal-description">
                   ヒトコが答えを出すのではなく、拾った兆しを人と人の対話につなげます。
@@ -630,7 +650,9 @@ export default function RtrPage() {
             <h2 className="p-rtr-section-heading">
               導入して終わりではなく、
               <br />
-              <span>運営側の一員</span>として回し切る。
+              <span>運営側の一員</span>
+              <br className="u-xs" />
+              として回し切る。
             </h2>
             <p className="p-rtr-lead">
               ツールを入れるだけでは、文化にはなりません。
@@ -645,7 +667,9 @@ export default function RtrPage() {
             </p>
             <div className="p-rtr-roadmap-intro">
               <h3 className="p-rtr-brace-ttl">
-                導入から定着・文化化までの流れ
+                導入から定着・
+                <br className="u-xs" />
+                文化化までの流れ
               </h3>
               <p>
                 設計から現場導入、日々の運用、定着・文化化まで、段階に合わせて伴走します。
@@ -752,9 +776,16 @@ export default function RtrPage() {
           <ScrollReveal revealId="rtr-block-8" className="p-rtr-wrap">
             <p className="p-rtr-eyebrow">08 EFFECTS</p>
             <h2 className="p-rtr-section-heading">
-              最初に変わるのは、離職と面談。
+              最初に変わるのは、
+              <br className="u-xs" />
+              離職と面談。
               <br />
-              その先に、<span>組織の動き方が変わっていく。</span>
+              その先に、
+              <span>
+                組織の動き方が
+                <br className="u-xs" />
+                変わっていく。
+              </span>
             </h2>
             <div className="p-rtr-effects">
               <div className="p-rtr-effects-center">
@@ -782,7 +813,9 @@ export default function RtrPage() {
                   />
                 </div>
                 <h3 className="p-rtr-effects-title">
-                  離職の兆しに、もっと早く向き合える
+                  離職の兆しに、
+                  <br className="u-xs" />
+                  もっと早く向き合える
                 </h3>
                 <p>
                   表面化する前の小さな違和感や距離を、兆しとして拾える状態へ。
@@ -796,7 +829,9 @@ export default function RtrPage() {
                   />
                 </div>
                 <h3 className="p-rtr-effects-title">
-                  面談が“こなすもの”から“前に進めるもの”へ
+                  面談が“こなすもの”から
+                  <br className="u-sp" />
+                  “前に進めるもの”へ
                 </h3>
                 <p>向き合う材料と意味がある、次につながる対話へ。</p>
               </article>
@@ -849,9 +884,13 @@ export default function RtrPage() {
           >
             <p className="p-rtr-eyebrow">09 TRUST</p>
             <h2 className="p-rtr-section-heading p-rtr-background-heading">
-              この仕組みは、机上のアイデアから
+              この仕組みは、
+              <br className="u-xs" />
+              机上のアイデアから
               <br />
-              生まれたものではありません。
+              生まれたものでは
+              <br className="u-xs" />
+              ありません。
             </h2>
             <p className="p-rtr-background-lead">
               約400名規模の3Tワーカー組織での実践が、RTRの原点です。
@@ -891,7 +930,9 @@ export default function RtrPage() {
               </li>
             </ol>
             <p className="p-rtr-background-closing">
-              18年間の現場運営から、コーチングのかたちへ。
+              18年間の現場運営から、
+              <br className="u-xs" />
+              コーチングのかたちへ。
             </p>
           </ScrollReveal>
         </section>
@@ -902,7 +943,9 @@ export default function RtrPage() {
             className="p-rtr-wrap p-rtr-contact-inner"
           >
             <h2 className="p-rtr-contact-heading">
-              人間関係を、当事者任せで終わらせない。
+              人間関係を、当事者任せで
+              <br className="u-sp" />
+              終わらせない。
             </h2>
             <p className="p-rtr-contact-copy">
               離職の前にある、すれ違いへ。
@@ -916,7 +959,7 @@ export default function RtrPage() {
                 className="p-rtr-button p-rtr-button-primary"
                 href="/contact?service=rtr"
               >
-                自社での活用イメージを相談する
+                自社での活用イメージを相談する <span aria-hidden="true">→</span>
               </a>
               <a
                 className="p-rtr-button p-rtr-button-secondary"

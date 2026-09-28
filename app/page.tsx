@@ -187,10 +187,7 @@ export default async function HomePage() {
           {/* サービスを追加する際は、このグリッド内に項目を追加します。 */}
           <div className="p-top-services__links">
             <h3 className="p-top-services__pickup">OUR SERVICE</h3>
-            <a
-              className="p-top-services__link c-card__border"
-              href="/service/rtr"
-            >
+            <a className="p-top-services__link" href="/service/rtr">
               <span className="p-top-services__catch">
                 人と人の「あいだ」を、
                 <br className="u-xs" />
@@ -211,7 +208,7 @@ export default async function HomePage() {
                 </span>
               </span>
             </a>
-            <div className="p-top-services__upcoming c-card__border">
+            <div className="p-top-services__upcoming">
               <h4 className="p-top-services__upcoming-name">
                 財務経理Silicon Workerチーム
               </h4>
