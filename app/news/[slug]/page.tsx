@@ -1,8 +1,7 @@
-import Link from "next/link";
+import ArticleNavigation from "@/components/ArticleNavigation";
 import { notFound } from "next/navigation";
-import SectionHeading from "@/components/SectionHeading";
 import NotionBlocks from "@/components/NotionBlocks";
-import { getNewsBySlug, getNotionBlocks } from "@/lib/notion";
+import { getNewsBySlug, getNewsList, getNotionBlocks } from "@/lib/notion";
 import "@/styles/news.css";
 
 export const dynamic = "force-dynamic";
@@ -27,7 +26,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
     notFound();
   }
 
-  const blocks = await getNotionBlocks(news.id);
+  const [blocks, items] = await Promise.all([getNotionBlocks(news.id), getNewsList()]);
 
   return (
     <main className="p-news-detail">
@@ -49,11 +48,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
             </div>
           </article>
 
-          <div className="p-news-detail__back">
-            <Link href="/news" className="c-button c-button--text">
-              お知らせ一覧へ戻る <span className="c-icon-arrow">↗</span>
-            </Link>
-          </div>
+          <ArticleNavigation items={items} currentSlug={slug} basePath="/news" />
         </div>
       </section>
     </main>
