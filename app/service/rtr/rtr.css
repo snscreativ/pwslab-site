@@ -208,7 +208,7 @@
   padding-inline: 0;
   padding-bottom: 4rem;
   min-height: 0;
-  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3)), url(../../../public/images/rtr/back-img2.png);
+  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3)), url(../../../public/images/rtr/back-img2.webp);
   background-position: right 10% center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1724,7 +1724,7 @@ h3.p-rtr-brace-ttl::after {
   overflow: hidden;
   padding: 8rem 0;
   text-align: center;
-  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3)), url(../../../public/images/rtr/back-img1.png);
+  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3)), url(../../../public/images/rtr/back-img1.webp);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

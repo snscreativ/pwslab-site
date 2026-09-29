@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: "https://www.pwslab.jp/service/rtr",
     images: [
       {
-        url: "/images/rtr/fv-interview.png",
+        url: "/images/rtr/fv-interview.webp",
         width: 1536,
         height: 1024,
         alt: "RTR",
@@ -100,7 +100,7 @@ export default function RtrPage() {
               <img
                 alt="緊張感のある定期面談。机上にハラスメントガイドラインが置かれ、二人の関係性が途切れかけているイメージ"
                 className="p-rtr-hero-visual-img"
-                src="/images/rtr/fv-interview.png"
+                src="/images/rtr/fv-interview.webp"
               />
             </ScrollReveal>
           </div>
@@ -198,7 +198,7 @@ export default function RtrPage() {
                   <div className="p-rtr-compare-visual p-rtr-compare-visual-left">
                     <img
                       alt="孤立した人物が並ぶ「人を見る」イメージ"
-                      src="/images/rtr/relation-compare1.png"
+                      src="/images/rtr/relation-compare1.webp"
                     />
                   </div>
                   <p>評価・能力・配置など、一人ひとりを「点」として捉える。</p>
@@ -211,7 +211,7 @@ export default function RtrPage() {
                   <div className="p-rtr-compare-visual p-rtr-compare-visual-right">
                     <img
                       alt="人物同士が線でつながる「線を見る」イメージ"
-                      src="/images/rtr/relation-compare2.png"
+                      src="/images/rtr/relation-compare2.webp"
                     />
                   </div>
                   <p>人と人のあいだにある、つながり・揺らぎを捉える。</p>
@@ -333,7 +333,7 @@ export default function RtrPage() {
                   </div>
                   <img
                     alt="AI面談システム『ヒトコ』の利用画面イメージ"
-                    src="/images/rtr/hitoko-system.png"
+                    src="/images/rtr/hitoko-system.webp"
                   />
                   <div className="p-rtr-hitoko-quotes">
                     <span>「実は……」</span>
@@ -388,14 +388,14 @@ export default function RtrPage() {
                   <span className="p-rtr-flow-number">01</span>
                   <img
                     className="p-rtr-flow-image"
-                    src="/images/rtr/rtr-flow1.png"
+                    src="/images/rtr/rtr-flow1.webp"
                     alt=""
                     loading="lazy"
                   />
                   <div className="p-rtr-flow-text">
                     <h4 className="p-rtr-flow-title">今、起きていること</h4>
                     <p>
-                      言葉を選ぶ上司と、本音を飲み込む部下。見えにくいすれ違いに目を向ける。
+                      言葉を選ぶ上司、本音を飲み込む部下。見えにくいすれ違いを捉える。
                     </p>
                   </div>
                 </article>
@@ -403,7 +403,7 @@ export default function RtrPage() {
                   <span className="p-rtr-flow-number">02</span>
                   <img
                     className="p-rtr-flow-image"
-                    src="/images/rtr/rtr-flow2.png"
+                    src="/images/rtr/rtr-flow2.webp"
                     alt=""
                     loading="lazy"
                   />
@@ -418,7 +418,7 @@ export default function RtrPage() {
                   <span className="p-rtr-flow-number">03</span>
                   <img
                     className="p-rtr-flow-image"
-                    src="/images/rtr/rtr-flow3.png"
+                    src="/images/rtr/rtr-flow3.webp"
                     alt=""
                     loading="lazy"
                   />
@@ -433,7 +433,7 @@ export default function RtrPage() {
                   <span className="p-rtr-flow-number">04</span>
                   <img
                     className="p-rtr-flow-image"
-                    src="/images/rtr/rtr-flow4.png"
+                    src="/images/rtr/rtr-flow4.webp"
                     alt=""
                     loading="lazy"
                   />
@@ -479,7 +479,7 @@ export default function RtrPage() {
                   <span className="p-rtr-flow-number">05</span>
                   <img
                     className="p-rtr-flow-cycle-image"
-                    src="/images/rtr/rtr-flow-last.png"
+                    src="/images/rtr/rtr-flow-last.webp"
                     alt="Trigger（きっかけ）、Stage（場）、Dialogue（対話）、Cycle（循環）を繰り返すサイクル"
                     loading="lazy"
                   />
@@ -522,7 +522,7 @@ export default function RtrPage() {
                       alt="人と人のあいだを見るイメージ"
                       className="p-rtr-signal-center-image"
                       loading="lazy"
-                      src="/images/rtr/relation-signal-center.png"
+                      src="/images/rtr/relation-signal-center.webp"
                     />
                     <h4 className="p-rtr-signal-hitoko">ヒトコ</h4>
                   </div>
@@ -808,7 +808,7 @@ export default function RtrPage() {
               <article className="p-rtr-effects-item p-rtr-effects-item--1">
                 <div className="p-rtr-effects-image" aria-hidden="true">
                   <img
-                    src="/images/rtr/effects1.png"
+                    src="/images/rtr/effects1.webp"
                     alt="離職の兆しに、もっと早く向き合える"
                   />
                 </div>
@@ -824,7 +824,7 @@ export default function RtrPage() {
               <article className="p-rtr-effects-item p-rtr-effects-item--2">
                 <div className="p-rtr-effects-image" aria-hidden="true">
                   <img
-                    src="/images/rtr/effects2.png"
+                    src="/images/rtr/effects2.webp"
                     alt="面談が“こなすもの”から“前に進めるもの”へ"
                   />
                 </div>
@@ -838,7 +838,7 @@ export default function RtrPage() {
               <article className="p-rtr-effects-item p-rtr-effects-item--3">
                 <div className="p-rtr-effects-image" aria-hidden="true">
                   <img
-                    src="/images/rtr/effects3.png"
+                    src="/images/rtr/effects3.webp"
                     alt="先輩後輩・同僚間も扱える"
                   />
                 </div>
@@ -850,7 +850,7 @@ export default function RtrPage() {
               <article className="p-rtr-effects-item p-rtr-effects-item--4">
                 <div className="p-rtr-effects-image" aria-hidden="true">
                   <img
-                    src="/images/rtr/effects4.png"
+                    src="/images/rtr/effects4.webp"
                     alt="管理職が一人で背負わない"
                   />
                 </div>
@@ -862,7 +862,7 @@ export default function RtrPage() {
               <article className="p-rtr-effects-item p-rtr-effects-item--5">
                 <div className="p-rtr-effects-image" aria-hidden="true">
                   <img
-                    src="/images/rtr/effects5.png"
+                    src="/images/rtr/effects5.webp"
                     alt="関係性に向き合うことが組織の文化になる"
                   />
                 </div>
@@ -913,7 +913,7 @@ export default function RtrPage() {
                 </p>
               </li>
               <li className="p-rtr-heritage-step p-rtr-heritage-step--pws">
-                <h3 className="p-rtr-heritage-title">PWS</h3>
+                <h3 className="p-rtr-heritage-title">PwS</h3>
                 <p className="p-rtr-heritage-description">
                   組織×AI時代の
                   <br />
