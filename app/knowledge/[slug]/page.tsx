@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import ArticleNavigation from "@/components/ArticleNavigation";
 import { notFound } from "next/navigation";
 import NotionBlocks from "@/components/NotionBlocks";
 import {
   getKnowledgeArticleBySlug,
+  getKnowledgeArticles,
   getNotionBlocks,
   isNotionReady,
 } from "@/lib/notion";
@@ -66,7 +67,7 @@ export default async function Page({ params }: Props) {
     notFound();
   }
 
-  const blocks = await getNotionBlocks(article.id);
+  const [blocks, items] = await Promise.all([getNotionBlocks(article.id), getKnowledgeArticles()]);
 
   return (
     <main className="p-article">
@@ -135,10 +136,8 @@ export default async function Page({ params }: Props) {
         <AboutPws />
       </article>
 
-      <div className="p-article__back">
-        <Link href="/knowledge" className="c-button c-button--text">
-          知見一覧へ戻る <span className="c-icon-arrow">↗</span>
-        </Link>
+      <div className="l-inner l-inner--narrow">
+        <ArticleNavigation items={items} currentSlug={slug} basePath="/knowledge" />
       </div>
     </main>
   );

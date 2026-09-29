@@ -23,7 +23,27 @@ export default function Header() {
       </Link>
 
       <nav className="l-header__nav" aria-label="グローバルナビゲーション">
-        <Link href="/#services">サービス</Link>
+        <div className="l-header__nav-item l-header__nav-item--services">
+          <Link href="/#services">サービス</Link>
+          <div className="l-header__submenu" aria-label="サービスメニュー">
+            <div className="l-header__submenu-inner">
+              <p className="l-header__submenu-label">
+                <span>SERVICES</span>
+                サービス
+              </p>
+              <div className="l-header__submenu-grid">
+                <a href="/service/rtr">
+                  <span className="l-header__submenu-copy">
+                    <strong>RTR</strong>
+                    <small>人と人のあいだを見つめる組織マネジメントサイクル</small>
+                  </span>
+                  <span className="l-header__submenu-arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <Link href="/#philosophy">アプローチ</Link>
         <Link href="/#diagnosis">AI診断</Link>
         <Link href="/#company">企業情報</Link>
@@ -61,6 +81,15 @@ export default function Header() {
           <Link href="/#services" onClick={closeMenu}>
             サービス
           </Link>
+
+          <a
+            href="/service/rtr"
+            onClick={closeMenu}
+            className="l-header__sp-sub-link"
+          >
+            RTR
+          </a>
+
           <Link href="/#philosophy" onClick={closeMenu}>
             アプローチ
           </Link>
