@@ -1,0 +1,717 @@
+.finance-page{--finance-ink:#1a2744;--finance-muted:#667085;--finance-line:#dfe3e9;--finance-soft:#f6f7f4;--finance-warm:#e8835b;color:var(--finance-ink);background:#fff;overflow:hidden}.finance-page *{box-sizing:border-box}.finance-inner{width:min(1120px,calc(100% - 48px));margin:auto}.finance-inner--narrow{max-width:900px}.finance-hero{padding:150px 0 100px;background:linear-gradient(135deg,#fff 0%,#f7f8f5 72%,#fff4ed 100%)}.finance-hero__inner{max-width:1120px}.finance-kicker,.finance-label{color:#d36f49;font-size:11px;font-weight:700;letter-spacing:.2em}.finance-hero h1,.finance-section h2,.finance-contact h2{font-family:"Noto Serif JP","Yu Mincho",serif;font-weight:500;letter-spacing:.05em;line-height:1.65}.finance-hero h1{margin:42px 0 28px;font-size:clamp(2.25rem,5vw,4.2rem)}.finance-hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,#f7c5b1 62%,#f7c5b1 89%,transparent 89%)}.finance-hero__lead{color:var(--finance-muted);font-size:clamp(1rem,1.6vw,1.2rem);line-height:2.2}.finance-hero__lead strong,.finance-lead strong{color:var(--finance-ink)}.finance-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}.finance-button{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:54px;padding:0 28px;border:1px solid transparent;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:.08em;transition:transform .2s,box-shadow .2s}.finance-button:hover{transform:translateY(-2px);box-shadow:0 12px 24px #1a274422}.finance-button span{font-size:18px}.finance-button--primary{color:#fff;background:var(--finance-ink)}.finance-button--outline{border-color:#aeb6c1}.team-visual{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;margin-top:90px;padding:35px;border:1px solid #d9dee5;border-radius:22px;background:#fff}.team-visual__side span{color:var(--finance-muted);font-size:11px;font-weight:700;letter-spacing:.16em}.team-visual__side div{display:flex;gap:10px;margin:18px 0 10px}.team-visual__side i{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:#e9edf4;font-family:serif;font-size:18px;font-style:normal}.team-visual__side--silicon i{color:#a34f32;background:#fae7de}.team-visual>strong{color:var(--finance-warm);font-family:serif;font-size:34px}.team-visual small{color:var(--finance-muted)}.team-visual p{grid-column:1/-1;margin:10px 0 0;padding-top:20px;border-top:1px solid var(--finance-line);font-family:serif;font-size:20px}.team-visual p b{display:block;margin-bottom:6px;color:#d36f49;font-family:inherit;font-size:10px;letter-spacing:.2em}.month-strip{display:flex;align-items:center;gap:13px;margin-top:28px;overflow-x:auto;color:var(--finance-muted);font-size:12px;white-space:nowrap}.month-strip i{width:28px;height:1px;flex:0 0 28px;background:#cbd1d9}.month-strip b{color:var(--finance-ink);font-weight:500}.finance-section{padding:120px 0}.finance-section--soft{background:var(--finance-soft)}.finance-section--navy{color:#fff;background:var(--finance-ink)}.finance-section h2{margin:28px 0 26px;font-size:clamp(2rem,4vw,3.3rem)}.finance-lead{max-width:700px;color:var(--finance-muted);line-height:2.1}.finance-section--navy .finance-lead,.finance-section--navy .finance-label{color:#bac4d4}.ladder{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:65px}.ladder__item{min-height:170px;padding:24px 18px;border:1px solid var(--finance-line);border-radius:14px;background:#fff}.ladder__item--quiet{border-style:dashed;color:#8b93a8;background:transparent}.ladder__item small{display:block;color:var(--finance-warm);font-family:serif;font-size:13px;font-weight:700;letter-spacing:.15em}.ladder__item strong{display:block;margin-top:18px;font-size:15px;line-height:1.8}.ladder__item em{display:inline-block;margin-top:22px;padding:4px 9px;border-radius:99px;color:#c46040;background:#fce8df;font-size:10px;font-style:normal}.quote{max-width:100%;margin:75px 0 30px;padding:34px 38px;border-left:3px solid var(--finance-warm);font-family:serif;font-size:clamp(1.35rem,2.7vw,2rem);line-height:1.9}.finance-bridge{padding-left:22px;border-left:1px solid #c4cad3;line-height:2.1}.role-intro{max-width:800px;margin:0 auto;text-align:center}.role-intro h2{margin:28px 0 18px;font-size:clamp(1.9rem,3.8vw,3rem)}.role-intro p{color:var(--finance-muted);line-height:2}.role-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:40px}.role-card{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(180px,.92fr);min-height:360px;overflow:hidden;border:1px solid var(--finance-line);border-radius:18px}.role-card--protein{background:#eef4f8}.role-card--silicon{background:#fff0e9}.role-card__body{grid-column:1;grid-row:1;align-self:center;padding:34px 25px}.role-card__label{color:#cf6f4d;font-size:10px;font-weight:700;letter-spacing:.16em}.role-card__body h3{margin:16px 0 14px;font-family:serif;font-size:clamp(1.35rem,2vw,1.75rem);font-weight:500;line-height:1.6}.role-card__body p{color:var(--finance-muted);font-size:13px;line-height:2}.role-card__image{grid-column:2;grid-row:1;align-self:end;display:flex;align-items:flex-end;justify-content:center;min-height:360px;padding:20px 8px 0}.role-card__image img{display:block;width:100%;max-width:280px;height:auto;max-height:360px;object-fit:contain;object-position:bottom center}.role-closing{max-width:900px;margin:18px auto 0;padding:25px 30px;border-radius:14px;background:#f9fbfb;text-align:center}.role-closing strong{font-family:serif;font-size:clamp(1.25rem,2.4vw,1.7rem);font-weight:500}.role-closing p{margin-top:10px;color:var(--finance-muted);line-height:2}.member-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:60px}.member-card{padding:26px 22px;border:1px solid var(--finance-line);border-radius:16px;background:#fff}.member-card__avatar{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:#f8e4db;font-family:serif;font-size:22px}.member-card small{display:block;margin-top:20px;color:var(--finance-muted);font-size:10px;letter-spacing:.12em}.member-card h3{margin-top:8px;font-family:serif;font-size:26px}.member-card>b{color:#d36f49;font-size:12px}.member-card p{margin:24px 0 18px;font-family:serif;line-height:1.8}.member-card span{color:var(--finance-muted);font-size:12px;line-height:1.8}.dialogue{display:grid;gap:12px;max-width:820px;margin-top:58px}.dialogue>div{max-width:680px;padding:20px 24px;border:1px solid #d2d9e4;border-radius:4px 16px 16px 16px;color:var(--finance-ink);background:#fff}.dialogue>div:nth-child(odd){margin-left:auto}.dialogue .dialogue__ai{border-color:#e89878;background:#fff5ef}.dialogue small{color:#d36f49;font-size:11px}.dialogue p{margin-top:7px;line-height:1.9}.finance-bridge--light{margin-top:50px;border-color:#758198;color:#d5dce8}.finance-bridge--light strong{color:#fff}.support-list{max-width:880px;margin-top:58px}.support-list article{display:grid;grid-template-columns:70px 1fr;gap:20px;padding:28px 0;border-top:1px solid var(--finance-line)}.support-list article:last-child{border-bottom:1px solid var(--finance-line)}.support-list article>b{color:var(--finance-warm);font-family:serif;font-size:22px}.support-list small{color:var(--finance-warm);font-size:10px;letter-spacing:.16em}.support-list h3{margin:8px 0;font-family:serif;font-size:23px;font-weight:500}.support-list p{max-width:650px;color:var(--finance-muted)}.faq-item{border-top:1px solid var(--finance-line)}.faq-item:last-child{border-bottom:1px solid var(--finance-line)}.faq-item summary{display:flex;justify-content:space-between;gap:16px;padding:26px 0;cursor:pointer;font-family:serif;font-size:18px;list-style:none}.faq-item summary::-webkit-details-marker{display:none}.faq-item summary span{color:var(--finance-warm);font-size:24px}.faq-item p{padding:0 40px 28px;color:var(--finance-muted);font-size:14px}.finance-contact{padding:120px 0;color:#fff;background:var(--finance-ink)}.finance-contact h2{margin:30px 0;font-size:clamp(1.9rem,4vw,3.3rem)}.finance-contact p{color:#d5dce8}.finance-button--warm{margin-top:32px;color:var(--finance-ink);background:var(--finance-warm)}.finance-mobile{display:none}@media(max-width:800px){.finance-hero{padding-top:110px}.team-visual{grid-template-columns:1fr;gap:15px}.team-visual>strong{text-align:center}.ladder,.member-grid{grid-template-columns:repeat(2,1fr)}.role-cards{grid-template-columns:1fr}.finance-section,.finance-contact{padding:85px 0}}@media(max-width:520px){.finance-inner{width:min(100% - 36px,1120px)}.finance-actions .finance-button{width:100%}.finance-hero h1{font-size:2.2rem}.team-visual{padding:24px 18px}.team-visual__side div{gap:7px}.team-visual__side i{width:42px;height:42px}.team-visual p{font-size:17px}.ladder,.member-grid{grid-template-columns:1fr}.ladder__item{min-height:auto}.quote{padding:26px 22px}.role-card{grid-template-columns:1fr}.role-card__body{grid-column:1;grid-row:1;padding:26px 22px 20px}.role-card__image{grid-column:1;grid-row:2;min-height:280px;padding-top:0}.finance-mobile{display:block}.support-list article{grid-template-columns:48px 1fr}.support-list h3{font-size:19px}.finance-contact h2{font-size:1.9rem}}
+/* 2026-09: PwS team portraits — restrained circular headshots, no decorative cards. */
+.team-visual__people{display:flex;align-items:flex-start;justify-content:flex-start;gap:clamp(8px,1.1vw,16px);margin:18px 0 12px;flex-wrap:nowrap}
+.team-visual__person{display:flex;flex:1 1 0;min-width:0;flex-direction:column;align-items:center;gap:7px;text-align:center}
+.team-visual__person img{display:block;width:clamp(48px,5.8vw,76px);height:clamp(48px,5.8vw,76px);max-width:100%;border:2px solid #fff;border-radius:50%;object-fit:cover;background:#e9edf4;box-shadow:0 2px 8px #1a274410}
+.team-visual__side--silicon .team-visual__person img{background:#fae7de}
+.team-visual__person small{font-size:11px;line-height:1.45;color:var(--finance-ink);white-space:normal}
+.team-visual__ai{display:block;color:#bd6b50;font-size:10px;letter-spacing:0}
+.team-visual__description{display:block;margin-top:8px}
+.team-visual__plus{align-self:center;font-weight:400}
+.member-card__avatar{overflow:hidden;width:76px;height:76px;background:#fae7de}
+.member-card__avatar img{display:block;width:100%;height:100%;object-fit:cover}
+@media(max-width:800px){.team-visual__people{justify-content:center;gap:12px}.team-visual__person{flex:0 1 90px}.team-visual__plus{margin:0 auto}}
+@media(max-width:520px){.team-visual__people{gap:7px}.team-visual__person{flex:1 1 0}.team-visual__person img{width:clamp(48px,14vw,62px);height:clamp(48px,14vw,62px)}.team-visual__person small{font-size:10px}}
+
+/* Added sections and content from LP structure brief — existing portrait/layout styles retained. */
+.finance-context{max-width:780px;margin:22px 0 0;color:var(--finance-muted);font-size:14px;line-height:2}
+.finance-notice{margin-top:26px;padding:17px 22px;border:1px solid #efd9cf;border-radius:12px;background:#fff7f2;color:#715a52;font-size:13px;line-height:1.9}
+.finance-example-note{margin-top:20px;color:#d1d9e5;font-size:12px;line-height:1.8}
+.finance-scene{margin-top:65px}.finance-scene h3{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;margin-bottom:25px;padding-bottom:17px;border-bottom:1px solid #65728b;font-family:"Noto Serif JP","Yu Mincho",serif;font-size:clamp(18px,2.3vw,25px);font-weight:500;line-height:1.7}.finance-scene h3 span{color:#f0a284;font-family:inherit;font-size:11px;letter-spacing:.16em}.finance-scene__grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);align-items:start;gap:25px}.finance-scene .dialogue{margin-top:0;max-width:none}.finance-scene .dialogue>div{width:100%;max-width:none}.finance-scene__artifact{padding:25px;border:1px solid #dce0e8;border-radius:16px;background:#f7f8f5;color:var(--finance-ink)}.finance-scene__artifact>small{font-size:10px;letter-spacing:.12em;color:#9b674f}.finance-scene__artifact h4{margin:7px 0 18px;font-family:"Noto Serif JP","Yu Mincho",serif;font-size:20px;font-weight:500}.finance-scene__artifact>div{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid #dfe3e9;font-size:12px}.finance-scene__artifact b{font-weight:600}.finance-scene__artifact p{margin-top:20px;font-size:12px;line-height:1.8;color:#667085}
+.finance-growth-cycle{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:48px 0 30px;padding:0;list-style:none;counter-reset:none}.finance-growth-cycle li{position:relative;min-height:135px;padding:25px 18px;border:1px solid var(--finance-line);border-radius:15px;background:#fff;font-family:"Noto Serif JP","Yu Mincho",serif;font-size:17px;line-height:1.7}.finance-growth-cycle li:not(:last-child):after{content:"→";position:absolute;right:-13px;top:50%;z-index:1;color:var(--finance-warm);font-size:18px}.finance-growth-cycle small{display:block;margin-bottom:12px;color:#d36f49;font-family:sans-serif;font-size:10px;letter-spacing:.15em}.finance-growth-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}.finance-growth-pair article{padding:26px;border:1px solid var(--finance-line);border-radius:15px;background:#fff}.finance-growth-pair b{font-size:14px}.finance-growth-pair p{margin-top:12px;color:var(--finance-muted);font-size:13px;line-height:2}
+.finance-value-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:48px}.finance-value-grid article{padding:34px;border:1px solid var(--finance-line);border-radius:18px;background:#fff}.finance-value-grid small{color:#d36f49;font-size:11px;letter-spacing:.18em}.finance-value-grid h3{margin:15px 0;font-family:"Noto Serif JP","Yu Mincho",serif;font-size:clamp(19px,2.2vw,25px);font-weight:500;line-height:1.65}.finance-value-grid p{color:var(--finance-muted);font-size:14px;line-height:1.9}.support-list .support-list__detail{margin-top:12px;padding-left:14px;border-left:2px solid var(--finance-warm);font-size:12px;line-height:1.9}
+@media(max-width:800px){.finance-scene__grid{grid-template-columns:1fr}.finance-growth-cycle{grid-template-columns:repeat(2,minmax(0,1fr))}.finance-growth-cycle li:nth-child(2):after{display:none}}
+@media(max-width:520px){.finance-growth-cycle,.finance-growth-pair,.finance-value-grid{grid-template-columns:1fr}.finance-growth-cycle li{min-height:auto}.finance-growth-cycle li:after{display:none}.finance-value-grid article{padding:26px}.finance-scene__artifact{padding:20px}}
+
+/* Growth: screenshot-inspired 2x2 loop and stacked colleague feedback. */
+.finance-growth-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:clamp(32px,6vw,88px);margin-top:36px}
+.finance-growth-cycle{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(145px,auto));gap:22px;margin:0;padding:38px;border:1px dashed #d8dce4;border-radius:54px;list-style:none}
+.finance-growth-cycle li{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:145px;padding:22px 14px;border:1px solid var(--finance-line);border-radius:18px;background:#fff;text-align:center;font-family:"Noto Serif JP","Yu Mincho",serif;font-size:clamp(15px,1.6vw,20px);line-height:1.8;box-shadow:0 5px 14px #1a274406}
+.finance-growth-cycle li small{display:block;margin-bottom:12px;color:#d36f49;font-family:inherit;font-size:10px;font-weight:700;letter-spacing:.2em}
+.finance-growth-cycle li:after,.finance-growth-cycle li:not(:last-child):after{display:none}
+.finance-growth-cycle:before{content:"→";position:absolute;top:-17px;left:50%;display:grid;place-items:center;width:34px;height:34px;transform:translateX(-50%);border:1px solid #d8dce4;border-radius:50%;background:#fff;color:var(--finance-warm);box-shadow:0 4px 10px #1a27440b}
+.finance-growth-cycle li:nth-child(1):after{content:"→";display:grid;position:absolute;right:-29px;top:50%;z-index:2;place-items:center;width:34px;height:34px;transform:translateY(-50%);border:1px solid #d8dce4;border-radius:50%;background:#fff;color:var(--finance-warm)}
+.finance-growth-cycle li:nth-child(2):after{content:"↓";display:grid;position:absolute;right:-56px;top:calc(100% + 12px);z-index:2;place-items:center;width:34px;height:34px;border:1px solid #d8dce4;border-radius:50%;background:#fff;color:var(--finance-warm)}
+.finance-growth-cycle li:nth-child(3):after{content:"↑";display:grid;position:absolute;left:-56px;top:-29px;z-index:2;place-items:center;width:34px;height:34px;border:1px solid #d8dce4;border-radius:50%;background:#fff;color:var(--finance-warm)}
+.finance-growth-cycle li:nth-child(4):after{content:"←";display:grid;position:absolute;left:-29px;top:50%;z-index:2;place-items:center;width:34px;height:34px;transform:translateY(-50%);border:1px solid #d8dce4;border-radius:50%;background:#fff;color:var(--finance-warm)}
+.finance-growth-pair{display:grid;grid-template-columns:1fr;gap:18px}
+.finance-growth-pair article{display:flex;align-items:flex-start;gap:18px;padding:26px;border:1px solid var(--finance-line);border-radius:18px;background:#fff}
+.finance-growth-pair__icon{display:grid;flex:0 0 38px;place-items:center;width:38px;height:38px;border-radius:50%;color:#fff;font-size:11px;font-weight:700}
+.finance-growth-pair__icon--silicon{background:#5c91b8}.finance-growth-pair__icon--protein{background:#d78f9a}
+.finance-growth-pair b{font-size:13px;letter-spacing:.05em}.finance-growth-pair b span{margin-left:5px;color:var(--finance-muted);font-weight:400;letter-spacing:0}
+.finance-growth-pair p{margin-top:12px;color:var(--finance-muted);font-size:13px;line-height:2}
+.finance-growth-dialogue{max-width:900px;margin:30px auto 0;padding:22px 26px;border:1px solid var(--finance-line);border-radius:18px;background:#fff}
+.finance-growth-dialogue__heading>span{color:#c76b49;font-size:10px;font-weight:700;letter-spacing:.14em}
+.finance-growth-dialogue__heading h3{margin:6px 0 0;font-family:"Noto Serif JP","Yu Mincho",serif;font-size:clamp(16px,1.8vw,20px);font-weight:500;line-height:1.6}
+.finance-growth-dialogue__messages{display:grid;gap:10px;margin-top:17px}
+.finance-growth-dialogue__message{display:grid;grid-template-columns:36px minmax(0,1fr);align-items:start;gap:10px;max-width:94%}
+.finance-growth-dialogue__message--protein{margin-left:6%}
+.finance-growth-dialogue__message img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.finance-growth-dialogue__message>div{padding:10px 14px;border-radius:4px 12px 12px;background:#eaf3f9}
+.finance-growth-dialogue__message--protein>div{background:#fff0e9}
+.finance-growth-dialogue__message b{display:block;color:var(--finance-ink);font-size:11px;line-height:1.5}
+.finance-growth-dialogue__message b small{margin-left:6px;color:var(--finance-muted);font-size:10px;font-weight:400}
+.finance-growth-dialogue__message p{margin:4px 0 0;color:var(--finance-ink);font-size:12px;line-height:1.75}
+.finance-growth-closing{margin:65px auto 0;text-align:center;font-family:"Noto Serif JP","Yu Mincho",serif;font-size:clamp(17px,2vw,21px);line-height:2;letter-spacing:.05em}
+.member-card__tasks{display:flex;flex-wrap:wrap;align-items:flex-start;gap:8px;margin:18px 0 0;padding:0;list-style:none}
+.member-card__tasks li{padding:8px 13px;border:1px solid var(--finance-line);border-radius:999px;color:var(--finance-ink);background:#fff;font-size:11px;font-weight:600;line-height:1.6}
+@media(max-width:900px){.finance-growth-layout{grid-template-columns:1fr;gap:36px}.finance-growth-cycle{max-width:570px;width:100%;margin:auto}.finance-growth-pair{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.finance-growth-dialogue{margin-top:24px;padding:18px 14px;border-radius:14px}.finance-growth-dialogue__messages{gap:9px;margin-top:13px}.finance-growth-dialogue__message{grid-template-columns:30px minmax(0,1fr);gap:8px;max-width:100%}.finance-growth-dialogue__message--protein{margin-left:0}.finance-growth-dialogue__message img{width:30px;height:30px}.finance-growth-dialogue__message>div{padding:9px 11px}.finance-growth-dialogue__message p{font-size:11px}.finance-growth-cycle{gap:12px;padding:23px;border-radius:30px;grid-template-rows:repeat(2,minmax(120px,auto))}.finance-growth-cycle li{min-height:120px;padding:14px 8px;font-size:14px}.finance-growth-cycle li:nth-child(1):after{right:-24px}.finance-growth-cycle li:nth-child(2):after{right:-42px}.finance-growth-cycle li:nth-child(3):after{left:-42px}.finance-growth-cycle li:nth-child(4):after{left:-24px}.finance-growth-pair{grid-template-columns:1fr}.finance-growth-pair article{padding:20px}.finance-growth-closing{margin-top:42px}.member-card__tasks li{font-size:11px}}
+
+/* Monthly workflow: quiet, editorial timeline with shared ownership. */
+.finance-timeline{margin-top:58px;padding:35px 38px 27px;border:1px solid #e2e5eb;border-radius:22px;background:#fff;box-shadow:0 15px 50px #1a274408}
+.finance-timeline__header{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:36px}
+.finance-timeline__header>div:first-child{max-width:620px}
+.finance-timeline__eyebrow{color:#cf6f4d;font-size:10px;font-weight:700;letter-spacing:.18em}
+.finance-timeline__header h2{margin:12px 0 8px;font-family:"Noto Serif JP","Yu Mincho",serif;font-size:clamp(19px,2.4vw,26px);font-weight:500;letter-spacing:.06em;line-height:1.6}
+.finance-timeline__header p{margin:0;color:var(--finance-muted);font-size:12px;line-height:1.9}
+.finance-timeline__legend{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:14px 22px;padding-bottom:5px}
+.finance-timeline__legend span{display:inline-flex;align-items:center;gap:7px;color:var(--finance-muted);font-size:10px;white-space:nowrap}
+.finance-timeline__dot{display:inline-block;flex:none;width:9px;height:9px;border-radius:50%;background:#d78f9a}
+.finance-timeline__dot--silicon{background:#5c91b8}
+.finance-timeline__track{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));margin:0;padding:0;list-style:none;border-top:1px solid #dbe0e8}
+.finance-timeline__step{position:relative;display:flex;flex-direction:column;align-items:center;min-width:0;padding:35px 9px 8px;text-align:center}
+.finance-timeline__step:before{content:"";position:absolute;top:13px;left:50%;height:19px;width:1px;background:#dbe0e8}
+.finance-timeline__step:not(:last-child):after{content:"";position:absolute;top:72px;right:-5px;width:10px;height:10px;border-top:1px solid #cbd3df;border-right:1px solid #cbd3df;transform:rotate(45deg)}
+.finance-timeline__markers{position:absolute;top:-5px;left:50%;display:flex;gap:4px;transform:translateX(-50%);padding:0 7px;background:#fff}
+.finance-timeline__markers .finance-timeline__dot{width:8px;height:8px}
+.finance-timeline__phase{margin:8px 0 12px;color:#c76b49;font-size:10px;font-weight:700;letter-spacing:.05em}
+.finance-timeline__step strong{max-width:150px;min-height:45px;color:var(--finance-ink);font-size:12px;line-height:1.8;letter-spacing:.02em}
+.finance-timeline__step small{margin-top:9px;color:var(--finance-muted);font-size:10px;line-height:1.6}
+.finance-timeline__note{margin:26px 0 0;padding-top:17px;border-top:1px solid #eef0f4;color:var(--finance-muted);font-size:10px;line-height:1.8}
+@media(max-width:900px){.finance-timeline{padding:30px 24px 22px}.finance-timeline__header{align-items:flex-start;flex-direction:column;gap:16px}.finance-timeline__legend{justify-content:flex-start}.finance-timeline__track{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:26px}.finance-timeline__step:nth-child(3n):after{display:none}.finance-timeline__step:nth-child(n+4){border-top:1px solid #dbe0e8}.finance-timeline__step:nth-child(n+4) .finance-timeline__markers{top:-5px}.finance-timeline__step:nth-child(n+4):before{top:13px}}
+@media(max-width:520px){.finance-timeline{margin-top:38px;padding:25px 19px 20px;border-radius:17px}.finance-timeline__header{margin-bottom:24px}.finance-timeline__track{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:22px}.finance-timeline__step{padding:31px 7px 7px}.finance-timeline__step:nth-child(3n):after{display:block}.finance-timeline__step:nth-child(2n):after{display:none}.finance-timeline__step:nth-child(n+3){border-top:1px solid #dbe0e8}.finance-timeline__step:nth-child(n+3) .finance-timeline__markers{top:-5px}.finance-timeline__step strong{font-size:11px;min-height:40px}.finance-timeline__step small{font-size:9px}}
+
+/* Approved FV composition: preserve image aspect and blended full-width background. */
+.finance-hero{position:relative;isolation:isolate;padding:0 0 100px;background:#f4f8fd}
+.finance-hero__inner{position:relative}
+.finance-hero__stage{position:relative;display:flex;align-items:center;min-height:clamp(590px,40vw,760px);padding:clamp(90px,8vw,125px) 0 75px}
+.finance-hero__stage::before{content:"";position:absolute;z-index:0;inset:0 auto 0 50%;width:100vw;transform:translateX(-50%);pointer-events:none;background:#f4f8fd url('/images/finance/finance-hero-blended.jpg') center center / cover no-repeat}
+.finance-hero__stage::after{content:none}
+.finance-hero__copy{position:relative;z-index:1;width:min(65%,700px)}
+.finance-hero__copy h1{margin:34px 0 25px;font-size:clamp(2.1rem,3.6vw,3.65rem);line-height:1.55}
+.finance-hero__copy .finance-hero__lead{font-size:clamp(.88rem,1.12vw,1.04rem);line-height:2.05}
+.finance-hero__copy .finance-actions{margin-top:30px}
+.finance-hero__copy .finance-button{padding-inline:clamp(13px,1.4vw,24px);font-size:clamp(11px,.9vw,13px)}
+.finance-hero__mobile-art{display:none}
+.finance-hero .team-visual{margin-top:45px}
+@media(max-width:1100px) and (min-width:701px){
+.finance-hero__stage{min-height:580px;padding:90px 0 65px}
+.finance-hero__stage::before{background-position:54% center}
+.finance-hero__copy{width:70%}
+.finance-hero__copy h1{font-size:clamp(2rem,4vw,3rem)}
+.finance-hero__copy .finance-actions{gap:10px}
+.finance-hero__copy .finance-button{min-height:49px;padding-inline:14px;font-size:11px}
+}
+@media(max-width:700px){
+.finance-hero{background:#fff}
+.finance-hero__stage{display:block;min-height:0;padding:105px 0 0}
+.finance-hero__stage::before{content:none}
+.finance-hero__copy{width:100%}
+.finance-hero__copy h1{font-size:clamp(2rem,6.5vw,2.65rem);margin:32px 0 24px}
+.finance-hero__copy .finance-hero__lead{font-size:clamp(.88rem,2.8vw,1rem)}
+.finance-hero__copy .finance-button{font-size:12px}
+.finance-hero__mobile-art{display:block;width:calc(100% + 48px);margin:30px -24px 0;aspect-ratio:1.65;background:#fff url('/images/finance/finance-hero.png') center center / cover no-repeat}
+.finance-hero .team-visual{margin-top:35px}
+}
+@media(max-width:520px){.finance-hero__stage{padding-top:95px}.finance-hero__copy h1{font-size:clamp(1.9rem,8vw,2.2rem)}.finance-hero__mobile-art{width:calc(100% + 36px);margin-inline:-18px;aspect-ratio:1.32}}
+
+/* 02 Problem / 03 Solution: FV stage and its visual treatment are unchanged. */
+.finance-problem__intro{margin-top:60px;max-width:850px}
+.finance-problem__intro>span{color:#cf6f4d;font-size:10px;font-weight:700;letter-spacing:.2em}
+.finance-problem__intro h3{margin:12px 0;font-family:"Noto Serif JP","Yu Mincho",serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:500;line-height:1.65}
+.finance-problem__intro p{color:var(--finance-muted);line-height:2}
+.finance-ladder{margin-top:35px;padding:0;list-style:none}
+.finance-ladder .ladder__item{position:relative;display:flex;flex-direction:column;gap:14px;min-width:0}
+.finance-ladder .ladder__item strong{margin-top:0}
+.finance-ladder .ladder__item em{margin-top:auto;align-self:flex-start}
+.finance-ladder .ladder__item:not(:last-child)::after{content:"→";position:absolute;z-index:2;top:43%;right:-13px;color:#c0c8d4;font-size:17px}
+.finance-problem__groups{display:grid;grid-template-columns:2fr 3fr;gap:12px;margin-top:15px}
+.finance-problem__groups p{display:flex;flex-direction:column;gap:7px;padding:18px 20px;border-radius:12px;background:#f1f4f9}
+.finance-problem__groups p:last-child{background:#fff3ed}
+.finance-problem__groups span{color:var(--finance-muted);font-size:11px}
+.finance-problem__groups strong{font-size:14px}
+.finance-solution .finance-lead{max-width:850px}
+.finance-solution__bridge{max-width:100%;margin:20px 0 0;color:var(--finance-muted);font-size:14px;line-height:2.1}
+.finance-solution__emphasis{color:#c96543;font-weight:700}
+.finance-solution__visuals{margin-top:52px}
+.finance-solution__visuals .team-visual{margin-top:0}
+.finance-solution__visuals .finance-timeline{margin-top:34px}
+.finance-solution__footnote{margin-top:20px;color:var(--finance-muted);font-size:11px;line-height:1.9}
+@media(max-width:800px){.finance-problem__groups{grid-template-columns:1fr 1fr}.finance-ladder .ladder__item:not(:last-child)::after{display:none}}
+@media(max-width:520px){.finance-problem__intro{margin-top:40px}.finance-problem__groups{grid-template-columns:1fr}.finance-ladder .ladder__item{gap:8px}}
+
+/* Problem only: photo-led editorial layout. Approved FV and all other sections untouched. */
+.finance-problem{position:relative;background:#fffdfb}
+.finance-problem__top{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:clamp(18px,3vw,45px)}
+.finance-problem__copy{position:relative;z-index:1;min-width:0}
+.finance-problem__copy h2{font-size:clamp(2rem,3.6vw,3.3rem);line-height:1.65}
+.finance-problem__copy .finance-lead{font-size:clamp(13px,1.2vw,16px);line-height:2.2}
+.finance-problem__visual{position:relative;min-width:0;aspect-ratio:1.15;display:flex;align-items:center;justify-content:center}
+.finance-problem__visual img{display:block;width:100%;height:100%;object-fit:contain}
+.finance-problem__intro{margin-top:36px}
+@media(max-width:800px){.finance-problem__top{grid-template-columns:1fr;gap:12px}.finance-problem__visual{width:min(100%,550px);margin:0 auto;aspect-ratio:1.4}.finance-problem__intro{margin-top:28px}}
+@media(max-width:520px){.finance-problem__copy h2{font-size:clamp(1.9rem,7.3vw,2.4rem)}.finance-problem__visual{aspect-ratio:1.25}.finance-problem__intro{margin-top:20px}}
+
+
+/* Problem layout refinement — wide editorial composition matching approved reference.
+   Scoped to #problem only: FV and all subsequent sections remain unchanged. */
+#problem.finance-problem{padding:62px 0 105px;background:#fffdfb}
+#problem .finance-inner{width:min(1120px,calc(100% - 48px));max-width:none}
+#problem .finance-problem__top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(20px,2.5vw,50px);align-items:center;min-height:370px}
+#problem .finance-problem__copy{align-self:center;padding-bottom:18px}
+#problem .finance-problem__copy h2{margin:28px 0 22px;font-size:clamp(2rem, 4vw, 3.3rem);line-height:1.53;letter-spacing:.055em}
+#problem .finance-problem__copy .finance-lead{max-width:700px;font-size:clamp(14px,1.1vw,18px);line-height:2.05}
+#problem .finance-problem__visual{width:100%;height:auto;aspect-ratio:835/780;align-self:center;overflow:visible}
+#problem .finance-problem__visual img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
+#problem .finance-problem__intro{max-width:none;margin-top:4px}
+#problem .finance-problem__intro h3{font-size:clamp(1.45rem,2.15vw,2.15rem)}
+#problem .finance-ladder{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:27px}
+#problem .finance-ladder .ladder__item{min-height:155px;padding:20px 17px;border-radius:12px;gap:10px}
+#problem .finance-ladder .ladder__item small{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#e8f0f7;color:#1a2744;letter-spacing:0}
+#problem .finance-ladder .ladder__item--quiet{border-style:solid;border-color:#f0dfd6;background:#fffaf7;color:#1a2744}
+#problem .finance-ladder .ladder__item--quiet small{background:#ffe8dc;color:#d36f49}
+#problem .finance-ladder .ladder__item strong{font-size:clamp(12px,.92vw,15px);line-height:1.6}
+#problem .finance-ladder .ladder__item em{margin-top:auto}
+#problem .finance-problem__groups{gap:18px;margin-top:18px}
+#problem .finance-problem__groups p{padding:19px 22px}
+@media(max-width:1100px){
+ #problem .finance-inner{width:min(1120px,calc(100% - 48px))}
+ #problem .finance-problem__top{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);min-height:0}
+ #problem .finance-problem__copy h2{font-size:clamp(2rem, 4vw, 3.3rem)}
+ #problem .finance-problem__top{grid-template-columns:1fr;gap:0}
+ #problem .finance-problem__copy{padding:0}
+ #problem .finance-problem__visual{width:min(100%,560px);margin:4px auto 0}
+ #problem .finance-problem__intro{margin-top:12px}
+ #problem .finance-ladder{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ #problem .finance-ladder .ladder__item:last-child{grid-column:1/-1}
+ #problem .finance-problem__groups{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+ #problem .finance-inner{width:calc(100% - 36px)}
+ #problem .finance-problem__copy h2{font-size:clamp(2rem, 4vw, 3.3rem)}
+ #problem .finance-problem__visual{margin-top:15px}
+ #problem .finance-ladder{grid-template-columns:1fr}
+ #problem .finance-ladder .ladder__item:last-child{grid-column:auto}
+ #problem .finance-ladder .ladder__item{min-height:0}
+ #problem .finance-problem__groups{grid-template-columns:1fr}
+}
+
+/* Problem cutout: decorative circles are CSS, never baked into the worker PNG. */
+#problem .finance-problem__visual{isolation:isolate;aspect-ratio:1.22;min-height:360px;overflow:visible}
+#problem .finance-problem__visual::before{content:"";position:absolute;z-index:-2;width:82%;aspect-ratio:1;right:0;top:4%;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff5ed 0%,#ffdcc8 72%,#ffd0b7 100%)}
+#problem .finance-problem__visual::after{content:"";position:absolute;z-index:-1;width:68%;aspect-ratio:1;left:1%;top:13%;border:1px solid #f3a87f;border-radius:50%;pointer-events:none}
+#problem .finance-problem__visual img{position:relative;z-index:1;width:78%;height:auto;max-height:440px;object-fit:contain;filter:drop-shadow(0 12px 18px #1a27441a)}
+@media(max-width:760px){#problem .finance-problem__visual{min-height:0;aspect-ratio:1.25}#problem .finance-problem__visual img{width:74%;max-height:380px}}
+@media(max-width:520px){#problem .finance-problem__visual img{width:78%;max-height:310px}}
+
+/* 2026-09-23: Members / Support / Contact content additions; FV and Problem unchanged. */
+.finance-members__note{margin:20px 0 0;padding:0;border:0;border-radius:0;background:transparent;color:var(--finance-muted);font-size:11px;font-weight:400;line-height:1.8}
+.support-list .support-list__body{min-width:0}
+.support-list .support-list__body h4{margin:14px 0 13px;color:var(--finance-ink);font-family:"Noto Serif JP","Yu Mincho",serif;font-size:clamp(17px,2vw,22px);font-weight:600;line-height:1.7}
+.support-list .support-list__body>p{max-width:100%;line-height:1.95}
+.support-list__items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 18px;max-width:790px;margin:19px 0 0;padding:0;list-style:none}
+.support-list__items li{position:relative;padding:10px 12px 10px 25px;border-radius:8px;background:#fff;color:var(--finance-ink);font-size:13px;line-height:1.65}
+.support-list__items li::before{content:"";position:absolute;top:19px;left:12px;width:5px;height:5px;border-radius:50%;background:var(--finance-warm)}
+.support-list .support-list__message{max-width:790px;margin-top:21px;padding:17px 20px;border-left:3px solid var(--finance-warm);border-radius:0 9px 9px 0;background:#fff8f4;color:var(--finance-ink);font-weight:700;line-height:1.95}
+.finance-contact__eyecatch{margin:20px 0 0;color:#fff;font-family:"Noto Serif JP","Yu Mincho",serif;font-size:clamp(20px,2.5vw,29px);font-weight:600;line-height:1.7}
+@media(max-width:600px){.support-list__items{grid-template-columns:1fr}.support-list__items li{padding-block:9px}}
+
+/* SUPPORT: show the journey at a glance and keep only the selected step open. */
+.support-flow__hint{margin:24px 0 -22px;color:var(--finance-muted);font-size:13px;line-height:1.7}
+.support-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:34px 0 0}
+.support-flow__step{display:flex;min-width:0;min-height:144px;flex-direction:column;align-items:flex-start;padding:18px;border:1px solid var(--finance-line);border-radius:14px;background:#fff;color:var(--finance-ink);font:inherit;text-align:left;cursor:pointer;transition:border-color .2s ease,background-color .2s ease}
+.support-flow__step:hover,.support-flow__step.is-active{border-color:var(--finance-warm)}
+.support-flow__step.is-active{background:#fff8f4}
+.support-flow__step:focus-visible{outline:2px solid var(--finance-warm);outline-offset:3px}
+.support-flow__icon{display:grid;width:36px;height:36px;place-items:center;color:var(--finance-warm)}
+.support-flow__icon svg{width:30px;height:30px;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.6}
+.support-flow__number{margin-top:9px;color:var(--finance-warm);font-size:10px;letter-spacing:.14em}
+.support-flow__step strong{margin-top:4px;font-size:clamp(13px,1.4vw,16px);line-height:1.55}
+.support-flow__action{margin-top:auto;padding-top:10px;color:var(--finance-warm);font-size:11px;font-weight:600}
+.support-list{display:grid;grid-template-columns:48px minmax(0,1fr);gap:18px;max-width:none;margin-top:20px;padding:24px;border:1px solid var(--finance-line);border-radius:14px;background:#fff}
+.support-step-flow__featured{grid-column:1/-1;display:flex;flex-direction:column;align-items:flex-start;gap:7px;padding:16px 20px;border-left:4px solid var(--finance-warm);border-radius:0 10px 10px 0;background:#fff3ed}
+.support-step-flow__featured small{color:var(--finance-warm);font-size:10px;font-weight:700;letter-spacing:.12em}
+.support-step-flow__featured strong{color:var(--finance-ink);font-size:clamp(18px,2vw,23px);line-height:1.5}
+.support-list>b{color:var(--finance-warm);font-family:serif;font-size:22px}
+.support-list .support-list__body h3{margin:5px 0 0;font-family:serif;font-size:23px;font-weight:500}
+.support-list .support-list__body h4{margin:8px 0 10px;font-size:17px}
+.support-list .support-list__body>p{margin-top:8px}
+.support-step-flow{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0;padding:0;list-style:none}
+.support-step-flow li{position:relative;padding:9px 13px;border-radius:8px;background:#fff3ed;color:var(--finance-ink);font-size:13px;font-weight:600;line-height:1.6}
+.support-step-flow li+li{margin-left:13px}
+.support-step-flow li+li::before{position:absolute;left:-15px;color:var(--finance-warm);content:"→"}
+@media(max-width:760px){.support-flow{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.support-flow__step{min-height:130px;padding:14px}.support-list{grid-template-columns:36px minmax(0,1fr);gap:12px;padding:18px}.support-list .support-list__body h3{font-size:20px}}
+@media(max-width:420px){.support-flow__step{min-height:124px;padding:12px}.support-flow__step strong{font-size:13px}.support-step-flow{gap:7px}.support-step-flow li{font-size:12px}}
+
+/* Protein / Silicon: introductory terminology and full-width lead text. */
+.finance-page .finance-lead{max-width:100%}
+
+/* Protein / Silicon descriptions are placed beneath their respective portraits. */
+.finance-solution__visuals{margin-top:30px}
+.finance-solution__visuals .team-visual{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:clamp(12px,2vw,24px);align-items:start;margin-top:0}
+.finance-solution__members{margin-top:46px}
+.finance-solution__members>h3{margin:12px 0 10px;font-family:"Noto Serif JP","Yu Mincho",serif;font-size:clamp(21px,2.6vw,29px);font-weight:500;line-height:1.65}
+.finance-solution__members .member-grid{margin-top:26px}
+.finance-solution__visuals .team-visual__side{min-width:0}
+.finance-solution__visuals .team-visual__people{display:flex;align-items:flex-start;justify-content:space-around;gap:8px;margin:20px 0 14px}
+.finance-solution__visuals .team-visual__side .team-visual__people{display:flex}
+.finance-solution__visuals .team-visual__side--silicon .team-visual__person{gap:5px}
+.finance-solution__visuals .team-visual__side--silicon .team-visual__person small{font-size:12px;font-weight:700}
+.finance-solution__visuals .team-visual__side--silicon .team-visual__person b{color:var(--finance-muted);font-size:10px;font-weight:500;line-height:1.5}
+.finance-solution__visuals .team-visual__side--silicon .team-visual__person>span{color:var(--finance-muted);font-size:10px;line-height:1.55}
+.finance-solution__visuals .team-visual__plus{align-self:center;margin:0;color:var(--finance-warm);font-size:32px}
+.finance-solution__visuals .team-visual__goal{grid-column:1/-1;margin-top:6px;padding-top:23px;border-top:1px solid var(--finance-line)}
+.finance-solution__visuals .team-visual__goal b{display:block;margin-bottom:10px;color:#d36f49;font-size:10px;letter-spacing:.2em}
+.finance-solution__visuals .team-visual__goal span{display:block;margin-bottom:10px;color:var(--finance-muted);font-size:13px;line-height:1.8}
+.finance-solution__visuals .team-visual__goal strong{display:block;font-family:"Noto Serif JP","Yu Mincho",serif;font-size:clamp(18px,2.2vw,24px);font-weight:500;line-height:1.7}
+@media(max-width:800px){.finance-solution__visuals .team-visual{grid-template-columns:minmax(0,1fr);gap:22px}.finance-solution__visuals .team-visual__plus{justify-self:center}.finance-solution__visuals .team-visual__goal{margin-top:0}}
+@media(max-width:520px){.finance-solution__visuals .team-visual__side--silicon .team-visual__people{gap:5px}.finance-solution__visuals .team-visual__side--silicon .team-visual__person small{font-size:11px}.finance-solution__visuals .team-visual__side--silicon .team-visual__person b,.finance-solution__visuals .team-visual__side--silicon .team-visual__person>span{font-size:9px}}
+
+
+/* Silicon heading: short explanation alongside the AI label; no portrait description boxes. */
+.finance-solution__visuals .team-visual__silicon-heading{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px 10px}
+.finance-solution__visuals .team-visual__silicon-caption{color:var(--finance-muted);font-size:11px;font-weight:400;letter-spacing:0;line-height:1.7}
+
+
+/* Protein pronunciation: understated inline caption matching the Silicon heading. */
+.finance-solution__visuals .team-visual__protein-caption{color:var(--finance-muted);font-size:11px;font-weight:400;letter-spacing:0;line-height:1.7}
+
+/* FAQ: animate native details expansion and the plus-to-close icon. */
+.finance-page .faq-item{interpolate-size:allow-keywords}
+.finance-page .faq-item::details-content{block-size:0;overflow:hidden;content-visibility:hidden;transition:block-size .32s ease,content-visibility .32s allow-discrete}
+.finance-page .faq-item[open]::details-content{block-size:auto;content-visibility:visible}
+.finance-page .faq-item summary span{display:inline-block;flex:none;line-height:1;transform:rotate(0deg);transition:transform .28s ease,color .28s ease}
+.finance-page .faq-item[open] summary span{transform:rotate(45deg)}
+.finance-page .faq-item summary:focus-visible{outline:2px solid var(--finance-warm);outline-offset:4px}
+@media(prefers-reduced-motion:reduce){.finance-page .faq-item::details-content,.finance-page .faq-item summary span{transition:none}}
+
+/* WORKING — alternating portrait + attached bubble, reference-inspired layout. */
+#working.finance-section{background:#1a2744}
+#working .finance-working__inner{width:min(1120px,calc(100% - 48px))}
+#working .finance-scene{margin-top:68px}
+#working .finance-scene__grid{display:grid;grid-template-columns:minmax(0,1fr);gap:25px}
+#working .finance-scene .dialogue--chat{position:relative;display:flex;flex-direction:column;gap:0;width:100%;max-width:none;margin:0;padding:8px 0 14px;overflow:visible;isolation:isolate}
+/* Curved connector is ornamental and never obscures content. */
+#working .finance-scene .dialogue--chat::before{content:"";position:absolute;z-index:-1;top:40px;bottom:40px;left:50%;width:1px;border-left:1px dashed #9ba9bf66;pointer-events:none}
+#working .finance-scene .dialogue--chat>.dialogue-chat{position:relative;display:grid;grid-template-columns:110px minmax(0,1fr);align-items:center;gap:18px;width:min(100%,790px);max-width:none;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:#fff;box-shadow:none}
+#working .finance-scene .dialogue--chat>.dialogue-chat--silicon{grid-template-columns:minmax(0,1fr) 110px;align-self:flex-end}
+
+#working .dialogue-chat__speaker{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;max-width:none;color:#fff;text-align:center}
+#working .dialogue-chat--silicon .dialogue-chat__speaker{grid-column:2;grid-row:1;flex-direction:column;text-align:center}
+#working .dialogue-chat__speaker img{display:block;flex:none;width:84px;height:84px;border:3px solid #fff;border-radius:50%;object-fit:cover;object-position:center;background:#e9edf4;box-shadow:0 8px 20px #07132925}
+#working .dialogue-chat--silicon .dialogue-chat__speaker img{border-color:#9dc8e2;background:#e4f1f8}
+#working .dialogue-chat__speaker span{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0}
+#working .dialogue-chat__speaker b{font-size:12px;font-weight:700;line-height:1.45}
+#working .finance-scene .dialogue--chat .dialogue-chat__speaker small{color:#d4ddeb;font-size:11px;line-height:1.4}
+#working .dialogue-chat--silicon .dialogue-chat__speaker b{color:#b7def4}
+#working .finance-scene .dialogue--chat .dialogue-chat__bubble{position:relative;display:flex;align-items:center;grid-column:2;grid-row:1;width:100%;max-width:none;min-height:82px;margin:0;padding:16px 22px;border:1px solid #dce3ee;border-radius:17px;background:#fff;box-shadow:0 12px 30px #07132916}
+#working .finance-scene .dialogue--chat .dialogue-chat--silicon .dialogue-chat__bubble{grid-column:1;grid-row:1;margin:0;border-color:#b8d4e6;border-radius:17px;background:#eaf3f9}
+#working .dialogue-chat__bubble::before{content:"";position:absolute;top:50%;left:-14px;width:0;height:0;transform:translateY(-50%);border-top:12px solid transparent;border-bottom:12px solid transparent;border-right:15px solid #fff;border-left:0}
+#working .dialogue-chat--silicon .dialogue-chat__bubble::before{left:auto;right:-14px;border-right:0;border-left:15px solid #eaf3f9}
+#working .finance-scene .dialogue--chat .dialogue-chat__bubble p{margin:0;color:var(--finance-ink);font-size:clamp(14px,1.5vw,18px);font-weight:500;line-height:1.85;overflow-wrap:anywhere}
+#working .finance-scene__artifact{max-width:790px;margin:0 auto}
+/* IntersectionObserver toggles .is-visible; content remains readable without JS. */
+@media(prefers-reduced-motion:no-preference){
+ #working.finance-chat-motion-ready .dialogue-chat{opacity:0;transform:translate3d(-65px,18px,0);transition:opacity .72s ease,transform .72s cubic-bezier(.2,.75,.2,1);will-change:opacity,transform}
+ #working.finance-chat-motion-ready .dialogue-chat--silicon{transform:translate3d(65px,18px,0)}
+ #working.finance-chat-motion-ready .dialogue-chat.is-visible{opacity:1;transform:translate3d(0,0,0)}
+}
+@media(max-width:700px){
+ #working .finance-scene .dialogue--chat{gap:0}
+ #working .finance-scene .dialogue--chat>.dialogue-chat{grid-template-columns:65px minmax(0,1fr);gap:10px;width:100%}
+ #working .finance-scene .dialogue--chat>.dialogue-chat--silicon{grid-template-columns:minmax(0,1fr) 65px}
+ #working .dialogue-chat__speaker img{width:56px;height:56px;border-width:2px}
+ #working .dialogue-chat__speaker b{font-size:10px}
+ #working .finance-scene .dialogue--chat .dialogue-chat__speaker small{font-size:9px}
+ #working .finance-scene .dialogue--chat .dialogue-chat__bubble{min-height:64px;padding:10px 13px}
+ #working .finance-scene .dialogue--chat .dialogue-chat__bubble p{font-size:13px;line-height:1.75}
+ #working .dialogue-chat__bubble::before{left:-10px;border-top-width:9px;border-bottom-width:9px;border-right-width:11px}
+ #working .dialogue-chat--silicon .dialogue-chat__bubble::before{right:-10px;border-left-width:11px}
+}
+@media(max-width:400px){#working .finance-working__inner{width:calc(100% - 28px)}#working .finance-scene .dialogue--chat>.dialogue-chat{grid-template-columns:53px minmax(0,1fr);gap:8px}#working .finance-scene .dialogue--chat>.dialogue-chat--silicon{grid-template-columns:minmax(0,1fr) 53px}#working .dialogue-chat__speaker img{width:46px;height:46px}#working .finance-scene .dialogue--chat .dialogue-chat__bubble{padding:8px 10px}}
+/* WORKING: scene summary precedes the conversation, presented as a wide horizontal briefing. */
+#working .finance-scene__grid{display:flex;flex-direction:column;align-items:stretch;gap:32px}
+#working .finance-scene__artifact{box-sizing:border-box;align-self:stretch;width:100%;max-width:none;margin:0;padding:22px clamp(20px,3vw,34px);border:1px solid #dce3ee;border-left:4px solid #e8835b;border-radius:14px;background:#f7f8fb;color:var(--finance-ink);box-shadow:0 8px 24px #07132912}
+#working .finance-scene__artifact h4{margin:7px 0 15px;font-size:clamp(18px,2vw,23px)}
+#working .finance-scene__artifact>div{display:inline-flex;vertical-align:top;align-items:baseline;justify-content:flex-start;gap:10px 18px;width:calc(50% - 10px);margin-right:16px;padding:11px 0;line-height:1.8}
+#working .finance-scene__artifact>div:nth-of-type(2n){margin-right:0}
+#working .finance-scene__artifact>div b{margin-left:auto;text-align:right}
+#working .finance-scene__artifact p{margin:13px 0 0;padding-top:12px;border-top:1px solid #dfe3e9}
+@media(max-width:700px){#working .finance-scene__grid{gap:24px}#working .finance-scene__artifact{padding:19px 20px}#working .finance-scene__artifact>div{display:flex;width:100%;margin-right:0}#working .finance-scene__artifact>div b{max-width:55%}}
+
+/* WORKING scene layout: briefing always above conversation, never a side column. */
+#working .finance-scene__grid{display:flex;flex-direction:column;align-items:stretch;gap:36px;grid-template-columns:none}
+#working .finance-scene__grid > .finance-scene__artifact{order:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px;row-gap:0;align-self:stretch;width:100%;max-width:none;min-height:0;margin:0;padding:24px clamp(22px,3vw,36px);border:1px solid #e7b69d;border-left:4px solid #e8835b;border-radius:12px;background:#fffaf7;box-shadow:none}
+#working .finance-scene__artifact > small,#working .finance-scene__artifact > h4,#working .finance-scene__artifact > p{grid-column:1/-1}
+#working .finance-scene__artifact > small{color:#ba6848;font-weight:700;letter-spacing:.14em}
+#working .finance-scene__artifact > h4{margin:5px 0 12px;font-size:clamp(17px,2vw,21px)}
+#working .finance-scene__artifact > div{display:flex;width:auto;min-width:0;margin:0;padding:10px 0;gap:12px;justify-content:space-between;align-items:baseline;border-bottom:1px solid #e9ddd7}
+#working .finance-scene__artifact > div b{margin-left:0;text-align:right}
+#working .finance-scene__artifact > p{margin:12px 0 0;padding:0;border:0;color:#94654f;font-size:12px}
+#working .finance-scene__grid > .dialogue--chat{order:1;width:100%;margin:0}
+@media(max-width:700px){#working .finance-scene__grid{gap:24px}#working .finance-scene__grid > .finance-scene__artifact{grid-template-columns:minmax(0,1fr);padding:19px 20px}#working .finance-scene__artifact > div{width:100%;margin:0}#working .finance-scene__artifact > div b{max-width:60%}}
+
+/* WORKING: compact two-line briefing before each conversation. */
+#working .finance-scene__grid > .finance-scene__artifact{display:flex;flex-direction:column;justify-content:center;gap:5px;min-height:0;padding:14px clamp(18px,2.5vw,28px);border:1px solid #e7b69d;border-radius:12px;background:#fffaf7}
+#working .finance-scene__artifact > h4{margin:0;font-size:clamp(17px,1.8vw,21px);line-height:1.5}
+#working .finance-scene__artifact > p{margin:0;padding:0;border:0;color:#94654f;font-size:12px;line-height:1.55}
+@media(max-width:700px){#working .finance-scene__grid > .finance-scene__artifact{padding:12px 16px;gap:4px}}
+
+#working .finance-scene{margin-top:44px}
+#working .finance-scene h3{margin:0 0 12px;padding-bottom:10px;line-height:1.5}
+
+/* VALUE: restrained four-card refinement consistent with the existing LP. */
+#value .finance-value-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:48px}
+#value .finance-value-grid article{position:relative;min-width:0;min-height:205px;padding:32px 34px 30px;border:1px solid #dce3ec;border-radius:16px;background:#fff;box-shadow:none}
+#value .finance-value-grid article small{display:flex;align-items:center;gap:17px;margin:0;color:#cf6f4d;font-family:"Noto Serif JP","Yu Mincho",serif;font-size:27px;font-weight:400;letter-spacing:.04em;line-height:1.1}
+#value .finance-value-grid article small::after{content:"";display:block;width:45px;height:1px;background:#e8835b}
+#value .finance-value-grid article h3{margin:23px 0 11px;color:var(--finance-ink);font-family:"Noto Serif JP","Yu Mincho",serif;font-size:clamp(19px,2.15vw,25px);font-weight:500;line-height:1.6;letter-spacing:.02em}
+#value .finance-value-grid article p{margin:0;color:var(--finance-muted);font-size:13px;line-height:1.85}
+@media(max-width:700px){#value .finance-value-grid{grid-template-columns:1fr;gap:13px;margin-top:34px}#value .finance-value-grid article{min-height:0;padding:25px 24px}#value .finance-value-grid article h3{margin:17px 0 8px}}
+
+/* Existing team portraits replace the Si / Pr monogram icons. */
+.finance-growth-pair img.finance-growth-pair__icon{display:block;flex:0 0 48px;width:48px;height:48px;object-fit:cover;border-radius:50%;background:#fff;border:1px solid var(--finance-line)}
+
+
+/* 2026-09-24 FIX: animate the bubble itself on scroll, alternating left / right. */
+@media(prefers-reduced-motion:no-preference){
+  /* Cancel the older whole-row reveal. Portraits stay in place; only bubbles move. */
+  #working.finance-chat-motion-ready .dialogue-chat,
+  #working.finance-chat-motion-ready .dialogue-chat--silicon{
+    opacity:1;
+    transform:none;
+    transition:none;
+    will-change:auto;
+  }
+
+  /* Protein bubble enters from the left. */
+  #working.finance-chat-motion-ready .dialogue-chat--protein .dialogue-chat__bubble{
+    opacity:0;
+    transform:translate3d(-72px,0,0);
+    transition:
+      opacity .58s ease,
+      transform .72s cubic-bezier(.2,.75,.2,1);
+    will-change:opacity,transform;
+  }
+
+  /* Silicon bubble enters from the right. */
+  #working.finance-chat-motion-ready .dialogue-chat--silicon .dialogue-chat__bubble{
+    opacity:0;
+    transform:translate3d(72px,0,0);
+    transition:
+      opacity .58s ease,
+      transform .72s cubic-bezier(.2,.75,.2,1);
+    will-change:opacity,transform;
+  }
+
+  #working.finance-chat-motion-ready .dialogue-chat.is-visible .dialogue-chat__bubble{
+    opacity:1;
+    transform:translate3d(0,0,0);
+  }
+}
+
+/* 2026-09-24 FV — clean HTML/CSS network.
+   No speech bubbles or baked-in FV copy. Background and network are seamless. */
+.finance-hero--remote{
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 67% 4%,rgba(224,241,251,.72) 0 14%,transparent 38%),
+    radial-gradient(ellipse at 88% 68%,rgba(255,235,224,.64) 0 17%,transparent 40%),
+    linear-gradient(115deg,#fbfcfd 0%,#fbfcfd 38%,#f8fcff 66%,#fffaf7 100%);
+}
+.finance-hero--remote .finance-hero__stage{
+  display:grid;
+  grid-template-columns:minmax(0,.88fr) minmax(560px,1.12fr);
+  gap:clamp(8px,1.5vw,24px);
+  align-items:center;
+  min-height:720px;
+  padding:105px 0 72px;
+}
+.finance-hero--remote .finance-hero__stage::before,
+.finance-hero--remote .finance-hero__stage::after{content:none}
+.finance-hero--remote .finance-hero__copy{position:relative;z-index:4;width:100%;max-width:590px}
+.finance-hero--remote .finance-hero__copy h1{font-size:clamp(2.05rem,3.25vw,3.35rem)}
+.finance-hero__remote-message{margin:40px 0 0;padding-left:20px;border-left:1px solid #8da1bd;color:#314467;font-family:"Noto Serif JP","Yu Mincho",serif;font-size:clamp(15px,1.3vw,19px);line-height:1.9}
+
+.finance-hero-network--clean{
+  position:relative;
+  z-index:2;
+  width:calc(100% + 34px);
+  margin-left:-34px;
+  aspect-ratio:1.1;
+  isolation:isolate;
+}
+.finance-hero-network--clean::before{
+  content:"";
+  position:absolute;
+  z-index:-5;
+  inset:-9% -8% -8% -8%;
+  background:
+    radial-gradient(circle at 23% 20%,rgba(255,231,218,.78) 0 15%,transparent 15.5%),
+    radial-gradient(circle at 80% 18%,rgba(228,243,252,.88) 0 15%,transparent 15.5%),
+    radial-gradient(circle at 18% 72%,rgba(228,243,252,.88) 0 16%,transparent 16.5%),
+    radial-gradient(circle at 83% 68%,rgba(255,231,218,.78) 0 16%,transparent 16.5%),
+    radial-gradient(circle at 54% 91%,rgba(228,243,252,.84) 0 15%,transparent 15.5%);
+  border-radius:44% 56% 48% 52%/52% 46% 54% 48%;
+}
+.finance-hero-network--clean::after{
+  content:"";
+  position:absolute;
+  z-index:-4;
+  left:-13%;
+  top:-7%;
+  bottom:-8%;
+  width:28%;
+  background:linear-gradient(90deg,#fbfcfd 0%,rgba(251,252,253,.82) 38%,rgba(251,252,253,0) 100%);
+  pointer-events:none;
+}
+.finance-hero-network__lines{position:absolute;z-index:-2;inset:0;width:100%;height:100%;overflow:visible}
+.finance-hero-network__lines path{fill:none;stroke-width:1.45;stroke-dasharray:5 7;opacity:.76}
+.finance-hero-network__lines .line-protein{stroke:#d78f9a}
+.finance-hero-network__lines .line-silicon{stroke:#69add7}
+
+.finance-hero-person{position:absolute;width:clamp(118px,10.5vw,158px);text-align:center}
+.finance-hero-person--protein{left:3%;top:3%}
+.finance-hero-person--takahashi{right:4%;top:2%}
+.finance-hero-person--sato{left:0;top:55%}
+.finance-hero-person--finance-director{right:0;top:54%}
+.finance-hero-person--watanabe{left:51%;bottom:-2%;transform:translateX(-50%)}
+.finance-hero-person__portrait{width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;background:#e9f5fc}
+.finance-hero-person__portrait--protein{background:#fff0e7}
+.finance-hero-person__portrait img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.finance-hero-person__portrait--protein img{object-position:44% 23%;transform:scale(1.08)}
+.finance-hero-person__label{
+  position:relative;
+  z-index:2;
+  width:112%;
+  margin:-8px -6% 0;
+  padding:8px 7px 9px;
+  border-radius:17px;
+  background:rgba(232,244,252,.95);
+  box-shadow:0 8px 22px rgba(26,39,68,.055);
+  backdrop-filter:blur(5px);
+}
+.finance-hero-person__label--protein{background:rgba(255,239,230,.98);box-shadow:0 8px 22px rgba(150,89,91,.12)}
+.finance-hero-person:not(.finance-hero-person--protein):not(.finance-hero-person--finance-director) .finance-hero-person__label{border:1px solid rgba(105,173,215,.3)}
+.finance-hero-person__label small{display:block;color:#243a5e;font-size:9px;font-weight:700}
+.finance-hero-person__label strong{display:block;margin-top:3px;color:#14294d;font-size:11px;line-height:1.45}
+.finance-hero-person__label strong span{margin-left:4px;color:#52627e;font-size:8px;font-weight:500}
+
+.finance-hero-network__goal{
+  position:absolute;
+  z-index:-1;
+  left:50%;
+  top:45%;
+  width:34%;
+  aspect-ratio:1;
+  transform:translate(-50%,-50%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#ffffff;
+  text-align:center;
+}
+.finance-hero-network__goal b{color:#17345c;font-family:"Noto Serif JP","Yu Mincho",serif;font-size:clamp(18px,1.9vw,27px);font-weight:500;line-height:1.65;transform:rotate(-6deg)}
+.finance-hero-network__goal span{margin-top:9px;color:#334966;font-size:9px;line-height:1.65}
+
+.finance-hero-task{
+  position:absolute;
+  z-index:3;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  min-width:94px;
+  min-height:88px;
+  padding:10px 8px;
+  border:1px solid #e5ebf1;
+  border-radius:15px;
+  background:rgba(255,255,255,.95);
+  box-shadow:0 8px 22px rgba(26,39,68,.055);
+  text-align:center;
+}
+.finance-hero-task span{color:#4e94c2;font-size:21px;line-height:1}
+.finance-hero-task b{color:#263d60;font-size:8px;line-height:1.45}
+.finance-hero-task--collect{left:38%;top:12%}
+.finance-hero-task--analysis{left:28%;top:58%}
+.finance-hero-task--forecast{right:27%;top:58%}
+.finance-hero-task--decision{left:39%;bottom:2%}
+
+@media(max-width:1050px){
+  .finance-hero--remote .finance-hero__stage{grid-template-columns:minmax(0,.92fr) minmax(470px,1.08fr)}
+  .finance-hero-network--clean{width:calc(100% + 16px);margin-left:-16px}
+  .finance-hero-person{width:125px}
+  .finance-hero-task{min-width:82px;min-height:78px}
+}
+@media(max-width:800px){
+  .finance-hero--remote .finance-hero__stage{display:block;min-height:0;padding:105px 0 54px}
+  .finance-hero--remote .finance-hero__copy{max-width:none}
+  .finance-hero-network--clean{width:min(100%,680px);margin:42px auto 0;aspect-ratio:1.02}
+  .finance-hero-network--clean::after{display:none}
+  .finance-hero__remote-message{margin-top:30px}
+}
+@media(max-width:560px){
+  .finance-hero--remote .finance-hero__stage{padding-top:92px}
+  .finance-hero--remote .finance-hero__copy h1{font-size:clamp(1.9rem,8vw,2.3rem)}
+  .finance-hero-network--clean{width:calc(100% + 20px);margin-left:-10px;aspect-ratio:.8}
+  .finance-hero-person{width:96px}
+  .finance-hero-person--protein{left:0;top:4%}
+  .finance-hero-person--takahashi{right:0;top:4%}
+  .finance-hero-person--sato{left:0;top:56%}
+  .finance-hero-person--finance-director{right:0;top:56%}
+  .finance-hero-person--watanabe{left:50%;bottom:0}
+  .finance-hero-person__label{padding:6px 4px 7px}
+  .finance-hero-person__label strong{font-size:9px}
+  .finance-hero-person__label strong span{display:block;margin:1px 0 0;font-size:7px}
+  .finance-hero-network__goal{width:40%;top:44%}
+  .finance-hero-network__goal b{font-size:15px}
+  .finance-hero-network__goal span{font-size:7px}
+  .finance-hero-task{min-width:68px;min-height:64px;padding:7px 5px}
+  .finance-hero-task span{font-size:16px}
+  .finance-hero-task b{font-size:6px}
+  .finance-hero-task--collect{left:37%;top:15%}
+  .finance-hero-task--analysis{left:25%;top:58%}
+  .finance-hero-task--forecast{right:24%;top:58%}
+  .finance-hero-task--decision{left:38%;bottom:4%}
+}
+
+/* 2026-09-24 FV reference alignment fix.
+   Keep the live HTML network, but restore the proportions/spacing of the approved reference. */
+@media (min-width:1051px){
+  .finance-hero--remote .finance-hero__stage{
+    grid-template-columns:minmax(0,43%) minmax(0,57%);
+    gap:0;
+    min-height:720px;
+    padding:82px 0 54px;
+  }
+  .finance-hero--remote .finance-hero__copy{
+    z-index:5;
+    width:100%;
+    max-width:560px;
+    padding-right:18px;
+  }
+  .finance-hero--remote .finance-hero__copy h1{
+    margin:38px 0 28px;
+    font-size:clamp(2.55rem,3.15vw,3.1rem);
+    line-height:1.55;
+    letter-spacing:.035em;
+  }
+  .finance-hero--remote .finance-hero__copy .finance-hero__lead{
+    max-width:540px;
+    font-size:clamp(.9rem,1vw,1rem);
+    line-height:2.05;
+  }
+  .finance-hero--remote .finance-actions{
+    display:grid;
+    grid-template-columns:minmax(0,455px);
+    gap:10px;
+    margin-top:30px;
+  }
+  .finance-hero--remote .finance-button{width:100%;min-height:52px}
+  .finance-hero-network--clean{
+    width:calc(100% + 86px);
+    margin-left:-48px;
+    aspect-ratio:1.14;
+    transform:translateY(2px);
+  }
+  .finance-hero-person{width:clamp(138px,10.4vw,166px)}
+  .finance-hero-person--protein{left:5%;top:2%}
+  .finance-hero-person--takahashi{right:4%;top:2%}
+  .finance-hero-person--sato{left:1%;top:53%}
+  .finance-hero-person--finance-director{right:0;top:52%}
+  .finance-hero-person--watanabe{left:53%;bottom:0;transform:translateX(-50%)}
+  .finance-hero-network__goal{left:51%;top:43%;width:34%}
+  .finance-hero-task--collect{left:40%;top:12%}
+  .finance-hero-task--analysis{left:29%;top:57%}
+  .finance-hero-task--forecast{right:25%;top:57%}
+  .finance-hero-task--decision{left:40%;bottom:5%}
+  .finance-hero-task{min-width:96px;min-height:86px}
+}
+
+/* The approved Protein portrait already exists in /images/finance. */
+.finance-hero-person__portrait--protein img{object-position:center;transform:none}
+
+@media (max-width:1050px) and (min-width:801px){
+  .finance-hero--remote .finance-hero__stage{
+    grid-template-columns:minmax(0,44%) minmax(0,56%);
+    gap:4px;
+    min-height:650px;
+  }
+  .finance-hero--remote .finance-hero__copy h1{font-size:clamp(2rem,3.8vw,2.8rem)}
+  .finance-hero-network--clean{width:calc(100% + 30px);margin-left:-18px}
+  .finance-hero-person{width:122px}
+  .finance-hero-task{min-width:78px;min-height:74px}
+}
+
+
+/* 2026-09-24 FV final tuning: readable task cards + balanced decision card. */
+.finance-hero-task b{font-size:11px;line-height:1.55;font-weight:700}
+.finance-hero-task--decision{left:50%;bottom:3%;transform:translateX(-50%)}
+@media (min-width:1051px){
+  .finance-hero-task b{font-size:12px}
+  .finance-hero-task--decision{left:52%;bottom:3%;transform:translateX(-50%)}
+}
+@media (max-width:560px){
+  .finance-hero-task b{font-size:9px}
+  .finance-hero-task--decision{left:50%;bottom:2%;transform:translateX(-50%)}
+}
+
+
+/* 2026-09-24 FV final polish: keep the full background baked into each profile image. */
+.finance-hero-network--clean .finance-hero-person__portrait{
+  overflow:visible;
+  border-radius:0;
+  background:transparent;
+}
+.finance-hero-network--clean .finance-hero-person__portrait--protein{background:transparent}
+.finance-hero-network--clean .finance-hero-person__portrait img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  border-radius:0;
+  transform:none;
+}
+.finance-hero-network--clean .finance-hero-person--finance-director .finance-hero-person__portrait img{
+  filter:sepia(.2) saturate(.88);
+}
+
+/* Central shared-goal message: make the hierarchy readable at FV size. */
+.finance-hero-network__goal b{
+  font-size:clamp(25px,2.35vw,34px);
+  line-height:1.5;
+}
+.finance-hero-network__goal span{
+  margin-top:11px;
+  font-size:clamp(11px,.9vw,13px);
+  font-weight:600;
+  line-height:1.7;
+}
+
+@media(max-width:560px){
+  .finance-hero-network__goal b{font-size:19px}
+  .finance-hero-network__goal span{font-size:9px}
+}
+
+.member-card__avatar{background:#eaf3f9}
+.finance-solution__visuals .team-visual__side:not(.team-visual__side--silicon) .team-visual__person img{background:#fff0e9}
+.finance-solution__visuals .team-visual__side--silicon .team-visual__person img{background:#e4f1f8}
+.finance-growth-dialogue__message--silicon img{background:#e4f1f8}
+.finance-growth-dialogue__message--protein img{background:#fff0e9}
+#working .dialogue-chat--protein .dialogue-chat__speaker img{border-color:#edc4bd;background:#fff0e9}
+#working .finance-scene .dialogue--chat .dialogue-chat--protein .dialogue-chat__bubble{border-color:#edc4bd;background:#fff0e9}
+#working .dialogue-chat--protein .dialogue-chat__bubble::before{border-right-color:#fff0e9}
+
+.finance-worker-types{padding:48px 0 82px;background:#fff}
+.finance-worker-types__label{margin:0 0 30px}
+.finance-worker-types__comparison{display:block;width:100%;height:auto}
+.finance-worker-types__statement{margin:36px 0 0;text-align:center;color:#111;font-family:"Noto Serif JP","Yu Mincho",serif;font-size:clamp(24px,4vw,44px);font-weight:500;letter-spacing:.04em;line-height:1.55}
+@media(max-width:760px){
+ .finance-worker-types{padding:38px 0 58px}
+ .finance-worker-types__label{margin-bottom:20px}
+ .finance-worker-types__statement{margin-top:27px}
+}
