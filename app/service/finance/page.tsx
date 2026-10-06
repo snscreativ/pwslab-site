@@ -268,7 +268,7 @@ export default function FinancePage() {
                     <div className="dialogue-chat__bubble"><p>来月も続く見込みです。売上見込みも確認できれば、その先への影響も整理できます。</p></div>
                   </div>
                   <div className="dialogue-chat dialogue-chat--protein">
-                    <div className="dialogue-chat__speaker"><img src="/images/finance/経理担当-横顔.png" alt="" width="56" height="56" loading="lazy" /><span><b>経理担当</b><small>Protein</small></span></div>
+                    <div className="dialogue-chat__speaker"><img src="/images/finance/財務経理部長-横顔.png" alt="" width="56" height="56" loading="lazy" /><span><b>財務経理部長</b><small>Protein</small></span></div>
                     <div className="dialogue-chat__bubble"><p>では、今月の経営会議に上げるべき論点を整理しよう。</p></div>
                   </div>
                   <div className="dialogue-chat dialogue-chat--silicon">
