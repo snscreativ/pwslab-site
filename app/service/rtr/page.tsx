@@ -337,8 +337,10 @@ export default function RtrPage() {
             <p className="p-rtr-eyebrow">05 EFFECTS</p>
             <h2 className="p-rtr-section-heading">
               最初に変わるのは、
+              <br />
+              離職の兆しへの
               <br className="u-xs" />
-              離職と面談。
+              向き合い方と、面談。
               <br />
               その先に、
               <span>
@@ -676,7 +678,7 @@ export default function RtrPage() {
                   <div className="p-rtr-flow-text">
                     <h4 className="p-rtr-flow-title">関係の兆しを見つける</h4>
                     <p>
-                      対話から関係性の兆しを拾い、次の面談に活かすレポートに整理する。
+                      対話から関係性の兆しを拾い、次の対話に活かす“材料”として整理する。
                     </p>
                   </div>
                 </article>
