@@ -1,6 +1,7 @@
 import ScrollReveal from "@/components/ScrollReveal";
 import Button from "@/components/Button";
 import SectionHeading from "@/components/SectionHeading";
+import Script from "next/script";
 import { getNewsList } from "@/lib/notion";
 import "@/styles/top.css";
 
@@ -238,10 +239,10 @@ export default async function HomePage() {
             revealId="p-top-diagnosis__card-1"
             className="p-top-diagnosis__card"
           >
-            <iframe
-              src="https://app.relevanceai.com/form/bcbe5a/5ff8a9f7-2326-4697-8fe9-8c743f32f511?version=latest&hideLogo=true&ctaText=%E8%A8%BA%E6%96%AD%E9%96%8B%E5%A7%8B+%28%E8%A8%BA%E6%96%AD%E3%81%AB%E3%81%AF+15%E7%A7%92%EF%BD%9E20%E7%A7%92%E3%81%8B%E3%81%8B%E3%82%8A%E3%81%BE%E3%81%99%29"
-              title="AI協働成熟度診断フォーム"
-              loading="lazy"
+            <div id="pws-ai-diagnosis" />
+            <Script
+              src="https://mamabpo.app.n8n.cloud/webhook/pws-ai-maturity-form"
+              strategy="afterInteractive"
             />
           </ScrollReveal>
         </div>
