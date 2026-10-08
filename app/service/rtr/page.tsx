@@ -65,16 +65,16 @@ export default function RtrPage() {
                 </span>
               </h1>
             </ScrollReveal>
-            <ScrollReveal revealId="rtr-block-01" className="p-rtr-hero-copy">
+            <ScrollReveal revealId="rtr-hero-copy" className="p-rtr-hero-copy">
               <p className="p-rtr-hero-sub">
-                本当の自分を、
-                <br className="u-xs" />
-                組織に取り戻しませんか。
+                本音が言えない。本音を拾えない。
+                <br />
+                だから、ヒトコがいる。
               </p>
               <p className="p-rtr-lead">
-                面談はある。制度もある。それでも本音は届かず、
+                直接では言いづらい“ひとこと”を拾い、関係の兆しを見つける。
                 <br />
-                関係はすれ違い、離職や停滞が起きていく。
+                人と人の対話につなぐ。その循環を組織文化へ。
               </p>
 
               <div className="p-rtr-hero-actions">
@@ -93,7 +93,7 @@ export default function RtrPage() {
               </div>
             </ScrollReveal>
             <ScrollReveal
-              revealId="rtr-block-02"
+              revealId="rtr-hero-visual"
               aria-label="緊張感のある定期面談と、つながりきらない関係性を表すビジュアル"
               className="p-rtr-hero-interview"
             >
@@ -119,7 +119,7 @@ export default function RtrPage() {
           <ScrollReveal revealId="rtr-block-01" className="p-rtr-wrap">
             <div className="p-rtr-problem-intro-compact">
               <div className="p-rtr-problem-intro-content">
-                <p className="p-rtr-eyebrow">01 THE ISSUE</p>
+                <p className="p-rtr-eyebrow">01 ISSUE</p>
                 <h2 className="p-rtr-section-heading">
                   面談しても、<span>本音</span>が上がってこない。
                   <br />
@@ -145,21 +145,303 @@ export default function RtrPage() {
                 <p>離職の前から始まっている、関係性の揺らぎを見落とす。</p>
               </article>
             </div>
-            <div className="p-rtr-problem-close p-rtr-text-close">
-              足りていないのは、制度でも面談回数でもなく、
-              <br />
-              <strong>
-                人間関係をマネジメント
-                <br className="u-sp" />
-                対象として扱う視点です。
-              </strong>
+          </ScrollReveal>
+        </section>
+
+        <section className="p-rtr-section p-rtr-section-white" id="signals">
+          <ScrollReveal revealId="rtr-block-02" className="p-rtr-wrap">
+            <p className="p-rtr-eyebrow">02 SIGNALS</p>
+            <article
+              className="p-rtr-signal-explanation"
+              aria-labelledby="rtr-signal-heading"
+            >
+              <h2 className="p-rtr-section-heading">
+                ヒトコが拾う
+                <br className="u-xs" />
+                <span>"関係性の変化の兆し"</span>
+              </h2>
+              <p className="p-rtr-signal-description">
+                ヒトコが答えを出すのではなく、拾った兆しを人と人の対話につなげます。
+              </p>
+              <div
+                aria-label="RTRが見る関係の兆し"
+                className="p-rtr-relationship-signal-visual"
+              >
+                <div className="p-rtr-signal-side p-rtr-signal-good">
+                  <span className="p-rtr-signal-kicker">GOOD SIGNALS</span>
+                  <h4 className="p-rtr-signal-title">育てたい関係性</h4>
+                  <div>
+                    <span className="p-rtr-signal-item">信頼</span>
+                    <span className="p-rtr-signal-item">安心</span>
+                    <span className="p-rtr-signal-item">尊敬</span>
+                    <span className="p-rtr-signal-item">期待</span>
+                  </div>
+                </div>
+                <div className="p-rtr-signal-center">
+                  <img
+                    alt="人と人のあいだを見るイメージ"
+                    className="p-rtr-signal-center-image"
+                    loading="lazy"
+                    src="/images/rtr/relation-signal-center.webp"
+                  />
+                  <h4 className="p-rtr-signal-hitoko">ヒトコ</h4>
+                </div>
+                <div className="p-rtr-signal-side p-rtr-signal-alert">
+                  <span className="p-rtr-signal-kicker">EARLY SIGNS</span>
+                  <h4 className="p-rtr-signal-title">見逃したくない揺らぎ</h4>
+                  <div>
+                    <span className="p-rtr-signal-item">遠慮</span>
+                    <span className="p-rtr-signal-item">萎縮</span>
+                    <span className="p-rtr-signal-item">孤立</span>
+                    <span className="p-rtr-signal-item">疲れ</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </ScrollReveal>
+        </section>
+
+        <section
+          className="p-rtr-section p-rtr-section-dark p-rtr-brand-section"
+          id="about"
+        >
+          <ScrollReveal
+            revealId="rtr-block-03"
+            className="p-rtr-wrap p-rtr-brand-center"
+          >
+            <p className="p-rtr-eyebrow">03 ABOUT RTR</p>
+            <div className="p-rtr-brand-wrap">
+              <div className="p-rtr-brand-mark">
+                R<span>eal</span>T<span>ime</span>R<span>elationship</span>
+                <span className="cycle">CYCLE</span>
+              </div>
+              <div className="p-rtr-brand-cycle" aria-hidden="true">
+                <svg viewBox="0 0 400 400">
+                  <defs>
+                    <marker
+                      id="cycle-arrow"
+                      markerWidth="18"
+                      markerHeight="18"
+                      refX="14"
+                      refY="9"
+                      orient="auto"
+                      markerUnits="userSpaceOnUse"
+                    >
+                      <path
+                        d="M2,2 L15,9 L2,16"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                      />
+                    </marker>
+                  </defs>
+
+                  <path
+                    className="p-rtr-cycle-line"
+                    d="M 55 115 A 170 170 0 0 1 347 115"
+                  />
+                  <path
+                    className="p-rtr-cycle-line"
+                    d="M 368 165 A 170 170 0 0 1 200 370"
+                  />
+
+                  <path
+                    className="p-rtr-cycle-line"
+                    d="M 150 362 A 170 170 0 0 1 35 175"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h2>
+              人間関係を動かし
+              <br className="u-sp" />
+              続ける仕組み
+            </h2>
+            <p className="p-rtr-lead p-rtr-centered">
+              RTRは、AI面談システム「ヒトコ」とコーチング支援を一体化した組織マネジメントサイクルです。関係性を見つめ、必要な対話を設計・運用し、組織文化として根づかせます。人間関係を当事者任せにせず、組織で育てていく仕組みです。
+            </p>
+            <div className="p-rtr-brand-definition">
+              人材マネジメントが
+              <br className="u-xs" />
+              “人”を扱うなら、
+              <br className="u-tb" />
+              <strong>RTRは“関係性”を扱います。</strong>
             </div>
           </ScrollReveal>
         </section>
 
-        <section className="p-rtr-section p-rtr-section-white" id="concept">
-          <ScrollReveal revealId="rtr-block-02" className="p-rtr-wrap">
-            <p className="p-rtr-eyebrow">02 REDEFINE</p>
+        <section className="p-rtr-hitoko-section" id="hitoko">
+          <div className="p-rtr-wrap p-rtr-wrap">
+            <div className="p-rtr-hitoko-grid">
+              <ScrollReveal revealId="rtr-block-04">
+                <p className="p-rtr-eyebrow p-rtr-light">
+                  04 HITOKO / AI INTERVIEW
+                </p>
+                <h2 className="p-rtr-section-heading p-rtr-section-heading-light">
+                  <span>ヒトコ</span>
+                  ひとことを拾うAI面談
+                </h2>
+                <h3 className="p-rtr-brace-ttl">
+                  届いていない
+                  <span className="u-nowrap">一言を拾い、</span>
+                  <br />
+                  人と人をつなぎ続ける。
+                </h3>
+                <p className="p-rtr-light-text">
+                  社員がPC／スマホのブラウザからアバターと音声対話し、節目ごとのストーリーの中で自然に言葉を交わす。その対話から、雑談ににじむ違和感・遠慮・本音の兆しを拾い、次の対話に向き合う材料として整理します。
+                </p>
+                <div className="p-rtr-hitoko-close">
+                  <strong>関係性は、壊れてから気づくには遅すぎる。</strong>
+                  <br />
+                  ヒトコは、その前にある小さなサインを拾います。
+                </div>
+              </ScrollReveal>
+              <ScrollReveal
+                revealId="rtr-block-04-visual"
+                className="p-rtr-system-showcase"
+              >
+                <div className="p-rtr-system-window">
+                  <div className="p-rtr-system-window-bar">
+                    <div aria-hidden="true" className="p-rtr-window-dots">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                    <div className="p-rtr-system-label">
+                      HITOKO / AI INTERVIEW SYSTEM
+                    </div>
+                  </div>
+                  <img
+                    alt="AI面談システム『ヒトコ』の利用画面イメージ"
+                    src="/images/rtr/hitoko-system.webp"
+                  />
+                  <div className="p-rtr-hitoko-quotes">
+                    <span>「実は……」</span>
+                    <span>「ちょっと気になっていて……」</span>
+                    <span>「ほんとうは、こう思ってる……」</span>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+
+            <p className="p-rtr-hitoko-emphasis p-rtr-text-close">
+              拾うのは、答えではなく<span>兆し</span>。
+              <br />
+              つなぐのは、情報ではなく<span>関係性</span>。
+            </p>
+          </div>
+        </section>
+
+        <section className="p-rtr-section p-rtr-section-white" id="effects">
+          <ScrollReveal revealId="rtr-block-05" className="p-rtr-wrap">
+            <p className="p-rtr-eyebrow">05 EFFECTS</p>
+            <h2 className="p-rtr-section-heading">
+              最初に変わるのは、
+              <br />
+              離職の兆しへの
+              <br className="u-xs" />
+              向き合い方と、面談。
+              <br />
+              その先に、
+              <span>
+                組織の動き方が
+                <br className="u-xs" />
+                変わっていく。
+              </span>
+            </h2>
+            <div className="p-rtr-effects">
+              <div className="p-rtr-effects-center">
+                <h3 className="p-rtr-effects-center-ttl">RTRの導入後</h3>
+                <p className="p-rtr-effects-center-text">
+                  関係性が動きはじめると、
+                  <br />
+                  組織にこんな変化が生まれます。
+                </p>
+              </div>
+              <svg
+                className="p-rtr-effects-connections"
+                viewBox="0 0 1000 160"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M500 80 Q360 80 250 0 M500 80 Q640 80 750 0 M500 80 Q300 80 80 160 M500 80 V160 M500 80 Q700 80 920 160" />{" "}
+              </svg>
+              <article className="p-rtr-effects-item p-rtr-effects-item--1">
+                <div className="p-rtr-effects-image" aria-hidden="true">
+                  <img
+                    src="/images/rtr/effects1.webp"
+                    alt="離職の兆しに、もっと早く向き合える"
+                  />
+                </div>
+                <h3 className="p-rtr-effects-title">
+                  離職の兆しに、
+                  <br className="u-xs" />
+                  もっと早く向き合える
+                </h3>
+                <p>
+                  表面化する前の小さな違和感や距離を、兆しとして拾える状態へ。
+                </p>
+              </article>
+              <article className="p-rtr-effects-item p-rtr-effects-item--2">
+                <div className="p-rtr-effects-image" aria-hidden="true">
+                  <img
+                    src="/images/rtr/effects2.webp"
+                    alt="面談が“こなすもの”から“前に進めるもの”へ"
+                  />
+                </div>
+                <h3 className="p-rtr-effects-title">
+                  面談が“こなすもの”から
+                  <br className="u-sp" />
+                  “前に進めるもの”へ
+                </h3>
+                <p>向き合う材料と意味がある、次につながる対話へ。</p>
+              </article>
+              <article className="p-rtr-effects-item p-rtr-effects-item--3">
+                <div className="p-rtr-effects-image" aria-hidden="true">
+                  <img
+                    src="/images/rtr/effects3.webp"
+                    alt="先輩後輩・同僚間も扱える"
+                  />
+                </div>
+                <h3 className="p-rtr-effects-title">
+                  先輩後輩・同僚間も扱える
+                </h3>
+                <p>上下だけでなく、日常の連携や期待値のズレにも向き合う。</p>
+              </article>
+              <article className="p-rtr-effects-item p-rtr-effects-item--4">
+                <div className="p-rtr-effects-image" aria-hidden="true">
+                  <img
+                    src="/images/rtr/effects4.webp"
+                    alt="管理職が一人で背負わない"
+                  />
+                </div>
+                <h3 className="p-rtr-effects-title">
+                  管理職が一人で背負わない
+                </h3>
+                <p>関係性を管理職のセンスではなく、組織で支える運用へ。</p>
+              </article>
+              <article className="p-rtr-effects-item p-rtr-effects-item--5">
+                <div className="p-rtr-effects-image" aria-hidden="true">
+                  <img
+                    src="/images/rtr/effects5.webp"
+                    alt="関係性に向き合うことが組織の文化になる"
+                  />
+                </div>
+                <h3 className="p-rtr-effects-title">
+                  関係性に向き合うことが
+                  <br />
+                  組織の文化になる
+                </h3>
+                <p>節目ごとの対話が、組織の自然な習慣として根づいていく。</p>
+              </article>
+            </div>
+          </ScrollReveal>
+        </section>
+
+        <section className="p-rtr-section" id="concept">
+          <ScrollReveal revealId="rtr-block-06" className="p-rtr-wrap">
+            <p className="p-rtr-eyebrow">06 REDEFINE</p>
             <h2 className="p-rtr-section-heading p-rtr-concept-heading">
               人は見てきた。
               <br />
@@ -221,330 +503,9 @@ export default function RtrPage() {
           </ScrollReveal>
         </section>
 
-        <section
-          className="p-rtr-section p-rtr-section-dark p-rtr-brand-section"
-          id="about"
-        >
-          <ScrollReveal
-            revealId="rtr-block-03"
-            className="p-rtr-wrap p-rtr-brand-center"
-          >
-            <p className="p-rtr-eyebrow">03 ABOUT RTR</p>
-            <div className="p-rtr-brand-wrap">
-              <div className="p-rtr-brand-mark">
-                R<span>eal</span>T<span>ime</span>R<span>elationship</span>
-                <span className="cycle">CYCLE</span>
-              </div>
-              <div className="p-rtr-brand-cycle" aria-hidden="true">
-                <svg viewBox="0 0 400 400">
-                  <defs>
-                    <marker
-                      id="cycle-arrow"
-                      markerWidth="18"
-                      markerHeight="18"
-                      refX="14"
-                      refY="9"
-                      orient="auto"
-                      markerUnits="userSpaceOnUse"
-                    >
-                      <path
-                        d="M2,2 L15,9 L2,16"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                      />
-                    </marker>
-                  </defs>
-
-                  <path
-                    className="p-rtr-cycle-line"
-                    d="M 55 115 A 170 170 0 0 1 347 115"
-                  />
-                  <path
-                    className="p-rtr-cycle-line"
-                    d="M 368 165 A 170 170 0 0 1 200 370"
-                  />
-
-                  <path
-                    className="p-rtr-cycle-line"
-                    d="M 150 362 A 170 170 0 0 1 35 175"
-                  />
-                </svg>
-              </div>
-            </div>
-            <h2>
-              人間関係を動かし
-              <br className="u-sp" />
-              続ける仕組み
-            </h2>
-            <p className="p-rtr-lead p-rtr-centered">
-              RTRは、スタッフ100名以上の企業を主対象に、AI面談システム「ヒトコ」とコーチング支援を一体化した組織マネジメントサイクルです。関係性を見つめ、必要な対話を設計・運用し、組織文化として根づかせます。人間関係を当事者任せにせず、組織で育てていく仕組みです。
-            </p>
-            <div className="p-rtr-brand-definition">
-              人材マネジメントが
-              <br className="u-xs" />
-              “人”を扱うなら、
-              <br className="u-tb" />
-              <strong>RTRは“関係性”を扱います。</strong>
-            </div>
-          </ScrollReveal>
-        </section>
-
-        <section className="p-rtr-hitoko-section" id="hitoko">
-          <div className="p-rtr-wrap p-rtr-wrap">
-            <div className="p-rtr-hitoko-grid">
-              <ScrollReveal revealId="rtr-block-04">
-                <p className="p-rtr-eyebrow p-rtr-light">
-                  04 HITOKO / AI INTERVIEW
-                </p>
-                <h2 className="p-rtr-section-heading p-rtr-section-heading-light">
-                  <span>ヒトコ</span>
-                  ひとことを拾うAI面談
-                </h2>
-                <h3 className="p-rtr-brace-ttl">
-                  届いていない
-                  <span className="u-nowrap">一言を拾い、</span>
-                  <br />
-                  人と人をつなぎ続ける。
-                </h3>
-                <p className="p-rtr-light-text">
-                  社員がPC／スマホのブラウザからアバターと音声対話し、節目ごとのストーリーの中で自然に言葉を交わす。その対話から、雑談ににじむ違和感・遠慮・本音の兆しを拾い、次の対話に向き合う材料として整理します。
-                </p>
-                <div className="p-rtr-hitoko-close">
-                  <strong>関係性は、壊れてから気づくには遅すぎる。</strong>
-                  <br />
-                  ヒトコは、その前にある小さなサインを拾います。
-                </div>
-              </ScrollReveal>
-              <ScrollReveal
-                revealId="rtr-block-08"
-                className="p-rtr-system-showcase"
-              >
-                <div className="p-rtr-system-window">
-                  <div className="p-rtr-system-window-bar">
-                    <div aria-hidden="true" className="p-rtr-window-dots">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                    <div className="p-rtr-system-label">
-                      HITOKO / AI INTERVIEW SYSTEM
-                    </div>
-                  </div>
-                  <img
-                    alt="AI面談システム『ヒトコ』の利用画面イメージ"
-                    src="/images/rtr/hitoko-system.webp"
-                  />
-                  <div className="p-rtr-hitoko-quotes">
-                    <span>「実は……」</span>
-                    <span>「ちょっと気になっていて……」</span>
-                    <span>「ほんとうは、こう思ってる……」</span>
-                  </div>
-                </div>
-              </ScrollReveal>
-            </div>
-
-            <p className="p-rtr-hitoko-emphasis p-rtr-text-close">
-              拾うのは、答えではなく<span>兆し</span>。
-              <br />
-              つなぐのは、情報ではなく<span>関係性</span>。
-            </p>
-          </div>
-        </section>
-
-        <section className="p-rtr-section p-rtr-section-white" id="cycle">
-          <ScrollReveal revealId="rtr-block-05" className="p-rtr-wrap">
-            <p className="p-rtr-eyebrow">05 HOW IT WORKS</p>
-            <h2 className="p-rtr-section-heading">
-              関係性は、偶然
-              <br className="u-xs" />
-              よくなるものではない。
-              <br />
-              節目ごとに
-              <span>
-                設計し、
-                <br className="u-xs" />
-                対話し、循環させる。
-              </span>
-            </h2>
-            <div
-              aria-label="ヒトコからRTRの循環までの流れ"
-              className="p-rtr-flow-summary"
-            >
-              <div className="p-rtr-flow-head">
-                <h3 className="p-rtr-brace-ttl">
-                  “ひとこと”を拾い、
-                  <br className="u-xs" />
-                  関係性が動くまで。
-                </h3>
-                <p>
-                  管理職と部下、それぞれの声をヒトコが受け止め、関係の兆しを見つける。
-                  <br />
-                  兆しを対話につなぎ、その対話を節目ごとに循環させます。
-                </p>
-              </div>
-              <div className="p-rtr-flow-steps">
-                <article>
-                  <span className="p-rtr-flow-number">01</span>
-                  <img
-                    className="p-rtr-flow-image"
-                    src="/images/rtr/rtr-flow1.webp"
-                    alt=""
-                    loading="lazy"
-                  />
-                  <div className="p-rtr-flow-text">
-                    <h4 className="p-rtr-flow-title">今、起きていること</h4>
-                    <p>
-                      言葉を選ぶ上司、本音を飲み込む部下。見えにくいすれ違いを捉える。
-                    </p>
-                  </div>
-                </article>
-                <article>
-                  <span className="p-rtr-flow-number">02</span>
-                  <img
-                    className="p-rtr-flow-image"
-                    src="/images/rtr/rtr-flow2.webp"
-                    alt=""
-                    loading="lazy"
-                  />
-                  <div className="p-rtr-flow-text">
-                    <h4 className="p-rtr-flow-title">ヒトコが間に入る</h4>
-                    <p>
-                      直接の面談だけでは届きにくい“ひとこと”を、AI面談を通じて拾う。
-                    </p>
-                  </div>
-                </article>
-                <article>
-                  <span className="p-rtr-flow-number">03</span>
-                  <img
-                    className="p-rtr-flow-image"
-                    src="/images/rtr/rtr-flow3.webp"
-                    alt=""
-                    loading="lazy"
-                  />
-                  <div className="p-rtr-flow-text">
-                    <h4 className="p-rtr-flow-title">関係の兆しを見つける</h4>
-                    <p>
-                      対話から関係性の兆しを拾い、次の面談に活かすレポートに整理する。
-                    </p>
-                  </div>
-                </article>
-                <article>
-                  <span className="p-rtr-flow-number">04</span>
-                  <img
-                    className="p-rtr-flow-image"
-                    src="/images/rtr/rtr-flow4.webp"
-                    alt=""
-                    loading="lazy"
-                  />
-                  <div className="p-rtr-flow-text">
-                    <h4 className="p-rtr-flow-title">人と人の対話へつなぐ</h4>
-                    <p>
-                      レポートをもとに必要な関係者が向き合い、次の対話へつなげる。
-                    </p>
-                  </div>
-                </article>
-                <article className="p-rtr-flow-cycle">
-                  <svg
-                    className="p-rtr-flow-return"
-                    viewBox="0 0 1000 100"
-                    preserveAspectRatio="none"
-                    aria-hidden="true"
-                    focusable="false"
-                  >
-                    <defs>
-                      <marker
-                        id="rtr-flow-return-arrow"
-                        viewBox="0 0 10 10"
-                        refX="8"
-                        refY="5"
-                        markerWidth="9"
-                        markerHeight="9"
-                        orient="auto"
-                        markerUnits="userSpaceOnUse"
-                      >
-                        <path
-                          d="M1 1 L8 5 L1 9"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1"
-                        />
-                      </marker>
-                    </defs>
-                    <path
-                      d="M1000 0 V50 Q1000 100 945 100 H55 Q0 100 0 50 V0"
-                      markerEnd="url(#rtr-flow-return-arrow)"
-                    />
-                  </svg>
-                  <span className="p-rtr-flow-number">05</span>
-                  <img
-                    className="p-rtr-flow-cycle-image"
-                    src="/images/rtr/rtr-flow-last.webp"
-                    alt="Trigger（きっかけ）、Stage（場）、Dialogue（対話）、Cycle（循環）を繰り返すサイクル"
-                    loading="lazy"
-                  />
-                  <h4 className="p-rtr-flow-title">RTRとして回し続ける</h4>
-                  <p>
-                    Trigger・Stage・Dialogue・Cycleを節目ごとに回し、
-                    <br />
-                    関係性に向き合う運用を文化にする。
-                  </p>
-                </article>
-              </div>
-              <article
-                className="p-rtr-signal-explanation"
-                aria-labelledby="rtr-signal-heading"
-              >
-                <h3 className="p-rtr-brace-ttl">
-                  ヒトコが拾う
-                  <br className="u-xs" />
-                  "関係性の変化の兆し"
-                </h3>
-                <p className="p-rtr-signal-description">
-                  ヒトコが答えを出すのではなく、拾った兆しを人と人の対話につなげます。
-                </p>
-                <div
-                  aria-label="RTRが見る関係の兆し"
-                  className="p-rtr-relationship-signal-visual"
-                >
-                  <div className="p-rtr-signal-side p-rtr-signal-good">
-                    <span className="p-rtr-signal-kicker">GOOD SIGNALS</span>
-                    <h4 className="p-rtr-signal-title">育てたい関係性</h4>
-                    <div>
-                      <span className="p-rtr-signal-item">信頼</span>
-                      <span className="p-rtr-signal-item">安心</span>
-                      <span className="p-rtr-signal-item">尊敬</span>
-                      <span className="p-rtr-signal-item">期待</span>
-                    </div>
-                  </div>
-                  <div className="p-rtr-signal-center">
-                    <img
-                      alt="人と人のあいだを見るイメージ"
-                      className="p-rtr-signal-center-image"
-                      loading="lazy"
-                      src="/images/rtr/relation-signal-center.webp"
-                    />
-                    <h4 className="p-rtr-signal-hitoko">ヒトコ</h4>
-                  </div>
-                  <div className="p-rtr-signal-side p-rtr-signal-alert">
-                    <span className="p-rtr-signal-kicker">EARLY SIGNS</span>
-                    <h4 className="p-rtr-signal-title">見逃したくない揺らぎ</h4>
-                    <div>
-                      <span className="p-rtr-signal-item">遠慮</span>
-                      <span className="p-rtr-signal-item">萎縮</span>
-                      <span className="p-rtr-signal-item">孤立</span>
-                      <span className="p-rtr-signal-item">疲れ</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </ScrollReveal>
-        </section>
-
         <section className="p-rtr-section p-rtr-section-soft" id="difference">
-          <ScrollReveal revealId="rtr-block-06" className="p-rtr-wrap">
-            <p className="p-rtr-eyebrow">06 DIFFERENCE</p>
+          <ScrollReveal revealId="rtr-block-07" className="p-rtr-wrap">
+            <p className="p-rtr-eyebrow">07 DIFFERENCE</p>
             <h2 className="p-rtr-section-heading">
               既存手法を否定するのではなく、
               <br />
@@ -644,9 +605,152 @@ export default function RtrPage() {
           </ScrollReveal>
         </section>
 
+        <section className="p-rtr-section p-rtr-section-white" id="cycle">
+          <ScrollReveal revealId="rtr-block-08" className="p-rtr-wrap">
+            <p className="p-rtr-eyebrow">08 HOW IT WORKS</p>
+            <h2 className="p-rtr-section-heading">
+              関係性は、偶然
+              <br className="u-xs" />
+              よくなるものではない。
+              <br />
+              節目ごとに
+              <span>
+                設計し、
+                <br className="u-xs" />
+                対話し、循環させる。
+              </span>
+            </h2>
+            <div
+              aria-label="ヒトコからRTRの循環までの流れ"
+              className="p-rtr-flow-summary"
+            >
+              <div className="p-rtr-flow-head">
+                <h3 className="p-rtr-brace-ttl">
+                  “ひとこと”を拾い、
+                  <br className="u-xs" />
+                  関係性が動くまで。
+                </h3>
+                <p>
+                  管理職と部下、それぞれの声をヒトコが受け止め、関係の兆しを見つける。
+                  <br />
+                  兆しを対話につなぎ、その対話を節目ごとに循環させます。
+                </p>
+              </div>
+              <div className="p-rtr-flow-steps">
+                <article>
+                  <span className="p-rtr-flow-number">01</span>
+                  <img
+                    className="p-rtr-flow-image"
+                    src="/images/rtr/rtr-flow1.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <div className="p-rtr-flow-text">
+                    <h4 className="p-rtr-flow-title">今、起きていること</h4>
+                    <p>
+                      言葉を選ぶ上司、本音を飲み込む部下。見えにくいすれ違いを捉える。
+                    </p>
+                  </div>
+                </article>
+                <article>
+                  <span className="p-rtr-flow-number">02</span>
+                  <img
+                    className="p-rtr-flow-image"
+                    src="/images/rtr/rtr-flow2.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <div className="p-rtr-flow-text">
+                    <h4 className="p-rtr-flow-title">ヒトコが間に入る</h4>
+                    <p>
+                      直接の面談だけでは届きにくい“ひとこと”を、AI面談を通じて拾う。
+                    </p>
+                  </div>
+                </article>
+                <article>
+                  <span className="p-rtr-flow-number">03</span>
+                  <img
+                    className="p-rtr-flow-image"
+                    src="/images/rtr/rtr-flow3.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <div className="p-rtr-flow-text">
+                    <h4 className="p-rtr-flow-title">関係の兆しを見つける</h4>
+                    <p>
+                      対話から関係性の兆しを拾い、次の対話に活かす“材料”として整理する。
+                    </p>
+                  </div>
+                </article>
+                <article>
+                  <span className="p-rtr-flow-number">04</span>
+                  <img
+                    className="p-rtr-flow-image"
+                    src="/images/rtr/rtr-flow4.webp"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <div className="p-rtr-flow-text">
+                    <h4 className="p-rtr-flow-title">人と人の対話へつなぐ</h4>
+                    <p>
+                      レポートをもとに必要な関係者が向き合い、次の対話へつなげる。
+                    </p>
+                  </div>
+                </article>
+                <article className="p-rtr-flow-cycle">
+                  <svg
+                    className="p-rtr-flow-return"
+                    viewBox="0 0 1000 100"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <defs>
+                      <marker
+                        id="rtr-flow-return-arrow"
+                        viewBox="0 0 10 10"
+                        refX="8"
+                        refY="5"
+                        markerWidth="9"
+                        markerHeight="9"
+                        orient="auto"
+                        markerUnits="userSpaceOnUse"
+                      >
+                        <path
+                          d="M1 1 L8 5 L1 9"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1"
+                        />
+                      </marker>
+                    </defs>
+                    <path
+                      d="M1000 0 V50 Q1000 100 945 100 H55 Q0 100 0 50 V0"
+                      markerEnd="url(#rtr-flow-return-arrow)"
+                    />
+                  </svg>
+                  <span className="p-rtr-flow-number">05</span>
+                  <img
+                    className="p-rtr-flow-cycle-image"
+                    src="/images/rtr/rtr-flow-last.webp"
+                    alt="Trigger（きっかけ）、Stage（場）、Dialogue（対話）、Cycle（循環）を繰り返すサイクル"
+                    loading="lazy"
+                  />
+                  <h4 className="p-rtr-flow-title">RTRとして回し続ける</h4>
+                  <p>
+                    Trigger・Stage・Dialogue・Cycleを節目ごとに回し、
+                    <br />
+                    関係性に向き合う運用を文化にする。
+                  </p>
+                </article>
+              </div>
+            </div>
+          </ScrollReveal>
+        </section>
+
         <section className="p-rtr-section p-rtr-coaching" id="coaching">
-          <ScrollReveal revealId="rtr-block-7" className="p-rtr-wrap">
-            <p className="p-rtr-eyebrow">07 SUPPORT</p>
+          <ScrollReveal revealId="rtr-block-09" className="p-rtr-wrap">
+            <p className="p-rtr-eyebrow">09 SUPPORT</p>
             <h2 className="p-rtr-section-heading">
               導入して終わりではなく、
               <br />
@@ -772,117 +876,12 @@ export default function RtrPage() {
           </ScrollReveal>
         </section>
 
-        <section className="p-rtr-section p-rtr-section-white" id="effects">
-          <ScrollReveal revealId="rtr-block-8" className="p-rtr-wrap">
-            <p className="p-rtr-eyebrow">08 EFFECTS</p>
-            <h2 className="p-rtr-section-heading">
-              最初に変わるのは、
-              <br className="u-xs" />
-              離職と面談。
-              <br />
-              その先に、
-              <span>
-                組織の動き方が
-                <br className="u-xs" />
-                変わっていく。
-              </span>
-            </h2>
-            <div className="p-rtr-effects">
-              <div className="p-rtr-effects-center">
-                <h3 className="p-rtr-effects-center-ttl">RTRの導入後</h3>
-                <p className="p-rtr-effects-center-text">
-                  関係性が動きはじめると、
-                  <br />
-                  組織にこんな変化が生まれます。
-                </p>
-              </div>
-              <svg
-                className="p-rtr-effects-connections"
-                viewBox="0 0 1000 160"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path d="M500 80 Q360 80 250 0 M500 80 Q640 80 750 0 M500 80 Q300 80 80 160 M500 80 V160 M500 80 Q700 80 920 160" />{" "}
-              </svg>
-              <article className="p-rtr-effects-item p-rtr-effects-item--1">
-                <div className="p-rtr-effects-image" aria-hidden="true">
-                  <img
-                    src="/images/rtr/effects1.webp"
-                    alt="離職の兆しに、もっと早く向き合える"
-                  />
-                </div>
-                <h3 className="p-rtr-effects-title">
-                  離職の兆しに、
-                  <br className="u-xs" />
-                  もっと早く向き合える
-                </h3>
-                <p>
-                  表面化する前の小さな違和感や距離を、兆しとして拾える状態へ。
-                </p>
-              </article>
-              <article className="p-rtr-effects-item p-rtr-effects-item--2">
-                <div className="p-rtr-effects-image" aria-hidden="true">
-                  <img
-                    src="/images/rtr/effects2.webp"
-                    alt="面談が“こなすもの”から“前に進めるもの”へ"
-                  />
-                </div>
-                <h3 className="p-rtr-effects-title">
-                  面談が“こなすもの”から
-                  <br className="u-sp" />
-                  “前に進めるもの”へ
-                </h3>
-                <p>向き合う材料と意味がある、次につながる対話へ。</p>
-              </article>
-              <article className="p-rtr-effects-item p-rtr-effects-item--3">
-                <div className="p-rtr-effects-image" aria-hidden="true">
-                  <img
-                    src="/images/rtr/effects3.webp"
-                    alt="先輩後輩・同僚間も扱える"
-                  />
-                </div>
-                <h3 className="p-rtr-effects-title">
-                  先輩後輩・同僚間も扱える
-                </h3>
-                <p>上下だけでなく、日常の連携や期待値のズレにも向き合う。</p>
-              </article>
-              <article className="p-rtr-effects-item p-rtr-effects-item--4">
-                <div className="p-rtr-effects-image" aria-hidden="true">
-                  <img
-                    src="/images/rtr/effects4.webp"
-                    alt="管理職が一人で背負わない"
-                  />
-                </div>
-                <h3 className="p-rtr-effects-title">
-                  管理職が一人で背負わない
-                </h3>
-                <p>関係性を管理職のセンスではなく、組織で支える運用へ。</p>
-              </article>
-              <article className="p-rtr-effects-item p-rtr-effects-item--5">
-                <div className="p-rtr-effects-image" aria-hidden="true">
-                  <img
-                    src="/images/rtr/effects5.webp"
-                    alt="関係性に向き合うことが組織の文化になる"
-                  />
-                </div>
-                <h3 className="p-rtr-effects-title">
-                  関係性に向き合うことが
-                  <br />
-                  組織の文化になる
-                </h3>
-                <p>節目ごとの対話が、組織の自然な習慣として根づいていく。</p>
-              </article>
-            </div>
-          </ScrollReveal>
-        </section>
-
         <section className="p-rtr-section p-rtr-section-dark" id="background">
           <ScrollReveal
-            revealId="rtr-block-9"
+            revealId="rtr-block-10"
             className="p-rtr-wrap p-rtr-background-inner"
           >
-            <p className="p-rtr-eyebrow">09 TRUST</p>
+            <p className="p-rtr-eyebrow">10 TRUST</p>
             <h2 className="p-rtr-section-heading p-rtr-background-heading">
               この仕組みは、
               <br className="u-xs" />
@@ -939,7 +938,7 @@ export default function RtrPage() {
 
         <section className="p-rtr-contact" id="contact">
           <ScrollReveal
-            revealId="rtr-block-10"
+            revealId="rtr-contact"
             className="p-rtr-wrap p-rtr-contact-inner"
           >
             <h2 className="p-rtr-contact-heading">
