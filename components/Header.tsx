@@ -39,6 +39,13 @@ export default function Header() {
                   </span>
                   <span className="l-header__submenu-arrow" aria-hidden="true">↗</span>
                 </a>
+                <a href="/service/finance">
+                  <span className="l-header__submenu-copy">
+                    <strong>財務経理部</strong>
+                    <small>Protein × Siliconでつくる財務経理チーム</small>
+                  </span>
+                  <span className="l-header__submenu-arrow" aria-hidden="true">↗</span>
+                </a>
               </div>
             </div>
           </div>
@@ -88,6 +95,14 @@ export default function Header() {
             className="l-header__sp-sub-link"
           >
             RTR
+          </a>
+
+          <a
+            href="/service/finance"
+            onClick={closeMenu}
+            className="l-header__sp-sub-link"
+          >
+            財務経理部　finance
           </a>
 
           <Link href="/#philosophy" onClick={closeMenu}>
