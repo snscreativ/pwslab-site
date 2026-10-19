@@ -208,14 +208,37 @@ export default async function HomePage() {
                 </span>
               </span>
             </a>
-            <div className="p-top-services__upcoming">
+            <a className="p-top-services__link" href="/service/finance">
+              <span className="p-top-services__catch">
+                財務経理部門に、
+                <br className="u-xs" />
+                新しい仲間と新しい働き方を。
+              </span>
+              <span className="p-top-services__summary">
+                <span className="p-top-services__name">財務経理部</span>
+                <span className="p-top-services__description">
+                  Protein（人）と
+                  <br />
+                  Silicon（AI）で作る
+                  <br />
+                  新しい財務経理チーム
+                </span>
+              </span>
+              <span className="c-button c-button--text p-top-services__more">
+                詳しく見る{" "}
+                <span className="c-icon-arrow" aria-hidden="true">
+                  ↗
+                </span>
+              </span>
+            </a>
+            {/* <div className="p-top-services__upcoming">
               <h4 className="p-top-services__upcoming-name">
-                財務経理Silicon Workerチーム
+                準備中サービス名
               </h4>
               <p className="p-top-services__status">
                 COMING SOON — ページ準備中
               </p>
-            </div>
+            </div> */}
           </div>
 
           <div className="p-top-services__cta">

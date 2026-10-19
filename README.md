@@ -75,6 +75,15 @@ NOTION_NEWS_DATA_SOURCE_ID
   - 例：`p-top-hero`, `p-contact-form`
 - `js-`：JavaScript操作用。現時点では未使用
 
+### サービスページの接頭辞
+
+- 財務経理サービスページ：`p-fin-`（ページ全体のクラスは`p-fin`）
+- RTRサービスページ：`p-rtr-`（ページ全体のクラスは`p-rtr`）
+- ページ専用コンポーネントも、そのページの接頭辞を使用する。例：財務経理ページの`SupportSteps`、`WorkingChatReveal`。
+- 複数ページで共通利用する部品は`c-`、共通レイアウトは`l-`を使用する。
+- 状態を表す`is-active`・`is-visible`などは維持する。
+- クラス名の変更時は、TSX・CSS・JavaScript内の参照先を合わせて変更する。
+
 ## 触ってよい場所
 
 app/
