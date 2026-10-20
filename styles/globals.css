@@ -15,6 +15,7 @@
 
 :root {
   --color-navy: #1a2744;
+  --color-black: #333333;
   --color-orange: #e07820;
   --color-gold: #b8862f;
   --color-white: #ffffff;
@@ -23,17 +24,21 @@
   --color-bg-blueGray: #eef3f6;
   --color-text-muted: #6b7280;
 
+  --color-pw-bg: #fde0c7;
+  --color-sw-bg: #c1cade;
+
   --font-sans: "Noto Sans JP", sans-serif;
   --font-serif: "Noto Serif JP", serif;
 }
 
 html {
+  font-size: 100%;
   scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.9;
   letter-spacing: 0.03em;
   color: var(--color-navy);
