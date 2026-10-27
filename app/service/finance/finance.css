@@ -437,7 +437,7 @@ h3.p-fin-border__heading {
   display: inline-block;
   color: var(--color-black);
   font-weight: 500;
-  font-size: 1.36rem;
+  font-size: 1.1rem;
   position: relative;
 }
 
@@ -2486,8 +2486,7 @@ p.p-fin-contact__eyecatch {
   }
 
   .p-fin-hero__copy .p-fin-button {
-    font-size: 0.75rem;
-    padding: 1rem;
+    padding: 0.5em 1em;
   }
 
   .p-fin-member-grid {
@@ -2569,6 +2568,7 @@ p.p-fin-contact__eyecatch {
 
   .p-fin-actions .p-fin-button {
     width: 100%;
+    font-size: 0.875rem;
   }
 
   .p-fin-problem__copy h2 {
@@ -2681,7 +2681,7 @@ p.p-fin-contact__eyecatch {
   }
 
   .p-fin-hero__lead .p-fin-hero__team-message {
-    font-size: 1.2rem;
+    font-size: 1.04rem;
   }
 
   #contact a.p-fin-button {

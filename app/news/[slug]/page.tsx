@@ -44,7 +44,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
             </header>
 
             <div className="p-news-detail__body">
-              <NotionBlocks blocks={blocks} />
+              <NotionBlocks blocks={blocks} imageContext={{ kind: "news", slug }} />
             </div>
           </article>
 

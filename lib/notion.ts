@@ -15,6 +15,7 @@ export type NotionArticle = {
   referenceTitle: string;
   referenceUrl: string;
   eyecatchUrl: string;
+  eyecatchExpiresAt: string;
   publishDate: string;
   updatedDate: string;
 };
@@ -38,7 +39,9 @@ const notionVersion = "2025-09-03";
 function getNotionClient() {
   const token = process.env.NOTION_TOKEN;
   if (!token) return null;
-  return new Client({ auth: token, notionVersion });
+  return new Client({ auth: token, notionVersion,
+    fetch: (url, options) => fetch(url, { ...options, cache: "no-store" }),
+  });
 }
 
 function plainText(richText: any[] = []) {
@@ -115,6 +118,7 @@ function mapArticle(page: any): NotionArticle {
     summary: getRichText(properties, "Summary"),
     metaDescription: getRichText(properties, "MetaDescription"),
     eyecatchUrl,
+    eyecatchExpiresAt: getUrl(properties, "EyecatchUrl") ? "" : properties.EyecatchFile?.files?.[0]?.file?.expiry_time || "",
     publishDate: getDate(properties, "PublishDate"),
     updatedDate: getDate(properties, "UpdatedDate"),
     referenceTitle: getRichText(properties, "ReferenceTitle"),

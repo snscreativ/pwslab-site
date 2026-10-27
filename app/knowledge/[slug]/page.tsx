@@ -1,3 +1,5 @@
+import SiteBannerArea from "@/components/SiteBannerArea";
+import NotionImage from "@/components/NotionImage";
 import type { Metadata } from "next";
 import ArticleNavigation from "@/components/ArticleNavigation";
 import { notFound } from "next/navigation";
@@ -98,7 +100,7 @@ export default async function Page({ params }: Props) {
 
           {article.eyecatchUrl && (
             <figure className="p-article__eyecatch">
-              <img src={article.eyecatchUrl} alt="" />
+              <NotionImage src={article.eyecatchUrl} alt="" expiresAt={article.eyecatchExpiresAt} refreshUrl={`/api/notion-image?kind=knowledge&slug=${encodeURIComponent(article.slug)}`} />
             </figure>
           )}
 
@@ -130,13 +132,14 @@ export default async function Page({ params }: Props) {
             </aside>
           )}
 
-          <NotionBlocks blocks={blocks} />
+          <NotionBlocks blocks={blocks} imageContext={{ kind: "knowledge", slug }} />
         </div>
 
         <AboutPws />
       </article>
 
       <div className="l-inner l-inner--narrow">
+        <SiteBannerArea />
         <ArticleNavigation items={items} currentSlug={slug} basePath="/knowledge" />
       </div>
     </main>
