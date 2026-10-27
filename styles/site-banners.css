@@ -1,0 +1,35 @@
+/* Common announcements on knowledge pages */
+.c-site-banners {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.c-site-banners a {
+  display: block;
+  min-width: 0;
+  flex: 0 0 calc((100% - 1.5rem) / 2);
+}
+
+.c-site-banners img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .c-site-banners {
+    padding: 0 1.5rem;
+  }
+
+  .c-site-banners a {
+    flex-basis: 100%;
+  }
+}
+
+/* 知見記事一覧ページのみ */
+.p-knowledge .c-site-banners {
+  margin: 3rem 0 0;
+}

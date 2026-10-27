@@ -1,3 +1,4 @@
+import NotionImage from "@/components/NotionImage";
 import type { NotionBlock } from "@/lib/notion";
 import ProfileSaito from "@/components/ProfileSaito";
 import ProfileMatsui from "@/components/ProfileMatsui";
@@ -143,7 +144,7 @@ function removeMarker(texts: any[] = [], marker: string) {
   NotionBlocks
 ========================= */
 
-export default function NotionBlocks({ blocks }: { blocks: NotionBlock[] }) {
+export default function NotionBlocks({ blocks, imageContext }: { blocks: NotionBlock[]; imageContext?: { kind: "knowledge" | "news"; slug: string } }) {
   return (
     <div className="c-article-body">
       {blocks.map((block) => {
@@ -294,7 +295,9 @@ export default function NotionBlocks({ blocks }: { blocks: NotionBlock[] }) {
 
             const { size, align, link } = getImageOptions(block);
 
-            const image = <img src={imageUrl} alt="" loading="lazy" />;
+            const image = <NotionImage src={imageUrl} alt="" loading="lazy"
+              expiresAt={block.image?.file?.expiry_time || ""}
+              refreshUrl={imageContext ? `/api/notion-image?kind=${imageContext.kind}&slug=${encodeURIComponent(imageContext.slug)}&block=${encodeURIComponent(id)}` : undefined} />;
 
             return (
               <figure

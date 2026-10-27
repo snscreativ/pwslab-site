@@ -1,3 +1,9 @@
 .DS_Store
 node_modules/
 .next/
+
+# Local credentials must never be committed
+.env*
+!.env.example
+
+*.tsbuildinfo
