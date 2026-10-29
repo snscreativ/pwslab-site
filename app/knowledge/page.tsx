@@ -1,3 +1,5 @@
+import SiteBannerArea from "@/components/SiteBannerArea";
+import NotionImage from "@/components/NotionImage";
 import Pagination from "@/components/Pagination";
 import { paginate } from "@/lib/pagination";
 import type { Metadata } from "next";
@@ -66,7 +68,7 @@ export default async function KnowledgePage({ searchParams }: {
                   >
                     {article.eyecatchUrl && (
                       <div className="p-knowledge-card__image">
-                        <img src={article.eyecatchUrl} alt="" loading="lazy" />
+                        <NotionImage src={article.eyecatchUrl} alt="" loading="lazy" expiresAt={article.eyecatchExpiresAt} refreshUrl={`/api/notion-image?kind=knowledge&slug=${encodeURIComponent(article.slug)}`} />
                       </div>
                     )}
                     <div className="p-knowledge-card__body">
@@ -86,6 +88,7 @@ export default async function KnowledgePage({ searchParams }: {
             ))}
           </div>
           <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} basePath="/knowledge" />
+          <SiteBannerArea />
         </div>
       </section>
     </main>

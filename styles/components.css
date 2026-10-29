@@ -833,5 +833,10 @@
   .c-article-navigation {
     gap: .5rem;
     margin-block: 2.5rem;
+    padding: 0 1.5rem;
+  }
+
+  .p-news-detail .c-article-navigation {
+    padding: 0;
   }
 }
