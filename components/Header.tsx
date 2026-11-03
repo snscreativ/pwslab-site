@@ -46,6 +46,13 @@ export default function Header() {
                   </span>
                   <span className="l-header__submenu-arrow" aria-hidden="true">↗</span>
                 </a>
+                <a href="/service/marketing">
+                  <span className="l-header__submenu-copy">
+                    <strong>マーケティング部</strong>
+                    <small>Protein × Siliconでつくるマーケティングチーム</small>
+                  </span>
+                  <span className="l-header__submenu-arrow" aria-hidden="true">↗</span>
+                </a>
               </div>
             </div>
           </div>
@@ -103,6 +110,14 @@ export default function Header() {
             className="l-header__sp-sub-link"
           >
             財務経理部　finance
+          </a>
+
+          <a
+            href="/service/marketing"
+            onClick={closeMenu}
+            className="l-header__sp-sub-link"
+          >
+            マーケティング部　Marketing Office
           </a>
 
           <Link href="/#philosophy" onClick={closeMenu}>
