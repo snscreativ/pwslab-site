@@ -337,10 +337,16 @@ export default function MarketingPage() {
                 className={`p-marketing-hero-member p-marketing-hero-member--${index + 1}`}
                 key={worker.name}
               >
-                <WorkerPortrait
-                  src={worker.image}
-                  name={worker.name}
-                />
+                <span className="p-marketing-hero-member__portrait">
+                  <WorkerPortrait src={worker.image} name={worker.name} />
+                  <Image
+                    className="p-marketing-hero-member__badge"
+                    src="/images/finance/sw-icon.webp"
+                    alt="Silicon Worker"
+                    width={300}
+                    height={300}
+                  />
+                </span>
                 <span className="p-marketing-hero-member__name">
                   {worker.name}
                 </span>
