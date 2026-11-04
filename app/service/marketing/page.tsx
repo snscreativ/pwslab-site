@@ -289,7 +289,7 @@ export default function MarketingPage() {
             <p className="p-marketing-eyebrow">PwS MARKETING OFFICE</p>
             <h1>
               <span className="p-marketing-hero__headline-first">
-                マーケティングチームを
+                マーケティングチームを、
               </span>
               <br />
               丸ごと御社へ。
@@ -418,63 +418,161 @@ export default function MarketingPage() {
             </p>
             <span aria-hidden="true">▼</span>
           </div>
-          <div className="p-marketing-overview__grid">
-            <article className="p-marketing-overview-card p-marketing-overview-card--goal">
-              <p className="p-marketing-overview-card__label">GOAL</p>
-              <p>事業を成長させるために、この循環を回し続ける仕事。</p>
-              <div
-                className="p-marketing-loop"
-                role="img"
-                aria-label="考える、決める、作る、届ける、測る、学ぶ、次を考える循環"
-              >
-                <div className="p-marketing-loop__forward" aria-hidden="true">
-                  <span className="p-marketing-loop__stage">考える</span>
-                  <span className="p-marketing-loop__arrow">→</span>
-                  <span className="p-marketing-loop__stage">決める</span>
-                  <span className="p-marketing-loop__arrow">→</span>
-                  <span className="p-marketing-loop__stage">作る</span>
-                  <span className="p-marketing-loop__arrow">→</span>
-                  <span className="p-marketing-loop__stage">届ける</span>
-                </div>
-                <div className="p-marketing-loop__turn" aria-hidden="true">
-                  <span className="arrow-up">↑</span>
-                  <span className="arrow-down">↓</span>
-                </div>
-                <div className="p-marketing-loop__return" aria-hidden="true">
-                  <span className="p-marketing-loop__stage">次を考える</span>
-                  <span className="p-marketing-loop__arrow">←</span>
-                  <span className="p-marketing-loop__stage">学ぶ</span>
-                  <span className="p-marketing-loop__arrow">←</span>
-                  <span className="p-marketing-loop__stage">測る</span>
+          <div className="p-marketing-overview__story">
+            <section className="p-marketing-overview__goal" aria-labelledby="marketing-goal-title">
+              <header className="p-marketing-overview__section-heading">
+                <span>01 / GOAL</span>
+                <h2 id="marketing-goal-title">目指す姿</h2>
+              </header>
+              <div className="p-marketing-overview__goal-layout">
+                <article className="p-marketing-overview-card p-marketing-overview-card--goal">
+                  <p className="p-marketing-overview-card__label">GOAL</p>
+                  <p>事業を成長させるために、この循環を回し続ける仕事。</p>
+                  <div
+                    className="p-marketing-loop"
+                    role="img"
+                    aria-label="考える、決める、作る、届ける、測る、学ぶ、次を考える循環"
+                  >
+                    <div className="p-marketing-loop__forward" aria-hidden="true">
+                      <span className="p-marketing-loop__stage">考える</span>
+                      <span className="p-marketing-loop__arrow">→</span>
+                      <span className="p-marketing-loop__stage">決める</span>
+                      <span className="p-marketing-loop__arrow">→</span>
+                      <span className="p-marketing-loop__stage">作る</span>
+                      <span className="p-marketing-loop__arrow">→</span>
+                      <span className="p-marketing-loop__stage">届ける</span>
+                    </div>
+                    <div className="p-marketing-loop__turn" aria-hidden="true">
+                      <span className="arrow-up">↑</span>
+                      <span className="arrow-down">↓</span>
+                    </div>
+                    <div className="p-marketing-loop__return" aria-hidden="true">
+                      <span className="p-marketing-loop__stage">次を考える</span>
+                      <span className="p-marketing-loop__arrow">←</span>
+                      <span className="p-marketing-loop__stage">学ぶ</span>
+                      <span className="p-marketing-loop__arrow">←</span>
+                      <span className="p-marketing-loop__stage">測る</span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section className="p-marketing-overview__challenge" aria-labelledby="marketing-challenge-title">
+              <header className="p-marketing-overview__section-heading">
+                <span>02 / CHALLENGE</span>
+                <h2 id="marketing-challenge-title">課題と原因</h2>
+              </header>
+              <div className="p-marketing-overview__challenge-grid">
+                <article className="p-marketing-overview-card p-marketing-overview-card--issue">
+                  <p className="p-marketing-overview-card__label">課題</p>
+                  <p>マーケティング担当を一人採用すれば、マーケティング部はできるのでしょうか。</p>
+                  <p className="p-marketing-overview-card__detail">
+                    <span>戦略</span>／<span>市場・顧客理解</span>／<span>SNS</span>／<span>Web 広告</span>／<span>コンテンツ制作</span>／<span>分析</span>等
+                  </p>
+                  <strong>すべてを一人で担うのは難しい。</strong>
+                </article>
+                <span className="p-marketing-overview__relation" aria-hidden="true">→</span>
+                <article className="p-marketing-overview-card p-marketing-overview-card--cause">
+                  <p className="p-marketing-overview-card__label">原因</p>
+                  <p>社長・営業・広報・外注先に仕事が分散。</p>
+                  <div className="p-marketing-fragmentation" aria-hidden="true">
+                    <svg viewBox="0 0 240 126" fill="none">
+                      <path d="M37 24h48M203 24h-48M37 102h48M203 102h-48" />
+                      <circle cx="25" cy="24" r="11" />
+                      <circle cx="215" cy="24" r="11" />
+                      <circle cx="25" cy="102" r="11" />
+                      <circle cx="215" cy="102" r="11" />
+                      <circle className="p-marketing-fragmentation__center" cx="120" cy="63" r="27" />
+                    </svg>
+                  </div>
+                  <p>「SNSはやっている」「広告代理店もいる」「Web会社もいる」。それでも……</p>
+                  <strong>マーケティング全体を回す人・チームがいない。</strong>
+                </article>
+              </div>
+              <div className="p-marketing-overview__challenge-copy">
+                <h3>それぞれ頑張っているのに、成果につながらないのはなぜ？</h3>
+                <p>SNSや広告、Web制作など、それぞれの担当者が取り組んでいても、全体の方向性がそろっていなければ、施策がバラバラになりがちです。</p>
+                <p>大切なのは、個々の活動を一つの目標につなげ、成果に向けて動かすことです。</p>
+              </div>
+            </section>
+
+            <section className="p-marketing-overview__solution" aria-labelledby="marketing-solution-title">
+              <header className="p-marketing-overview__section-heading">
+                <span>03 / SOLUTION</span>
+                <h2 id="marketing-solution-title">解決</h2>
+              </header>
+              <div className="p-marketing-overview__solution-layout">
+                <article className="p-marketing-overview-card p-marketing-overview-card--solution">
+                  <p className="p-marketing-overview-card__label">解決</p>
+                  <p>担当者ではなく、マーケティング部を。</p>
+                  <h3 className="p-marketing-overview-card__brand">
+                    <span>PwS</span>
+                    <span>Marketing Office</span>
+                  </h3>
+                  <p>Protein WorkerとSilicon Workerが一つのチームになり、戦略から改善まで一緒に回します。</p>
+                </article>
+                <div className="p-marketing-overview__solution-copy">
+                  <h3>PwS Marketing Officeが実現すること</h3>
+                  <p>PwS Marketing Officeは、Protein WorkerとSilicon Workerが連携し、マーケティング全体を動かすチームです。</p>
+                  <p>戦略の検討から制作・運用・分析・改善まで一貫して支援し、次に取り組むべきことを明確にしながら、継続的な改善につなげます。</p>
                 </div>
               </div>
-            </article>
-            <span className="p-marketing-overview__arrow" aria-hidden="true">→</span>
-            <article className="p-marketing-overview-card p-marketing-overview-card--issue">
-              <p className="p-marketing-overview-card__label">課題</p>
-              <p>マーケティング担当を一人採用すれば、マーケティング部はできるのでしょうか。</p>
-              <p className="p-marketing-overview-card__detail">
-                戦略／市場・顧客理解／SNS／Web広告／コンテンツ制作／分析……
-              </p>
-              <strong>すべてを一人で担うのは難しい。</strong>
-            </article>
-            <span className="p-marketing-overview__arrow" aria-hidden="true">→</span>
-            <article className="p-marketing-overview-card p-marketing-overview-card--cause">
-              <p className="p-marketing-overview-card__label">原因</p>
-              <p>社長・営業・広報・外注先に仕事が分散。</p>
-              <p>「SNSはやっている」「広告代理店もいる」「Web会社もいる」。それでも……</p>
-              <strong>マーケティング全体を回す人・チームがいない。</strong>
-            </article>
-            <span className="p-marketing-overview__arrow" aria-hidden="true">→</span>
-            <article className="p-marketing-overview-card p-marketing-overview-card--solution">
-              <p className="p-marketing-overview-card__label">解決</p>
-              <p>担当者ではなく、マーケティング部を。</p>
-              <h2>
-                <span>PwS</span>
-                <span>Marketing Office</span>
-              </h2>
-              <p>Protein WorkerとSilicon Workerが一つのチームになり、戦略から改善まで一緒に回します。</p>
-            </article>
+            </section>
+
+            <section className="p-marketing-overview__before-after" aria-labelledby="marketing-before-after-title">
+              <header className="p-marketing-overview__section-heading">
+                <span>04 / CHANGE</span>
+                <h2 id="marketing-before-after-title">バラバラのマーケティングから、一つのチームへ。</h2>
+              </header>
+              <div className="p-marketing-before-after">
+                <article className="p-marketing-before-after__panel p-marketing-before-after__panel--before">
+                  <p className="p-marketing-before-after__eyebrow">BEFORE</p>
+                  <h3>役割ごとに分かれた取り組み</h3>
+                  <div className="p-marketing-before-after__scatter">
+                    <svg viewBox="0 0 400 180" fill="none" aria-hidden="true">
+                      <path d="m105 43 75 37m115-37-75 37m-115 57 75-37m115 37-75-37" />
+                      <circle cx="180" cy="80" r="3" />
+                      <circle cx="220" cy="80" r="3" />
+                      <circle cx="180" cy="100" r="3" />
+                      <circle cx="220" cy="100" r="3" />
+                    </svg>
+                    <ul className="p-marketing-before-after__people">
+                      <li><span>社長</span><strong>戦略</strong></li>
+                      <li><span>営業</span><strong>顧客対応</strong></li>
+                      <li><span>広報</span><strong>SNS</strong></li>
+                      <li><span>外注先</span><strong>広告・Web</strong></li>
+                    </ul>
+                  </div>
+                  <p className="p-marketing-before-after__note">全体を管理する人がいない</p>
+                </article>
+                <span className="p-marketing-before-after__arrow" aria-hidden="true">→</span>
+                <article className="p-marketing-before-after__panel p-marketing-before-after__panel--after">
+                  <p className="p-marketing-before-after__eyebrow">AFTER</p>
+                  <h3>PwS Marketing Office</h3>
+                  <div className="p-marketing-before-after__team">
+                    <span>Protein Worker</span>
+                    <b aria-hidden="true">×</b>
+                    <span>Silicon Worker</span>
+                  </div>
+                  <span className="p-marketing-before-after__connection" aria-hidden="true">↓</span>
+                  <div className="p-marketing-before-after__workflow">
+                    <ol className="p-marketing-before-after__flow">
+                      <li>戦略</li>
+                      <li className="p-marketing-before-after__flow-arrow" aria-hidden="true">›</li>
+                      <li>制作</li>
+                      <li className="p-marketing-before-after__flow-arrow" aria-hidden="true">›</li>
+                      <li>運用</li>
+                      <li className="p-marketing-before-after__flow-arrow" aria-hidden="true">›</li>
+                      <li>分析</li>
+                      <li className="p-marketing-before-after__flow-arrow" aria-hidden="true">›</li>
+                      <li>改善</li>
+                    </ol>
+                  </div>
+                  <p className="p-marketing-before-after__note">チームで継続的に動かす</p>
+                </article>
+              </div>
+            </section>
           </div>
         </ScrollReveal>
       </section>
@@ -524,32 +622,48 @@ export default function MarketingPage() {
             </div>
           </div>
           <div className="p-marketing-team">
-            <article className="p-marketing-team__protein">
-              <p className="p-marketing-team__label">Protein Worker</p>
-              <p className="p-marketing-team__intro">御社の経営者・営業・現場メンバー</p>
-              <div className="p-marketing-team__protein-members">
-                {proteinWorkers.map((worker) => (
-                  <div className="p-marketing-team-protein-worker" key={worker.role}>
-                    <WorkerPortrait src={worker.image} name={worker.role} />
-                    <span>{worker.role}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="p-marketing-team__responsibility">事業判断・顧客の声・進行統括</p>
-            </article>
-            <span className="p-marketing-team__plus" aria-hidden="true">＋</span>
-            <article className="p-marketing-team__silicon">
-              <p className="p-marketing-team__label">Silicon Worker｜名前と専門性を持つメンバー</p>
-              <div className="p-marketing-team__workers">
-                {siliconWorkers.map((worker) => (
-                  <div className="p-marketing-team-worker" key={worker.name}>
-                    <WorkerPortrait src={worker.image} name={worker.name} />
-                    <strong>{worker.name}</strong>
-                    <span>{worker.role}</span>
-                  </div>
-                ))}
-              </div>
-            </article>
+            <div className="p-marketing-team__partners">
+              <article className="p-marketing-team__protein">
+                <p className="p-marketing-team__label">Protein Worker</p>
+                <p className="p-marketing-team__intro">御社の経営者・営業・現場メンバー</p>
+                <div className="p-marketing-team__protein-members">
+                  {proteinWorkers.map((worker) => (
+                    <div className="p-marketing-team-protein-worker" key={worker.role}>
+                      <WorkerPortrait src={worker.image} name={worker.role} />
+                      <span>{worker.role}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="p-marketing-team__responsibility">事業判断・顧客の声・進行統括</p>
+              </article>
+              <span className="p-marketing-team__plus" aria-hidden="true">
+                <svg viewBox="0 0 32 32" focusable="false">
+                  <path d="M8 16h16M16 8v16" />
+                </svg>
+              </span>
+              <article className="p-marketing-team__silicon">
+                <p className="p-marketing-team__label">Silicon Worker｜名前と専門性を持つメンバー</p>
+                <div className="p-marketing-team__workers">
+                  {siliconWorkers.map((worker) => (
+                    <div className="p-marketing-team-worker" key={worker.name}>
+                      <WorkerPortrait src={worker.image} name={worker.name} />
+                      <strong>{worker.name}</strong>
+                      <span>{worker.role}</span>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            </div>
+            <div className="p-marketing-team__integration" aria-hidden="true">
+              <span />
+              <strong>同じゴール</strong>
+              <span />
+            </div>
+            <ol className="p-marketing-team__flow" aria-label="マーケティングの仕事の流れ">
+              {journey.map((stage) => (
+                <li key={stage.title}>{stage.title}</li>
+              ))}
+            </ol>
           </div>
         </ScrollReveal>
       </section>
@@ -631,14 +745,78 @@ export default function MarketingPage() {
                 </div>
               </li>
             </ol>
-            <div className="p-marketing-cycle">
-              <span className="p-marketing-cycle__step p-marketing-cycle__step--top">▷ 実行</span>
-              <span className="p-marketing-cycle__step p-marketing-cycle__step--right">▥ 結果</span>
-              <span className="p-marketing-cycle__step p-marketing-cycle__step--bottom">⌕ 振り返り</span>
-              <span className="p-marketing-cycle__step p-marketing-cycle__step--left">▱ 次の仕事</span>
-              <p className="p-marketing-cycle__center">
-                一緒に働くほど<br/>顧客への理解も<br/>提案も育つ。
-              </p>
+            <div
+              className="p-marketing-cycle"
+              role="img"
+              aria-label="実行、結果、振り返り、次の仕事が変わる。一緒に働くほど、顧客への理解も、提案も育つ循環"
+            >
+              <svg
+                className="p-marketing-cycle__diagram"
+                viewBox="0 0 600 460"
+                role="presentation"
+                aria-hidden="true"
+              >
+                <defs>
+                  <marker
+                    id="marketing-cycle-arrow"
+                    markerWidth="10"
+                    markerHeight="10"
+                    refX="8"
+                    refY="5"
+                    orient="auto"
+                    markerUnits="userSpaceOnUse"
+                  >
+                    <path d="M0 0 10 5 0 10Z" />
+                  </marker>
+                </defs>
+                <path className="p-marketing-cycle__path" d="M380 94C432 108 478 150 486 187" markerEnd="url(#marketing-cycle-arrow)" />
+                <path className="p-marketing-cycle__path" d="M486 273C478 310 432 352 380 366" markerEnd="url(#marketing-cycle-arrow)" />
+                <path className="p-marketing-cycle__path" d="M220 366C168 352 122 310 114 273" markerEnd="url(#marketing-cycle-arrow)" />
+                <path className="p-marketing-cycle__path" d="M114 187C122 150 168 108 220 94" markerEnd="url(#marketing-cycle-arrow)" />
+                <g className="p-marketing-cycle__node">
+                  <rect x="225" y="20" width="150" height="62" rx="31" />
+                  <text x="300" y="58">実行</text>
+                </g>
+                <g className="p-marketing-cycle__node">
+                  <rect x="412" y="199" width="170" height="62" rx="31" />
+                  <text x="497" y="237">結果</text>
+                </g>
+                <g className="p-marketing-cycle__node">
+                  <rect x="215" y="378" width="170" height="62" rx="31" />
+                  <text x="300" y="416">振り返り</text>
+                </g>
+                <g className="p-marketing-cycle__node">
+                  <rect x="18" y="199" width="170" height="62" rx="31" />
+                  <text x="103" y="225">
+                    <tspan x="103">次の仕事が</tspan>
+                    <tspan x="103" dy="24">変わる</tspan>
+                  </text>
+                </g>
+                <g className="p-marketing-cycle__center">
+                  <rect x="220" y="168" width="160" height="124" rx="22" />
+                  <text x="300" y="207">
+                    <tspan x="300">一緒に働くほど、</tspan>
+                    <tspan x="300" dy="26">顧客への理解も、</tspan>
+                    <tspan x="300" dy="26">提案も育つ。</tspan>
+                  </text>
+                </g>
+              </svg>
+              <div className="p-marketing-cycle__mobile" aria-hidden="true">
+                <p className="p-marketing-cycle__mobile-center">
+                  一緒に働くほど、<br />
+                  顧客への理解も、<br />
+                  提案も育つ。
+                </p>
+                <ol className="p-marketing-cycle__mobile-steps">
+                  <li>実行</li>
+                  <li>結果</li>
+                  <li>振り返り</li>
+                  <li>次の仕事が変わる</li>
+                </ol>
+                <svg className="p-marketing-cycle__mobile-return" viewBox="0 0 40 40" focusable="false">
+                  <path d="M31 16a12 12 0 1 0 1 8M31 8v8h-8" />
+                </svg>
+              </div>
             </div>
           </div>
         </ScrollReveal>
