@@ -46,6 +46,13 @@ export default function Header() {
                   </span>
                   <span className="l-header__submenu-arrow" aria-hidden="true">↗</span>
                 </a>
+                <a href="/service/pw1">
+                  <span className="l-header__submenu-copy">
+                    <strong>Pw1 コンセプト</strong>
+                    <small>会計士・税理士の先生と、頼れる仲間のチーム</small>
+                  </span>
+                  <span className="l-header__submenu-arrow" aria-hidden="true">↗</span>
+                </a>
               </div>
             </div>
           </div>
@@ -103,6 +110,14 @@ export default function Header() {
             className="l-header__sp-sub-link"
           >
             財務経理部　finance
+          </a>
+
+          <a
+            href="/service/pw1"
+            onClick={closeMenu}
+            className="l-header__sp-sub-link"
+          >
+            Pw1 コンセプト
           </a>
 
           <Link href="/#philosophy" onClick={closeMenu}>
