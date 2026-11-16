@@ -48,7 +48,7 @@ export default function Header() {
                 </a>
                 <a href="/service/pw1">
                   <span className="l-header__submenu-copy">
-                    <strong>Pw1 コンセプト</strong>
+                    <strong>Pw1</strong>
                     <small>会計士・税理士の先生と、頼れる仲間のチーム</small>
                   </span>
                   <span className="l-header__submenu-arrow" aria-hidden="true">↗</span>
@@ -117,7 +117,7 @@ export default function Header() {
             onClick={closeMenu}
             className="l-header__sp-sub-link"
           >
-            Pw1 コンセプト
+            Pw1
           </a>
 
           <Link href="/#philosophy" onClick={closeMenu}>
