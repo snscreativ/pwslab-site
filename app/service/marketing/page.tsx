@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import ServiceLabel from "@/components/ServiceLabel";
+import WorkerIntroduction from "@/components/WorkerIntroduction";
+import "@/styles/service-common.css";
 import "./marketing.css";
 
 export const metadata: Metadata = {
@@ -18,113 +20,77 @@ export const metadata: Metadata = {
   },
 };
 
-const siliconWorkers = [
-  {
-    name: "健太",
-    role: "市場・顧客／分析",
-    image: "/images/marketing/健太_市場顧客分析.webp?v=20261102",
-  },
-  {
-    name: "美咲",
-    role: "企画／コンテンツ",
-    image: "/images/marketing/美咲_企画コンテンツ.webp?v=20261102",
-  },
-  {
-    name: "陽菜",
-    role: "Web／導線",
-    image: "/images/marketing/陽菜_web導線.webp?v=20261102",
-  },
-  {
-    name: "翔太",
-    role: "広告／集客",
-    image: "/images/marketing/翔太_広告集客.webp?v=20261102",
-  },
-];
-
-const proteinWorkers = [
-  {
-    role: "経営者",
-    image: "/images/marketing/プロテイン_経営者.webp?v=20261102",
-  },
-  {
-    role: "営業",
-    image: "/images/marketing/プロテイン_営業.webp?v=20261102",
-  },
-  {
-    role: "現場",
-    image: "/images/marketing/プロテイン_現場.webp?v=20261102",
-  },
-];
-
-const journey = [
-  { title: "戦略", detail: "誰に・何を" },
-  { title: "企画", detail: "何を仕掛ける" },
-  { title: "制作", detail: "形にする" },
-  { title: "運用", detail: "届ける" },
-  { title: "分析", detail: "反応を測る" },
-  { title: "改善", detail: "次を考える" },
-];
-
+// STEP 3のチャット編集場所：title＝場面名、person＝名前、role＝肩書き、text＝発言、image＝顔写真。
+// kindは人ならprotein、Silicon Workerならsilicon（バッジと配色に使用）。
 const scenes = [
   {
-    title: "Scene 1｜顧客の声から、次に売るものを考える",
+    title: "Scene 01｜顧客の声から、次に売るものを考える",
     messages: [
       {
         person: "営業担当",
-        role: "Protein Worker",
+        image: "/images/marketing/プロテイン_営業.webp?v=20261102",
+        role: "",
         kind: "protein",
         text: "最近「導入後、どう使うの？」と聞かれるんだ。",
       },
       {
         person: "健太",
-        role: "Silicon Worker・市場／分析",
+        image: "/images/marketing/健太_市場顧客分析.webp?v=20261102",
+        role: "市場／分析",
         kind: "silicon",
         text: "Webでも導入事例の閲覧が増えています。検討中の方は「使った後」を知りたいのかも。",
       },
       {
         person: "美咲",
-        role: "Silicon Worker・企画／コンテンツ",
+        image: "/images/marketing/美咲_企画コンテンツ.webp?v=20261102",
+        role: "企画／コンテンツ",
         kind: "silicon",
         text: "商品の説明を増やすより、「導入後の一日」を見せる企画にしませんか？",
       },
       {
         person: "経営者",
-        role: "Protein Worker",
+        image: "/images/marketing/プロテイン_経営者.webp?v=20261102",
+        role: "",
         kind: "protein",
         text: "それ、営業でも使えるね。今月やってみよう。",
       },
     ],
   },
   {
-    title: "Scene 2｜作って、届けて、売れたかを見る",
+    title: "Scene 02｜作って、届けて、売れたかを見る",
     messages: [
       {
         person: "陽菜",
-        role: "Silicon Worker・Web／導線",
+        image: "/images/marketing/陽菜_web導線.webp?v=20261102",
+        role: "Web／導線",
         kind: "silicon",
         text: "記事と相談ページを作りました。導線も変更します。",
       },
       {
         person: "翔太",
-        role: "Silicon Worker・広告／集客",
+        image: "/images/marketing/翔太_広告集客.webp?v=20261102",
+        role: "広告／集客",
         kind: "silicon",
         text: "広告も新しい訴求に。業種別に反応を見ます。",
       },
       {
         person: "健太",
-        role: "Silicon Worker・市場／分析",
+        image: "/images/marketing/健太_市場顧客分析.webp?v=20261102",
+        role: "市場／分析",
         kind: "silicon",
         text: "相談は増えましたが、製造業の商談化率は低いです。",
       },
       {
         person: "営業担当",
-        role: "Protein Worker",
+        image: "/images/marketing/プロテイン_営業.webp?v=20261102",
+        role: "",
         kind: "protein",
         text: "製造業は導入負荷を気にしてる。説明不足かも。",
       },
       {
         person: "美咲",
-        role: "Silicon Worker・企画／コンテンツ",
+        image: "/images/marketing/美咲_企画コンテンツ.webp?v=20261102",
+        role: "企画／コンテンツ",
         kind: "silicon",
         text: "では次は、「導入までの流れ」を見せましょう。",
       },
@@ -132,56 +98,7 @@ const scenes = [
   },
 ];
 
-const values = [
-  {
-    title: "一人に、全部を背負わせない",
-    description: "必要な専門性をチームで分担。",
-    icon: "people",
-  },
-  {
-    title: "バラバラの施策がつながる",
-    description: "戦略から改善まで、同じゴールへ。",
-    icon: "link",
-  },
-  {
-    title: "考えるだけで、終わらない",
-    description: "作る・届ける・測るまで回す。",
-    icon: "spark",
-  },
-  {
-    title: "改善が、止まらない",
-    description: "施策と結果を次の打ち手に。",
-    icon: "chart",
-  },
-];
-
-const challenges = [
-  {
-    title: "担当者不足",
-    description: "やりたい施策はあるのに、専任の担当者を確保できない。",
-    icon: "people",
-    tone: "blue",
-  },
-  {
-    title: "業務の分散",
-    description: "社長・営業・広報・外注先などに仕事が分かれ、全体が見えにくい。",
-    icon: "branch",
-    tone: "orange",
-  },
-  {
-    title: "専門性の不足",
-    description: "戦略・SNS・Web・広告・分析など、必要なスキルがそろわない。",
-    icon: "layers",
-    tone: "orange",
-  },
-  {
-    title: "施策がつながらない",
-    description: "企画・制作・運用・分析・改善が分断され、全体の成果につながりにくい。",
-    icon: "cycle",
-    tone: "blue",
-  },
-] as const;
-
+// STEP 2の人物画像表示。写真・名前は各セクションの使用箇所で編集します。
 function WorkerPortrait({
   src,
   name,
@@ -204,637 +121,976 @@ function WorkerPortrait({
   );
 }
 
-function ChallengeIcon({ name }: { name: (typeof challenges)[number]["icon"] }) {
-  if (name === "people") {
-    return (
-      <svg viewBox="0 0 56 56" fill="none" aria-hidden="true">
-        <circle cx="28" cy="14" r="7" />
-        <circle cx="12" cy="20" r="5" />
-        <circle cx="44" cy="20" r="5" />
-        <path d="M12 43v-4a16 16 0 0 1 32 0v4H12ZM2 42v-3a10 10 0 0 1 10-10M54 42v-3a10 10 0 0 0-10-10" />
-      </svg>
-    );
-  }
-  if (name === "branch") {
-    return (
-      <svg viewBox="0 0 56 56" fill="none" aria-hidden="true">
-        <circle cx="28" cy="9" r="6" />
-        <circle cx="10" cy="43" r="6" />
-        <circle cx="46" cy="43" r="6" />
-        <path d="M28 15v7m0 0c0 9-18 8-18 15m18-15c0 9 18 8 18 15" />
-      </svg>
-    );
-  }
-  if (name === "layers") {
-    return (
-      <svg viewBox="0 0 56 56" fill="none" aria-hidden="true">
-        <path d="m28 6 23 13-23 13L5 19 28 6Z" />
-        <path d="m7 28 21 12 21-12M7 38l21 12 21-12" />
-      </svg>
-    );
-  }
-  return (
-    <svg viewBox="0 0 56 56" fill="none" aria-hidden="true">
-      <path d="M47 22A20 20 0 0 0 12 14L8 19m0 0v-9m0 9h9M9 34a20 20 0 0 0 35 8l4-5m0 0v9m0-9h-9" />
-    </svg>
-  );
-}
-
-function ValueIcon({ name }: { name: string }) {
-  if (name === "people") {
-    return (
-      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <circle cx="20" cy="12" r="5" />
-        <circle cx="8" cy="16" r="3.5" />
-        <circle cx="32" cy="16" r="3.5" />
-        <path d="M10 32v-3a10 10 0 0 1 20 0v3H10ZM2 31v-2a7 7 0 0 1 7-7M38 31v-2a7 7 0 0 0-7-7" />
-      </svg>
-    );
-  }
-  if (name === "link") {
-    return (
-      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <path d="m16 24-2 2a7 7 0 0 1-10-10l7-7a7 7 0 0 1 10 0M24 16l2-2a7 7 0 0 1 10 10l-7 7a7 7 0 0 1-10 0M14 20h12" />
-      </svg>
-    );
-  }
-  if (name === "spark") {
-    return (
-      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <path d="m22 3-15 20h11l-1 14 16-22H21l1-12Z" />
-      </svg>
-    );
-  }
-  return (
-    <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <path d="M5 34h31M9 29V19h6v10M19 29V11h6v18M29 29V5h6v24" />
-      <path d="m8 13 9-5 8 1 9-6" />
-    </svg>
-  );
-}
-
 export default function MarketingPage() {
   return (
     <main className="p-marketing">
       <section className="p-marketing-hero" id="top">
         <ServiceLabel
-          name="マーケティング部 Silicon Workerチーム"
-          description="Protein（人）とSilicon（AI）で作るマーケティングチームサービス"
+          name={"マーケティング部 \nSilicon Workerチーム"}
+          description={
+            "Protein（人）とSilicon（AI）で作る\nマーケティングチームサービス"
+          }
         />
         <ScrollReveal
           revealId="marketing-hero-layout"
           className="p-marketing-wrap p-marketing-hero__layout"
         >
           <div className="p-marketing-hero__copy">
-            <p className="p-marketing-eyebrow">PwS MARKETING OFFICE</p>
             <h1>
               <span className="p-marketing-hero__headline-first">
-                マーケティングチームを、
+                マーケティング
+                <br className="u-xs" />
+                チームを、
               </span>
               <br />
-              丸ごと御社へ。
+              <span className="p-marketing-hero__headline-last">
+                丸ごと御社へ。
+              </span>
             </h1>
             <p className="p-marketing-hero__lead">
-              Protein Worker（人）とSilicon Workerが同じゴールを持つチームとして、
+              Protein Worker（人）とSilicon
+              Workerが同じゴールを持つチームとして、
               戦略から制作・運用・改善までを一緒に回します。
             </p>
             <div className="p-marketing-hero__actions">
-              <Link className="p-marketing-button" href="/contact?service=marketing">
-                お問い合わせ <span aria-hidden="true">↗</span>
+              <Link
+                className="c-service-button c-service-button--primary"
+                href="/contact?service=marketing"
+              >
+                お問い合わせ{" "}
+                <span className="c-service-button__icon" aria-hidden="true">
+                  ↗
+                </span>
               </Link>
               <Link
-                className="p-marketing-button p-marketing-button--secondary"
+                className="c-service-button c-service-button--outline"
                 href="#step-1"
               >
-                サービスの流れを見る <span aria-hidden="true">↓</span>
+                サービスの流れを見る{" "}
+                <span className="c-service-button__icon" aria-hidden="true">
+                  ↓
+                </span>
               </Link>
             </div>
           </div>
 
-          <div
-            className="p-marketing-hero__visual"
-            aria-label="Protein Workerと4人のSilicon Workerが連携するマーケティングチーム"
-            role="img"
-          >
-            <svg
-              className="p-marketing-hero__connections"
-              viewBox="0 0 560 460"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path d="M280 230 130 96M280 230 430 96M280 230 130 364M280 230 430 364" />
-              <circle cx="280" cy="230" r="162" />
-            </svg>
-            <div className="p-marketing-hero__hub">
-              <span className="p-marketing-hero__hub-icon" aria-hidden="true">
-                ✳
-              </span>
-              <strong>PwS</strong>
-              <span>Marketing<br />Office</span>
-            </div>
-            {siliconWorkers.map((worker, index) => (
-              <article
-                className={`p-marketing-hero-member p-marketing-hero-member--${index + 1}`}
-                key={worker.name}
-              >
-                <span className="p-marketing-hero-member__portrait">
-                  <WorkerPortrait src={worker.image} name={worker.name} />
-                  <Image
-                    className="p-marketing-hero-member__badge"
-                    src="/images/finance/sw-icon.webp"
-                    alt="Silicon Worker"
-                    width={300}
-                    height={300}
-                  />
-                </span>
-                <span className="p-marketing-hero-member__name">
-                  {worker.name}
-                </span>
-                <span className="p-marketing-hero-member__role">
-                  {worker.role}
-                </span>
-              </article>
-            ))}
-            <span className="p-marketing-hero__orbit p-marketing-hero__orbit--one" />
-            <span className="p-marketing-hero__orbit p-marketing-hero__orbit--two" />
+          <div className="p-marketing-hero__visual">
+            <Image
+              className="p-marketing-hero__image"
+              src="/images/marketing/pws-marketing-team-fv-image.webp"
+              alt="人とSilicon Workerが協働するマーケティングチーム"
+              width={1752}
+              height={897}
+              sizes="(max-width: 760px) 100vw, (max-width: 1100px) 600px, 50vw"
+              priority
+            />
           </div>
         </ScrollReveal>
       </section>
 
-      <section className="p-marketing-problem" aria-labelledby="marketing-problem-title">
+      <WorkerIntroduction />
+
+      <section
+        className="p-marketing-problem"
+        aria-labelledby="marketing-problem-title"
+      >
         <ScrollReveal
           revealId="marketing-problem"
           className="p-marketing-wrap p-marketing-problem__layout"
         >
           <header className="p-marketing-problem__heading">
-            <p className="p-marketing-problem__eyebrow">CHALLENGES</p>
-            <h2 id="marketing-problem-title">
-              マーケティング全体を回す人・チームがいない、ということはありませんか？
+            <p className="p-marketing-eyebrow">CHALLENGES</p>
+            <h2 className="p-marketing-title" id="marketing-problem-title">
+              マーケティング全体を
+              <br />
+              回す<span>人</span>・<span>チーム</span>
+              <br className="u-xs" />
+              はいますか？
             </h2>
-            <p className="p-marketing-problem__intro">
-              マーケティングの課題は、単なる担当者不足だけではありません。
-            </p>
             <p className="p-marketing-problem__lead">
+              マーケティングの課題は、単なる担当者不足だけではありません。
+              <br />
               社内外に業務が分散し、必要な専門性を十分に確保できず、施策がバラバラになってしまう。
             </p>
           </header>
 
-          <ol className="p-marketing-challenge-grid">
-            {challenges.map((challenge, index) => (
-              <li
-                className={`p-marketing-challenge-card p-marketing-challenge-card--${challenge.tone}`}
-                key={challenge.title}
-              >
+          <ul className="p-marketing-challenge-grid">
+            {/* 担当者不足：アイコン・見出し・説明文 */}
+            <li className="p-marketing-challenge-card">
+              <div className="p-marketing-challenge-card__heading">
                 <span className="p-marketing-challenge-card__icon">
-                  <ChallengeIcon name={challenge.icon} />
+                  <svg
+                    viewBox="0 0 56 56"
+                    fill="none"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <g strokeDasharray="4 4">
+                      <circle cx="28" cy="16" r="11" />
+                      <path d="M28 31c-12 0-21 9-21 19h42c0-10-9-19-21-19Z" />
+                    </g>
+                  </svg>
                 </span>
-                <div className="p-marketing-challenge-card__content">
-                  <h3>
-                    <span className="p-marketing-challenge-card__number">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    {challenge.title}
-                  </h3>
-                  <p>{challenge.description}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-
-          <span className="p-marketing-problem__down" aria-hidden="true">
-            <svg viewBox="0 0 44 24" fill="none">
-              <path d="M2 2h40L22 22 2 2Z" />
-            </svg>
-          </span>
+                <h3>担当者不足</h3>
+              </div>
+              <p>やりたい施策はあるのに、専任の担当者を確保できない。</p>
+            </li>
+            {/* 業務の分散：アイコン・見出し・説明文 */}
+            <li className="p-marketing-challenge-card">
+              <div className="p-marketing-challenge-card__heading">
+                <span className="p-marketing-challenge-card__icon">
+                  <svg
+                    viewBox="0 0 56 56"
+                    fill="none"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <circle cx="16" cy="12" r="7" />
+                    <circle cx="40" cy="12" r="7" />
+                    <circle cx="16" cy="44" r="7" />
+                    <path d="M16 19v18m0-10h14c6 0 10-3 10-8" />
+                  </svg>
+                </span>
+                <h3>業務の分散</h3>
+              </div>
+              <p>
+                社長・営業・広報・外注先などに仕事が分かれ、全体が見えにくい。
+              </p>
+            </li>
+            {/* 専門性の不足：アイコン・見出し・説明文 */}
+            <li className="p-marketing-challenge-card">
+              <div className="p-marketing-challenge-card__heading">
+                <span className="p-marketing-challenge-card__icon">
+                  <svg
+                    viewBox="0 0 56 56"
+                    fill="none"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M28 15C20 9 12 8 5 11v34c8-3 16-2 23 4 7-6 15-7 23-4V11c-7-3-15-2-23 4Zm0 0v34" />
+                  </svg>
+                </span>
+                <h3>専門性の不足</h3>
+              </div>
+              <p>戦略・SNS・Web・広告・分析など、必要なスキルがそろわない。</p>
+            </li>
+            {/* 施策がつながらない：アイコン・見出し・説明文 */}
+            <li className="p-marketing-challenge-card">
+              <div className="p-marketing-challenge-card__heading">
+                <span className="p-marketing-challenge-card__icon">
+                  <svg
+                    viewBox="-4 -4 64 64"
+                    fill="none"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="m30 20 10-10a9 9 0 0 1 13 13L43 33a9 9 0 0 1-10 2M26 36 16 46A9 9 0 0 1 3 33l10-10a9 9 0 0 1 10-2" />
+                    <path d="m17 5 2 6M9 11l5 4m23 30 2 6m3-10 5 4" />
+                  </svg>
+                </span>
+                <h3>施策がつながらない</h3>
+              </div>
+              <p>
+                企画・制作・運用・分析・改善が分断され、全体の成果につながりにくい。
+              </p>
+            </li>
+          </ul>
         </ScrollReveal>
       </section>
 
-      <section className="p-marketing-overview" aria-label="GOAL・課題・原因・解決">
-        <ScrollReveal revealId="marketing-overview" className="p-marketing-wrap">
-          <div className="p-marketing-overview__bridge">
-            <p>
-              だからこそ、戦略から制作・運用・分析・改善まで、
-              マーケティング全体を一貫して動かすチームをつくる。
-            </p>
-            <span aria-hidden="true">▼</span>
-          </div>
-          <div className="p-marketing-overview__story">
-            <section className="p-marketing-overview__goal" aria-labelledby="marketing-goal-title">
-              <header className="p-marketing-overview__section-heading">
-                <span>01 / GOAL</span>
-                <h2 id="marketing-goal-title">目指す姿</h2>
-              </header>
-              <div className="p-marketing-overview__goal-layout">
-                <article className="p-marketing-overview-card p-marketing-overview-card--goal">
-                  <p className="p-marketing-overview-card__label">GOAL</p>
-                  <p>事業を成長させるために、この循環を回し続ける仕事。</p>
-                  <div
-                    className="p-marketing-loop"
-                    role="img"
-                    aria-label="考える、決める、作る、届ける、測る、学ぶ、次を考える循環"
-                  >
-                    <div className="p-marketing-loop__forward" aria-hidden="true">
-                      <span className="p-marketing-loop__stage">考える</span>
-                      <span className="p-marketing-loop__arrow">→</span>
-                      <span className="p-marketing-loop__stage">決める</span>
-                      <span className="p-marketing-loop__arrow">→</span>
-                      <span className="p-marketing-loop__stage">作る</span>
-                      <span className="p-marketing-loop__arrow">→</span>
-                      <span className="p-marketing-loop__stage">届ける</span>
-                    </div>
-                    <div className="p-marketing-loop__turn" aria-hidden="true">
-                      <span className="arrow-up">↑</span>
-                      <span className="arrow-down">↓</span>
-                    </div>
-                    <div className="p-marketing-loop__return" aria-hidden="true">
-                      <span className="p-marketing-loop__stage">次を考える</span>
-                      <span className="p-marketing-loop__arrow">←</span>
-                      <span className="p-marketing-loop__stage">学ぶ</span>
-                      <span className="p-marketing-loop__arrow">←</span>
-                      <span className="p-marketing-loop__stage">測る</span>
-                    </div>
-                  </div>
-                </article>
-              </div>
-            </section>
+      <section className="p-marketing-overview__bridge">
+        <p>
+          だからこそ、戦略から
+          <br className="u-sp" />
+          制作・運用・分析・改善まで、
+          <br />
+          マーケティング全体を
+          <br className="u-sp" />
+          一貫して動かすチームをつくる。
+        </p>
+      </section>
 
-            <section className="p-marketing-overview__challenge" aria-labelledby="marketing-challenge-title">
+      <section
+        className="p-marketing-overview"
+        aria-labelledby="marketing-overview-title"
+      >
+        <ScrollReveal
+          revealId="marketing-overview"
+          className="p-marketing-wrap"
+        >
+          <p className="p-marketing-eyebrow">WHY</p>
+          <h2 className="p-marketing-title" id="marketing-overview-title">
+            なぜ、
+            <br className="u-xs" />
+            マーケティングには
+            <br className="u-xl" />
+            「チーム」が
+            <br className="u-xs" />
+            必要なのか？
+          </h2>
+          <div className="p-marketing-overview__story">
+            <div
+              className="p-marketing-overview__goal"
+              aria-labelledby="marketing-goal-title"
+            >
+              <h3
+                className="p-marketing-border__heading"
+                id="marketing-goal-title"
+              >
+                <span>
+                  マーケティングは、
+                  <br className="u-sp" />
+                  <span className="p-marketing-border__heading--em">
+                    回し続ける
+                  </span>
+                  ことが大切。
+                </span>
+              </h3>
+              <p className="p-marketing-border__lead">
+                事業を成長させるためには、戦略から改善までの循環を止めずに動かす必要があります。
+              </p>
+              <div className="p-marketing-overview__goal-layout">
+                {/* 循環図：アイコンと文字は各項目で編集。「届ける」は右側へ分岐。 */}
+                <div className="p-marketing-loop">
+                  <svg
+                    className="p-marketing-loop__arrows"
+                    viewBox="0 0 800 440"
+                    preserveAspectRatio="none"
+                    fill="none"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M242.38 73.28 A205 150 0 0 1 327.62 73.28 M320.09 76.15 L327.62 73.28 L321.32 68.25" />
+                    <path
+                      d="M437.34 119.63 A205 150 0 0 1 479.97 173.65 M473.47 168.87 L479.97 173.65 L480.78 165.63"
+                      transform="translate(0 -10)"
+                    />
+                    <path
+                      d="M479.97 266.35 A205 150 0 0 1 437.34 320.37 M440.25 312.85 L437.34 320.37 L445.30 319.06"
+                      transform="translate(0 10)"
+                    />
+                    <path d="M327.62 366.72 A205 150 0 0 1 242.38 366.72 M249.91 363.85 L242.38 366.72 L248.68 371.75" />
+                    <path
+                      d="M132.66 320.37 A205 150 0 0 1 90.03 266.35 M96.53 271.13 L90.03 266.35 L89.22 274.37"
+                      transform="translate(0 10)"
+                    />
+                    <path
+                      d="M90.03 173.65 A205 150 0 0 1 132.66 119.63 M129.75 127.15 L132.66 119.63 L124.70 120.94"
+                      transform="translate(0 -10)"
+                    />
+                    <path
+                      className="p-marketing-loop__accent"
+                      d="M550 220H645m-7-5 7 5-7 5"
+                    />
+                  </svg>
+                  <ol
+                    className="p-marketing-loop__items"
+                    aria-label="マーケティングの循環"
+                  >
+                    <li className="p-marketing-loop__item p-marketing-loop__item--think">
+                      <svg
+                        viewBox="0 0 32 32"
+                        fill="none"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M12 23c0-3-4-5-4-9a8 8 0 0 1 16 0c0 4-4 6-4 9ZM13 26h6m-5 3h4" />
+                        <path
+                          className="p-marketing-loop__accent"
+                          d="M16 1v2M3 5l2 2m22 0 2-2M1 14h3m24 0h3"
+                        />
+                      </svg>
+                      <span>考える</span>
+                    </li>
+                    <li className="p-marketing-loop__item p-marketing-loop__item--decide">
+                      <svg
+                        viewBox="0 0 32 32"
+                        fill="none"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <rect x="7" y="6" width="20" height="24" rx="2" />
+                        <path d="M12 6V3h10v3m-4 9h5m-5 8h5" />
+                        <path
+                          className="p-marketing-loop__accent"
+                          d="m10 14 2 2 3-4m-5 9 2 2 3-4"
+                        />
+                      </svg>
+                      <span>決める</span>
+                    </li>
+                    <li className="p-marketing-loop__item p-marketing-loop__item--create">
+                      <svg
+                        viewBox="0 0 32 32"
+                        fill="none"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M7 21 22 6l5 5-15 15Zm12-12 5 5M9.5 23.5l12-12" />
+                        <path
+                          className="p-marketing-loop__accent"
+                          d="m7 21-2 7 7-2"
+                        />
+                      </svg>
+                      <span>作る</span>
+                    </li>
+                    <li className="p-marketing-loop__item p-marketing-loop__item--deliver">
+                      <svg
+                        viewBox="0 0 32 32"
+                        fill="none"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M3 12 20 6v18L3 18Zm4 8 2 8h4l-3-7M20 11h3v8h-3" />
+                        <path
+                          className="p-marketing-loop__accent"
+                          d="M25 5l3-3M26 12l4-1M26 18l4 1M25 25l3 3"
+                        />
+                      </svg>
+                      <span>届ける</span>
+                    </li>
+                    <li className="p-marketing-loop__item p-marketing-loop__item--measure">
+                      <svg
+                        viewBox="0 0 32 32"
+                        fill="none"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M4 28V21h5v7m5 0V17h5v11m5 0V12h5v16" />
+                        <path
+                          className="p-marketing-loop__accent"
+                          d="m3 11 10-6 7 2 8-5"
+                        />
+                      </svg>
+                      <span>測る</span>
+                    </li>
+                    <li className="p-marketing-loop__item p-marketing-loop__item--learn">
+                      <svg
+                        viewBox="0 0 32 32"
+                        fill="none"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M16 8C11 4 6 4 2 6v22c5-2 10-1 14 2 4-3 9-4 14-2V6c-4-2-9-2-14 2Zm0 0v22" />
+                        <path
+                          className="p-marketing-loop__accent"
+                          d="M6 12q3-0.5 6 1M6 18q3-0.5 6 1M20 13q3-1.5 6-1M20 19q3-1.5 6-1"
+                        />
+                      </svg>
+                      <span>学ぶ</span>
+                    </li>
+                    <li className="p-marketing-loop__item p-marketing-loop__item--next">
+                      <svg
+                        viewBox="0 0 32 32"
+                        fill="none"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path
+                          className="p-marketing-loop__accent"
+                          d="M5 15a11 11 0 0 1 20-6m0-6v6h-6"
+                        />
+                        <path d="M27 17a11 11 0 0 1-20 6m0 6v-6h6" />
+                      </svg>
+                      <span>次を考える</span>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            <div
+              className="p-marketing-overview__challenge"
+              aria-labelledby="marketing-challenge-title"
+            >
               <header className="p-marketing-overview__section-heading">
-                <span>02 / CHALLENGE</span>
-                <h2 id="marketing-challenge-title">課題と原因</h2>
+                <h3
+                  className="p-marketing-border__heading"
+                  id="marketing-challenge-title"
+                >
+                  <span>
+                    でも、その
+                    <span className="p-marketing-border__heading--em">
+                      すべてを一人で
+                    </span>
+                    <br className="u-sp" />
+                    担えますか？
+                  </span>
+                </h3>
               </header>
               <div className="p-marketing-overview__challenge-grid">
                 <article className="p-marketing-overview-card p-marketing-overview-card--issue">
-                  <p className="p-marketing-overview-card__label">課題</p>
-                  <p>マーケティング担当を一人採用すれば、マーケティング部はできるのでしょうか。</p>
-                  <p className="p-marketing-overview-card__detail">
-                    <span>戦略</span>／<span>市場・顧客理解</span>／<span>SNS</span>／<span>Web 広告</span>／<span>コンテンツ制作</span>／<span>分析</span>等
+                  <h4 className="p-marketing-overview-card__label">課題</h4>
+                  <p>
+                    マーケティング担当を一人採用すれば、マーケティング部はできるのでしょうか。
                   </p>
+                  <Image
+                    className="p-marketing-overview__challenge-image"
+                    src="/images/marketing/marketing-issue.webp"
+                    alt="マーケティングのさまざまな業務を一人で担う課題"
+                    width={1535}
+                    height={1024}
+                    sizes="(max-width: 760px) 100vw, 50vw"
+                  />
                   <strong>すべてを一人で担うのは難しい。</strong>
                 </article>
-                <span className="p-marketing-overview__relation" aria-hidden="true">→</span>
                 <article className="p-marketing-overview-card p-marketing-overview-card--cause">
-                  <p className="p-marketing-overview-card__label">原因</p>
+                  <h4 className="p-marketing-overview-card__label">原因</h4>
                   <p>社長・営業・広報・外注先に仕事が分散。</p>
-                  <div className="p-marketing-fragmentation" aria-hidden="true">
-                    <svg viewBox="0 0 240 126" fill="none">
-                      <path d="M37 24h48M203 24h-48M37 102h48M203 102h-48" />
-                      <circle cx="25" cy="24" r="11" />
-                      <circle cx="215" cy="24" r="11" />
-                      <circle cx="25" cy="102" r="11" />
-                      <circle cx="215" cy="102" r="11" />
-                      <circle className="p-marketing-fragmentation__center" cx="120" cy="63" r="27" />
-                    </svg>
-                  </div>
-                  <p>「SNSはやっている」「広告代理店もいる」「Web会社もいる」。それでも……</p>
-                  <strong>マーケティング全体を回す人・チームがいない。</strong>
+                  <Image
+                    className="p-marketing-overview__challenge-image"
+                    src="/images/marketing/marketing-cause.webp"
+                    alt="社長・営業・広報・外注先にマーケティングの仕事が分散している状態"
+                    width={1536}
+                    height={1024}
+                    sizes="(max-width: 760px) 100vw, 50vw"
+                  />
+                  <p>
+                    「SNSはやっている」「広告代理店もいる」「Web会社もいる」。それでも……
+                  </p>
+                  <strong>
+                    マーケティング全体を
+                    <br className="u-xl" />
+                    回す人・チームがいない。
+                  </strong>
                 </article>
               </div>
-              <div className="p-marketing-overview__challenge-copy">
-                <h3>それぞれ頑張っているのに、成果につながらないのはなぜ？</h3>
-                <p>SNSや広告、Web制作など、それぞれの担当者が取り組んでいても、全体の方向性がそろっていなければ、施策がバラバラになりがちです。</p>
-                <p>大切なのは、個々の活動を一つの目標につなげ、成果に向けて動かすことです。</p>
-              </div>
-            </section>
+              <p className="p-marketing-overview__challenge-copy">
+                必要なのは、 個々の活動を
+                <br className="u-xs" />
+                一つの目標につなげ、
+                <br />
+                <span className="p-marketing-marker">
+                  マーケティング全体を動かす
+                  <br className="u-sp" />
+                  チーム
+                </span>
+                です。
+              </p>
+            </div>
 
-            <section className="p-marketing-overview__solution" aria-labelledby="marketing-solution-title">
+            <div
+              className="p-marketing-overview__solution"
+              aria-labelledby="marketing-solution-title"
+            >
               <header className="p-marketing-overview__section-heading">
-                <span>03 / SOLUTION</span>
-                <h2 id="marketing-solution-title">解決</h2>
+                <h3
+                  className="p-marketing-border__heading"
+                  id="marketing-solution-title"
+                >
+                  <span>
+                    担当者ではなく、
+                    <br className="u-sp" />
+                    <span className="p-marketing-border__heading--em">
+                      マーケティング部を。
+                    </span>
+                  </span>
+                </h3>
               </header>
               <div className="p-marketing-overview__solution-layout">
-                <article className="p-marketing-overview-card p-marketing-overview-card--solution">
-                  <p className="p-marketing-overview-card__label">解決</p>
-                  <p>担当者ではなく、マーケティング部を。</p>
-                  <h3 className="p-marketing-overview-card__brand">
-                    <span>PwS</span>
-                    <span>Marketing Office</span>
-                  </h3>
-                  <p>Protein WorkerとSilicon Workerが一つのチームになり、戦略から改善まで一緒に回します。</p>
+                <article className="p-marketing-overview-card--solution">
+                  <h4 className="p-marketing-overview-card__brand">
+                    PwS Marketing Office
+                  </h4>
+                  <p>
+                    Protein WorkerとSilicon Workerが一つのチームになり、
+                    <br />
+                    戦略から改善まで一緒に回します。
+                  </p>
                 </article>
                 <div className="p-marketing-overview__solution-copy">
-                  <h3>PwS Marketing Officeが実現すること</h3>
-                  <p>PwS Marketing Officeは、Protein WorkerとSilicon Workerが連携し、マーケティング全体を動かすチームです。</p>
-                  <p>戦略の検討から制作・運用・分析・改善まで一貫して支援し、次に取り組むべきことを明確にしながら、継続的な改善につなげます。</p>
+                  <p>
+                    戦略の検討から制作・運用・分析・改善まで一貫して支援し、次に取り組むべきことを明確にしながら、継続的な改善につなげます。
+                  </p>
                 </div>
               </div>
-            </section>
-
-            <section className="p-marketing-overview__before-after" aria-labelledby="marketing-before-after-title">
-              <header className="p-marketing-overview__section-heading">
-                <span>04 / CHANGE</span>
-                <h2 id="marketing-before-after-title">バラバラのマーケティングから、一つのチームへ。</h2>
-              </header>
-              <div className="p-marketing-before-after">
-                <article className="p-marketing-before-after__panel p-marketing-before-after__panel--before">
-                  <p className="p-marketing-before-after__eyebrow">BEFORE</p>
-                  <h3>役割ごとに分かれた取り組み</h3>
-                  <div className="p-marketing-before-after__scatter">
-                    <svg viewBox="0 0 400 180" fill="none" aria-hidden="true">
-                      <path d="m105 43 75 37m115-37-75 37m-115 57 75-37m115 37-75-37" />
-                      <circle cx="180" cy="80" r="3" />
-                      <circle cx="220" cy="80" r="3" />
-                      <circle cx="180" cy="100" r="3" />
-                      <circle cx="220" cy="100" r="3" />
-                    </svg>
-                    <ul className="p-marketing-before-after__people">
-                      <li><span>社長</span><strong>戦略</strong></li>
-                      <li><span>営業</span><strong>顧客対応</strong></li>
-                      <li><span>広報</span><strong>SNS</strong></li>
-                      <li><span>外注先</span><strong>広告・Web</strong></li>
-                    </ul>
-                  </div>
-                  <p className="p-marketing-before-after__note">全体を管理する人がいない</p>
-                </article>
-                <span className="p-marketing-before-after__arrow" aria-hidden="true">→</span>
-                <article className="p-marketing-before-after__panel p-marketing-before-after__panel--after">
-                  <p className="p-marketing-before-after__eyebrow">AFTER</p>
-                  <h3>PwS Marketing Office</h3>
-                  <div className="p-marketing-before-after__team">
-                    <span>Protein Worker</span>
-                    <b aria-hidden="true">×</b>
-                    <span>Silicon Worker</span>
-                  </div>
-                  <span className="p-marketing-before-after__connection" aria-hidden="true">↓</span>
-                  <div className="p-marketing-before-after__workflow">
-                    <ol className="p-marketing-before-after__flow">
-                      <li>戦略</li>
-                      <li className="p-marketing-before-after__flow-arrow" aria-hidden="true">›</li>
-                      <li>制作</li>
-                      <li className="p-marketing-before-after__flow-arrow" aria-hidden="true">›</li>
-                      <li>運用</li>
-                      <li className="p-marketing-before-after__flow-arrow" aria-hidden="true">›</li>
-                      <li>分析</li>
-                      <li className="p-marketing-before-after__flow-arrow" aria-hidden="true">›</li>
-                      <li>改善</li>
-                    </ol>
-                  </div>
-                  <p className="p-marketing-before-after__note">チームで継続的に動かす</p>
-                </article>
-              </div>
-            </section>
+            </div>
           </div>
         </ScrollReveal>
       </section>
 
-      <section className="p-marketing-step p-marketing-step--one" id="step-1">
-        <ScrollReveal revealId="marketing-step-1" className="p-marketing-wrap">
-          <div className="p-marketing-step__heading">
-            <span className="p-marketing-step__number">STEP 1</span>
-            <div>
-              <h2>ゴールと仕事の流れを共有する</h2>
-              <p>事業・商品・顧客・目標を共有し、ゴールと業務の流れを設計。</p>
+      <section
+        className="p-marketing-process"
+        aria-labelledby="marketing-process-title"
+      >
+        <div className="p-marketing-process__heading p-marketing-wrap">
+          <p className="p-marketing-eyebrow">HOW IT WORKS</p>
+          <h2 className="p-marketing-title" id="marketing-process-title">
+            PwS Marketing Officeは、
+            <br />
+            こうしてチームをつくり、
+            <br className="u-sp-600" />
+            育てます。
+          </h2>
+        </div>
+        {/* STEP全体：番号と縦線を共通の親要素で管理。 */}
+        <div className="p-marketing-process__timeline">
+          <div className="p-marketing-step p-marketing-step--one" id="step-1">
+            <div className="p-marketing-step__number">
+              <span>STEP</span>
+              <span>01</span>
             </div>
-          </div>
-          <div className="p-marketing-step-one__layout">
-            <ol className="p-marketing-journey">
-              {journey.map((stage, index) => (
-                <li key={stage.title}>
-                  <span className="p-marketing-journey__icon" aria-hidden="true">
-                    {index === 1 ? (
-                      <svg viewBox="0 0 32 32" fill="none">
-                        <path d="M10.2 19.1a8 8 0 1 1 11.6 0c-1.1 1-1.8 2.2-2 3.4h-7.6c-.2-1.2-.9-2.4-2-3.4Z" />
-                        <path d="M12.4 25.2h7.2M13.5 28h5M16 1.8v3M4.6 6.5l2.1 2.1m18.7-2.1-2.1 2.1M2 16h3m22 0h3" />
-                      </svg>
-                    ) : (
-                      ["◎", "", "✎", "↗", "▥", "↻"][index]
-                    )}
-                  </span>
-                  <strong>{stage.title}</strong>
-                  <span>{stage.detail}</span>
-                </li>
-              ))}
-            </ol>
-            <p className="p-marketing-step-one__promise">
-              役割が違っても、全員が流れを理解し、同じゴールへ。
-            </p>
-          </div>
-        </ScrollReveal>
-      </section>
-
-      <section className="p-marketing-step p-marketing-step--two" id="step-2">
-        <ScrollReveal revealId="marketing-step-2" className="p-marketing-wrap">
-          <div className="p-marketing-step__heading">
-            <span className="p-marketing-step__number">STEP 2</span>
-            <div>
-              <h2>御社専用のマーケティングチームを編成</h2>
-              <p>必要な役割を決め、Protein WorkerとSilicon Workerで編成。</p>
-            </div>
-          </div>
-          <div className="p-marketing-team">
-            <div className="p-marketing-team__partners">
-              <article className="p-marketing-team__protein">
-                <p className="p-marketing-team__label">Protein Worker</p>
-                <p className="p-marketing-team__intro">御社の経営者・営業・現場メンバー</p>
-                <div className="p-marketing-team__protein-members">
-                  {proteinWorkers.map((worker) => (
-                    <div className="p-marketing-team-protein-worker" key={worker.role}>
-                      <WorkerPortrait src={worker.image} name={worker.role} />
-                      <span>{worker.role}</span>
-                    </div>
-                  ))}
-                </div>
-                <p className="p-marketing-team__responsibility">事業判断・顧客の声・進行統括</p>
-              </article>
-              <span className="p-marketing-team__plus" aria-hidden="true">
-                <svg viewBox="0 0 32 32" focusable="false">
-                  <path d="M8 16h16M16 8v16" />
-                </svg>
-              </span>
-              <article className="p-marketing-team__silicon">
-                <p className="p-marketing-team__label">Silicon Worker｜名前と専門性を持つメンバー</p>
-                <div className="p-marketing-team__workers">
-                  {siliconWorkers.map((worker) => (
-                    <div className="p-marketing-team-worker" key={worker.name}>
-                      <WorkerPortrait src={worker.image} name={worker.name} />
-                      <strong>{worker.name}</strong>
-                      <span>{worker.role}</span>
-                    </div>
-                  ))}
-                </div>
-              </article>
-            </div>
-            <div className="p-marketing-team__integration" aria-hidden="true">
-              <span />
-              <strong>同じゴール</strong>
-              <span />
-            </div>
-            <ol className="p-marketing-team__flow" aria-label="マーケティングの仕事の流れ">
-              {journey.map((stage) => (
-                <li key={stage.title}>{stage.title}</li>
-              ))}
-            </ol>
-          </div>
-        </ScrollReveal>
-      </section>
-
-      <section className="p-marketing-step p-marketing-step--three" id="step-3">
-        <ScrollReveal revealId="marketing-step-3" className="p-marketing-wrap">
-          <div className="p-marketing-step__heading">
-            <span className="p-marketing-step__number">STEP 3</span>
-            <div>
-              <h2>Protein WorkerとSilicon Workerで、実際の仕事を一緒に回す</h2>
-              <p>営業現場の声から企画・経営判断へ。作って届け、結果を次の企画へつなげます。</p>
-            </div>
-          </div>
-          <div className="p-marketing-scenes">
-            {scenes.map((scene, index) => (
-              <article className="p-marketing-scene" key={scene.title}>
-                <h3 className={`p-marketing-scene__title p-marketing-scene__title--${index + 1}`}>
-                  {scene.title}
-                </h3>
-                <ol className="p-marketing-chat">
-                  {scene.messages.map((message, messageIndex) => (
-                    <li
-                      className={`p-marketing-chat__message p-marketing-chat__message--${message.kind}`}
-                      key={`${message.person}-${messageIndex}`}
-                    >
-                      <Image
-                        src={`/images/marketing/${message.kind === "protein" ? "pw" : "sw"}-outline-icon.webp`}
-                        alt={`${message.role}のバッジ`}
-                        width={44}
-                        height={44}
-                        className="p-marketing-chat__badge"
-                      />
-                      <div className="p-marketing-chat__content">
-                        <p className="p-marketing-chat__byline">
-                          <strong>{message.person}</strong>
-                          <span>{message.role}</span>
-                        </p>
-                        <p className="p-marketing-chat__text">{message.text}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-              </article>
-            ))}
-          </div>
-        </ScrollReveal>
-      </section>
-
-      <section className="p-marketing-step p-marketing-step--four" id="step-4">
-        <ScrollReveal revealId="marketing-step-4" className="p-marketing-wrap">
-          <div className="p-marketing-step__heading">
-            <span className="p-marketing-step__number">STEP 4</span>
-            <div>
-              <h2>一緒に働き、フィードバックし合うほど、チームが育つ</h2>
-              <p>売れた／売れなかったを、一緒に振り返る。</p>
-            </div>
-          </div>
-          <div className="p-marketing-growth">
-            <ol className="p-marketing-growth__conversation">
-              <li>
-                <WorkerPortrait src={siliconWorkers[0].image} name="健太" />
-                <div>
-                  <p className="p-marketing-growth__byline">健太｜Silicon Worker・市場／分析</p>
-                  <p>問い合わせは増えた。でも商談化しなかった。</p>
-                </div>
-              </li>
-              <li>
-                <WorkerPortrait src={proteinWorkers[1].image} name="営業担当" />
-                <div>
-                  <p className="p-marketing-growth__byline">営業担当｜Protein Worker</p>
-                  <p>営業では「導入の負担が心配」という声が。</p>
-                </div>
-              </li>
-              <li>
-                <WorkerPortrait src={siliconWorkers[1].image} name="美咲" />
-                <div>
-                  <p className="p-marketing-growth__byline">美咲｜Silicon Worker・企画／コンテンツ</p>
-                  <p>じゃあ次は、導入の手順とサポートを伝えよう。</p>
-                </div>
-              </li>
-            </ol>
-            <div
-              className="p-marketing-cycle"
-              role="img"
-              aria-label="実行、結果、振り返り、次の仕事が変わる。一緒に働くほど、顧客への理解も、提案も育つ循環"
+            <ScrollReveal
+              revealId="marketing-step-1"
+              className="p-marketing-step__content"
             >
-              <svg
-                className="p-marketing-cycle__diagram"
-                viewBox="0 0 600 460"
-                role="presentation"
-                aria-hidden="true"
-              >
-                <defs>
-                  <marker
-                    id="marketing-cycle-arrow"
-                    markerWidth="10"
-                    markerHeight="10"
-                    refX="8"
-                    refY="5"
-                    orient="auto"
-                    markerUnits="userSpaceOnUse"
-                  >
-                    <path d="M0 0 10 5 0 10Z" />
-                  </marker>
-                </defs>
-                <path className="p-marketing-cycle__path" d="M380 94C432 108 478 150 486 187" markerEnd="url(#marketing-cycle-arrow)" />
-                <path className="p-marketing-cycle__path" d="M486 273C478 310 432 352 380 366" markerEnd="url(#marketing-cycle-arrow)" />
-                <path className="p-marketing-cycle__path" d="M220 366C168 352 122 310 114 273" markerEnd="url(#marketing-cycle-arrow)" />
-                <path className="p-marketing-cycle__path" d="M114 187C122 150 168 108 220 94" markerEnd="url(#marketing-cycle-arrow)" />
-                <g className="p-marketing-cycle__node">
-                  <rect x="225" y="20" width="150" height="62" rx="31" />
-                  <text x="300" y="58">実行</text>
-                </g>
-                <g className="p-marketing-cycle__node">
-                  <rect x="412" y="199" width="170" height="62" rx="31" />
-                  <text x="497" y="237">結果</text>
-                </g>
-                <g className="p-marketing-cycle__node">
-                  <rect x="215" y="378" width="170" height="62" rx="31" />
-                  <text x="300" y="416">振り返り</text>
-                </g>
-                <g className="p-marketing-cycle__node">
-                  <rect x="18" y="199" width="170" height="62" rx="31" />
-                  <text x="103" y="225">
-                    <tspan x="103">次の仕事が</tspan>
-                    <tspan x="103" dy="24">変わる</tspan>
-                  </text>
-                </g>
-                <g className="p-marketing-cycle__center">
-                  <rect x="220" y="168" width="160" height="124" rx="22" />
-                  <text x="300" y="207">
-                    <tspan x="300">一緒に働くほど、</tspan>
-                    <tspan x="300" dy="26">顧客への理解も、</tspan>
-                    <tspan x="300" dy="26">提案も育つ。</tspan>
-                  </text>
-                </g>
-              </svg>
-              <div className="p-marketing-cycle__mobile" aria-hidden="true">
-                <p className="p-marketing-cycle__mobile-center">
-                  一緒に働くほど、<br />
-                  顧客への理解も、<br />
-                  提案も育つ。
-                </p>
-                <ol className="p-marketing-cycle__mobile-steps">
-                  <li>実行</li>
-                  <li>結果</li>
-                  <li>振り返り</li>
-                  <li>次の仕事が変わる</li>
-                </ol>
-                <svg className="p-marketing-cycle__mobile-return" viewBox="0 0 40 40" focusable="false">
-                  <path d="M31 16a12 12 0 1 0 1 8M31 8v8h-8" />
-                </svg>
+              <div className="p-marketing-step__heading">
+                <div>
+                  <h3>
+                    ゴールと仕事の流れを
+                    <br className="u-xs" />
+                    共有する
+                  </h3>
+                  <p>
+                    事業・商品・顧客・目標を共有し、ゴールと業務の流れを設計。
+                  </p>
+                </div>
               </div>
-            </div>
+              <div className="p-marketing-step-one__layout">
+                {/* STEP 1の仕事の流れ：各項目のアイコン・見出し・説明をここで編集。 */}
+                <ol className="p-marketing-journey">
+                  <li>
+                    <span
+                      className="p-marketing-journey__icon"
+                      aria-hidden="true"
+                    >
+                      <svg viewBox="0 0 32 32" fill="none" focusable="false">
+                        <circle cx="15" cy="18" r="11" />
+                        <circle cx="15" cy="18" r="6" />
+                        <path
+                          className="p-marketing-journey__accent"
+                          d="M15 18 28 5M24 9V4l4 1 1 4h-5"
+                        />
+                      </svg>
+                    </span>
+                    <h4>戦略</h4>
+                    <span>誰に・何を</span>
+                  </li>
+                  <li>
+                    <span
+                      className="p-marketing-journey__icon"
+                      aria-hidden="true"
+                    >
+                      <svg viewBox="0 0 32 32" fill="none" focusable="false">
+                        <path d="M12 23c0-3-4-5-4-9a8 8 0 0 1 16 0c0 4-4 6-4 9Z" />
+                        <path d="M13 26h6m-5 3h4" />
+                        <path
+                          className="p-marketing-journey__accent"
+                          d="M16 1v2M3 5l2 2m22 0 2-2M1 14h3m24 0h3"
+                        />
+                      </svg>
+                    </span>
+                    <h4>企画</h4>
+                    <span>何を仕掛ける</span>
+                  </li>
+                  <li>
+                    <span
+                      className="p-marketing-journey__icon"
+                      aria-hidden="true"
+                    >
+                      <svg viewBox="0 0 32 32" fill="none" focusable="false">
+                        <path d="M7 21 22 6l5 5-15 15Zm12-12 5 5M9.5 23.5l12-12" />
+                        <path
+                          className="p-marketing-journey__accent"
+                          d="m7 21-2 7 7-2"
+                        />
+                      </svg>
+                    </span>
+                    <h4>制作</h4>
+                    <span>形にする</span>
+                  </li>
+                  <li>
+                    <span
+                      className="p-marketing-journey__icon"
+                      aria-hidden="true"
+                    >
+                      <svg viewBox="0 0 32 32" fill="none" focusable="false">
+                        <path d="M5 28v-5h4v5Zm9 0V18h4v10Zm9 0V12h4v16Z" />
+                        <path
+                          className="p-marketing-journey__accent"
+                          d="M4 16C13 14 20 9 27 3m-6 0h6v6"
+                        />
+                      </svg>
+                    </span>
+                    <h4>運用</h4>
+                    <span>届ける</span>
+                  </li>
+                  <li>
+                    <span
+                      className="p-marketing-journey__icon"
+                      aria-hidden="true"
+                    >
+                      <svg viewBox="0 0 32 32" fill="none" focusable="false">
+                        <rect x="3" y="4" width="26" height="19" rx="2" />
+                        <path d="M12 23v6m8-6v6M9 29h14" />
+                        <path
+                          className="p-marketing-journey__accent"
+                          d="M9 18v-5m7 5v-8m7 8V9"
+                        />
+                      </svg>
+                    </span>
+                    <h4>分析</h4>
+                    <span>反応を測る</span>
+                  </li>
+                  <li>
+                    <span
+                      className="p-marketing-journey__icon"
+                      aria-hidden="true"
+                    >
+                      <svg viewBox="0 0 32 32" fill="none" focusable="false">
+                        <path
+                          className="p-marketing-journey__accent"
+                          d="M5 15a11 11 0 0 1 20-6m0-6v6h-6"
+                        />
+                        <path d="M27 17a11 11 0 0 1-20 6m0 6v-6h6" />
+                      </svg>
+                    </span>
+                    <h4>改善</h4>
+                    <span>次を考える</span>
+                  </li>
+                </ol>
+                <p className="p-marketing-step-one__promise">
+                  役割が違っても、
+                  <br className="u-sp" />
+                  全員が流れを理解し、
+                  <br className="u-xs" />
+                  <span>同じゴールへ。</span>
+                </p>
+              </div>
+            </ScrollReveal>
           </div>
-        </ScrollReveal>
+
+          <div className="p-marketing-step p-marketing-step--two" id="step-2">
+            <div className="p-marketing-step__number">
+              <span>STEP</span>
+              <span>02</span>
+            </div>
+            <ScrollReveal
+              revealId="marketing-step-2"
+              className="p-marketing-step__content"
+            >
+              <div className="p-marketing-step__heading">
+                <div>
+                  <h3>
+                    御社専用の
+                    <br className="u-sp" />
+                    マーケティングチーム
+                    <br className="u-xs" />
+                    を編成
+                  </h3>
+                  <p>
+                    必要な役割を決め、Protein WorkerとSilicon Workerで編成。
+                  </p>
+                </div>
+              </div>
+              <div className="p-marketing-team">
+                <div className="p-marketing-team__partners">
+                  <article className="p-marketing-team__protein">
+                    <Image
+                      className="p-marketing-team__badge"
+                      src="/images/marketing/pw-outline-icon.webp"
+                      alt=""
+                      width={300}
+                      height={300}
+                    />
+                    <h4 className="p-marketing-team__label">Protein Worker</h4>
+                    <p className="p-marketing-team__intro">
+                      御社の経営者・営業・現場メンバー
+                    </p>
+                    <div className="p-marketing-team__protein-members">
+                      {/* 経営者：写真・担当 */}
+                      <div className="p-marketing-team-protein-worker">
+                        <WorkerPortrait
+                          src="/images/marketing/プロテイン_経営者.webp?v=20261102"
+                          name="経営者"
+                        />
+                        <span>経営者</span>
+                      </div>
+                      {/* 営業：写真・担当 */}
+                      <div className="p-marketing-team-protein-worker">
+                        <WorkerPortrait
+                          src="/images/marketing/プロテイン_営業.webp?v=20261102"
+                          name="営業"
+                        />
+                        <span>営業</span>
+                      </div>
+                      {/* 現場：写真・担当 */}
+                      <div className="p-marketing-team-protein-worker">
+                        <WorkerPortrait
+                          src="/images/marketing/プロテイン_現場.webp?v=20261102"
+                          name="現場"
+                        />
+                        <span>現場</span>
+                      </div>
+                    </div>
+                    <p className="p-marketing-team__responsibility">
+                      事業判断・顧客の声・進行統括
+                    </p>
+                  </article>
+                  <span className="p-marketing-team__plus" aria-hidden="true">
+                    <svg viewBox="0 0 32 32" focusable="false">
+                      <path d="M8 16h16M16 8v16" />
+                    </svg>
+                  </span>
+                  <article className="p-marketing-team__silicon">
+                    <Image
+                      className="p-marketing-team__badge"
+                      src="/images/marketing/sw-outline-icon.webp"
+                      alt=""
+                      width={300}
+                      height={300}
+                    />
+                    <h4 className="p-marketing-team__label">Silicon Worker</h4>
+                    <p className="p-marketing-team__intro">
+                      名前と専門性を持つメンバー
+                    </p>
+                    <div className="p-marketing-team__workers">
+                      {/* 健太：写真・名前・担当 */}
+                      <div className="p-marketing-team-worker">
+                        <WorkerPortrait
+                          src="/images/marketing/健太_市場顧客分析.webp?v=20261102"
+                          name="健太"
+                        />
+                        <span className="p-marketing-team-worker__name">
+                          健太
+                        </span>
+                        <span>
+                          市場・顧客
+                          <br className="u-sp-600" />
+                          ／分析
+                        </span>
+                      </div>
+                      {/* 美咲：写真・名前・担当 */}
+                      <div className="p-marketing-team-worker">
+                        <WorkerPortrait
+                          src="/images/marketing/美咲_企画コンテンツ.webp?v=20261102"
+                          name="美咲"
+                        />
+                        <span className="p-marketing-team-worker__name">
+                          美咲
+                        </span>
+                        <span>
+                          企画／
+                          <br className="u-sp-600" />
+                          コンテンツ
+                        </span>
+                      </div>
+                      {/* 陽菜：写真・名前・担当 */}
+                      <div className="p-marketing-team-worker">
+                        <WorkerPortrait
+                          src="/images/marketing/陽菜_web導線.webp?v=20261102"
+                          name="陽菜"
+                        />
+                        <span className="p-marketing-team-worker__name">
+                          陽菜
+                        </span>
+                        <span>Web／導線</span>
+                      </div>
+                      {/* 翔太：写真・名前・担当 */}
+                      <div className="p-marketing-team-worker">
+                        <WorkerPortrait
+                          src="/images/marketing/翔太_広告集客.webp?v=20261102"
+                          name="翔太"
+                        />
+                        <span className="p-marketing-team-worker__name">
+                          翔太
+                        </span>
+                        <span>広告／集客</span>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+                <div className="p-marketing-team__integration">
+                  <svg
+                    viewBox="0 0 400 48"
+                    fill="none"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M1 1 200 46 399 1" />
+                  </svg>
+                  <p className="p-marketing-step-one__promise">
+                    それぞれの<span>強み</span>を、 <br className="u-xs" />
+                    <span>チームの力</span>に。
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          <div className="p-marketing-step p-marketing-step--three" id="step-3">
+            <div className="p-marketing-step__number">
+              <span>STEP</span>
+              <span>03</span>
+            </div>
+            <ScrollReveal
+              revealId="marketing-step-3"
+              className="p-marketing-step__content"
+            >
+              <div className="p-marketing-step__heading">
+                <div>
+                  <h3>
+                    Protein Workerと
+                    <br className="u-sp" />
+                    Silicon Workerで、
+                    <br className="u-tb" />
+                    実際の仕事を一緒に回す
+                  </h3>
+                  <p>
+                    営業現場の声から企画・経営判断へ。作って届け、結果を次の企画へつなげます。
+                  </p>
+                </div>
+              </div>
+              {/* チャットの文章は、このファイル上部の scenes で編集します。 */}
+              <div className="p-marketing-scenes">
+                {scenes.map((scene) => (
+                  <article className="p-marketing-scene" key={scene.title}>
+                    <h4 className="p-marketing-scene__title">{scene.title}</h4>
+                    <ol className="p-marketing-chat">
+                      {scene.messages.map((message, messageIndex) => (
+                        <li
+                          className={`p-marketing-chat__message p-marketing-chat__message--${message.kind}`}
+                          key={`${message.person}-${messageIndex}`}
+                        >
+                          <span className="p-marketing-chat__avatar">
+                            <Image
+                              src={message.image}
+                              alt=""
+                              width={48}
+                              height={48}
+                              className="p-marketing-chat__portrait"
+                              unoptimized
+                            />
+                            <Image
+                              src={`/images/marketing/${message.kind === "protein" ? "pw" : "sw"}-icon.webp`}
+                              alt=""
+                              width={22}
+                              height={22}
+                              className="p-marketing-chat__badge"
+                            />
+                          </span>
+                          <div className="p-marketing-chat__content">
+                            <p className="p-marketing-chat__byline">
+                              <span className="p-marketing-chat__name">
+                                {message.person}
+                              </span>
+                              {message.role && <span>{message.role}</span>}
+                            </p>
+                            <p className="p-marketing-chat__text">
+                              {message.text}
+                            </p>
+                          </div>
+                        </li>
+                      ))}
+                    </ol>
+                  </article>
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
+
+          <div className="p-marketing-step p-marketing-step--four" id="step-4">
+            <div className="p-marketing-step__number">
+              <span>STEP</span>
+              <span>04</span>
+            </div>
+            <ScrollReveal
+              revealId="marketing-step-4"
+              className="p-marketing-step__content"
+            >
+              <div className="p-marketing-step__heading">
+                <div>
+                  <h3>
+                    一緒に働き、
+                    <br className="u-sp" />
+                    フィードバック
+                    <br className="u-sp" />
+                    し合うほど、 チームが育つ
+                  </h3>
+                  <p>売れた／売れなかったを、一緒に振り返る。</p>
+                </div>
+              </div>
+              {/* STEP 4のメッセージと漫画：文章・画像はここで編集。 */}
+              <div className="p-marketing-growth">
+                <div className="p-marketing-growth__copy">
+                  <p className="p-marketing-growth__catch">
+                    一緒に働くほど、
+                    <br />
+                    顧客への理解も、
+                    <br />
+                    提案も育つ。
+                  </p>
+                  <p className="p-marketing-growth__description">
+                    実行して、結果を見て、振り返る。その気づきが次の仕事を変えていく。
+                  </p>
+                </div>
+                {/* 600px以下では縦3コマの画像へ切り替える。 */}
+                <picture>
+                  <source
+                    media="(max-width: 600px)"
+                    srcSet="/images/marketing/fb-image-speech-sp.webp"
+                    width={809}
+                    height={1942}
+                  />
+                  <Image
+                    className="p-marketing-growth__image"
+                    src="/images/marketing/fb-image-speech.webp"
+                    alt="一緒に働き、結果を振り返りながらチームが育つ様子を描いた漫画"
+                    width={1524}
+                    height={975}
+                    sizes="(max-width: 1100px) 100vw, 60vw"
+                  />
+                </picture>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
       </section>
 
       <section className="p-marketing-values" id="value">
         <ScrollReveal revealId="marketing-values" className="p-marketing-wrap">
-          <h2>このチームが提供する価値</h2>
+          <p className="p-marketing-eyebrow">VALUE</p>
+          <h2 className="p-marketing-title">
+            このチームが
+            <br className="u-xs" />
+            提供する価値
+          </h2>
           <div className="p-marketing-value-grid">
-            {values.map((value) => (
-              <article className="p-marketing-value-card" key={value.title}>
-                <span className="p-marketing-value-card__icon">
-                  <ValueIcon name={value.icon} />
-                </span>
-                <h3>{value.title}</h3>
-                <p>{value.description}</p>
-              </article>
-            ))}
+            {/* 価値：一人に、全部を背負わせない（見出し・説明文） */}
+            <article className="p-marketing-value-card">
+              <h3>
+                一人に、全部を
+                <br />
+                背負わせない
+              </h3>
+              <p>必要な専門性をチームで分担。</p>
+            </article>
+            {/* 価値：バラバラの施策がつながる（見出し・説明文） */}
+            <article className="p-marketing-value-card">
+              <h3>
+                バラバラの
+                <br />
+                施策がつながる
+              </h3>
+              <p>戦略から改善まで、同じゴールへ。</p>
+            </article>
+            {/* 価値：考えるだけで、終わらない（見出し・説明文） */}
+            <article className="p-marketing-value-card">
+              <h3>
+                考えるだけで、
+                <br />
+                終わらない
+              </h3>
+              <p>作る・届ける・測るまで回す。</p>
+            </article>
+            {/* 価値：改善が、止まらない（見出し・説明文） */}
+            <article className="p-marketing-value-card">
+              <h3>
+                改善が、
+                <br />
+                止まらない
+              </h3>
+              <p>施策と結果を次の打ち手に。</p>
+            </article>
           </div>
         </ScrollReveal>
       </section>
@@ -847,9 +1103,15 @@ export default function MarketingPage() {
           className="p-marketing-wrap p-marketing-contact__content"
         >
           <p>マーケ担当を、一人採用する。その前に。</p>
-          <h2>マーケティング部をPwSに。</h2>
-          <Link className="p-marketing-button p-marketing-button--contact" href="/contact?service=marketing">
-            お問い合わせ <span aria-hidden="true">↗</span>
+          <h2 className="p-marketing-title">マーケティング部をPwSに。</h2>
+          <Link
+            className="c-service-button c-service-button--primary"
+            href="/contact?service=marketing"
+          >
+            お問い合わせ{" "}
+            <span className="c-service-button__icon" aria-hidden="true">
+              ↗
+            </span>
           </Link>
         </ScrollReveal>
       </section>

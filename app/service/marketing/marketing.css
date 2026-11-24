@@ -1,14 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Baumans&display=swap');
+
+/* ========================================
+   ページ全体の設定・CSS変数
+======================================== */
+
 .p-marketing {
   --marketing-blue: #abcde0;
   --marketing-blue-deep: #5d9fc6;
   --marketing-blue-soft: #eff7fb;
   --marketing-orange: #e88345;
   --marketing-orange-soft: #fff3e9;
-  --marketing-navy: var(--color-navy);
-  color: var(--marketing-navy);
+  --marketing-ttl: #173c70;
+  --font-steps: "Baumans", system-ui;
+  --font-marketing: "Alata", sans-serif;
+  color: var(--color-navy);
   overflow: hidden;
   background: #fff;
 }
+
+br.u-xl,
+br.u-sp-600 {
+  display: none;
+}
+
+h2,
+h3,
+h4 {
+  font-feature-settings: "halt";
+}
+
+/* ========================================
+   共通レイアウト・見出し・人物画像
+======================================== */
 
 .p-marketing-wrap {
   width: min(1160px, calc(100% - 48px));
@@ -16,11 +39,98 @@
 }
 
 .p-marketing-eyebrow {
-  color: var(--marketing-blue-deep);
-  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  color: #36799e;
+  font-size: 0.9rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
+  text-align: center;
+  text-transform: uppercase;
 }
+
+.p-marketing-eyebrow::before,
+.p-marketing-eyebrow::after {
+  width: clamp(2rem, 5vw, 4rem);
+  height: 1px;
+  background: #36799e;
+  content: "";
+}
+
+.p-marketing-title {
+  margin: .2em 0 .7em;
+  color: var(--marketing-ttl);
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1.5;
+  text-wrap: pretty;
+  text-align: center;
+}
+
+.p-marketing-title span {
+  color: var(--color-orange);
+}
+
+.p-marketing-portrait {
+  display: block;
+  width: 56px;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--marketing-blue-soft);
+  box-shadow: 0 2px 8px rgba(27, 47, 70, 0.15);
+}
+
+.p-marketing-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h3.p-marketing-border__heading {
+  width: 100%;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  border-bottom: 1px solid var(--color-sw-bg);
+  font-family: var(--font-serif);
+  font-size: clamp(1.45rem, 2.15vw, 2.15rem);
+  font-weight: 500;
+  line-height: 1.65;
+}
+
+.p-marketing-border__heading>span {
+  display: inline-block;
+  position: relative;
+  padding: 0 .4em .2em;
+  color: var(--color-navy);
+}
+
+.p-marketing-border__heading>span::before {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-gold);
+  content: '';
+}
+
+.p-marketing-border__heading--em {
+  color: var(--color-orange);
+}
+
+.p-marketing-border__lead {
+  margin-bottom: 2rem;
+}
+
+/* ========================================
+   ファーストビュー
+======================================== */
 
 .p-marketing-hero .c-service-label {
   --service-label-accent: #b8862f;
@@ -75,10 +185,6 @@
   letter-spacing: 0.05em;
 }
 
-.p-marketing-hero__layout {
-  margin-top: 5.75rem;
-}
-
 .p-marketing-hero {
   position: relative;
   isolation: isolate;
@@ -90,10 +196,10 @@
 }
 
 .p-marketing-hero__layout {
+  margin-top: 5.75rem;
   display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(460px, 1.08fr);
+  grid-template-columns: minmax(0, 0.92fr) minmax(700px, 1.08fr);
   align-items: center;
-  gap: clamp(2rem, 5vw, 4rem);
   min-height: 490px;
 }
 
@@ -107,7 +213,7 @@
   max-width: 610px;
   margin: 1rem 0 1.25rem;
   font-family: var(--font-serif);
-  font-size: 38px;
+  font-size: clamp(32px, 45/1200*100vw, 45px);
   font-weight: 600;
   letter-spacing: 0.035em;
   line-height: 1.55;
@@ -115,8 +221,17 @@
 
 .p-marketing-hero__headline-first {
   display: inline-block;
-  font-size: 38px;
+  font-size: 1em;
   white-space: nowrap;
+}
+
+.p-marketing-hero__headline-last {
+  background: linear-gradient(90deg, #ec8e00bd, #f3c600a9 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.4em;
+  background-position: 0 100%;
+  padding: 0.2em 0 0.2em 0.2em;
+  animation: makerUp 3s ease-in-out forwards;
 }
 
 .p-marketing-hero__lead {
@@ -134,248 +249,31 @@
   margin-top: 1.65rem;
 }
 
-.p-marketing-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.25rem;
-  min-width: 11rem;
-  min-height: 3.25rem;
-  padding: 0.8rem 1.5rem;
-  border: 1px solid #285f84;
-  border-radius: 999px;
-  color: #fff;
-  background: linear-gradient(135deg, #397da3, #285f84);
-  box-shadow: 0 8px 20px rgba(67, 133, 171, 0.16);
-  font-size: 0.95rem;
-  font-weight: 700;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.p-marketing-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(67, 133, 171, 0.23);
-}
-
-.p-marketing-button:focus-visible {
-  outline: 3px solid #a95625;
-  outline-offset: 4px;
-}
-
-.p-marketing-button--secondary {
-  border-color: rgba(93, 159, 198, 0.55);
-  color: #356f94;
-  background: rgba(255, 255, 255, 0.74);
-  box-shadow: 0 5px 16px rgba(67, 133, 171, 0.08);
-}
-
-.p-marketing-button--secondary:hover {
-  background: #fff;
-}
-
-.p-marketing-button span {
-  font-size: 1.1rem;
-}
-
 .p-marketing-hero__visual {
-  position: relative;
-  width: min(100%, 600px);
-  aspect-ratio: 560 / 460;
+  width: min(100%, 900px);
   margin-inline: auto;
-  isolation: isolate;
 }
 
-.p-marketing-hero__connections {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-.p-marketing-hero__connections path,
-.p-marketing-hero__connections circle {
-  stroke: rgba(112, 174, 207, 0.45);
-  stroke-width: 2;
-  stroke-dasharray: 6 8;
-}
-
-.p-marketing-hero__connections circle {
-  stroke: rgba(232, 131, 69, 0.46);
-  stroke-dasharray: 3 8;
-}
-
-.p-marketing-hero__hub {
-  position: absolute;
-  inset: 50% auto auto 50%;
-  display: flex;
-  width: clamp(104px, 13vw, 150px);
-  aspect-ratio: 1;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  border: 1px solid rgba(164, 196, 216, 0.75);
-  border-radius: 50%;
-  color: var(--marketing-navy);
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 14px 38px rgba(50, 86, 116, 0.16);
-  font-size: 0.92rem;
-  line-height: 1.35;
-  text-align: center;
-  transform: translate(-50%, -50%);
-}
-
-.p-marketing-hero__hub strong {
-  font-size: 1.15rem;
-}
-
-.p-marketing-hero__hub-icon {
-  color: var(--marketing-blue-deep);
-  font-size: 1.25rem;
-  animation: p-marketing-hub-turn 18s linear infinite;
-}
-
-.p-marketing-hero-member {
-  position: absolute;
-  display: grid;
-  width: clamp(175px, 18vw, 210px);
-  min-height: 158px;
-  grid-template-columns: 112px minmax(0, 1fr);
-  align-content: center;
-  align-items: center;
-  gap: 0.35rem 0.8rem;
-  padding: 0.4rem;
-}
-
-.p-marketing-hero-member--1 {
-  top: 2%;
-  left: 0;
-}
-
-.p-marketing-hero-member--2 {
-  top: 2%;
-  right: 0;
-}
-
-.p-marketing-hero-member--3 {
-  bottom: 2%;
-  left: 0;
-}
-
-.p-marketing-hero-member--4 {
-  right: 0;
-  bottom: 2%;
-}
-
-.p-marketing-portrait {
+.p-marketing-hero__image {
   display: block;
-  width: 56px;
-  aspect-ratio: 1;
-  overflow: hidden;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  background: var(--marketing-blue-soft);
-  box-shadow: 0 2px 8px rgba(27, 47, 70, 0.15);
-}
-
-.p-marketing-portrait img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.p-marketing-hero-member__portrait {
-  position: relative;
-  display: block;
-  width: 112px;
-  grid-row: span 2;
-}
-
-.p-marketing-hero-member .p-marketing-portrait {
-  width: 100%;
-  border: 0;
-  border-radius: 50%;
-  background: transparent;
-  box-shadow: 0 8px 20px rgba(27, 47, 70, 0.16);
-}
-
-.p-marketing-hero-member__badge {
-  position: absolute;
-  right: -0.15rem;
-  bottom: 0.2rem;
-  z-index: 1;
-  width: clamp(1.6rem, 2.6vw, 2rem);
   height: auto;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  box-shadow: 0 3px 9px rgba(27, 47, 70, 0.18);
-  object-fit: contain;
 }
 
-.p-marketing-hero-member:nth-of-type(1) .p-marketing-portrait,
-.p-marketing-hero-member:nth-of-type(2) .p-marketing-portrait,
-.p-marketing-hero-member:nth-of-type(3) .p-marketing-portrait,
-.p-marketing-hero-member:nth-of-type(4) .p-marketing-portrait {
-  animation: p-marketing-portrait-float 5s ease-in-out infinite;
-}
-
-.p-marketing-hero-member:nth-of-type(2) .p-marketing-portrait {
-  animation-delay: -1.2s;
-}
-
-.p-marketing-hero-member:nth-of-type(3) .p-marketing-portrait {
-  animation-delay: -2.4s;
-}
-
-.p-marketing-hero-member:nth-of-type(4) .p-marketing-portrait {
-  animation-delay: -3.6s;
-}
-
-.p-marketing-hero-member .p-marketing-portrait img {
-  object-position: center;
-}
-
-.p-marketing-hero-member__name {
-  align-self: end;
-  color: #1d5e8b;
-  font-size: 1rem;
-  font-weight: 700;
-}
-
-.p-marketing-hero-member__role {
-  align-self: start;
-  font-size: 0.64rem;
-  font-weight: 600;
-  line-height: 1.5;
-}
-
-.p-marketing-hero__orbit {
-  position: absolute;
-  z-index: -1;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.p-marketing-hero__orbit--one {
-  inset: 10% 12%;
-  border: 1px solid rgba(171, 205, 224, 0.4);
-}
-
-.p-marketing-hero__orbit--two {
-  inset: 19% 23%;
-  border: 1px dashed rgba(232, 131, 69, 0.28);
-}
+/* ========================================
+   課題｜4つの困りごと
+======================================== */
 
 .p-marketing-problem {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: clamp(3.5rem, 6vw, 5rem) 0 2.5rem;
+  padding: 7.5rem 0;
   color: #142c4f;
   background:
-    radial-gradient(ellipse at 4% 5%, rgba(208, 235, 250, 0.62), transparent 27%),
-    radial-gradient(ellipse at 97% 95%, rgba(221, 241, 252, 0.78), transparent 30%),
-    linear-gradient(115deg, #fff 0%, #fffdfa 58%, #fbfdff 100%);
+    radial-gradient(ellipse at 4% 5%, rgba(205, 205, 205, 0.68), transparent 27%),
+    radial-gradient(ellipse at 97% 95%, rgba(215, 215, 215, 0.82), transparent 30%),
+    linear-gradient(115deg, #fff 0%, #fafafa 58%, #fcfcfc 100%);
 }
 
 .p-marketing-problem::before {
@@ -385,7 +283,7 @@
   width: 20rem;
   height: 13rem;
   border-radius: 45% 55% 61% 39%;
-  background: rgba(215, 239, 251, 0.48);
+  background: rgba(210, 210, 210, 0.55);
   filter: blur(1px);
   transform: rotate(-28deg);
   content: "";
@@ -396,97 +294,60 @@
   position: relative;
 }
 
-.p-marketing-problem__eyebrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 0.8rem;
-  color: #36799e;
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.p-marketing-problem__eyebrow::before,
-.p-marketing-problem__eyebrow::after {
-  width: clamp(2rem, 5vw, 4rem);
-  height: 1px;
-  background: #36799e;
-  content: "";
-}
-
 .p-marketing-problem__heading {
   max-width: 1000px;
   margin: 0 auto clamp(1.75rem, 4vw, 2.5rem);
   text-align: center;
 }
 
-.p-marketing-problem__heading h2 {
-  margin: 0;
-  font-family: var(--font-serif);
-  font-size: clamp(1.7rem, 3.5vw, 2.4rem);
-  font-weight: 700;
-  letter-spacing: 0.025em;
-  line-height: 1.45;
-  text-wrap: pretty;
-}
-
-.p-marketing-problem__intro,
 .p-marketing-problem__lead {
-  margin: 0.7rem 0 0;
-  font-size: clamp(0.9rem, 1.45vw, 1.08rem);
-  font-weight: 600;
   line-height: 1.75;
-}
-
-.p-marketing-problem__lead {
+  font-size: clamp(0.9rem, 1.45vw, 1.08rem);
+  margin: 0.7rem 0 0;
   font-weight: 500;
 }
 
 .p-marketing-challenge-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: clamp(1.25rem, 3vw, 2.5rem);
-  row-gap: 0.65rem;
-  margin: 0;
+  gap: 0;
+  width: 80%;
+  margin: 0 auto;
   padding: 0;
   list-style: none;
+  padding-top: 3rem;
 }
 
 .p-marketing-challenge-card {
   display: grid;
   min-width: 0;
-  grid-template-columns: 3.25rem minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
   align-items: start;
   gap: 0.9rem;
-  padding: 1.2rem 0.25rem;
+  padding: 1.5rem 2.5rem;
   border: 0;
-  border-top: 1px solid rgba(93, 159, 198, 0.3);
   border-radius: 0;
   background: transparent;
 }
 
-.p-marketing-challenge-card:hover {
-  border-top-color: rgba(93, 159, 198, 0.7);
+/* 外周を囲まず、4項目の間だけを区切る。 */
+
+.p-marketing-challenge-card:nth-child(even) {
+  border-left: 1px solid var(--marketing-blue);
 }
 
-.p-marketing-challenge-card--orange {
-  border-top-color: rgba(232, 131, 69, 0.32);
+.p-marketing-challenge-card:nth-child(n + 3) {
+  border-top: 1px solid var(--marketing-blue);
 }
 
 .p-marketing-challenge-card__icon {
   display: grid;
+  flex-shrink: 0;
   width: 2.8rem;
   height: 2.8rem;
   place-items: center;
-  color: #1499bf;
-}
-
-.p-marketing-challenge-card--orange .p-marketing-challenge-card__icon {
-  color: #f28a00;
+  color: var(--color-gold);
 }
 
 .p-marketing-challenge-card__icon svg {
@@ -495,19 +356,19 @@
   stroke: currentColor;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: 2.2;
+  stroke-width: 2;
 }
 
-.p-marketing-challenge-card__content {
-  min-width: 0;
+.p-marketing-challenge-card__heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
 }
 
 .p-marketing-challenge-card h3 {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.35rem 0.8rem;
-  margin: 0 0 0.55rem;
+  margin: 0;
+  text-align: center;
   color: #142c4f;
   font-family: var(--font-serif);
   font-size: clamp(1.1rem, 2.3vw, 1.65rem);
@@ -515,33 +376,52 @@
   line-height: 1.45;
 }
 
-.p-marketing-challenge-card__number {
-  color: #a95625;
-  font-family: var(--font-sans);
-  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
-  font-weight: 800;
-}
-
 .p-marketing-challenge-card p {
   margin: 0;
+  text-align: left;
   color: #253c5e;
   font-size: clamp(0.88rem, 1.3vw, 1rem);
   line-height: 1.8;
 }
 
-.p-marketing-problem__down {
-  display: grid;
-  width: 2.75rem;
-  margin: 1.5rem auto -3.75rem;
-  color: #75c4e9;
-  animation: p-marketing-down-bob 2.4s ease-in-out infinite;
+/* ========================================
+   導入メッセージ｜チームをつくる
+======================================== */
+
+.p-marketing-overview__bridge {
+  text-align: center;
+  position: relative;
+  padding: 2rem 0;
+  background-color: var(--color-navy);
 }
 
-.p-marketing-problem__down svg {
-  display: block;
-  width: 100%;
-  fill: currentColor;
+.p-marketing-overview__bridge::after {
+  position: absolute;
+  top: 99%;
+  left: 50%;
+  z-index: 1;
+  width: clamp(7rem, 16vw, 15rem);
+  aspect-ratio: 4 / 1;
+  background: var(--color-navy);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform: translateX(-50%);
+  content: "";
+  pointer-events: none;
 }
+
+.p-marketing-overview__bridge p {
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+  font-weight: 600;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+/* ========================================
+   チームが必要な理由｜循環・課題と原因・解決
+======================================== */
 
 .p-marketing-overview {
   padding: clamp(4.5rem, 8vw, 7rem) 0;
@@ -550,37 +430,8 @@
     linear-gradient(180deg, #fff 0%, #f8fbfd 48%, #fff 100%);
 }
 
-.p-marketing-overview__bridge {
-  display: grid;
-  justify-items: center;
-  gap: 0.85rem;
-  max-width: 900px;
-  margin: 0 auto clamp(2.5rem, 5vw, 4rem);
-  text-align: center;
-}
-
-.p-marketing-overview__bridge p {
-  margin: 0;
-  color: #173c70;
-  font-family: var(--font-serif);
-  font-size: clamp(1.25rem, 2.4vw, 1.8rem);
-  font-weight: 600;
-  line-height: 1.65;
-  text-wrap: pretty;
-}
-
-.p-marketing-overview__bridge span {
-  display: grid;
-  width: 2rem;
-  height: 2rem;
-  place-items: center;
-  border: 1px solid rgba(115, 166, 194, 0.3);
-  border-radius: 50%;
-  color: #477b9e;
-  background: #fff;
-  box-shadow: 0 4px 12px rgba(39, 82, 108, 0.08);
-  font-size: 0.8rem;
-  line-height: 1;
+#marketing-overview-title {
+  margin-bottom: 4rem;
 }
 
 .p-marketing-overview__story {
@@ -588,306 +439,218 @@
   gap: clamp(2.75rem, 6vw, 5rem);
 }
 
-.p-marketing-overview__section-heading {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  margin-bottom: 1.35rem;
+/* 循環図：細い矢印とアイコン。「届ける」は円の右側に配置 */
+.p-marketing-loop {
+  position: relative;
+  width: min(100%, 50rem);
+  aspect-ratio: 800 / 374;
+  margin-inline: auto;
 }
 
-.p-marketing-overview__section-heading > span {
-  flex: 0 0 auto;
-  color: #6085a0;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.13em;
-}
-
-.p-marketing-overview__section-heading h2 {
-  margin: 0;
-  color: #173c70;
-  font-family: var(--font-serif);
-  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
-  font-weight: 600;
-  letter-spacing: 0.015em;
-  line-height: 1.45;
-}
-
-.p-marketing-overview__goal-layout {
-  display: grid;
-  gap: clamp(1.25rem, 3vw, 2.25rem);
-}
-
-.p-marketing-overview__goal-layout > .p-marketing-overview-card {
+.p-marketing-loop__arrows {
+  display: block;
   width: 100%;
+  height: 100%;
+  stroke: #618ba5;
 }
 
-.p-marketing-overview__goal-layout .p-marketing-overview-card > p:nth-child(2) {
-  color: #173c70;
-  font-size: 1.08rem;
+.p-marketing-loop__arrows path {
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+}
+
+.p-marketing-loop__items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.p-marketing-loop__item {
+  position: absolute;
+  display: flex;
+  width: 18%;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-navy);
+  font-size: clamp(1.2rem, 1.8vw, 1.38rem);
   font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
 }
 
-.p-marketing-overview-card {
-  min-width: 0;
-  padding: clamp(1.1rem, 2vw, 1.5rem);
-  border: 1px solid #dce8ef;
-  border-radius: 1.25rem;
-  color: #2e4057;
-  background: #fff;
-  box-shadow: 0 10px 28px rgba(29, 59, 82, 0.08);
-  font-size: 0.9rem;
-  line-height: 1.8;
+.p-marketing-loop__item svg {
+  width: clamp(2rem, 3.5vw, 2.55rem);
+  height: auto;
+  color: var(--marketing-blue-deep);
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.p-marketing-overview-card > p {
+.p-marketing-loop__accent {
+  stroke: var(--color-orange);
+}
+
+.p-marketing-loop__item--think {
+  top: 20.476%;
+  left: 22.813%;
+}
+
+.p-marketing-loop__item--decide {
+  top: 20.476%;
+  left: 48.438%;
+}
+
+.p-marketing-loop__item--create {
+  top: 50.000%;
+  left: 61.250%;
+}
+
+.p-marketing-loop__item--measure {
+  top: 79.524%;
+  left: 48.438%;
+}
+
+.p-marketing-loop__item--learn {
+  top: 79.524%;
+  left: 22.813%;
+}
+
+.p-marketing-loop__item--next {
+  top: 50.000%;
+  left: 10.000%;
+}
+
+.p-marketing-loop__item--deliver {
+  top: 50.000%;
+  left: 86.125%;
+}
+
+.p-marketing-overview-card>p {
   margin: 0 0 0.65rem;
-}
-
-.p-marketing-overview-card__label {
-  margin: 0 0 0.7rem;
-  color: #2874a9;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-}
-
-.p-marketing-overview-card--goal {
-  padding: clamp(1.4rem, 3vw, 2.25rem);
-  border-color: rgba(130, 177, 205, 0.42);
-  background:
-    radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.98), transparent 72%),
-    linear-gradient(150deg, #f8fcff, #e8f4fa);
-}
-
-.p-marketing-overview-card--goal > p:nth-child(2) {
-  color: #173c70;
-  font-size: 1rem;
-  font-weight: 700;
-}
-
-.p-marketing-overview__challenge-copy h3,
-.p-marketing-overview__solution-copy h3 {
-  margin: 0 0 0.9rem;
-  color: #173c70;
-  font-family: var(--font-serif);
-  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
-  font-weight: 600;
-  line-height: 1.6;
-  text-wrap: pretty;
-}
-
-.p-marketing-overview__challenge-copy p,
-.p-marketing-overview__solution-copy p {
-  margin: 0 0 0.75rem;
-  color: #46566b;
-  font-size: 0.96rem;
-  line-height: 1.9;
-  text-wrap: pretty;
-}
-
-.p-marketing-overview__challenge-copy p:not(:last-child),
-.p-marketing-overview__solution-copy p:not(:last-child) {
-  margin-bottom: 0.5rem;
-}
-
-.p-marketing-overview__challenge-copy p:last-child,
-.p-marketing-overview__solution-copy p:last-child {
-  margin-bottom: 0;
 }
 
 .p-marketing-overview__challenge {
   padding: clamp(1.25rem, 3.2vw, 2.25rem);
-  border: 1px solid rgba(224, 172, 136, 0.42);
-  border-radius: 1.5rem;
-  background: linear-gradient(140deg, #fffaf6, #fff3e9);
-  box-shadow: 0 14px 34px rgba(138, 82, 45, 0.06);
-}
-
-.p-marketing-overview__challenge .p-marketing-overview__section-heading > span {
-  color: #b96c3e;
 }
 
 .p-marketing-overview__challenge-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 2.5rem minmax(0, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: stretch;
   gap: 1rem;
+  padding-top: 3rem;
 }
 
-.p-marketing-overview-card--issue,
-.p-marketing-overview-card--cause {
-  border-color: rgba(224, 172, 136, 0.38);
+.p-marketing-overview-card {
+  display: grid;
+  grid-row: span 5;
+  grid-template-rows: subgrid;
+  row-gap: 0;
   background: rgba(255, 255, 255, 0.9);
   font-size: 1rem;
+  box-shadow: none;
+  padding: 2rem 1.5rem;
+  border: 0.5px solid var(--marketing-blue);
 }
 
-.p-marketing-overview-card--issue .p-marketing-overview-card__label,
-.p-marketing-overview-card--cause .p-marketing-overview-card__label {
-  color: #bc6840;
+.p-marketing-overview-card__label {
+  letter-spacing: 0.12em;
+  margin: 0 0 0.5em;
+  /* 現状の継承色を維持。--service-label-textのスコープ変更は別途確認する。 */
+  color: var(--service-label-text);
+  font-size: clamp(1.25rem, 2.15vw, 1.65rem);
+  padding-bottom: 0.3em;
+  font-weight: 500;
+  text-align: center;
+  position: relative;
 }
 
-.p-marketing-overview-card--issue strong,
-.p-marketing-overview-card--cause strong {
+.p-marketing-overview-card__label::before {
+  content: "";
+  background-color: var(--marketing-blue-deep);
+  width: 4em;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.p-marketing-overview-card strong {
   display: block;
+  grid-row: 5;
+  align-self: start;
   margin-top: 0.55rem;
   color: #b9582f;
+  font-size: 1.12rem;
   font-weight: 700;
+  text-align: center;
+  line-height: 1.5;
 }
 
-.p-marketing-overview-card__detail {
-  color: #6a5a51;
-  line-height: 2.2;
-}
-
-.p-marketing-overview-card__detail span {
-  display: inline-block;
-  margin: 0.08rem 0.02rem;
-  padding: 0.05rem 0.38rem;
-  border: 1px solid rgba(198, 155, 126, 0.28);
-  border-radius: 0.4rem;
-  color: #6d4c3b;
-  background: #fffaf6;
-  font-size: 0.88em;
-  line-height: 1.65;
-}
-
-.p-marketing-fragmentation {
-  width: min(100%, 240px);
-  margin: 0.85rem auto 1rem;
-  padding: 0.35rem 0.75rem;
-  border: 1px solid rgba(224, 172, 136, 0.32);
-  border-radius: 1rem;
-  background:
-    radial-gradient(circle at center, rgba(255, 255, 255, 0.95), transparent 58%),
-    #fff8f2;
-}
-
-.p-marketing-fragmentation svg {
+.p-marketing-overview__challenge-image {
   display: block;
   width: 100%;
+  max-width: 380px;
   height: auto;
-  overflow: visible;
-}
-
-.p-marketing-fragmentation path {
-  stroke: #c58a67;
-  stroke-dasharray: 4 5;
-  stroke-linecap: round;
-  stroke-width: 2;
-}
-
-.p-marketing-fragmentation circle {
-  fill: #fff;
-  stroke: #c9845b;
-  stroke-width: 2;
-}
-
-.p-marketing-fragmentation .p-marketing-fragmentation__center {
-  fill: #fff9f4;
-  stroke: #d7a185;
-  stroke-dasharray: 3 5;
-}
-
-.p-marketing-overview__relation {
-  display: grid;
-  align-self: center;
-  width: 2.6rem;
-  height: 2.6rem;
-  place-items: center;
-  border: 1px solid rgba(190, 113, 70, 0.2);
-  border-radius: 50%;
-  color: #b86c42;
-  background: #fff;
-  font-size: 1.1rem;
-  font-weight: 700;
+  margin: 1rem auto;
 }
 
 .p-marketing-overview__challenge-copy {
-  max-width: 900px;
-  margin: 1rem auto 0;
-  padding: 1rem clamp(1rem, 3vw, 2rem) 0;
-  border-top: 1px solid rgba(198, 129, 87, 0.24);
+  max-width: 700px;
+  padding: 2rem 0 0;
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  margin: auto;
+  text-align: center;
 }
 
-.p-marketing-overview__challenge-copy h3 {
-  margin-bottom: 0.45rem;
-  color: #8c4d2e;
-}
-
-.p-marketing-overview__challenge-copy p {
-  color: #5f514a;
+.p-marketing-marker {
+  background: linear-gradient(90deg, #ec8e00bd, #f3c600a9 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.4em;
+  background-position: 0 100%;
+  padding: 0.2em 0 0.2em 0.2em;
+  font-weight: 600;
 }
 
 .p-marketing-overview__solution {
   padding: clamp(1.75rem, 4vw, 3.25rem);
-  border: 1px solid rgba(125, 177, 207, 0.42);
-  border-radius: 1.6rem;
-  background:
-    radial-gradient(ellipse at 100% 0%, rgba(104, 162, 197, 0.3), transparent 42%),
-    linear-gradient(135deg, #173c70, #245982 68%, #2d6c92);
-  box-shadow: 0 24px 54px rgba(23, 60, 112, 0.22);
-}
-
-.p-marketing-overview__solution .p-marketing-overview__section-heading > span {
-  color: #b7dced;
-}
-
-.p-marketing-overview__solution .p-marketing-overview__section-heading h2 {
-  color: #fff;
 }
 
 .p-marketing-overview__solution-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   align-items: center;
   gap: clamp(1.5rem, 4vw, 3.5rem);
+  padding-top: 3rem;
 }
 
 .p-marketing-overview-card--solution {
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  padding: clamp(1.6rem, 3vw, 2.4rem);
-  border: 1px solid #b9d5e5;
-  border-left: 5px solid #173c70;
-  border-radius: 1.25rem;
+  padding: clamp(4rem, 3vw, 2.4rem);
+  background: url("/images/marketing/m-card.webp") center / 100% 100% no-repeat;
   color: #2e4057;
-  background: #fff;
-  box-shadow: 0 16px 36px rgba(27, 67, 94, 0.14);
   font-size: 0.92rem;
   line-height: 1.8;
+  min-width: 0;
+  border-radius: 1rem;
 }
 
-.p-marketing-overview-card--solution .p-marketing-overview-card__label {
-  color: #1e6d98;
-}
-
-.p-marketing-overview-card--solution > p:nth-child(2) {
-  color: #173c70;
-  font-size: 1.02rem;
-  font-weight: 700;
-}
-
-.p-marketing-overview-card--solution .p-marketing-overview-card__brand {
-  display: grid;
-  gap: 0.12em;
+.p-marketing-overview-card__brand {
   margin: 0.65rem 0 1rem;
   color: #1f79a9;
-  font-family: var(--font-sans);
+  font-family: var(--font-marketing);
   font-size: clamp(1.8rem, 3.6vw, 2.8rem);
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1.14;
 }
 
-.p-marketing-overview-card--solution .p-marketing-overview-card__brand span:first-child {
-  color: #173c70;
-  font-size: 0.66em;
-  letter-spacing: 0.12em;
-}
-
-.p-marketing-overview-card--solution > p:last-child {
+.p-marketing-overview-card--solution>p:last-child {
   margin: 0;
   padding-top: 0.9rem;
   border-top: 1px solid #dce8ef;
@@ -898,399 +661,110 @@
   padding-left: clamp(0rem, 2vw, 1.25rem);
 }
 
-.p-marketing-overview__solution-copy h3 {
-  margin-bottom: 0.55rem;
-  color: #fff;
-}
-
 .p-marketing-overview__solution-copy p {
-  color: #e8f1f7;
+  margin: 0 0 0.75rem;
+  color: var(--marketing-ttl);
+  font-size: 0.96rem;
+  line-height: 1.9;
+  text-wrap: pretty;
 }
 
-.p-marketing-overview__before-after {
-  padding-top: 0.25rem;
+.p-marketing-overview__solution-copy p:last-child {
+  margin-bottom: 0;
 }
 
-.p-marketing-overview__before-after > .p-marketing-overview__section-heading {
-  justify-content: center;
-  margin-bottom: 1.5rem;
+/* ========================================
+   チームをつくり育てる｜STEP共通
+======================================== */
+
+/* セクション見出しはタイムラインから独立させる */
+.p-marketing-process {
+  border-top: 1px solid #d8e6ef;
+  background: linear-gradient(140deg, rgb(255, 253, 250), rgb(255, 247, 240) 62%, rgb(248, 251, 253));
 }
 
-.p-marketing-overview__before-after > .p-marketing-overview__section-heading h2 {
-  text-align: center;
+.p-marketing-process__heading {
+  padding-block: clamp(3rem, 6vw, 5rem);
 }
 
-.p-marketing-before-after {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 3rem minmax(0, 1fr);
-  align-items: stretch;
-  gap: clamp(0.5rem, 1.5vw, 1.25rem);
+.p-marketing-process__heading .p-marketing-title {
+  margin-bottom: 0;
 }
 
-.p-marketing-before-after__panel {
-  min-width: 0;
-  padding: clamp(1.2rem, 2.5vw, 2rem);
-  border: 1px solid #e0e7eb;
-  border-radius: 1.4rem;
-  background: #fff;
-  box-shadow: 0 12px 30px rgba(29, 59, 82, 0.07);
-}
-
-.p-marketing-before-after__panel--before {
-  border-color: #ead9cd;
-  background: linear-gradient(145deg, #fffdfa, #fff5ee);
-}
-
-.p-marketing-before-after__panel--after {
-  border-color: #a9cadd;
-  background: linear-gradient(145deg, #f8fcff, #e9f4fa);
-}
-
-.p-marketing-before-after__eyebrow {
-  margin: 0 0 0.4rem;
-  color: #aa6746;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-}
-
-.p-marketing-before-after__panel--after .p-marketing-before-after__eyebrow {
-  color: #2b7198;
-}
-
-.p-marketing-before-after__panel h3 {
-  margin: 0 0 1.1rem;
-  color: #253d5b;
-  font-family: var(--font-serif);
-  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
-  line-height: 1.5;
-}
-
-.p-marketing-before-after__people {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.55rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.p-marketing-before-after__scatter {
-  position: relative;
-}
-
-.p-marketing-before-after__scatter > svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.p-marketing-before-after__scatter > svg path {
-  stroke: #bf8969;
-  stroke-dasharray: 4 6;
-  stroke-linecap: round;
-  stroke-width: 1.5;
-}
-
-.p-marketing-before-after__scatter > svg circle {
-  fill: #fffaf6;
-  stroke: #bf8969;
-  stroke-width: 1.5;
-}
-
-.p-marketing-before-after__people li {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  gap: 0.18rem;
-  padding: 0.8rem 0.9rem;
-  border: 1px solid rgba(198, 155, 126, 0.3);
-  border-radius: 0.85rem;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 4px 12px rgba(101, 69, 48, 0.04);
-}
-
-.p-marketing-before-after__people span {
-  color: #886b5a;
-  font-size: 0.72rem;
-  font-weight: 700;
-}
-
-.p-marketing-before-after__people strong {
-  color: #3e4c5c;
-  font-size: 0.88rem;
-}
-
-.p-marketing-before-after__note {
-  margin: 0.85rem 0 0;
-  color: #a95132;
-  font-size: 0.88rem;
-  font-weight: 800;
-}
-
-.p-marketing-before-after__arrow {
-  display: grid;
-  align-self: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  place-items: center;
-  border-radius: 50%;
-  color: #fff;
-  background: #244e70;
-  box-shadow: 0 8px 18px rgba(36, 78, 112, 0.2);
-  font-size: 1.25rem;
-}
-
-.p-marketing-before-after__team {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(0.35rem, 1vw, 0.75rem);
-  margin: 0 auto;
-  width: min(100%, 28rem);
-  padding: 0.75rem;
-  border: 1px solid rgba(69, 127, 160, 0.18);
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.42);
-}
-
-.p-marketing-before-after__team span {
-  min-width: 0;
-  padding: 0.75rem clamp(0.35rem, 1vw, 0.9rem);
-  border: 1px solid rgba(69, 127, 160, 0.24);
-  border-radius: 0.85rem;
-  color: #173c70;
-  font-size: clamp(0.82rem, 1.25vw, 1rem);
-  font-weight: 800;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.72);
-  overflow-wrap: anywhere;
-}
-
-.p-marketing-before-after__team b {
-  color: #398bb6;
-  font-size: 1rem;
-}
-
-.p-marketing-before-after__connection {
-  display: grid;
-  width: 2rem;
-  height: 2.25rem;
-  place-items: center;
-  justify-self: center;
-  color: #347da1;
-  font-size: 1.65rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.p-marketing-before-after__workflow {
-  padding: clamp(0.85rem, 1.8vw, 1.25rem);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.88);
-}
-
-.p-marketing-before-after__flow {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr) 1.15rem) minmax(0, 1fr);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.p-marketing-before-after__flow li {
-  display: grid;
-  min-width: 0;
-  min-height: 2.8rem;
-  place-items: center;
-  padding: 0.4rem 0.2rem;
-  border: 1px solid rgba(69, 127, 160, 0.16);
-  border-radius: 0.75rem;
-  color: #254c69;
-  font-size: clamp(0.78rem, 1vw, 0.9rem);
-  font-weight: 700;
-  text-align: center;
-  background: #eff7fb;
-}
-
-.p-marketing-before-after__flow .p-marketing-before-after__flow-arrow {
-  min-height: 0;
-  padding: 0;
-  border: 0;
-  color: #6694af;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1;
-  background: transparent;
-}
-
-.p-marketing-before-after__panel--after .p-marketing-before-after__note {
-  color: #1f6d96;
-}
-
-.p-marketing-loop {
-  display: grid;
-  gap: 0.55rem;
-  margin-top: 1.1rem;
-  padding: clamp(1rem, 2.2vw, 1.5rem);
-  container-type: inline-size;
-  border: 1px solid rgba(119, 170, 200, 0.32);
-  border-radius: 1rem;
-  background:
-    radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.95), transparent 78%),
-    linear-gradient(145deg, #f8fcff, #edf6fb);
-  box-shadow: inset 0 1px 3px rgba(48, 96, 128, 0.05);
-}
-
-.p-marketing-loop__forward,
-.p-marketing-loop__return,
-.p-marketing-loop__turn {
-  display: grid;
-  min-width: 0;
-  align-items: center;
-  gap: 0.25rem;
-  grid-template-columns:
-    minmax(0, 2fr) minmax(0, 0.7fr)
-    minmax(0, 2fr) minmax(0, 0.7fr)
-    minmax(0, 2fr) minmax(0, 0.7fr)
-    minmax(0, 2fr);
-  text-align: center;
-}
-
-.p-marketing-loop__stage {
-  display: inline-flex;
-  min-width: 0;
-  min-height: 2.65rem;
-  align-items: center;
-  justify-content: center;
-  padding: 0.35rem 0.65rem;
-  border: 1px solid rgba(111, 164, 196, 0.26);
-  border-radius: 999px;
-  color: #285d7f;
-  background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 2px 5px rgba(44, 90, 120, 0.06);
-  font-size: clamp(0.82rem, 1.1vw, 0.98rem);
-  font-weight: 700;
-  line-height: 1.25;
-  white-space: nowrap;
-}
-
-.p-marketing-loop__arrow,
-.p-marketing-loop__turn span {
-  color: #6b9db9;
-  font-size: 1.05rem;
-  font-weight: 800;
-  line-height: 1;
-}
-
-.p-marketing-loop__turn {
-  padding: 2px 0;
-  color: #ef861f;
-  font-size: 1.125rem;
-  font-weight: 700;
-}
-
-.p-marketing-loop__turn .arrow-up {
-  grid-column: 1;
-}
-
-.p-marketing-loop__turn .arrow-down {
-  grid-column: 5;
-}
-
-.p-marketing-loop__return .p-marketing-loop__arrow {
-  color: #d47738;
-}
-
-.p-marketing-loop__return {
-  flex-direction: row;
-  color: #d47738;
-}
-
-.p-marketing-loop__return .p-marketing-loop__stage {
-  border-color: rgba(228, 166, 112, 0.32);
-  color: #995322;
-  background: #fffaf5;
-}
-
-.p-marketing-loop__return .p-marketing-loop__stage:first-child {
-  white-space: normal;
-}
-
-@container (max-width: 250px) {
-  .p-marketing-loop__forward,
-  .p-marketing-loop__return,
-  .p-marketing-loop__turn {
-    gap: 0;
-  }
-
-  .p-marketing-loop__stage {
-    min-height: 2rem;
-    padding-inline: 0.08rem;
-    font-size: 0.72rem;
-    line-height: 1.2;
-    white-space: normal;
-  }
-
-  .p-marketing-loop__arrow,
-  .p-marketing-loop__turn span {
-    font-size: 0.7rem;
-  }
-
-  .p-marketing-loop__turn {
-    font-size: 0.85rem;
-  }
+/* 番号と縦線の位置合わせに使う値だけを共有する */
+.p-marketing-process__timeline {
+  /* 画面端の余白：本文・番号・縦線の左端を揃える */
+  --timeline-gutter: 1.5rem;
+  /* 各STEPの上下余白：番号の上位置と次の番号までの線の長さに共用 */
+  --timeline-space: clamp(3.75rem, 7vw, 6.25rem);
+  /* 番号の領域の高さ：その下から縦線を開始する */
+  --timeline-number-height: 6rem;
+  /* 番号と縦線の左位置。1280pxは下の本文のmax-widthと揃える */
+  --timeline-left: max(var(--timeline-gutter), calc((100% - 1280px) / 2));
+  /* 番号と縦線の共通の中心位置。文字サイズを変えても中心を揃える */
+  --timeline-axis: calc(var(--timeline-left) + 2rem);
+  background: #f2f8fc;
 }
 
 .p-marketing-step {
-  padding: clamp(3.75rem, 7vw, 6.25rem) 0;
+  position: relative;
+  padding-block: var(--timeline-space);
 }
 
-.p-marketing-step--one {
-  background: linear-gradient(110deg, #f2f8fc, #eaf4fa);
+.p-marketing-step__content {
+  width: calc(100% - var(--timeline-gutter) * 2);
+  /* 本文の最大幅。変更時は上の--timeline-left内の1280pxも揃える */
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-left: 6rem;
+  /* 番号・縦線のために空ける左側の幅 */
+  box-sizing: border-box;
+  min-width: 0;
 }
 
-.p-marketing-step--two {
-  background: #fff;
-}
-
-.p-marketing-step--three {
-  background: linear-gradient(130deg, #f2f8fc 0%, #eef5fb 100%);
-}
-
-.p-marketing-step--four {
-  background: linear-gradient(140deg, #fffdfa, #fff7f0 62%, #f8fbfd);
+/* 次の番号直前まで延ばす。STEPの高さが変わっても線がつながる */
+.p-marketing-step:not(:last-child)::after {
+  position: absolute;
+  z-index: 1;
+  top: calc(var(--timeline-space) + var(--timeline-number-height) + 0.75rem);
+  bottom: calc(0.75rem - var(--timeline-space));
+  left: var(--timeline-axis);
+  transform: translateX(-50%);
+  width: 2px;
+  background: #c5dce9;
+  content: "";
+  pointer-events: none;
 }
 
 .p-marketing-step__heading {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: start;
-  gap: 1.15rem;
   margin-bottom: 2.1rem;
 }
 
 .p-marketing-step__number {
-  display: inline-flex;
-  min-width: 6.2rem;
-  min-height: 2.1rem;
+  position: absolute;
+  top: var(--timeline-space);
+  left: var(--timeline-axis);
+  transform: translateX(-50%);
+  width: max-content;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 0.35rem 1rem;
-  border-radius: 999px;
-  color: #fff;
-  background: linear-gradient(135deg, #89c0dd, #579dc4);
-  font-size: 0.88rem;
-  font-weight: 800;
+  height: var(--timeline-number-height);
+  color: #80b2cd;
+  font-family: var(--font-steps);
+  font-size: 1.6rem;
+  /* STEPの文字サイズ */
+  font-weight: 400;
   letter-spacing: 0.035em;
-  line-height: 1;
+  line-height: 1.2;
 }
 
-.p-marketing-step__heading h2 {
+.p-marketing-step__number span:last-child {
+  font-size: 3.3rem;
+  /* 01〜04の数字サイズ */
+}
+
+.p-marketing-step__heading h3 {
   margin: -0.15rem 0 0.45rem;
   font-family: var(--font-serif);
   font-size: clamp(1.45rem, 2.5vw, 2rem);
@@ -1305,18 +779,16 @@
   line-height: 1.85;
 }
 
-.p-marketing-step-one__layout {
-  padding: 1.2rem;
-  border: 1px solid rgba(175, 205, 224, 0.6);
-  border-radius: 1.5rem;
-  background: rgba(255, 255, 255, 0.73);
-}
+/* ========================================
+   STEP 1｜ゴールと仕事の流れ
+======================================== */
 
 .p-marketing-journey {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 0.55rem;
   list-style: none;
+  padding: 3rem 0;
 }
 
 .p-marketing-journey li {
@@ -1329,20 +801,7 @@
   flex-direction: column;
   gap: 0.3rem;
   padding: 0.75rem 0.4rem;
-  border: 1px solid #d5e4ed;
-  border-radius: 1rem;
-  background: linear-gradient(155deg, #fff, #f5fafe);
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
   text-align: center;
-}
-
-.p-marketing-journey li:hover {
-  border-color: #9dc8df;
-  box-shadow: 0 10px 22px rgba(45, 99, 132, 0.1);
-  transform: translateY(-4px);
 }
 
 .p-marketing-journey li:not(:last-child)::after {
@@ -1350,25 +809,25 @@
   top: 50%;
   left: calc(100% + 0.275rem);
   z-index: 1;
-  color: #5d9fc6;
-  content: "▶";
-  font-size: 0.72rem;
-  line-height: 1;
-  transform: translate(-50%, -50%);
+  width: 1rem;
+  height: 1rem;
+  border-top: 1px solid var(--color-navy);
+  border-right: 1px solid var(--color-navy);
+  content: "";
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .p-marketing-journey__icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #4e97c1;
-  font-size: 1.75rem;
-  line-height: 1.3;
+  color: var(--marketing-blue-deep);
+  line-height: 1;
 }
 
 .p-marketing-journey__icon svg {
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 3.5rem;
+  height: 3.5rem;
   overflow: visible;
   stroke: currentColor;
   stroke-linecap: round;
@@ -1376,342 +835,301 @@
   stroke-width: 1.7;
 }
 
-.p-marketing-journey li strong {
-  font-size: 1.05rem;
+/* マーケティングサイクル図に合わせたオレンジのアクセント */
+.p-marketing-journey__accent {
+  stroke: var(--color-orange);
 }
 
-.p-marketing-journey li > span:last-child {
+.p-marketing-journey li h4 {
+  font-size: 1.36rem;
+}
+
+.p-marketing-journey li>span:last-child {
   color: #56647a;
-  font-size: 0.84rem;
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.4;
+  white-space: nowrap;
 }
 
 .p-marketing-step-one__promise {
-  display: flex;
-  width: fit-content;
-  max-width: 100%;
-  align-items: center;
-  justify-content: center;
-  gap: 0.7rem;
-  margin: 1.2rem auto 0;
-  padding: 0.8rem 1.35rem;
-  border: 1px solid rgba(225, 160, 91, 0.34);
-  border-radius: 999px;
-  color: #724a2e;
-  background: linear-gradient(110deg, #fffdfa, #fff3df);
-  box-shadow: 0 8px 22px rgba(153, 107, 57, 0.08);
-  font-weight: 700;
+  margin: 0 auto;
+  padding: 0.8rem 0;
+  font-weight: 600;
+  font-size: 1.45rem;
   letter-spacing: 0.025em;
   text-align: center;
 }
 
-.p-marketing-step-one__promise::before {
-  display: grid;
-  width: 1.7rem;
-  height: 1.7rem;
-  flex: 0 0 auto;
-  place-items: center;
-  border-radius: 50%;
-  color: #fff;
-  background: linear-gradient(145deg, #eaa252, #d47a35);
-  content: "↗";
-  font-size: 0.95rem;
-  line-height: 1;
+.p-marketing-step-one__promise span {
+  color: var(--color-gold);
+}
+
+/* ========================================
+   STEP 2｜チーム編成
+======================================== */
+
+.p-marketing-step--two {
+  background: #fff;
 }
 
 .p-marketing-team {
   display: grid;
   gap: 0;
-  margin-top: 1rem;
+  margin-top: 2.5rem;
 }
 
 .p-marketing-team__partners {
   display: grid;
-  grid-template-columns: minmax(0, 0.85fr) auto minmax(0, 1.5fr);
+  grid-template-columns: minmax(0, 3fr) 3rem minmax(0, 4fr);
   align-items: stretch;
-  gap: clamp(0.65rem, 1.7vw, 1.25rem);
+  gap: clamp(2.5rem, 4vw, 3rem);
 }
 
 .p-marketing-team__protein,
 .p-marketing-team__silicon {
+  position: relative;
   min-width: 0;
   min-height: 230px;
   padding: 1.5rem;
   border: 1px solid #dae5eb;
   border-radius: 1.35rem;
-  background: linear-gradient(145deg, #fff, #f8fbfd);
   box-shadow: 0 10px 24px rgba(31, 57, 78, 0.05);
   text-align: center;
 }
 
 .p-marketing-team__protein {
   border-color: #ead9cd;
-  border-left: 4px solid #b86c42;
-  background: linear-gradient(145deg, #fffdfa, #fff5ee);
+  padding-right: 3rem;
+  background: linear-gradient(90deg, var(--color-pw-bg), color-mix(in srgb, var(--color-pw-bg) 55%, white));
 }
 
 .p-marketing-team__silicon {
   border-color: #c9dce8;
-  border-left: 4px solid #397da3;
-  background: linear-gradient(145deg, #fff, #eff7fb);
+  padding-left: 3rem;
+  background: linear-gradient(90deg, var(--color-sw-bg), color-mix(in srgb, var(--color-sw-bg) 55%, white));
 }
 
 .p-marketing-team__label {
-  color: #28608b;
+  margin: 0;
+  color: #205a85;
   font-size: 0.95rem;
   font-weight: 800;
   line-height: 1.6;
 }
 
+.p-marketing-team__protein .p-marketing-team__label {
+  color: #b85d26;
+}
+
+.p-marketing-team__badge {
+  position: absolute;
+  top: 50%;
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.p-marketing-team__protein .p-marketing-team__badge {
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.p-marketing-team__silicon .p-marketing-team__badge {
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
 .p-marketing-team__intro {
+  min-height: 2.8em;
   margin-top: 0.25rem;
-  color: #56647a;
+  line-height: 1.4;
+  color: #333;
   font-size: 0.83rem;
 }
 
-.p-marketing-team__protein-members {
-  display: flex;
-  min-height: 104px;
-  align-items: center;
-  justify-content: center;
-  gap: 1.15rem;
-  margin-top: 0.75rem;
-}
-
-.p-marketing-team-protein-worker {
-  display: flex;
-  min-width: 0;
-  align-items: center;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.p-marketing-team-protein-worker .p-marketing-portrait {
-  width: clamp(58px, 6.5vw, 76px);
-}
-
-.p-marketing-team-protein-worker > span:last-child {
-  font-size: 0.78rem;
-  font-weight: 700;
-}
-
-.p-marketing-team__responsibility {
-  width: fit-content;
-  max-width: 100%;
-  margin: 0.55rem auto 0;
-  padding: 0.45rem 0.8rem;
-  border: 1px solid #e8cbb8;
-  border-radius: 999px;
-  color: #814a2b;
-  background: #fff;
-  font-size: 0.82rem;
-  font-weight: 700;
-  line-height: 1.5;
-}
-
-.p-marketing-team__plus {
-  display: grid;
-  width: 2.8rem;
-  height: 2.8rem;
-  place-items: center;
-  border: 1px solid #c9dce8;
-  border-radius: 50%;
-  color: #285f84;
-  background: #fff;
-  box-shadow: 0 6px 16px rgba(31, 83, 115, 0.1);
-}
-
-.p-marketing-team__plus svg {
-  display: block;
-  width: 1rem;
-  height: 1rem;
-  overflow: visible;
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-width: 2.25;
-}
-
-.p-marketing-team__integration {
-  position: relative;
-  display: flex;
-  min-height: 3.2rem;
-  align-items: center;
-  justify-content: center;
-  width: min(100%, 560px);
-  margin: 0 auto;
-  padding: 0.4rem 0;
-  color: #173c70;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-align: center;
-}
-
-.p-marketing-team__integration span {
-  display: none;
-}
-
-.p-marketing-team__integration::before,
-.p-marketing-team__integration::after {
-  position: absolute;
-  left: 50%;
-  height: 0.8rem;
-  border-left: 1px dashed #85b2cc;
-  content: "";
-  transform: translateX(-50%);
-}
-
-.p-marketing-team__integration::before {
-  top: 0;
-}
-
-.p-marketing-team__integration::after {
-  bottom: 0;
-}
-
-.p-marketing-team__integration strong {
-  padding: 0.1rem 0.7rem;
-  border-radius: 999px;
-  background: #fff;
-}
-
-.p-marketing-team__flow {
-  --team-flow-top-space: 0.85rem;
-  --team-flow-dot-size: 0.45rem;
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 0.55rem;
-  margin: 0;
-  padding: var(--team-flow-top-space) 0 0;
-  list-style: none;
-}
-
-.p-marketing-team__flow::before {
-  position: absolute;
-  top: 0;
-  left: 8%;
-  width: 84%;
-  border-top: 1px solid #9bbfd3;
-  content: "";
-}
-
-.p-marketing-team__flow li {
-  position: relative;
-  min-width: 0;
-  padding: 0.55rem 0.35rem;
-  border: 1px solid #cfe0ea;
-  border-radius: 0.7rem;
-  color: #285d7f;
-  background: #f7fbfd;
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-align: center;
-}
-
-.p-marketing-team__flow li::before {
-  position: absolute;
-  top: calc(-1 * var(--team-flow-top-space) - var(--team-flow-dot-size) / 2 + 0.5px);
-  left: 50%;
-  width: var(--team-flow-dot-size);
-  height: var(--team-flow-dot-size);
-  border: 2px solid #fff;
-  border-radius: 50%;
-  background: #5797ba;
-  box-shadow: 0 0 0 1px #85b2cc;
-  content: "";
-  transform: translateX(-50%);
-}
-
+/* 人数・説明の行数が異なっても、写真の上端と間隔を揃える */
+.p-marketing-team__protein-members,
 .p-marketing-team__workers {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
   gap: 0.55rem;
   margin-top: 1rem;
 }
 
+.p-marketing-team__protein-members {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.p-marketing-team__workers {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.p-marketing-team-protein-worker,
 .p-marketing-team-worker {
   display: flex;
   min-width: 0;
   align-items: center;
   flex-direction: column;
-  gap: 0.15rem;
+  gap: 0.3rem;
   text-align: center;
 }
 
+.p-marketing-team-protein-worker .p-marketing-portrait,
 .p-marketing-team-worker .p-marketing-portrait {
-  width: clamp(48px, 6vw, 68px);
-  margin-bottom: 0.25rem;
+  width: clamp(3rem, 5.5vw, 4.25rem);
 }
 
-.p-marketing-team-worker strong {
-  color: #205a85;
-  font-size: 0.9rem;
+.p-marketing-team-protein-worker>span:last-child {
+  font-size: 0.78rem;
+  font-weight: 700;
 }
 
-.p-marketing-team-worker > span:last-child {
+.p-marketing-team__responsibility {
+  margin: 0.55rem 0 0;
+  font-weight: 400;
   color: #46566b;
   font-size: 0.78rem;
   line-height: 1.5;
 }
 
+.p-marketing-team__plus {
+  display: grid;
+  align-self: center;
+  justify-self: center;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  color: #285f84;
+}
+
+.p-marketing-team__plus svg {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 1.5;
+}
+
+.p-marketing-team__integration {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  color: var(--marketing-ttl);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+.p-marketing-team__integration svg {
+  width: min(70%, 25rem);
+  height: auto;
+  stroke: #7e96a6;
+}
+
+.p-marketing-team__integration path {
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+}
+
+.p-marketing-team__integration p {
+  margin: 0;
+  font-size: 1.45rem;
+}
+
+.p-marketing-team-worker__name {
+  color: #205a85;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.p-marketing-team-worker>span:last-child {
+  color: #46566b;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+/* ========================================
+   STEP 3｜実際の仕事・チャット
+======================================== */
+
+.p-marketing-step--three {
+  background: linear-gradient(130deg, #f2f8fc 0%, #eef5fb 100%);
+}
+
 .p-marketing-scenes {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: 1.25rem;
   margin-top: 2.1rem;
 }
 
 .p-marketing-scene {
   min-width: 0;
-  padding: 1.15rem;
-  border: 1px solid rgba(184, 209, 224, 0.66);
-  border-radius: 1.35rem;
-  background: rgba(255, 255, 255, 0.83);
-  box-shadow: 0 12px 30px rgba(40, 65, 87, 0.06);
+  overflow: hidden;
+  border: 1px solid #dce1e8;
+  border-radius: 0.75rem;
+  background: #fff;
 }
 
 .p-marketing-scene__title {
-  min-height: 3rem;
-  margin: -1.15rem -1.15rem 1rem;
-  padding: 0.85rem 1.1rem;
-  border-radius: 1.35rem 1.35rem 0.8rem 0.8rem;
-  color: #fff;
-  background: linear-gradient(110deg, #5ca3cc, #83b9d8);
-  font-size: 0.96rem;
+  margin: 0;
+  padding: 1rem;
+  border-bottom: 1px solid #dce1e8;
+  color: var(--color-navy);
+  background: #fff;
+  font-size: 1.1rem;
   font-weight: 700;
   line-height: 1.55;
 }
 
-.p-marketing-scene__title--2 {
-  background: linear-gradient(110deg, #e98143, #f2a45e);
-}
-
 .p-marketing-chat {
-  display: grid;
-  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
   list-style: none;
 }
 
 .p-marketing-chat__message {
   display: grid;
-  grid-template-columns: 44px minmax(0, 1fr);
+  grid-template-columns: 3rem minmax(0, 1fr);
   align-items: start;
-  gap: 0.7rem;
+  gap: 1rem;
   min-width: 0;
-  padding: 0.75rem;
-  border: 1px solid #edf0f3;
-  border-radius: 1rem;
-  background: #fff;
-  box-shadow: 0 4px 12px rgba(42, 63, 81, 0.04);
+  padding: 0.875rem 1rem 1.25rem;
+  background: color-mix(in srgb, var(--color-pw-bg) 32%, white);
+}
+
+.p-marketing-chat__message--silicon {
+  background: color-mix(in srgb, var(--color-sw-bg) 35%, white);
+}
+
+.p-marketing-chat__avatar {
+  position: relative;
+  display: block;
+}
+
+.p-marketing-chat__portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border: 2px solid var(--color-pw-bg);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.p-marketing-chat__message--silicon .p-marketing-chat__portrait {
+  border-color: var(--color-sw-bg);
 }
 
 .p-marketing-chat__badge {
-  display: block;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
+  position: absolute;
+  right: -0.2rem;
+  bottom: -0.1rem;
+  width: 1.375rem;
+  height: 1.375rem;
   object-fit: contain;
 }
 
@@ -1730,8 +1148,9 @@
   line-height: 1.55;
 }
 
-.p-marketing-chat__byline strong {
-  font-size: 0.82rem;
+.p-marketing-chat__name {
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .p-marketing-chat__message--protein .p-marketing-chat__byline {
@@ -1740,205 +1159,131 @@
 
 .p-marketing-chat__text {
   color: #303e54;
-  font-size: 0.88rem;
+  font-size: 1.05rem;
   line-height: 1.7;
   overflow-wrap: anywhere;
 }
 
+/* ========================================
+   STEP 4｜フィードバックと成長
+======================================== */
+
+.p-marketing-step--four {
+  background: linear-gradient(140deg, #fffdfa, #fff7f0 62%, #f8fbfd);
+}
+
+/* 左にメッセージ、右に漫画。画像自体の枠や吹き出しを活かす */
 .p-marketing-growth {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
   align-items: center;
-  gap: clamp(2rem, 5vw, 4rem);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
   margin-top: 2.5rem;
 }
 
-.p-marketing-growth__conversation {
-  display: grid;
-  gap: 0.8rem;
-  list-style: none;
-}
-
-.p-marketing-growth__conversation li {
-  display: grid;
-  grid-template-columns: 58px minmax(0, 1fr);
-  align-items: center;
-  gap: 0.9rem;
-  min-width: 0;
-  padding: 1rem 1.15rem;
-  border: 1px solid #eee8e2;
-  border-radius: 1.1rem;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 6px 16px rgba(68, 63, 54, 0.05);
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.p-marketing-growth__conversation li:hover {
-  box-shadow: 0 12px 24px rgba(68, 63, 54, 0.1);
-  transform: translateX(4px);
-}
-
-.p-marketing-growth__conversation .p-marketing-portrait {
-  width: 58px;
-}
-
-.p-marketing-growth__conversation li > div {
+.p-marketing-growth__copy {
   min-width: 0;
 }
 
-.p-marketing-growth__byline {
-  margin-bottom: 0.2rem;
-  color: #315d7c;
-  font-size: 0.77rem;
-  font-weight: 700;
-  line-height: 1.5;
+.p-marketing-growth__catch {
+  margin: 0;
+  color: var(--marketing-ttl);
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 0.8em;
 }
 
-.p-marketing-growth__conversation li > div > p:last-child {
-  font-size: 0.92rem;
-  line-height: 1.7;
-  overflow-wrap: anywhere;
+.p-marketing-growth__catch::before {
+  content: "";
+  background: linear-gradient(125deg, var(--marketing-blue-deep) 0%, var(--marketing-orange) 100%);
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
-.p-marketing-cycle {
-  width: min(100%, 640px);
-  margin-inline: auto;
-  padding: clamp(0.75rem, 2vw, 1.35rem);
-  border: 1px solid rgba(171, 205, 224, 0.58);
-  border-radius: 1.5rem;
-  background:
-    radial-gradient(ellipse at 50% 42%, rgba(255, 255, 255, 0.98), transparent 68%),
-    linear-gradient(145deg, #f8fcff, #edf5f9);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 16px 38px rgba(37, 76, 105, 0.08);
+.p-marketing-growth__description {
+  margin: 1.75rem 0 0;
+  color: #56647a;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 1rem;
+  line-height: 1.85;
 }
 
-.p-marketing-cycle__diagram {
+.p-marketing-growth__image {
   display: block;
   width: 100%;
   height: auto;
-  font-family: var(--font-sans), sans-serif;
+  object-fit: contain;
 }
 
-.p-marketing-cycle__path {
-  fill: none;
-  stroke: #bf7a4f;
-  stroke-linecap: round;
-  stroke-width: 2.5;
-}
-
-.p-marketing-cycle__diagram marker path {
-  fill: #bf7a4f;
-  stroke: none;
-}
-
-.p-marketing-cycle__node rect {
-  fill: #fff;
-  stroke: #d3e2eb;
-  stroke-width: 1.5;
-}
-
-.p-marketing-cycle__node text {
-  fill: #285d7f;
-  font-size: 22px;
-  font-weight: 700;
-  text-anchor: middle;
-}
-
-.p-marketing-cycle__center rect {
-  fill: #fff;
-  stroke: #b6d2e1;
-  stroke-width: 1.5;
-}
-
-.p-marketing-cycle__center text {
-  fill: #244e70;
-  font-size: 19px;
-  font-weight: 700;
-  text-anchor: middle;
-}
-
-.p-marketing-cycle__mobile {
-  display: none;
-}
+/* ========================================
+   チームが提供する価値
+======================================== */
 
 .p-marketing-values {
   padding: clamp(3.75rem, 6vw, 5rem) 0;
   background: #fff;
 }
 
-.p-marketing-values h2 {
-  margin-bottom: 1.6rem;
-  font-family: var(--font-serif);
-  font-size: clamp(1.75rem, 3vw, 2.4rem);
-  font-weight: 600;
-  letter-spacing: 0.025em;
-  line-height: 1.5;
-}
-
 .p-marketing-value-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1rem, 2vw, 1.5rem);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  padding-block: 0.5rem 3rem;
 }
 
 .p-marketing-value-card {
+  display: flex;
   min-width: 0;
-  padding: clamp(1.35rem, 2.5vw, 2rem);
-  border: 1px solid #dce8ef;
-  border-radius: 1.35rem;
-  background: linear-gradient(145deg, #fff, #f8fbfd);
-  box-shadow: 0 10px 24px rgba(37, 76, 105, 0.07);
-  transition:
-    transform 0.28s ease,
-    box-shadow 0.28s ease,
-    border-color 0.28s ease;
+  aspect-ratio: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border-radius: 50%;
+  background: linear-gradient(125deg, var(--marketing-blue) 0%, #abcce077 100%);
+  text-align: center;
 }
 
-.p-marketing-value-card:hover {
-  border-color: #e7c7ae;
-  box-shadow: 0 14px 30px rgba(55, 59, 67, 0.1);
-  transform: translateY(-5px);
+.p-marketing-value-card:nth-child(odd) {
+  transform: translateY(2.5rem);
 }
 
-.p-marketing-value-card__icon {
-  display: block;
-  width: 3rem;
-  margin-bottom: 0.85rem;
-  color: #4384a8;
-}
-
-.p-marketing-value-card__icon svg {
-  width: 100%;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.8;
+.p-marketing-value-card:nth-child(even) {
+  background: linear-gradient(125deg, var(--marketing-orange-soft) 0%, #ebbf9c 100%);
 }
 
 .p-marketing-value-card h3 {
-  margin-bottom: 0.55rem;
+  margin: 0 0 0.6rem;
   color: #203d60;
   font-family: var(--font-serif);
-  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  font-size: 1.3rem;
   font-weight: 700;
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 .p-marketing-value-card p {
+  margin: 0;
   color: #56647a;
-  font-size: 0.98rem;
-  line-height: 1.85;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  text-wrap: balance;
 }
+
+/* ========================================
+   お問い合わせ
+======================================== */
 
 .p-marketing-contact {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: clamp(4.5rem, 8vw, 7rem) 0 2rem;
+  padding: clamp(4.5rem, 8vw, 7rem) 0 3.5rem;
   background:
     radial-gradient(ellipse at 8% 30%, rgba(215, 237, 249, 0.9), transparent 32%),
     radial-gradient(ellipse at 93% 25%, rgba(255, 233, 217, 0.78), transparent 32%),
@@ -1973,54 +1318,113 @@
   position: relative;
 }
 
-.p-marketing-contact__content > p:first-child {
+/* ScrollRevealの先頭noscriptの影響で通常は一致しない。共通部品の構造に依存するため要確認。 */
+.p-marketing-contact__content>p:first-child {
   margin-bottom: 0.55rem;
   color: #405570;
   font-weight: 600;
 }
 
-.p-marketing-contact h2 {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  line-height: 1.5;
-}
-
-.p-marketing-button--contact {
+.p-marketing-contact .c-service-button {
   min-width: 12rem;
-  margin-top: 1.5rem;
 }
 
-.p-marketing-contact__note {
-  margin-top: 2rem;
-  color: #657187;
-  font-size: 0.72rem;
-  text-align: right;
+/* ========================================
+   アニメーション定義｜FVのマーカー・CTAの装飾
+======================================== */
+
+@keyframes makerUp {
+
+  0% {
+    background-size: 0 0.4em;
+  }
+
+  100% {
+    background-size: 100% 0.4em;
+  }
+}
+
+@keyframes p-marketing-contact-drift {
+
+  to {
+    translate: 0 -12px;
+    scale: 1.03;
+  }
+}
+
+/* ========================================
+   メディアクエリ｜画面幅の大きい順
+======================================== */
+@media (max-width: 1170px) {
+
+  /*----- 改行 -----*/
+  br.u-xl {
+    display: inline;
+  }
 }
 
 @media (max-width: 1100px) {
+
+  /*----- ファーストビュー -----*/
+
   .p-marketing-hero__layout {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.75rem;
     min-height: 0;
   }
 
+  /*----- 共通レイアウト・見出し・人物画像 -----*/
+  .p-marketing-wrap {
+    width: min(100% - 36px, 600px);
+  }
+
+  /* 縦並びではコピーの囲みを外し、見出し→画像→説明→CTAの順に並べる。 */
   .p-marketing-hero__copy {
-    max-width: 680px;
+    display: contents;
+    padding: 0;
+  }
+
+  .p-marketing-hero h1 {
+    order: 1;
+    max-width: 14em;
+    margin: .65rem 0 0;
+    font-size: clamp(2.2rem, 7vw, 3rem);
   }
 
   .p-marketing-hero__visual {
+    order: 2;
     width: min(100%, 600px);
   }
 
-  .p-marketing-hero-member {
-    grid-template-columns: 96px minmax(0, 1fr);
+  .p-marketing-hero__lead {
+    order: 3;
   }
 
-  .p-marketing-hero-member__portrait {
-    width: 96px;
+  .p-marketing-hero__actions {
+    order: 4;
+    margin-top: 0;
   }
+
+  /*----- チームが必要な理由｜循環・課題と原因・解決 -----*/
+
+  .p-marketing-overview__solution-layout {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    max-width: 557px;
+    margin-inline: auto;
+  }
+
+  .p-marketing-overview-card--solution {
+    background-size: cover;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+  }
+
+  .p-marketing-overview__solution-copy {
+    padding-left: 0;
+  }
+
+  /*----- STEP 4｜フィードバックと成長 -----*/
 
   .p-marketing-growth {
     grid-template-columns: minmax(0, 1fr);
@@ -2028,106 +1432,28 @@
     margin-top: 1.5rem;
   }
 
-  .p-marketing-overview__goal-layout,
-  .p-marketing-overview__solution-layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .p-marketing-overview-card--goal {
-    width: min(100%, 640px);
-    justify-self: center;
-  }
-
-  .p-marketing-overview__solution-copy {
-    padding-left: 0;
-  }
-
-  .p-marketing-overview-card--goal {
-    width: 100%;
-  }
-
-  .p-marketing-before-after {
-    grid-template-columns: minmax(0, 1fr) 2.5rem minmax(0, 1fr);
-    gap: 0.5rem;
-  }
-
-  .p-marketing-before-after__panel {
-    padding: 1.2rem;
-  }
-
-  .p-marketing-before-after__flow {
-    grid-template-columns: repeat(4, minmax(0, 1fr) 0.9rem) minmax(0, 1fr);
-  }
-
-  .p-marketing-before-after__flow li {
-    font-size: 0.76rem;
-  }
-
+  /*----- チームが提供する価値 -----*/
+  /* 円形の価値カード：タブレットは2列 */
   .p-marketing-value-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 761px) {
-  .p-marketing-hero-member--2 {
-    width: 220px;
-    column-gap: 0.2rem;
-  }
-
-  .p-marketing-hero-member--2 .p-marketing-hero-member__role {
-    white-space: nowrap;
+    max-width: 40rem;
+    margin-inline: auto;
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 760px) {
-  .p-marketing-wrap {
-    width: min(100% - 36px, 600px);
-  }
 
-  .p-marketing-problem {
-    padding: 3.25rem 0 2rem;
-  }
 
-  .p-marketing-problem__down {
-    margin-bottom: -2.7rem;
-  }
-
-  .p-marketing-problem__heading {
-    margin-bottom: 1.5rem;
-  }
-
-  .p-marketing-challenge-grid {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
-
-  .p-marketing-challenge-card {
-    grid-template-columns: 3.25rem minmax(0, 1fr);
-    gap: 0.75rem;
-    padding: 1rem 0.2rem;
-    border-radius: 0;
-  }
-
-  .p-marketing-challenge-card__icon {
-    width: 3rem;
-    height: 3rem;
-  }
-
-  .p-marketing-challenge-card h3 {
-    margin-bottom: 0.3rem;
-    font-size: 1.08rem;
-  }
-
-  .p-marketing-challenge-card__number {
-    font-size: 1.25rem;
-  }
-
-  .p-marketing-challenge-card p {
-    font-size: 0.84rem;
-  }
+  /*----- ファーストビュー -----*/
 
   .p-marketing-hero {
     padding: 2.5rem 0 3.25rem;
+  }
+
+  .p-marketing .c-service-label__description,
+  .p-marketing .c-service-label__title {
+    white-space: pre-line;
   }
 
   .p-marketing-hero .c-service-label {
@@ -2138,36 +1464,20 @@
   }
 
   .p-marketing-hero .c-service-label__title {
-    gap: 0.1rem 0.4rem;
+    gap: 0.2rem 0.4rem;
     margin-bottom: 0.45rem;
-    font-size: clamp(0.68rem, 3.1vw, 0.88rem);
+    font-size: clamp(16px, 4vw, 28px);
+    line-height: 1.2;
   }
 
   .p-marketing-hero .c-service-label__category {
     padding-right: 0.1rem;
-    font-size: 0.58rem;
-  }
-
-  .p-marketing-hero .c-service-label__description {
-    font-size: 0.65rem;
-    letter-spacing: 0.02em;
   }
 
   .p-marketing-hero__layout {
     margin-top: 6.5rem;
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    min-height: 0;
-  }
-
-  .p-marketing-hero__copy {
-    padding: 0;
-  }
-
-  .p-marketing-hero h1 {
-    max-width: 14em;
-    margin: 0.65rem 0 0.8rem;
-    font-size: clamp(2rem, 7vw, 3rem);
   }
 
   .p-marketing-hero__headline-first {
@@ -2182,23 +1492,55 @@
 
   .p-marketing-hero__actions {
     gap: 0.65rem;
-    margin-top: 1.35rem;
-  }
-
-  .p-marketing-hero__actions .p-marketing-button {
-    min-width: 0;
-    min-height: 3rem;
-    padding: 0.7rem 1rem;
-    font-size: 0.86rem;
   }
 
   .p-marketing-hero__visual {
     width: min(100%, 560px);
   }
 
-  .p-marketing-overview {
-    padding: 3.75rem 0;
+  /*----- 課題｜4つの困りごと -----*/
+
+  .p-marketing-problem {
+    padding: 3.25rem 0 2rem;
   }
+
+  .p-marketing-problem__heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .p-marketing-challenge-grid {
+    max-width: 400px;
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  .p-marketing-challenge-card {
+    gap: 0.75rem;
+    padding: 1rem 0.2rem;
+  }
+
+  .p-marketing-challenge-card:nth-child(even) {
+    border-left: 0;
+  }
+
+  .p-marketing-challenge-card+.p-marketing-challenge-card {
+    border-top: 1px solid var(--marketing-blue);
+  }
+
+  .p-marketing-challenge-card__icon {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .p-marketing-challenge-card h3 {
+    font-size: 1.08rem;
+  }
+
+  .p-marketing-challenge-card p {
+    font-size: 0.84rem;
+  }
+
+  /*----- 導入メッセージ｜チームをつくる -----*/
 
   .p-marketing-overview__bridge {
     gap: 0.45rem;
@@ -2206,11 +1548,27 @@
   }
 
   .p-marketing-overview__bridge p {
-    font-size: 1rem;
+    font-size: clamp(1.2rem, 3.2vw, 1.35rem);
+    padding-inline: 1rem;
+  }
+
+  /*----- チームが必要な理由｜循環・課題と原因・解決 -----*/
+
+  .p-marketing-overview {
+    padding: 3.75rem 0;
   }
 
   .p-marketing-overview__story {
     gap: 2.75rem;
+  }
+
+  .p-marketing-loop__item {
+    font-size: clamp(0.6rem, 2.5vw, 1.2rem);
+    gap: 2px;
+  }
+
+  .p-marketing-loop__item svg {
+    width: clamp(1.3rem, 4vw, 2rem);
   }
 
   .p-marketing-overview__section-heading {
@@ -2220,12 +1578,7 @@
     margin-bottom: 1rem;
   }
 
-  .p-marketing-overview__goal-layout,
   .p-marketing-overview__solution {
-    padding: 1rem;
-  }
-
-  .p-marketing-overview-card--goal {
     padding: 1rem;
   }
 
@@ -2234,7 +1587,6 @@
     font-size: 0.85rem;
   }
 
-  .p-marketing-overview__challenge-copy p,
   .p-marketing-overview__solution-copy p {
     font-size: 0.9rem;
   }
@@ -2244,166 +1596,103 @@
     gap: 0.55rem;
   }
 
-  .p-marketing-overview__relation {
-    width: 1.9rem;
-    height: 1.9rem;
-    justify-self: center;
-    transform: rotate(90deg);
+  /* 1列では左右の行揃えを解除し、補足文のないカードに空白を残さない。 */
+
+  .p-marketing-overview-card--issue,
+  .p-marketing-overview-card--cause {
+    display: block;
+    grid-row: auto;
+    grid-template-rows: none;
+  }
+
+  .p-marketing-overview-card strong {
+    font-size: clamp(1rem, 4vw, 1.3rem);
+    line-height: 1.3;
   }
 
   .p-marketing-overview__challenge-copy {
     margin-top: 1rem;
-    padding: 1rem 0.25rem 0;
+    padding: 1.2rem 0 0;
+    line-height: 1.4;
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
   }
 
-  .p-marketing-before-after {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.7rem;
+  /*----- チームをつくり育てる｜STEP共通 -----*/
+
+  .p-marketing-process__timeline {
+    --timeline-gutter: 1rem;
+    --timeline-space: 3.5rem;
+    --timeline-number-height: 3.5rem;
+    --timeline-axis: calc(var(--timeline-left) + 0.8rem);
   }
 
-  .p-marketing-before-after__flow {
-    grid-template-columns: minmax(0, 1fr);
+  /* スマートフォンの本文左余白と番号の文字サイズ */
+  .p-marketing-step__content {
+    padding-left: 3.25rem;
   }
 
-  .p-marketing-before-after__flow .p-marketing-before-after__flow-arrow {
-    transform: rotate(90deg);
+  .p-marketing-step__number {
+    font-size: 0.8rem;
   }
 
-  .p-marketing-before-after__arrow {
-    width: 2.1rem;
-    height: 2.1rem;
-    justify-self: center;
-    transform: rotate(90deg);
-  }
-
-  .p-marketing-before-after__people {
-    gap: 0.45rem;
-  }
-
-  .p-marketing-loop {
-    font-size: 0.77rem;
-  }
-
-  .p-marketing-cycle {
-    width: 100%;
-    padding: 1rem;
-  }
-
-  .p-marketing-cycle__diagram {
-    display: none;
-  }
-
-  .p-marketing-cycle__mobile {
-    display: grid;
-    justify-items: center;
-  }
-
-  .p-marketing-cycle__mobile-center {
-    width: min(100%, 22rem);
-    margin: 0 0 1rem;
-    padding: 0.9rem 1rem;
-    border: 1px solid #b6d2e1;
-    border-radius: 1rem;
-    color: #244e70;
-    background: rgba(255, 255, 255, 0.92);
-    font-size: 1rem;
-    font-weight: 700;
-    line-height: 1.75;
-    text-align: center;
-  }
-
-  .p-marketing-cycle__mobile-steps {
-    display: grid;
-    width: min(100%, 22rem);
-    gap: 0.85rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .p-marketing-cycle__mobile-steps li {
-    position: relative;
-    display: grid;
-    min-height: 3rem;
-    place-items: center;
-    padding: 0.65rem 1rem;
-    border: 1px solid #d3e2eb;
-    border-radius: 999px;
-    color: #285d7f;
-    background: #fff;
-    font-size: 0.95rem;
-    font-weight: 700;
-    line-height: 1.5;
-    text-align: center;
-  }
-
-  .p-marketing-cycle__mobile-steps li:not(:last-child)::after {
-    position: absolute;
-    bottom: -0.83rem;
-    left: 50%;
-    color: #bf7a4f;
-    content: "↓";
-    font-size: 0.9rem;
-    font-weight: 700;
-    line-height: 1;
-    transform: translateX(-50%);
-  }
-
-  .p-marketing-cycle__mobile-return {
-    width: 2rem;
-    height: 2rem;
-    margin-top: 0.55rem;
-    fill: none;
-    stroke: #bf7a4f;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-width: 2;
-  }
-
-  .p-marketing-step {
-    padding: 3.5rem 0;
+  .p-marketing-step__number span:last-child {
+    font-size: 1.8rem;
   }
 
   .p-marketing-step__heading {
-    grid-template-columns: 1fr;
-    gap: 0.7rem;
     margin-bottom: 1.5rem;
   }
 
-  .p-marketing-step__heading h2 {
-    font-size: clamp(1.4rem, 5.6vw, 1.85rem);
+  .p-marketing-step__heading h3 {
+    font-size: clamp(1.2rem, 5.6vw, 1.65rem);
   }
 
   .p-marketing-step__heading p {
     font-size: 0.9rem;
   }
 
+  /*----- STEP 1｜ゴールと仕事の流れ -----*/
+
+  /* 上段は左側、下段は右側へ半項目分ずらす。矢印は右向きを維持する。 */
   .p-marketing-journey {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 0.6rem;
-    row-gap: 0.9rem;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    column-gap: 0;
+    row-gap: 0.75rem;
+    padding-block: 1.5rem;
   }
 
   .p-marketing-journey li {
+    grid-column: span 2;
     min-height: 110px;
+    padding: 0.5rem 0.2rem;
   }
 
-  .p-marketing-journey li:nth-child(3)::after {
-    top: auto;
-    left: 50%;
-    bottom: -0.45rem;
-    content: "▼";
-    transform: translate(-50%, 50%);
+  .p-marketing-journey li h4 {
+    line-height: 1.2;
   }
+
+  .p-marketing-journey li:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .p-marketing-journey li:not(:last-child)::after {
+    left: 100%;
+  }
+
+  .p-marketing-step-one__promise {
+    padding-top: 2rem;
+    line-height: 1.5;
+  }
+
+  /*----- STEP 2｜チーム編成 -----*/
 
   .p-marketing-team {
     grid-template-columns: 1fr;
-    gap: 0;
   }
 
   .p-marketing-team__partners {
     grid-template-columns: minmax(0, 1fr);
-    gap: 0.75rem;
+    gap: 2.5rem;
   }
 
   .p-marketing-team__protein,
@@ -2412,99 +1701,35 @@
     padding: 1.15rem;
   }
 
-  .p-marketing-team__protein-members {
-    min-height: 0;
-    gap: 1rem;
-    margin-block: 0.75rem;
+  .p-marketing-team-protein-worker .p-marketing-portrait,
+  .p-marketing-team-worker .p-marketing-portrait {
+    width: 4rem;
   }
 
-  .p-marketing-team-protein-worker .p-marketing-portrait {
-    width: 64px;
+  .p-marketing-team__protein {
+    padding-bottom: 3rem;
   }
 
-  .p-marketing-team__plus {
-    justify-self: center;
-    transform: rotate(90deg);
-    font-size: 1.8rem;
-    line-height: 1;
+  .p-marketing-team__silicon {
+    padding-top: 3rem;
   }
 
-  .p-marketing-team__integration {
-    width: min(100%, 360px);
-  }
-
-  .p-marketing-team__integration strong {
-    font-size: 0.72rem;
-  }
-
-  .p-marketing-team__flow {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-rows: repeat(2, auto);
-    row-gap: 0.75rem;
-    padding-top: 0.65rem;
-  }
-
-  .p-marketing-team__flow::before {
-    display: none;
-  }
-
-  .p-marketing-team__flow li {
-    position: relative;
-    padding: 0.5rem 0.25rem;
-    font-size: 0.76rem;
-  }
-
-  .p-marketing-team__flow li:nth-child(4) {
-    grid-column: 3;
-    grid-row: 2;
-  }
-
-  .p-marketing-team__flow li:nth-child(5) {
-    grid-column: 2;
-    grid-row: 2;
-  }
-
-  .p-marketing-team__flow li:nth-child(6) {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-  .p-marketing-team__flow li::before {
-    display: none;
-  }
-
-  .p-marketing-team__flow li:not(:nth-child(3)):not(:last-child)::after {
-    position: absolute;
-    top: 50%;
-    right: -0.55rem;
-    color: #6b9db9;
-    content: "→";
-    font-size: 0.75rem;
-    transform: translate(50%, -50%);
-  }
-
-  .p-marketing-team__flow li:nth-child(3)::after {
-    position: absolute;
+  .p-marketing-team__protein .p-marketing-team__badge {
+    top: 100%;
     right: 50%;
-    bottom: -0.8rem;
-    color: #6b9db9;
-    content: "↓";
-    font-size: 0.72rem;
-    transform: translateX(50%);
   }
 
-  .p-marketing-team .p-marketing-team__flow li:nth-child(4)::after,
-  .p-marketing-team .p-marketing-team__flow li:nth-child(5)::after {
-    right: auto;
-    left: -0.55rem;
-    width: auto;
-    content: "←";
-    transform: translate(-50%, -50%);
+  .p-marketing-team__silicon .p-marketing-team__badge {
+    top: 0;
+    left: 50%;
   }
 
+  .p-marketing-team__protein-members,
   .p-marketing-team__workers {
     gap: 0.3rem;
   }
+
+  /*----- STEP 3｜実際の仕事・チャット -----*/
 
   .p-marketing-scenes {
     grid-template-columns: 1fr;
@@ -2512,18 +1737,9 @@
     margin-top: 1.5rem;
   }
 
-  .p-marketing-scene {
-    padding: 1rem;
-  }
-
   .p-marketing-scene__title {
-    margin: -1rem -1rem 0.8rem;
     padding: 0.75rem 0.9rem;
     font-size: 0.9rem;
-  }
-
-  .p-marketing-chat {
-    gap: 0.5rem;
   }
 
   .p-marketing-chat__message {
@@ -2531,133 +1747,111 @@
     padding: 0.65rem;
   }
 
-  .p-marketing-growth {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
+  /*----- STEP 4｜フィードバックと成長 -----*/
+
+  /* スマートフォンではメッセージを読みやすい大きさに調整 */
+  .p-marketing-growth__catch {
+    font-size: clamp(1.8rem, 4vw, 2rem);
   }
+
+  /*----- チームが提供する価値 -----*/
 
   .p-marketing-values {
     padding: 3.5rem 0;
   }
 
-  .p-marketing-value-grid {
-    gap: 0.75rem;
-  }
-
-  .p-marketing-value-card {
-    padding: 1.25rem;
-  }
-
-  .p-marketing-value-card h3 {
-    font-size: 1.08rem;
-  }
-
-  .p-marketing-value-card p {
-    font-size: 0.9rem;
-  }
+  /*----- お問い合わせ -----*/
 
   .p-marketing-contact {
-    padding: 4rem 0 1.5rem;
+    padding: 4rem 0 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  br.u-sp-600 {
+    display: inline;
+  }
+
+}
+
+@media (max-width: 550px) {
+  /*----- STEP 1｜2項目ずつ、左・中央・右にずらした3行 -----*/
+
+  .p-marketing-journey {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    row-gap: 1.25rem;
+    padding-block: 1rem;
+  }
+
+  .p-marketing-journey li {
+    min-height: 0;
+    padding: 0.25rem 0;
+  }
+
+  /* 戦略・企画：左寄せ */
+  .p-marketing-journey li:nth-child(1) {
+    grid-area: 1 / 1 / 2 / 3;
+  }
+
+  .p-marketing-journey li:nth-child(2) {
+    grid-area: 1 / 3 / 2 / 5;
+  }
+
+  /* 制作・運用：中央寄せ */
+  .p-marketing-journey li:nth-child(3) {
+    grid-area: 2 / 2 / 3 / 4;
+  }
+
+  .p-marketing-journey li:nth-child(4) {
+    grid-area: 2 / 4 / 3 / 6;
+  }
+
+  /* 分析・改善：右寄せ。矢印は上の右向き指定を引き継ぐ。 */
+  .p-marketing-journey li:nth-child(5) {
+    grid-area: 3 / 3 / 4 / 5;
+  }
+
+  .p-marketing-journey li:nth-child(6) {
+    grid-area: 3 / 5 / 4 / 7;
   }
 }
 
 @media (max-width: 460px) {
+
+  /*----- 共通レイアウト・見出し・人物画像 -----*/
+
   .p-marketing-wrap {
     width: calc(100% - 32px);
   }
+
+  /*----- ファーストビュー -----*/
 
   .p-marketing-hero__actions {
     align-items: stretch;
     flex-direction: column;
   }
 
-  .p-marketing-hero__actions .p-marketing-button {
+  .p-marketing-hero__actions .c-service-button {
     width: 100%;
   }
 
-  .p-marketing-hero__visual {
-    min-height: 315px;
-    aspect-ratio: auto;
-  }
-
-  .p-marketing-hero__connections {
-    display: none;
-  }
-
-  .p-marketing-hero__hub {
-    width: 90px;
-    font-size: 0.73rem;
-  }
-
-  .p-marketing-hero__hub strong {
-    font-size: 0.9rem;
-  }
-
-  .p-marketing-hero__hub-icon {
-    font-size: 0.95rem;
-  }
-
-  .p-marketing-hero-member {
-    width: clamp(140px, 43vw, 175px);
-    min-height: 122px;
-    grid-template-columns: 84px minmax(0, 1fr);
-    gap: 0.25rem 0.45rem;
-    padding: 0.35rem;
-  }
-
-  .p-marketing-hero-member--1,
-  .p-marketing-hero-member--3 {
-    left: 0;
-  }
-
-  .p-marketing-hero-member--2,
-  .p-marketing-hero-member--4 {
-    right: 0;
-  }
-
-  .p-marketing-hero-member__portrait {
-    width: 84px;
-  }
-
-  .p-marketing-hero-member__name {
-    font-size: 0.9rem;
-  }
-
-  .p-marketing-hero-member__role {
-    font-size: 0.64rem;
-    white-space: normal;
-  }
+  /*----- チームが必要な理由｜循環・課題と原因・解決 -----*/
 
   .p-marketing-overview-card {
     padding: 1rem 1.1rem;
   }
 
-  .p-marketing-overview-card--goal {
-    min-height: 0;
+  .p-marketing-overview-card--solution {
+    padding: 2rem;
   }
 
-  .p-marketing-journey {
-    column-gap: 0.45rem;
-    row-gap: 0.9rem;
+  /*----- STEP 1｜ゴールと仕事の流れ -----*/
+
+  .p-marketing-journey li>span:last-child {
+    font-size: 0.8rem;
   }
 
-  .p-marketing-journey li:not(:last-child)::after {
-    left: calc(100% + 0.225rem);
-  }
-
-  .p-marketing-journey li {
-    min-height: 100px;
-    padding: 0.5rem 0.2rem;
-  }
-
-  .p-marketing-journey li strong {
-    font-size: 0.9rem;
-  }
-
-  .p-marketing-journey li > span:last-child {
-    font-size: 0.78rem;
-  }
+  /*----- STEP 2｜チーム編成 -----*/
 
   .p-marketing-team__label {
     font-size: 0.82rem;
@@ -2667,11 +1861,12 @@
     gap: 0.6rem;
   }
 
-  .p-marketing-team-protein-worker .p-marketing-portrait {
-    width: 56px;
+  .p-marketing-team-protein-worker .p-marketing-portrait,
+  .p-marketing-team-worker .p-marketing-portrait {
+    width: 2.875rem;
   }
 
-  .p-marketing-team-protein-worker > span:last-child {
+  .p-marketing-team-protein-worker>span:last-child {
     font-size: 0.74rem;
   }
 
@@ -2679,17 +1874,15 @@
     gap: 0.2rem;
   }
 
-  .p-marketing-team-worker .p-marketing-portrait {
-    width: 46px;
-  }
-
-  .p-marketing-team-worker strong {
+  .p-marketing-team-worker__name {
     font-size: 0.8rem;
   }
 
-  .p-marketing-team-worker > span:last-child {
-    font-size: 0.7rem;
+  .p-marketing-team-worker>span:last-child {
+    font-size: 0.65rem;
   }
+
+  /*----- STEP 3｜実際の仕事・チャット -----*/
 
   .p-marketing-chat__message {
     grid-template-columns: 38px minmax(0, 1fr);
@@ -2698,8 +1891,8 @@
   }
 
   .p-marketing-chat__badge {
-    width: 38px;
-    height: 38px;
+    width: 1.25rem;
+    height: 1.25rem;
   }
 
   .p-marketing-chat__byline {
@@ -2707,7 +1900,7 @@
     font-size: 0.68rem;
   }
 
-  .p-marketing-chat__byline strong {
+  .p-marketing-chat__name {
     font-size: 0.76rem;
   }
 
@@ -2715,104 +1908,29 @@
     font-size: 0.82rem;
   }
 
-  .p-marketing-growth__conversation li {
-    grid-template-columns: 48px minmax(0, 1fr);
-    gap: 0.65rem;
-    padding: 0.8rem;
-  }
-
-  .p-marketing-growth__conversation .p-marketing-portrait {
-    width: 48px;
-  }
-
-  .p-marketing-growth__conversation li > div > p:last-child {
-    font-size: 0.84rem;
-  }
-
+  /*----- チームが提供する価値 -----*/
+  /* 円形の価値カード：スマートフォンは読みやすい1列 */
   .p-marketing-value-grid {
     grid-template-columns: 1fr;
+    max-width: 19rem;
+    gap: 1rem;
+    padding-block: 0;
   }
 
-  .p-marketing-value-card {
-    display: grid;
-    grid-template-columns: 2.4rem minmax(0, 1fr);
-    align-items: center;
-    gap: 0.2rem 0.85rem;
-  }
-
-  .p-marketing-value-card__icon {
-    width: 2.4rem;
-    grid-row: span 2;
-    margin: 0;
-  }
-
-  .p-marketing-value-card h3 {
-    margin: 0;
-    font-size: 1.05rem;
-  }
-
-  .p-marketing-value-card p {
-    font-size: 0.9rem;
-  }
-
-  .p-marketing-contact h2 {
-    font-size: clamp(1.75rem, 8vw, 2.4rem);
+  .p-marketing-value-card:nth-child(odd) {
+    transform: none;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .p-marketing .p-marketing-hero__hub-icon,
-  .p-marketing .p-marketing-hero-member .p-marketing-portrait,
-  .p-marketing .p-marketing-problem__down,
-  .p-marketing .p-marketing-contact__shape {
-    animation: none;
-  }
 
-  .p-marketing .p-marketing-button,
-  .p-marketing .p-marketing-challenge-card,
-  .p-marketing .p-marketing-overview-card,
-  .p-marketing .p-marketing-journey li,
-  .p-marketing .p-marketing-growth__conversation li,
-  .p-marketing .p-marketing-value-card {
-    transition: none;
+  /* 動きを減らす設定に対応。ページ専用クラスで指定する。 */
+
+  .p-marketing-contact__shape {
+    animation: none;
   }
 
   .p-marketing {
     scroll-behavior: auto;
-  }
-}
-
-@keyframes p-marketing-portrait-float {
-  0%,
-  100% {
-    translate: 0 0;
-  }
-
-  50% {
-    translate: 0 -5px;
-  }
-}
-
-@keyframes p-marketing-hub-turn {
-  to {
-    rotate: 360deg;
-  }
-}
-
-@keyframes p-marketing-down-bob {
-  0%,
-  100% {
-    translate: 0 0;
-  }
-
-  50% {
-    translate: 0 5px;
-  }
-}
-
-@keyframes p-marketing-contact-drift {
-  to {
-    translate: 0 -12px;
-    scale: 1.03;
   }
 }
