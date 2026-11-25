@@ -224,21 +224,23 @@ p.p-top-philosophy__highlight {
 .p-top-services__link,
 .p-top-services__upcoming {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1.2rem;
   min-width: 0;
-  padding: 1.5rem;
+  padding: 3rem 1rem 2rem;
   background: var(--color-white);
   color: var(--color-navy);
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .p-top-services__upcoming {
   color: var(--color-text-muted);
   background-color: var(--color-gray-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* サービスボックスの左上・右下に添えるゴールドのL字線 */
@@ -283,39 +285,32 @@ p.p-top-philosophy__highlight {
 }
 
 .p-top-services__catch {
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.7;
-}
-
-.p-top-services__summary {
-  display: flex;
-  align-items: center;
-  gap: clamp(1rem, 2vw, 2rem);
+  font-size: 0.6em;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 0.3em;
+  display: block;
 }
 
 .p-top-services__name {
   flex-shrink: 0;
   font-family: var(--font-serif);
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-weight: 600;
-}
-
-.p-top-services__description {
-  min-width: 0;
-  font-size: .9375rem;
-  line-height: 1.8;
 }
 
 .p-top-services__more {
-  align-self: center;
-  margin-top: auto;
+  font-size: 0.95rem;
+  color: var(--color-gold);
+  font-weight: 300;
+  border-bottom: 0.5px solid var(--color-gold);
 }
 
 .p-top-services__upcoming-name {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.7;
+  font-family: var(--font-serif);
 }
 
 .p-top-services__status {
@@ -324,7 +319,7 @@ p.p-top-philosophy__highlight {
 }
 
 .p-top-services__cta {
-  margin-top: 3.5rem;
+  padding-top: 3.5rem;
   text-align: center;
 }
 
@@ -654,13 +649,20 @@ p.p-top-philosophy__highlight {
     white-space: pre-line;
   }
 
+  .p-top-services__grid {
+    max-width: 400px;
+    margin-inline: auto;
+  }
+
   .p-top-services__links {
     grid-template-columns: 1fr;
+    max-width: 400px;
+    margin-inline: auto;
   }
 
   .p-top-services__link,
   .p-top-services__upcoming {
-    padding: 1.25rem .75rem;
+    padding: 2rem .75rem 1.25rem;
   }
 
   .p-top-company__grid {

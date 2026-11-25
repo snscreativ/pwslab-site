@@ -34,24 +34,38 @@ export default function Header() {
               <div className="l-header__submenu-grid">
                 <a href="/service/rtr">
                   <span className="l-header__submenu-copy">
-                    <strong>RTR</strong>
-                    <small>人と人のあいだを見つめる組織マネジメントサイクル</small>
+                    <span className="l-header__submenu-title">RTR</span>
+                    <span className="l-header__submenu-description">
+                      人と人のあいだを見つめる組織マネジメントサイクル
+                    </span>
                   </span>
-                  <span className="l-header__submenu-arrow" aria-hidden="true">↗</span>
+                  <span className="l-header__submenu-arrow" aria-hidden="true">
+                    ↗
+                  </span>
                 </a>
                 <a href="/service/finance">
                   <span className="l-header__submenu-copy">
-                    <strong>財務経理部</strong>
-                    <small>Protein × Siliconでつくる財務経理チーム</small>
+                    <span className="l-header__submenu-title">財務経理部</span>
+                    <span className="l-header__submenu-description">
+                      Protein × Siliconでつくる財務経理チーム
+                    </span>
                   </span>
-                  <span className="l-header__submenu-arrow" aria-hidden="true">↗</span>
+                  <span className="l-header__submenu-arrow" aria-hidden="true">
+                    ↗
+                  </span>
                 </a>
                 <a href="/service/marketing">
                   <span className="l-header__submenu-copy">
-                    <strong>マーケティング部</strong>
-                    <small>Protein × Siliconでつくるマーケティングチーム</small>
+                    <span className="l-header__submenu-title">
+                      マーケティング部
+                    </span>
+                    <span className="l-header__submenu-description">
+                      Protein × Siliconでつくるマーケティングチーム
+                    </span>
                   </span>
-                  <span className="l-header__submenu-arrow" aria-hidden="true">↗</span>
+                  <span className="l-header__submenu-arrow" aria-hidden="true">
+                    ↗
+                  </span>
                 </a>
               </div>
             </div>
@@ -92,10 +106,7 @@ export default function Header() {
           className="l-header__sp-nav"
           aria-label="スマートフォンナビゲーション"
         >
-          <Link href="/#services" onClick={closeMenu}>
-            サービス
-          </Link>
-
+          <p className="l-header__sp-ttl">サービス一覧</p>
           <a
             href="/service/rtr"
             onClick={closeMenu}
@@ -109,7 +120,7 @@ export default function Header() {
             onClick={closeMenu}
             className="l-header__sp-sub-link"
           >
-            財務経理部　finance
+            財務経理部 Silicon Worker チーム
           </a>
 
           <a
@@ -117,9 +128,12 @@ export default function Header() {
             onClick={closeMenu}
             className="l-header__sp-sub-link"
           >
-            マーケティング部　Marketing Office
+            マーケティング部 Silicon Worker チーム
           </a>
-
+          <p className="l-header__sp-ttl">コンテンツ</p>
+          <Link href="/#services" onClick={closeMenu}>
+            サービスについて
+          </Link>
           <Link href="/#philosophy" onClick={closeMenu}>
             アプローチ
           </Link>
@@ -136,7 +150,7 @@ export default function Header() {
             お知らせ
           </Link>
           <Link href="/contact" onClick={closeMenu}>
-            お問い合わせ <span className="c-icon-arrow">↗</span>
+            お問い合わせ <span className="c-icon-arrow">→</span>
           </Link>
         </nav>
       </div>
