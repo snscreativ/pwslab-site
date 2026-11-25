@@ -189,57 +189,44 @@ export default async function HomePage() {
           <div className="p-top-services__links">
             <h3 className="p-top-services__pickup">OUR SERVICE</h3>
             <a className="p-top-services__link" href="/service/rtr">
-              <span className="p-top-services__catch">
-                人と人の「あいだ」を、
-                <br className="u-xs" />
-                組織の力に変えていく。
-              </span>
-              <span className="p-top-services__summary">
-                <span className="p-top-services__name">RTR</span>
-                <span className="p-top-services__description">
-                  人と人をマネジメントする
-                  <br />
-                  組織マネジメントサービス
+              <h4 className="p-top-services__name">
+                <span className="p-top-services__catch">
+                  人と人の「あいだ」を、
+                  <br className="u-xs" />
+                  組織の力に変えていく。
                 </span>
-              </span>
-              <span className="c-button c-button--text p-top-services__more">
-                詳しく見る{" "}
-                <span className="c-icon-arrow" aria-hidden="true">
-                  ↗
-                </span>
-              </span>
+                RTR
+              </h4>
+              <span className="p-top-services__more">view more</span>
             </a>
             <a className="p-top-services__link" href="/service/finance">
-              <span className="p-top-services__catch">
-                財務経理部門に、
-                <br className="u-xs" />
-                新しい仲間と新しい働き方を。
-              </span>
-              <span className="p-top-services__summary">
-                <span className="p-top-services__name">財務経理部</span>
-                <span className="p-top-services__description">
-                  Protein（人）と
-                  <br />
-                  Silicon（AI）で作る
-                  <br />
-                  新しい財務経理チーム
+              <h4 className="p-top-services__name">
+                <span className="p-top-services__catch">
+                  財務経理部門に、
+                  <br className="u-xs" />
+                  新しい仲間と新しい働き方を。
                 </span>
-              </span>
-              <span className="c-button c-button--text p-top-services__more">
-                詳しく見る{" "}
-                <span className="c-icon-arrow" aria-hidden="true">
-                  ↗
-                </span>
-              </span>
-            </a>
-            {/* <div className="p-top-services__upcoming">
-              <h4 className="p-top-services__upcoming-name">
-                準備中サービス名
+                財務経理部
               </h4>
+              <span className="p-top-services__more">view more</span>
+            </a>
+            <a className="p-top-services__link" href="/service/marketing">
+              <h4 className="p-top-services__name">
+                <span className="p-top-services__catch">
+                  マーケティングを、
+                  <br className="u-xs" />
+                  ひとりの仕事からチームの力へ。
+                </span>
+                マーケティング部
+              </h4>
+              <span className="p-top-services__more">view more</span>
+            </a>
+            <div className="p-top-services__upcoming">
               <p className="p-top-services__status">
                 COMING SOON — ページ準備中
               </p>
-            </div> */}
+              <h4 className="p-top-services__upcoming-name">Pw1</h4>
+            </div>
           </div>
 
           <div className="p-top-services__cta">

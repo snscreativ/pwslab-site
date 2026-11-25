@@ -1,0 +1,73 @@
+/* ==================== サービスページ共通｜ボタン ==================== */
+/* 基本クラスと --primary / --outline を組み合わせて使用する。
+   色は globals.css の共通変数を参照し、配置・周囲の余白は各ページで管理する。 */
+
+.c-service-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: fit-content;
+  min-height: 3.75rem;
+  padding: var(--service-button-padding, 1.1rem 2.2rem);
+  border: 1px solid var(--color-orange);
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-navy);
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 右下の背面枠。ホバー・キーボードフォーカス時に本体へ重なる。 */
+.c-service-button::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 1px solid var(--color-gold);
+  transform: translate(.1875rem, .1875rem);
+  transition: transform .3s ease;
+  pointer-events: none;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 calc(100% - .1875rem), calc(100% - .1875rem) calc(100% - .1875rem), calc(100% - .1875rem) 0);
+}
+
+.c-service-button:is(:hover, :focus-visible)::before {
+  transform: translate(0, 0);
+}
+
+.c-service-button:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: .375rem;
+}
+
+.c-service-button--primary {
+  color: var(--color-white);
+  background: var(--color-orange);
+}
+
+.c-service-button--outline {
+  border-color: var(--color-gold);
+  color: var(--color-navy);
+  background: var(--color-white);
+}
+
+.c-service-button__icon {
+  flex-shrink: 0;
+  font-size: 1.125rem;
+}
+
+/* 狭い画面ではページ固有の余白も共通値に揃える。 */
+@media (max-width: 480px) {
+  .c-service-button {
+    --service-button-padding: 1em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-service-button::before {
+    transition: none;
+  }
+}

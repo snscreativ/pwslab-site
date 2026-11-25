@@ -1,5 +1,7 @@
+import WorkerIntroduction from "@/components/WorkerIntroduction";
 import type { Metadata } from "next";
 import Link from "next/link";
+import "@/styles/service-common.css";
 import "./finance.css";
 import SupportSteps from "./SupportSteps";
 import MonthlyChat from "./MonthlyChat";
@@ -212,16 +214,16 @@ export default function FinancePage() {
               </p>
               <div className="p-fin-actions">
                 <Link
-                  className="p-fin-button p-fin-button--primary"
+                  className="c-service-button c-service-button--primary"
                   href="/contact?service=finance"
                 >
-                  Silicon Workerの配属を相談する <span>↗</span>
+                  Silicon Workerの配属を相談する <span className="c-service-button__icon">↗</span>
                 </Link>
                 <a
-                  className="p-fin-button p-fin-button--outline"
+                  className="c-service-button c-service-button--outline"
                   href="#support"
                 >
-                  導入プロセスを見る <span>↓</span>
+                  導入プロセスを見る <span className="c-service-button__icon">↓</span>
                 </a>
               </div>
             </div>
@@ -230,70 +232,7 @@ export default function FinancePage() {
       </section>
 
       {/* セクション1｜ワーカーの紹介｜WORKER TYPES */}
-      <section
-        className="p-fin-worker-types p-fin-section--navy"
-        aria-labelledby="finance-worker-types-title"
-      >
-        <div className="p-fin-inner">
-          <p className="p-fin-label p-fin-worker-types__label">
-            PROTEIN WORKER / SILICON WORKERとは？
-          </p>
-          <div className="p-fin-worker-types__comparison">
-            <div className="p-fin-worker-types__worker p-fin-worker-types__worker--protein">
-              <div className="p-fin-worker-types__symbol">
-                人<span>ひと</span>
-              </div>
-              <div className="p-fin-worker-types__description">
-                <h2>Protein Worker</h2>
-                <p>タンパク質でできた労働力</p>
-              </div>
-            </div>
-            <div className="p-fin-worker-types__connection">
-              <img
-                className="p-fin-worker-types__badge"
-                src="/images/finance/pw-outline-icon.webp"
-                alt=""
-                width="300"
-                height="300"
-              />
-              <svg
-                className="p-fin-worker-types__arrows"
-                viewBox="0 0 100 56"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  className="p-fin-worker-types__arrow--protein"
-                  d="M6 17H94M86 9L94 17L86 25"
-                />
-                <path
-                  className="p-fin-worker-types__arrow--silicon"
-                  d="M94 39H6M14 31L6 39L14 47"
-                />
-              </svg>
-              <img
-                className="p-fin-worker-types__badge"
-                src="/images/finance/sw-outline-icon.webp"
-                alt=""
-                width="300"
-                height="300"
-              />
-            </div>
-            <div className="p-fin-worker-types__worker p-fin-worker-types__worker--silicon">
-              <div className="p-fin-worker-types__symbol">AI</div>
-              <div className="p-fin-worker-types__description">
-                <h2>Silicon Worker</h2>
-                <p>半導体でできた労働力</p>
-              </div>
-            </div>
-          </div>
-          <p className="p-fin-worker-types__statement">
-            同じチームの一員として、
-            <br className="u-sp" />
-            役割を持って働く。
-          </p>
-        </div>
-      </section>
+      <WorkerIntroduction />
 
       {/* セクション2｜課題｜PROBLEM */}
       <section
@@ -955,12 +894,12 @@ export default function FinancePage() {
             まずはご相談ください。
           </p>
           <Link
-            className="p-fin-button p-fin-button--warm"
+            className="c-service-button c-service-button--primary"
             href="/contact?service=finance"
           >
             Silicon Workerの
             <br className="u-xs" />
-            配属を相談する <span>↗</span>
+            配属を相談する <span className="c-service-button__icon">↗</span>
           </Link>
         </div>
       </section>
