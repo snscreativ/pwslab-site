@@ -1,18 +1,84 @@
 "use client";
 
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const headerRef = useRef<HTMLElement>(null);
+  const unlockScroll = useRef<(() => void) | null>(null);
+
   const closeMenu = () => {
+    // リンク先への移動より先に、元のスクロール状態へ戻す。
+    unlockScroll.current?.();
     setIsOpen(false);
   };
 
+  useLayoutEffect(() => {
+    if (!isOpen) return;
+
+    const body = document.body;
+    const root = document.documentElement;
+    const header = headerRef.current;
+    const headerTransform = header?.style.transform ?? "";
+    const x = window.scrollX;
+    const y = window.scrollY;
+    const properties = ["position", "top", "left", "width", "overflow"];
+    const saved = properties.map((name) => ({
+      name,
+      value: body.style.getPropertyValue(name),
+      priority: body.style.getPropertyPriority(name),
+    }));
+    const rootOverflow = root.style.getPropertyValue("overflow");
+    const rootOverflowPriority = root.style.getPropertyPriority("overflow");
+
+    // iOSでも背面を動かさないよう、表示位置を保持したまま本文を固定する。
+    body.style.position = "fixed";
+    body.style.top = `-${y}px`;
+    body.style.left = `-${x}px`;
+    body.style.width = "100%";
+    body.style.overflow = "hidden";
+    root.style.overflow = "hidden";
+    // 本文固定でstickyヘッダーが画面外へ移動しないよう位置を補正する。
+    if (header) header.style.transform = `translateY(${y}px)`;
+
+    const restore = () => {
+      if (unlockScroll.current !== restore) return;
+      saved.forEach(({ name, value, priority }) => {
+        if (value) body.style.setProperty(name, value, priority);
+        else body.style.removeProperty(name);
+      });
+      if (rootOverflow) root.style.setProperty("overflow", rootOverflow, rootOverflowPriority);
+      else root.style.removeProperty("overflow");
+      if (header) {
+        if (headerTransform) header.style.transform = headerTransform;
+        else header.style.removeProperty("transform");
+      }
+      window.scrollTo({ left: x, top: y, behavior: "instant" });
+      unlockScroll.current = null;
+    };
+    unlockScroll.current = restore;
+
+    // PC幅へ切り替えた場合も、非表示のメニューがスクロールを止めないようにする。
+    const desktop = window.matchMedia("(min-width: 901px)");
+    const onResize = () => {
+      if (desktop.matches) {
+        restore();
+        setIsOpen(false);
+      }
+    };
+    desktop.addEventListener("change", onResize);
+    onResize();
+    return () => {
+      desktop.removeEventListener("change", onResize);
+      restore();
+    };
+  }, [isOpen]);
+
   return (
-    <header className="l-header">
+    <header ref={headerRef} className="l-header">
       <Link
         href="/"
         className="l-header__logo"
@@ -88,7 +154,7 @@ export default function Header() {
       <button
         type="button"
         className={`l-header__menu-button ${isOpen ? "is-open" : ""}`}
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={() => (isOpen ? closeMenu() : setIsOpen(true))}
         aria-label="メニューを開閉する"
         aria-expanded={isOpen}
         aria-controls="sp-menu"
