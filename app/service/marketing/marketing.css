@@ -1,0 +1,1936 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Baumans&display=swap');
+
+/* ========================================
+   ページ全体の設定・CSS変数
+======================================== */
+
+.p-marketing {
+  --marketing-blue: #abcde0;
+  --marketing-blue-deep: #5d9fc6;
+  --marketing-blue-soft: #eff7fb;
+  --marketing-orange: #e88345;
+  --marketing-orange-soft: #fff3e9;
+  --marketing-ttl: #173c70;
+  --font-steps: "Baumans", system-ui;
+  --font-marketing: "Alata", sans-serif;
+  color: var(--color-navy);
+  overflow: hidden;
+  background: #fff;
+}
+
+br.u-xl,
+br.u-sp-600 {
+  display: none;
+}
+
+h2,
+h3,
+h4 {
+  font-feature-settings: "halt";
+}
+
+/* ========================================
+   共通レイアウト・見出し・人物画像
+======================================== */
+
+.p-marketing-wrap {
+  width: min(1160px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.p-marketing-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  color: #36799e;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.p-marketing-eyebrow::before,
+.p-marketing-eyebrow::after {
+  width: clamp(2rem, 5vw, 4rem);
+  height: 1px;
+  background: #36799e;
+  content: "";
+}
+
+.p-marketing-title {
+  margin: .2em 0 .7em;
+  color: var(--marketing-ttl);
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1.5;
+  text-wrap: pretty;
+  text-align: center;
+}
+
+.p-marketing-title span {
+  color: var(--color-orange);
+}
+
+.p-marketing-portrait {
+  display: block;
+  width: 56px;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--marketing-blue-soft);
+  box-shadow: 0 2px 8px rgba(27, 47, 70, 0.15);
+}
+
+.p-marketing-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h3.p-marketing-border__heading {
+  width: 100%;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  border-bottom: 1px solid var(--color-sw-bg);
+  font-family: var(--font-serif);
+  font-size: clamp(1.45rem, 2.15vw, 2.15rem);
+  font-weight: 500;
+  line-height: 1.65;
+}
+
+.p-marketing-border__heading>span {
+  display: inline-block;
+  position: relative;
+  padding: 0 .4em .2em;
+  color: var(--color-navy);
+}
+
+.p-marketing-border__heading>span::before {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-gold);
+  content: '';
+}
+
+.p-marketing-border__heading--em {
+  color: var(--color-orange);
+}
+
+.p-marketing-border__lead {
+  margin-bottom: 2rem;
+}
+
+/* ========================================
+   ファーストビュー
+======================================== */
+
+.p-marketing-hero .c-service-label {
+  --service-label-accent: #b8862f;
+  --service-label-text: #2c3e50;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: max-content;
+  max-width: calc(100% - 24px);
+  padding: 1rem 1.5rem;
+  color: var(--service-label-text);
+  background: #fbf6eee0;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.9;
+  letter-spacing: 0.16em;
+}
+
+.p-marketing-hero .c-service-label__title {
+  position: relative;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.1rem 0.55rem;
+  margin: 0 0 0.9rem;
+  color: var(--color-orange);
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.035em;
+  white-space: nowrap;
+}
+
+.p-marketing-hero .c-service-label__category {
+  padding-right: 0.9rem;
+  color: var(--service-label-text);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+}
+
+.p-marketing-hero .c-service-label__description {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.9;
+  letter-spacing: 0.05em;
+}
+
+.p-marketing-hero {
+  position: relative;
+  isolation: isolate;
+  padding: 3.75rem 0 5.25rem;
+  background:
+    radial-gradient(ellipse at 82% 32%, rgba(255, 237, 224, 0.82), transparent 34%),
+    radial-gradient(ellipse at 20% 90%, rgba(225, 242, 251, 0.92), transparent 38%),
+    linear-gradient(125deg, #fff 0%, #fbfdff 60%, #fffaf7 100%);
+}
+
+.p-marketing-hero__layout {
+  margin-top: 5.75rem;
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(700px, 1.08fr);
+  align-items: center;
+  min-height: 490px;
+}
+
+.p-marketing-hero__copy {
+  position: relative;
+  z-index: 1;
+  padding-block: 1rem;
+}
+
+.p-marketing-hero h1 {
+  max-width: 610px;
+  margin: 1rem 0 1.25rem;
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 45/1200*100vw, 45px);
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  line-height: 1.55;
+}
+
+.p-marketing-hero__headline-first {
+  display: inline-block;
+  font-size: 1em;
+  white-space: nowrap;
+}
+
+.p-marketing-hero__headline-last {
+  background: linear-gradient(90deg, #ec8e00bd, #f3c600a9 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.4em;
+  background-position: 0 100%;
+  padding: 0.2em 0 0.2em 0.2em;
+  animation: makerUp 3s ease-in-out forwards;
+}
+
+.p-marketing-hero__lead {
+  max-width: 36rem;
+  color: #3f4c64;
+  font-size: clamp(0.98rem, 1.25vw, 1.08rem);
+  line-height: 2;
+}
+
+.p-marketing-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1.65rem;
+}
+
+.p-marketing-hero__visual {
+  width: min(100%, 900px);
+  margin-inline: auto;
+}
+
+.p-marketing-hero__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ========================================
+   課題｜4つの困りごと
+======================================== */
+
+.p-marketing-problem {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 7.5rem 0;
+  color: #142c4f;
+  background:
+    radial-gradient(ellipse at 4% 5%, rgba(205, 205, 205, 0.68), transparent 27%),
+    radial-gradient(ellipse at 97% 95%, rgba(215, 215, 215, 0.82), transparent 30%),
+    linear-gradient(115deg, #fff 0%, #fafafa 58%, #fcfcfc 100%);
+}
+
+.p-marketing-problem::before {
+  position: absolute;
+  top: -7rem;
+  left: -5rem;
+  width: 20rem;
+  height: 13rem;
+  border-radius: 45% 55% 61% 39%;
+  background: rgba(210, 210, 210, 0.55);
+  filter: blur(1px);
+  transform: rotate(-28deg);
+  content: "";
+  pointer-events: none;
+}
+
+.p-marketing-problem__layout {
+  position: relative;
+}
+
+.p-marketing-problem__heading {
+  max-width: 1000px;
+  margin: 0 auto clamp(1.75rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+.p-marketing-problem__lead {
+  line-height: 1.75;
+  font-size: clamp(0.9rem, 1.45vw, 1.08rem);
+  margin: 0.7rem 0 0;
+  font-weight: 500;
+}
+
+.p-marketing-challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  width: 80%;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  padding-top: 3rem;
+}
+
+.p-marketing-challenge-card {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  align-items: start;
+  gap: 0.9rem;
+  padding: 1.5rem 2.5rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+/* 外周を囲まず、4項目の間だけを区切る。 */
+
+.p-marketing-challenge-card:nth-child(even) {
+  border-left: 1px solid var(--marketing-blue);
+}
+
+.p-marketing-challenge-card:nth-child(n + 3) {
+  border-top: 1px solid var(--marketing-blue);
+}
+
+.p-marketing-challenge-card__icon {
+  display: grid;
+  flex-shrink: 0;
+  width: 2.8rem;
+  height: 2.8rem;
+  place-items: center;
+  color: var(--color-gold);
+}
+
+.p-marketing-challenge-card__icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.p-marketing-challenge-card__heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.p-marketing-challenge-card h3 {
+  margin: 0;
+  text-align: center;
+  color: #142c4f;
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 2.3vw, 1.65rem);
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.p-marketing-challenge-card p {
+  margin: 0;
+  text-align: left;
+  color: #253c5e;
+  font-size: clamp(0.88rem, 1.3vw, 1rem);
+  line-height: 1.8;
+}
+
+/* ========================================
+   導入メッセージ｜チームをつくる
+======================================== */
+
+.p-marketing-overview__bridge {
+  text-align: center;
+  position: relative;
+  padding: 2rem 0;
+  background-color: var(--color-navy);
+}
+
+.p-marketing-overview__bridge::after {
+  position: absolute;
+  top: 99%;
+  left: 50%;
+  z-index: 1;
+  width: clamp(7rem, 16vw, 15rem);
+  aspect-ratio: 4 / 1;
+  background: var(--color-navy);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform: translateX(-50%);
+  content: "";
+  pointer-events: none;
+}
+
+.p-marketing-overview__bridge p {
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+  font-weight: 600;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+/* ========================================
+   チームが必要な理由｜循環・課題と原因・解決
+======================================== */
+
+.p-marketing-overview {
+  padding: clamp(4.5rem, 8vw, 7rem) 0;
+  background:
+    radial-gradient(ellipse at 5% 5%, rgba(216, 236, 247, 0.42), transparent 30%),
+    linear-gradient(180deg, #fff 0%, #f8fbfd 48%, #fff 100%);
+}
+
+#marketing-overview-title {
+  margin-bottom: 4rem;
+}
+
+.p-marketing-overview__story {
+  display: grid;
+  gap: clamp(2.75rem, 6vw, 5rem);
+}
+
+/* 循環図：細い矢印とアイコン。「届ける」は円の右側に配置 */
+.p-marketing-loop {
+  position: relative;
+  width: min(100%, 50rem);
+  aspect-ratio: 800 / 374;
+  margin-inline: auto;
+}
+
+.p-marketing-loop__arrows {
+  display: block;
+  width: 100%;
+  height: 100%;
+  stroke: #618ba5;
+}
+
+.p-marketing-loop__arrows path {
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+}
+
+.p-marketing-loop__items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.p-marketing-loop__item {
+  position: absolute;
+  display: flex;
+  width: 18%;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-navy);
+  font-size: clamp(1.2rem, 1.8vw, 1.38rem);
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+}
+
+.p-marketing-loop__item svg {
+  width: clamp(2rem, 3.5vw, 2.55rem);
+  height: auto;
+  color: var(--marketing-blue-deep);
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.p-marketing-loop__accent {
+  stroke: var(--color-orange);
+}
+
+.p-marketing-loop__item--think {
+  top: 20.476%;
+  left: 22.813%;
+}
+
+.p-marketing-loop__item--decide {
+  top: 20.476%;
+  left: 48.438%;
+}
+
+.p-marketing-loop__item--create {
+  top: 50.000%;
+  left: 61.250%;
+}
+
+.p-marketing-loop__item--measure {
+  top: 79.524%;
+  left: 48.438%;
+}
+
+.p-marketing-loop__item--learn {
+  top: 79.524%;
+  left: 22.813%;
+}
+
+.p-marketing-loop__item--next {
+  top: 50.000%;
+  left: 10.000%;
+}
+
+.p-marketing-loop__item--deliver {
+  top: 50.000%;
+  left: 86.125%;
+}
+
+.p-marketing-overview-card>p {
+  margin: 0 0 0.65rem;
+}
+
+.p-marketing-overview__challenge {
+  padding: clamp(1.25rem, 3.2vw, 2.25rem);
+}
+
+.p-marketing-overview__challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 1rem;
+  padding-top: 3rem;
+}
+
+.p-marketing-overview-card {
+  display: grid;
+  grid-row: span 5;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  box-shadow: none;
+  padding: 2rem 1.5rem;
+  border: 0.5px solid var(--marketing-blue);
+}
+
+.p-marketing-overview-card__label {
+  letter-spacing: 0.12em;
+  margin: 0 0 0.5em;
+  /* 現状の継承色を維持。--service-label-textのスコープ変更は別途確認する。 */
+  color: var(--service-label-text);
+  font-size: clamp(1.25rem, 2.15vw, 1.65rem);
+  padding-bottom: 0.3em;
+  font-weight: 500;
+  text-align: center;
+  position: relative;
+}
+
+.p-marketing-overview-card__label::before {
+  content: "";
+  background-color: var(--marketing-blue-deep);
+  width: 4em;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.p-marketing-overview-card strong {
+  display: block;
+  grid-row: 5;
+  align-self: start;
+  margin-top: 0.55rem;
+  color: #b9582f;
+  font-size: 1.12rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.p-marketing-overview__challenge-image {
+  display: block;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  margin: 1rem auto;
+}
+
+.p-marketing-overview__challenge-copy {
+  max-width: 700px;
+  padding: 2rem 0 0;
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  margin: auto;
+  text-align: center;
+}
+
+.p-marketing-marker {
+  background: linear-gradient(90deg, #ec8e00bd, #f3c600a9 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.4em;
+  background-position: 0 100%;
+  padding: 0.2em 0 0.2em 0.2em;
+  font-weight: 600;
+}
+
+.p-marketing-overview__solution {
+  padding: clamp(1.75rem, 4vw, 3.25rem);
+}
+
+.p-marketing-overview__solution-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  padding-top: 3rem;
+}
+
+.p-marketing-overview-card--solution {
+  padding: clamp(4rem, 3vw, 2.4rem);
+  background: url("/images/marketing/m-card.webp") center / 100% 100% no-repeat;
+  color: #2e4057;
+  font-size: 0.92rem;
+  line-height: 1.8;
+  min-width: 0;
+  border-radius: 1rem;
+}
+
+.p-marketing-overview-card__brand {
+  margin: 0.65rem 0 1rem;
+  color: #1f79a9;
+  font-family: var(--font-marketing);
+  font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.14;
+}
+
+.p-marketing-overview-card--solution>p:last-child {
+  margin: 0;
+  padding-top: 0.9rem;
+  border-top: 1px solid #dce8ef;
+  color: #506074;
+}
+
+.p-marketing-overview__solution-copy {
+  padding-left: clamp(0rem, 2vw, 1.25rem);
+}
+
+.p-marketing-overview__solution-copy p {
+  margin: 0 0 0.75rem;
+  color: var(--marketing-ttl);
+  font-size: 0.96rem;
+  line-height: 1.9;
+  text-wrap: pretty;
+}
+
+.p-marketing-overview__solution-copy p:last-child {
+  margin-bottom: 0;
+}
+
+/* ========================================
+   チームをつくり育てる｜STEP共通
+======================================== */
+
+/* セクション見出しはタイムラインから独立させる */
+.p-marketing-process {
+  border-top: 1px solid #d8e6ef;
+  background: linear-gradient(140deg, rgb(255, 253, 250), rgb(255, 247, 240) 62%, rgb(248, 251, 253));
+}
+
+.p-marketing-process__heading {
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.p-marketing-process__heading .p-marketing-title {
+  margin-bottom: 0;
+}
+
+/* 番号と縦線の位置合わせに使う値だけを共有する */
+.p-marketing-process__timeline {
+  /* 画面端の余白：本文・番号・縦線の左端を揃える */
+  --timeline-gutter: 1.5rem;
+  /* 各STEPの上下余白：番号の上位置と次の番号までの線の長さに共用 */
+  --timeline-space: clamp(3.75rem, 7vw, 6.25rem);
+  /* 番号の領域の高さ：その下から縦線を開始する */
+  --timeline-number-height: 6rem;
+  /* 番号と縦線の左位置。1280pxは下の本文のmax-widthと揃える */
+  --timeline-left: max(var(--timeline-gutter), calc((100% - 1280px) / 2));
+  /* 番号と縦線の共通の中心位置。文字サイズを変えても中心を揃える */
+  --timeline-axis: calc(var(--timeline-left) + 2rem);
+  background: #f2f8fc;
+}
+
+.p-marketing-step {
+  position: relative;
+  padding-block: var(--timeline-space);
+}
+
+.p-marketing-step__content {
+  width: calc(100% - var(--timeline-gutter) * 2);
+  /* 本文の最大幅。変更時は上の--timeline-left内の1280pxも揃える */
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-left: 6rem;
+  /* 番号・縦線のために空ける左側の幅 */
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+/* 次の番号直前まで延ばす。STEPの高さが変わっても線がつながる */
+.p-marketing-step:not(:last-child)::after {
+  position: absolute;
+  z-index: 1;
+  top: calc(var(--timeline-space) + var(--timeline-number-height) + 0.75rem);
+  bottom: calc(0.75rem - var(--timeline-space));
+  left: var(--timeline-axis);
+  transform: translateX(-50%);
+  width: 2px;
+  background: #c5dce9;
+  content: "";
+  pointer-events: none;
+}
+
+.p-marketing-step__heading {
+  margin-bottom: 2.1rem;
+}
+
+.p-marketing-step__number {
+  position: absolute;
+  top: var(--timeline-space);
+  left: var(--timeline-axis);
+  transform: translateX(-50%);
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: var(--timeline-number-height);
+  color: #80b2cd;
+  font-family: var(--font-steps);
+  font-size: 1.6rem;
+  /* STEPの文字サイズ */
+  font-weight: 400;
+  letter-spacing: 0.035em;
+  line-height: 1.2;
+}
+
+.p-marketing-step__number span:last-child {
+  font-size: 3.3rem;
+  /* 01〜04の数字サイズ */
+}
+
+.p-marketing-step__heading h3 {
+  margin: -0.15rem 0 0.45rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.45rem, 2.5vw, 2rem);
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  line-height: 1.6;
+}
+
+.p-marketing-step__heading p {
+  color: #56647a;
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+/* ========================================
+   STEP 1｜ゴールと仕事の流れ
+======================================== */
+
+.p-marketing-journey {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.55rem;
+  list-style: none;
+  padding: 3rem 0;
+}
+
+.p-marketing-journey li {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 128px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.75rem 0.4rem;
+  text-align: center;
+}
+
+.p-marketing-journey li:not(:last-child)::after {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 0.275rem);
+  z-index: 1;
+  width: 1rem;
+  height: 1rem;
+  border-top: 1px solid var(--color-navy);
+  border-right: 1px solid var(--color-navy);
+  content: "";
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.p-marketing-journey__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--marketing-blue-deep);
+  line-height: 1;
+}
+
+.p-marketing-journey__icon svg {
+  width: 3.5rem;
+  height: 3.5rem;
+  overflow: visible;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+/* マーケティングサイクル図に合わせたオレンジのアクセント */
+.p-marketing-journey__accent {
+  stroke: var(--color-orange);
+}
+
+.p-marketing-journey li h4 {
+  font-size: 1.36rem;
+}
+
+.p-marketing-journey li>span:last-child {
+  color: #56647a;
+  font-size: 1rem;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.p-marketing-step-one__promise {
+  margin: 0 auto;
+  padding: 0.8rem 0;
+  font-weight: 600;
+  font-size: 1.45rem;
+  letter-spacing: 0.025em;
+  text-align: center;
+}
+
+.p-marketing-step-one__promise span {
+  color: var(--color-gold);
+}
+
+/* ========================================
+   STEP 2｜チーム編成
+======================================== */
+
+.p-marketing-step--two {
+  background: #fff;
+}
+
+.p-marketing-team {
+  display: grid;
+  gap: 0;
+  margin-top: 2.5rem;
+}
+
+.p-marketing-team__partners {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) 3rem minmax(0, 4fr);
+  align-items: stretch;
+  gap: clamp(2.5rem, 4vw, 3rem);
+}
+
+.p-marketing-team__protein,
+.p-marketing-team__silicon {
+  position: relative;
+  min-width: 0;
+  min-height: 230px;
+  padding: 1.5rem;
+  border: 1px solid #dae5eb;
+  border-radius: 1.35rem;
+  box-shadow: 0 10px 24px rgba(31, 57, 78, 0.05);
+  text-align: center;
+}
+
+.p-marketing-team__protein {
+  border-color: #ead9cd;
+  padding-right: 3rem;
+  background: linear-gradient(90deg, var(--color-pw-bg), color-mix(in srgb, var(--color-pw-bg) 55%, white));
+}
+
+.p-marketing-team__silicon {
+  border-color: #c9dce8;
+  padding-left: 3rem;
+  background: linear-gradient(90deg, var(--color-sw-bg), color-mix(in srgb, var(--color-sw-bg) 55%, white));
+}
+
+.p-marketing-team__label {
+  margin: 0;
+  color: #205a85;
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.6;
+}
+
+.p-marketing-team__protein .p-marketing-team__label {
+  color: #b85d26;
+}
+
+.p-marketing-team__badge {
+  position: absolute;
+  top: 50%;
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.p-marketing-team__protein .p-marketing-team__badge {
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.p-marketing-team__silicon .p-marketing-team__badge {
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.p-marketing-team__intro {
+  min-height: 2.8em;
+  margin-top: 0.25rem;
+  line-height: 1.4;
+  color: #333;
+  font-size: 0.83rem;
+}
+
+/* 人数・説明の行数が異なっても、写真の上端と間隔を揃える */
+.p-marketing-team__protein-members,
+.p-marketing-team__workers {
+  display: grid;
+  align-items: start;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.p-marketing-team__protein-members {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.p-marketing-team__workers {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.p-marketing-team-protein-worker,
+.p-marketing-team-worker {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-align: center;
+}
+
+.p-marketing-team-protein-worker .p-marketing-portrait,
+.p-marketing-team-worker .p-marketing-portrait {
+  width: clamp(3rem, 5.5vw, 4.25rem);
+}
+
+.p-marketing-team-protein-worker>span:last-child {
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.p-marketing-team__responsibility {
+  margin: 0.55rem 0 0;
+  font-weight: 400;
+  color: #46566b;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.p-marketing-team__plus {
+  display: grid;
+  align-self: center;
+  justify-self: center;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  color: #285f84;
+}
+
+.p-marketing-team__plus svg {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 1.5;
+}
+
+.p-marketing-team__integration {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  color: var(--marketing-ttl);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+.p-marketing-team__integration svg {
+  width: min(70%, 25rem);
+  height: auto;
+  stroke: #7e96a6;
+}
+
+.p-marketing-team__integration path {
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+}
+
+.p-marketing-team__integration p {
+  margin: 0;
+  font-size: 1.45rem;
+}
+
+.p-marketing-team-worker__name {
+  color: #205a85;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.p-marketing-team-worker>span:last-child {
+  color: #46566b;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+/* ========================================
+   STEP 3｜実際の仕事・チャット
+======================================== */
+
+.p-marketing-step--three {
+  background: linear-gradient(130deg, #f2f8fc 0%, #eef5fb 100%);
+}
+
+.p-marketing-scenes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 1.25rem;
+  margin-top: 2.1rem;
+}
+
+.p-marketing-scene {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #dce1e8;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+
+.p-marketing-scene__title {
+  margin: 0;
+  padding: 1rem;
+  border-bottom: 1px solid #dce1e8;
+  color: var(--color-navy);
+  background: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.p-marketing-chat {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.p-marketing-chat__message {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+  min-width: 0;
+  padding: 0.875rem 1rem 1.25rem;
+  background: color-mix(in srgb, var(--color-pw-bg) 32%, white);
+}
+
+.p-marketing-chat__message--silicon {
+  background: color-mix(in srgb, var(--color-sw-bg) 35%, white);
+}
+
+.p-marketing-chat__avatar {
+  position: relative;
+  display: block;
+}
+
+.p-marketing-chat__portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border: 2px solid var(--color-pw-bg);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.p-marketing-chat__message--silicon .p-marketing-chat__portrait {
+  border-color: var(--color-sw-bg);
+}
+
+.p-marketing-chat__badge {
+  position: absolute;
+  right: -0.2rem;
+  bottom: -0.1rem;
+  width: 1.375rem;
+  height: 1.375rem;
+  object-fit: contain;
+}
+
+.p-marketing-chat__content {
+  min-width: 0;
+}
+
+.p-marketing-chat__byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem 0.5rem;
+  margin-bottom: 0.2rem;
+  color: #255f8a;
+  font-size: 0.75rem;
+  line-height: 1.55;
+}
+
+.p-marketing-chat__name {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.p-marketing-chat__message--protein .p-marketing-chat__byline {
+  color: #a95f35;
+}
+
+.p-marketing-chat__text {
+  color: #303e54;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+/* ========================================
+   STEP 4｜フィードバックと成長
+======================================== */
+
+.p-marketing-step--four {
+  background: linear-gradient(140deg, #fffdfa, #fff7f0 62%, #f8fbfd);
+}
+
+/* 左にメッセージ、右に漫画。画像自体の枠や吹き出しを活かす */
+.p-marketing-growth {
+  display: grid;
+  grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+  align-items: center;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  margin-top: 2.5rem;
+}
+
+.p-marketing-growth__copy {
+  min-width: 0;
+}
+
+.p-marketing-growth__catch {
+  margin: 0;
+  color: var(--marketing-ttl);
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 0.8em;
+}
+
+.p-marketing-growth__catch::before {
+  content: "";
+  background: linear-gradient(125deg, var(--marketing-blue-deep) 0%, var(--marketing-orange) 100%);
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.p-marketing-growth__description {
+  margin: 1.75rem 0 0;
+  color: #56647a;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.p-marketing-growth__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ========================================
+   チームが提供する価値
+======================================== */
+
+.p-marketing-values {
+  padding: clamp(3.75rem, 6vw, 5rem) 0;
+  background: #fff;
+}
+
+.p-marketing-value-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  padding-block: 0.5rem 3rem;
+}
+
+.p-marketing-value-card {
+  display: flex;
+  min-width: 0;
+  aspect-ratio: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border-radius: 50%;
+  background: linear-gradient(125deg, var(--marketing-blue) 0%, #abcce077 100%);
+  text-align: center;
+}
+
+.p-marketing-value-card:nth-child(odd) {
+  transform: translateY(2.5rem);
+}
+
+.p-marketing-value-card:nth-child(even) {
+  background: linear-gradient(125deg, var(--marketing-orange-soft) 0%, #ebbf9c 100%);
+}
+
+.p-marketing-value-card h3 {
+  margin: 0 0 0.6rem;
+  color: #203d60;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.p-marketing-value-card p {
+  margin: 0;
+  color: #56647a;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  text-wrap: balance;
+}
+
+/* ========================================
+   お問い合わせ
+======================================== */
+
+.p-marketing-contact {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(4.5rem, 8vw, 7rem) 0 3.5rem;
+  background:
+    radial-gradient(ellipse at 8% 30%, rgba(215, 237, 249, 0.9), transparent 32%),
+    radial-gradient(ellipse at 93% 25%, rgba(255, 233, 217, 0.78), transparent 32%),
+    linear-gradient(180deg, #f8fbfd 0%, #fff 100%);
+  text-align: center;
+}
+
+.p-marketing-contact__shape {
+  position: absolute;
+  right: -10%;
+  bottom: -48%;
+  left: -10%;
+  z-index: -1;
+  height: 72%;
+  border: 2px solid rgba(171, 205, 224, 0.28);
+  border-radius: 50% 50% 0 0;
+  background: rgba(255, 255, 255, 0.22);
+  transform: rotate(-4deg);
+  animation: p-marketing-contact-drift 12s ease-in-out infinite alternate;
+}
+
+.p-marketing-contact__shape--two {
+  right: -14%;
+  bottom: -59%;
+  left: -15%;
+  border-color: rgba(171, 205, 224, 0.2);
+  transform: rotate(5deg);
+  animation-delay: -6s;
+}
+
+.p-marketing-contact__content {
+  position: relative;
+}
+
+/* ScrollRevealの先頭noscriptの影響で通常は一致しない。共通部品の構造に依存するため要確認。 */
+.p-marketing-contact__content>p:first-child {
+  margin-bottom: 0.55rem;
+  color: #405570;
+  font-weight: 600;
+}
+
+.p-marketing-contact .c-service-button {
+  min-width: 12rem;
+}
+
+/* ========================================
+   アニメーション定義｜FVのマーカー・CTAの装飾
+======================================== */
+
+@keyframes makerUp {
+
+  0% {
+    background-size: 0 0.4em;
+  }
+
+  100% {
+    background-size: 100% 0.4em;
+  }
+}
+
+@keyframes p-marketing-contact-drift {
+
+  to {
+    translate: 0 -12px;
+    scale: 1.03;
+  }
+}
+
+/* ========================================
+   メディアクエリ｜画面幅の大きい順
+======================================== */
+@media (max-width: 1170px) {
+
+  /*----- 改行 -----*/
+  br.u-xl {
+    display: inline;
+  }
+}
+
+@media (max-width: 1100px) {
+
+  /*----- ファーストビュー -----*/
+
+  .p-marketing-hero__layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+    min-height: 0;
+  }
+
+  /*----- 共通レイアウト・見出し・人物画像 -----*/
+  .p-marketing-wrap {
+    width: min(100% - 36px, 600px);
+  }
+
+  /* 縦並びではコピーの囲みを外し、見出し→画像→説明→CTAの順に並べる。 */
+  .p-marketing-hero__copy {
+    display: contents;
+    padding: 0;
+  }
+
+  .p-marketing-hero h1 {
+    order: 1;
+    max-width: 14em;
+    margin: .65rem 0 0;
+    font-size: clamp(2.2rem, 7vw, 3rem);
+  }
+
+  .p-marketing-hero__visual {
+    order: 2;
+    width: min(100%, 600px);
+  }
+
+  .p-marketing-hero__lead {
+    order: 3;
+  }
+
+  .p-marketing-hero__actions {
+    order: 4;
+    margin-top: 0;
+  }
+
+  /*----- チームが必要な理由｜循環・課題と原因・解決 -----*/
+
+  .p-marketing-overview__solution-layout {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    max-width: 557px;
+    margin-inline: auto;
+  }
+
+  .p-marketing-overview-card--solution {
+    background-size: cover;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+  }
+
+  .p-marketing-overview__solution-copy {
+    padding-left: 0;
+  }
+
+  /*----- STEP 4｜フィードバックと成長 -----*/
+
+  .p-marketing-growth {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  /*----- チームが提供する価値 -----*/
+  /* 円形の価値カード：タブレットは2列 */
+  .p-marketing-value-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 40rem;
+    margin-inline: auto;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 760px) {
+
+
+  /*----- ファーストビュー -----*/
+
+  .p-marketing-hero {
+    padding: 2.5rem 0 3.25rem;
+  }
+
+  .p-marketing .c-service-label__description,
+  .p-marketing .c-service-label__title {
+    white-space: pre-line;
+  }
+
+  .p-marketing-hero .c-service-label {
+    width: calc(100% - 16px);
+    padding: 0.65rem 0.75rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+  }
+
+  .p-marketing-hero .c-service-label__title {
+    gap: 0.2rem 0.4rem;
+    margin-bottom: 0.45rem;
+    font-size: clamp(16px, 4vw, 28px);
+    line-height: 1.2;
+  }
+
+  .p-marketing-hero .c-service-label__category {
+    padding-right: 0.1rem;
+  }
+
+  .p-marketing-hero__layout {
+    margin-top: 6.5rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .p-marketing-hero__headline-first {
+    display: inline;
+    font-size: inherit;
+    white-space: normal;
+  }
+
+  .p-marketing-hero__lead {
+    font-size: 0.95rem;
+  }
+
+  .p-marketing-hero__actions {
+    gap: 0.65rem;
+  }
+
+  .p-marketing-hero__visual {
+    width: min(100%, 560px);
+  }
+
+  /*----- 課題｜4つの困りごと -----*/
+
+  .p-marketing-problem {
+    padding: 3.25rem 0 2rem;
+  }
+
+  .p-marketing-problem__heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .p-marketing-challenge-grid {
+    max-width: 400px;
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  .p-marketing-challenge-card {
+    gap: 0.75rem;
+    padding: 1rem 0.2rem;
+  }
+
+  .p-marketing-challenge-card:nth-child(even) {
+    border-left: 0;
+  }
+
+  .p-marketing-challenge-card+.p-marketing-challenge-card {
+    border-top: 1px solid var(--marketing-blue);
+  }
+
+  .p-marketing-challenge-card__icon {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .p-marketing-challenge-card h3 {
+    font-size: 1.08rem;
+  }
+
+  .p-marketing-challenge-card p {
+    font-size: 0.84rem;
+  }
+
+  /*----- 導入メッセージ｜チームをつくる -----*/
+
+  .p-marketing-overview__bridge {
+    gap: 0.45rem;
+    margin-bottom: 2rem;
+  }
+
+  .p-marketing-overview__bridge p {
+    font-size: clamp(1.2rem, 3.2vw, 1.35rem);
+    padding-inline: 1rem;
+  }
+
+  /*----- チームが必要な理由｜循環・課題と原因・解決 -----*/
+
+  .p-marketing-overview {
+    padding: 3.75rem 0;
+  }
+
+  .p-marketing-overview__story {
+    gap: 2.75rem;
+  }
+
+  .p-marketing-loop__item {
+    font-size: clamp(0.6rem, 2.5vw, 1.2rem);
+    gap: 2px;
+  }
+
+  .p-marketing-loop__item svg {
+    width: clamp(1.3rem, 4vw, 2rem);
+  }
+
+  .p-marketing-overview__section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .p-marketing-overview__solution {
+    padding: 1rem;
+  }
+
+  .p-marketing-overview-card {
+    padding: 1.1rem;
+    font-size: 0.85rem;
+  }
+
+  .p-marketing-overview__solution-copy p {
+    font-size: 0.9rem;
+  }
+
+  .p-marketing-overview__challenge-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.55rem;
+  }
+
+  /* 1列では左右の行揃えを解除し、補足文のないカードに空白を残さない。 */
+
+  .p-marketing-overview-card--issue,
+  .p-marketing-overview-card--cause {
+    display: block;
+    grid-row: auto;
+    grid-template-rows: none;
+  }
+
+  .p-marketing-overview-card strong {
+    font-size: clamp(1rem, 4vw, 1.3rem);
+    line-height: 1.3;
+  }
+
+  .p-marketing-overview__challenge-copy {
+    margin-top: 1rem;
+    padding: 1.2rem 0 0;
+    line-height: 1.4;
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+  }
+
+  /*----- チームをつくり育てる｜STEP共通 -----*/
+
+  .p-marketing-process__timeline {
+    --timeline-gutter: 1rem;
+    --timeline-space: 3.5rem;
+    --timeline-number-height: 3.5rem;
+    --timeline-axis: calc(var(--timeline-left) + 0.8rem);
+  }
+
+  /* スマートフォンの本文左余白と番号の文字サイズ */
+  .p-marketing-step__content {
+    padding-left: 3.25rem;
+  }
+
+  .p-marketing-step__number {
+    font-size: 0.8rem;
+  }
+
+  .p-marketing-step__number span:last-child {
+    font-size: 1.8rem;
+  }
+
+  .p-marketing-step__heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .p-marketing-step__heading h3 {
+    font-size: clamp(1.2rem, 5.6vw, 1.65rem);
+  }
+
+  .p-marketing-step__heading p {
+    font-size: 0.9rem;
+  }
+
+  /*----- STEP 1｜ゴールと仕事の流れ -----*/
+
+  /* 上段は左側、下段は右側へ半項目分ずらす。矢印は右向きを維持する。 */
+  .p-marketing-journey {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    column-gap: 0;
+    row-gap: 0.75rem;
+    padding-block: 1.5rem;
+  }
+
+  .p-marketing-journey li {
+    grid-column: span 2;
+    min-height: 110px;
+    padding: 0.5rem 0.2rem;
+  }
+
+  .p-marketing-journey li h4 {
+    line-height: 1.2;
+  }
+
+  .p-marketing-journey li:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .p-marketing-journey li:not(:last-child)::after {
+    left: 100%;
+  }
+
+  .p-marketing-step-one__promise {
+    padding-top: 2rem;
+    line-height: 1.5;
+  }
+
+  /*----- STEP 2｜チーム編成 -----*/
+
+  .p-marketing-team {
+    grid-template-columns: 1fr;
+  }
+
+  .p-marketing-team__partners {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+
+  .p-marketing-team__protein,
+  .p-marketing-team__silicon {
+    min-height: 0;
+    padding: 1.15rem;
+  }
+
+  .p-marketing-team-protein-worker .p-marketing-portrait,
+  .p-marketing-team-worker .p-marketing-portrait {
+    width: 4rem;
+  }
+
+  .p-marketing-team__protein {
+    padding-bottom: 3rem;
+  }
+
+  .p-marketing-team__silicon {
+    padding-top: 3rem;
+  }
+
+  .p-marketing-team__protein .p-marketing-team__badge {
+    top: 100%;
+    right: 50%;
+  }
+
+  .p-marketing-team__silicon .p-marketing-team__badge {
+    top: 0;
+    left: 50%;
+  }
+
+  .p-marketing-team__protein-members,
+  .p-marketing-team__workers {
+    gap: 0.3rem;
+  }
+
+  /*----- STEP 3｜実際の仕事・チャット -----*/
+
+  .p-marketing-scenes {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .p-marketing-scene__title {
+    padding: 0.75rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .p-marketing-chat__message {
+    gap: 0.6rem;
+    padding: 0.65rem;
+  }
+
+  /*----- STEP 4｜フィードバックと成長 -----*/
+
+  /* スマートフォンではメッセージを読みやすい大きさに調整 */
+  .p-marketing-growth__catch {
+    font-size: clamp(1.8rem, 4vw, 2rem);
+  }
+
+  /*----- チームが提供する価値 -----*/
+
+  .p-marketing-values {
+    padding: 3.5rem 0;
+  }
+
+  /*----- お問い合わせ -----*/
+
+  .p-marketing-contact {
+    padding: 4rem 0 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  br.u-sp-600 {
+    display: inline;
+  }
+
+}
+
+@media (max-width: 550px) {
+  /*----- STEP 1｜2項目ずつ、左・中央・右にずらした3行 -----*/
+
+  .p-marketing-journey {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    row-gap: 1.25rem;
+    padding-block: 1rem;
+  }
+
+  .p-marketing-journey li {
+    min-height: 0;
+    padding: 0.25rem 0;
+  }
+
+  /* 戦略・企画：左寄せ */
+  .p-marketing-journey li:nth-child(1) {
+    grid-area: 1 / 1 / 2 / 3;
+  }
+
+  .p-marketing-journey li:nth-child(2) {
+    grid-area: 1 / 3 / 2 / 5;
+  }
+
+  /* 制作・運用：中央寄せ */
+  .p-marketing-journey li:nth-child(3) {
+    grid-area: 2 / 2 / 3 / 4;
+  }
+
+  .p-marketing-journey li:nth-child(4) {
+    grid-area: 2 / 4 / 3 / 6;
+  }
+
+  /* 分析・改善：右寄せ。矢印は上の右向き指定を引き継ぐ。 */
+  .p-marketing-journey li:nth-child(5) {
+    grid-area: 3 / 3 / 4 / 5;
+  }
+
+  .p-marketing-journey li:nth-child(6) {
+    grid-area: 3 / 5 / 4 / 7;
+  }
+}
+
+@media (max-width: 460px) {
+
+  /*----- 共通レイアウト・見出し・人物画像 -----*/
+
+  .p-marketing-wrap {
+    width: calc(100% - 32px);
+  }
+
+  /*----- ファーストビュー -----*/
+
+  .p-marketing-hero__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .p-marketing-hero__actions .c-service-button {
+    width: 100%;
+  }
+
+  /*----- チームが必要な理由｜循環・課題と原因・解決 -----*/
+
+  .p-marketing-overview-card {
+    padding: 1rem 1.1rem;
+  }
+
+  .p-marketing-overview-card--solution {
+    padding: 2rem;
+  }
+
+  /*----- STEP 1｜ゴールと仕事の流れ -----*/
+
+  .p-marketing-journey li>span:last-child {
+    font-size: 0.8rem;
+  }
+
+  /*----- STEP 2｜チーム編成 -----*/
+
+  .p-marketing-team__label {
+    font-size: 0.82rem;
+  }
+
+  .p-marketing-team__protein-members {
+    gap: 0.6rem;
+  }
+
+  .p-marketing-team-protein-worker .p-marketing-portrait,
+  .p-marketing-team-worker .p-marketing-portrait {
+    width: 2.875rem;
+  }
+
+  .p-marketing-team-protein-worker>span:last-child {
+    font-size: 0.74rem;
+  }
+
+  .p-marketing-team__workers {
+    gap: 0.2rem;
+  }
+
+  .p-marketing-team-worker__name {
+    font-size: 0.8rem;
+  }
+
+  .p-marketing-team-worker>span:last-child {
+    font-size: 0.65rem;
+  }
+
+  /*----- STEP 3｜実際の仕事・チャット -----*/
+
+  .p-marketing-chat__message {
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 0.5rem;
+    padding: 0.6rem 0.55rem;
+  }
+
+  .p-marketing-chat__badge {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .p-marketing-chat__byline {
+    gap: 0.05rem 0.35rem;
+    font-size: 0.68rem;
+  }
+
+  .p-marketing-chat__name {
+    font-size: 0.76rem;
+  }
+
+  .p-marketing-chat__text {
+    font-size: 0.82rem;
+  }
+
+  /*----- チームが提供する価値 -----*/
+  /* 円形の価値カード：スマートフォンは読みやすい1列 */
+  .p-marketing-value-grid {
+    grid-template-columns: 1fr;
+    max-width: 19rem;
+    gap: 1rem;
+    padding-block: 0;
+  }
+
+  .p-marketing-value-card:nth-child(odd) {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  /* 動きを減らす設定に対応。ページ専用クラスで指定する。 */
+
+  .p-marketing-contact__shape {
+    animation: none;
+  }
+
+  .p-marketing {
+    scroll-behavior: auto;
+  }
+}
