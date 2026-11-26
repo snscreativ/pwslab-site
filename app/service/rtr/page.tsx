@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ScrollReveal from "@/components/ScrollReveal";
 import ServiceLabel from "@/components/ServiceLabel";
+import "@/styles/service-common.css";
 import "./rtr.css";
 
 export const metadata: Metadata = {
@@ -79,13 +80,13 @@ export default function RtrPage() {
 
               <div className="p-rtr-hero-actions">
                 <a
-                  className="p-rtr-button p-rtr-button-primary"
+                  className="c-service-button c-service-button--primary"
                   href="/contact?service=rtr"
                 >
                   導入イメージを相談する <span>→</span>
                 </a>
                 <a
-                  className="p-rtr-button p-rtr-button-secondary"
+                  className="c-service-button c-service-button--outline"
                   href="#concept"
                 >
                   RTRの考え方を知る <span>→</span>
@@ -955,13 +956,13 @@ export default function RtrPage() {
             </p>
             <div className="p-rtr-contact-actions">
               <a
-                className="p-rtr-button p-rtr-button-primary"
+                className="c-service-button c-service-button--primary"
                 href="/contact?service=rtr"
               >
                 自社での活用イメージを相談する <span aria-hidden="true">→</span>
               </a>
               <a
-                className="p-rtr-button p-rtr-button-secondary"
+                className="c-service-button c-service-button--outline"
                 href="#concept"
               >
                 RTRの考え方を詳しく知る <span aria-hidden="true">→</span>

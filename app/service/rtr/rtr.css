@@ -110,55 +110,10 @@
   max-width: 650px;
 }
 
-.p-rtr-button {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  min-height: 60px;
-  padding: 1em 2em;
-  border: 1px solid var(--color-orange);
-  border-radius: 0;
-  font-size: 1.1rem;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.p-rtr-button::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border: 1px solid var(--gold);
-  transform: translate(3px, 3px);
-  transition: transform .3s ease;
-  pointer-events: none;
-  /* 背面枠の右辺・下辺のみを見せ、ボタンの文字には重ねない。 */
-  clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 calc(100% - 3px), calc(100% - 3px) calc(100% - 3px), calc(100% - 3px) 0);
-}
-
-.p-rtr-button:is(:hover, :focus-visible)::before {
-  transform: translate(0, 0);
-}
-
-.p-rtr-button:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 6px;
-}
-
-.p-rtr-button-primary {
-  background: var(--color-orange);
-  color: var(--color-white);
-}
-
-.p-rtr-button-secondary {
-  background: var(--color-white);
-  color: var(--color-navy);
-  border-color: var(--gold);
-}
-
-.p-rtr-button-secondary::before {
-  border-color: var(--gold);
+/* ページ固有の幅・余白。ボタンの装飾は service-common.css。 */
+.p-rtr .c-service-button {
+  width: auto;
+  padding: var(--service-button-padding, 1em 2em);
 }
 
 .p-rtr-section-heading>span {
@@ -2202,10 +2157,10 @@ h3.p-rtr-brace-ttl::after {
     font-size: .9375rem;
   }
 
-  .p-rtr-contact-actions .p-rtr-button {
+  .p-rtr-contact-actions .c-service-button {
     width: 100%;
     max-width: 420px;
-    padding: 1.125rem .75rem;
+    padding: var(--service-button-padding, 1.125rem .75rem);
     font-size: .9375rem;
   }
 }
@@ -2435,7 +2390,4 @@ h3.p-rtr-brace-ttl::after {
     scroll-behavior: auto;
   }
 
-  .p-rtr-button::before {
-    transition: none;
-  }
 }

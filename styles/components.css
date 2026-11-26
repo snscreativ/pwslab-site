@@ -840,3 +840,330 @@
     padding: 0;
   }
 }
+
+/* ==================== サービスページのプロテイン・シリコンワーカーの説明アコーディオン ==================== */
+
+.c-worker-types {
+  color: var(--color-white);
+  background: var(--color-navy);
+  border-bottom: 1px solid #f5efe6;
+  font-feature-settings: "halt";
+}
+
+.c-worker-types__inner {
+  width: min(70rem, calc(100% - 3rem));
+  margin-inline: auto;
+}
+
+.c-worker-types__summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .625rem;
+  padding-block: 1.75rem;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  border: 0;
+  padding-inline: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+.c-worker-types__summary:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: -.25rem;
+}
+
+.c-worker-types__label {
+  color: #d36f49;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .2em;
+}
+
+.c-worker-types__toggle {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .9rem;
+}
+
+.c-worker-types__less,
+.c-worker-types__inner[data-open="true"] .c-worker-types__more {
+  display: none;
+}
+
+.c-worker-types__inner[data-open="true"] .c-worker-types__less {
+  display: inline;
+}
+
+.c-worker-types__inner[data-open="true"] .c-worker-types__chevron {
+  transform: rotate(180deg);
+}
+
+/* Animate the grid track so content height remains responsive. */
+.c-worker-types__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .32s ease-in-out;
+}
+
+.c-worker-types__inner[data-open="true"] .c-worker-types__panel {
+  grid-template-rows: 1fr;
+}
+
+.c-worker-types__clip {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.c-worker-types__chevron {
+  transition: transform .32s ease-in-out;
+  font-size: 1rem;
+}
+
+.c-worker-types__content {
+  padding: .5rem 0 4rem;
+}
+
+.c-worker-types__break {
+  display: none;
+}
+
+.c-worker-types__comparison {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.3rem;
+  overflow: hidden;
+}
+
+.c-worker-types__worker {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 2vw, 2rem);
+  padding: 3rem 2.5rem;
+  color: var(--color-black);
+}
+
+.c-worker-types__worker::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: skewX(32deg);
+}
+
+.c-worker-types__worker--protein {
+  padding-right: 6rem;
+  padding-left: 1rem;
+}
+
+.c-worker-types__worker--protein::before {
+  background: color-mix(in srgb, var(--color-pw-bg) 50%, var(--color-white));
+  left: -50%;
+}
+
+.c-worker-types__worker--protein h2 {
+  color: var(--color-orange);
+}
+
+.c-worker-types__symbol {
+  flex-shrink: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.2;
+  text-align: center;
+}
+
+.c-worker-types__symbol span {
+  display: block;
+  font-size: 1rem;
+}
+
+.c-worker-types__description {
+  min-width: 0;
+}
+
+.c-worker-types__description h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.125rem, 2.4vw, 2rem);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-navy);
+}
+
+.c-worker-types__description p {
+  margin: 0;
+  padding-top: .25rem;
+  font-size: clamp(.8125rem, 1.3vw, 1rem);
+  line-height: 1.7;
+}
+
+.c-worker-types__connection {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: .375rem;
+  pointer-events: none;
+}
+
+.c-worker-types__badge {
+  display: block;
+  width: 4rem;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.c-worker-types__arrows {
+  display: block;
+  width: 5rem;
+  height: 2.8125rem;
+  flex-shrink: 0;
+  stroke-width: 2;
+}
+
+.c-worker-types__arrow--protein {
+  stroke: var(--color-orange);
+}
+
+.c-worker-types__arrow--silicon {
+  stroke: var(--color-navy);
+}
+
+.c-worker-types__worker--silicon {
+  padding-right: 1rem;
+  padding-left: 6rem;
+}
+
+.c-worker-types__worker--silicon::before {
+  background: color-mix(in srgb, var(--color-sw-bg) 35%, var(--color-white));
+  right: -50%;
+}
+
+.c-worker-types__statement {
+  margin: 2.25rem 0 0;
+  text-align: center;
+  color: var(--color-white);
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 4vw, 2.75rem);
+  font-weight: 500;
+  letter-spacing: .04em;
+  line-height: 1.55;
+}
+
+
+@media (max-width: 768px) {
+  .c-worker-types__content {
+    padding-bottom: 3.625rem;
+  }
+
+  .c-worker-types__break {
+    display: inline;
+  }
+
+  .c-worker-types__comparison {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0;
+  }
+
+  .c-worker-types__worker {
+    gap: 1rem;
+  }
+
+  .c-worker-types__worker--protein {
+    padding: 2rem 1rem 6.5rem;
+    margin-bottom: -1.5rem;
+  }
+
+  .c-worker-types__worker--silicon {
+    padding: 6.5rem 1rem 2rem;
+    margin-top: -1.5rem;
+  }
+
+  .c-worker-types__worker--protein::before {
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+    inset: 0;
+    transform: none;
+  }
+
+  .c-worker-types__worker--silicon::before {
+    clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%);
+    inset: 0;
+    transform: none;
+  }
+
+  .c-worker-types__symbol {
+    font-size: 3rem;
+  }
+
+  .c-worker-types__description h2 {
+    font-size: clamp(1.125rem, 4vw, 1.75rem);
+  }
+
+  /* 矢印の上端にPW、下端にSWを置き、各パネルの説明と分離する。 */
+  .c-worker-types__connection {
+    display: block;
+    width: 4rem;
+    height: 9rem;
+  }
+
+  .c-worker-types__badge {
+    position: absolute;
+    width: 2.25rem;
+    transform: translateX(-50%);
+  }
+
+  .c-worker-types__badge:first-child {
+    top: 0;
+    left: 50%;
+  }
+
+  .c-worker-types__badge:last-child {
+    bottom: 0;
+    left: 50%;
+  }
+
+  .c-worker-types__arrows {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6rem;
+    height: 3.36rem;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  .c-worker-types__arrow--silicon {
+    stroke: var(--color-sw-bg);
+  }
+
+  .c-worker-types__statement {
+    margin-top: 1.6875rem;
+  }
+
+}
+
+@media (max-width: 520px) {
+  .c-worker-types__inner {
+    width: calc(100% - 2.25rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .c-worker-types__panel,
+  .c-worker-types__chevron {
+    transition: none;
+  }
+}
