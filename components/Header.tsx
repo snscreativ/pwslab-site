@@ -50,7 +50,8 @@ export default function Header() {
         if (value) body.style.setProperty(name, value, priority);
         else body.style.removeProperty(name);
       });
-      if (rootOverflow) root.style.setProperty("overflow", rootOverflow, rootOverflowPriority);
+      if (rootOverflow)
+        root.style.setProperty("overflow", rootOverflow, rootOverflowPriority);
       else root.style.removeProperty("overflow");
       if (header) {
         if (headerTransform) header.style.transform = headerTransform;
@@ -133,6 +134,17 @@ export default function Header() {
                     ↗
                   </span>
                 </a>
+                <a href="/service/pw1">
+                  <span className="l-header__submenu-copy">
+                    <span className="l-header__submenu-title">Pw1</span>
+                    <span className="l-header__submenu-description">
+                      Protein × Siliconでつくる会計事務所
+                    </span>
+                  </span>
+                  <span className="l-header__submenu-arrow" aria-hidden="true">
+                    ↗
+                  </span>
+                </a>
               </div>
             </div>
           </div>
@@ -196,6 +208,15 @@ export default function Header() {
           >
             マーケティング部 Silicon Worker チーム
           </a>
+
+          <a
+            href="/service/pw1"
+            onClick={closeMenu}
+            className="l-header__sp-sub-link"
+          >
+            Pw1 会計事務所
+          </a>
+
           <p className="l-header__sp-ttl">コンテンツ</p>
           <Link href="/#services" onClick={closeMenu}>
             サービスについて
